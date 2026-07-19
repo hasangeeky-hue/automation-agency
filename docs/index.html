@@ -3,673 +3,119 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Anthropos Automation — AI Automation OS · UI/UX Concept v3</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<title>Anthropos Automation OS — AI automation for small business</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    /* the automation canvas — deliberately dark, single-world */
-    --void:#080B14; --void-2:#0C1120; --panel:#0F1626;
-    --ink:#EAF0FF; --muted:#9AA6C6; --faint:#5B6684;
-    --line:rgba(255,255,255,.09); --line-2:rgba(255,255,255,.05);
-    --glass:rgba(255,255,255,.035); --glass-2:rgba(255,255,255,.06);
-    /* system triad: data → intelligence → conversion */
-    --flow:#2FE3D2;      /* cyan — data / leads flowing */
-    --ai:#8B7CFF;        /* violet — AI agents / intelligence */
-    --cta:#FF5C8A;       /* coral — conversion (n8n signature) */
-    --ok:#46E08B;
-    /* segment hues, tuned for dark glass */
-    --g1:#7C86FF; --g2:#2FE3D2; --g3:#FF8A5C; --g4:#46E08B; --g5:#E56BFF; --g6:#5FA8FF; --g7:#FFC24B;
-    --display:'Sora', system-ui, sans-serif;
-    --body:'Instrument Sans', system-ui, sans-serif;
-    --mono:'JetBrains Mono', ui-monospace, monospace;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{
-    background:
-      radial-gradient(120% 80% at 80% -10%, rgba(139,124,255,.14), transparent 60%),
-      radial-gradient(90% 70% at 0% 0%, rgba(47,227,210,.10), transparent 55%),
-      var(--void);
-    color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;
-    background-attachment:fixed;
-  }
-  /* blueprint grid overlay */
-  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
-    background-image:linear-gradient(var(--line-2) 1px,transparent 1px),linear-gradient(90deg,var(--line-2) 1px,transparent 1px);
-    background-size:52px 52px;-webkit-mask-image:radial-gradient(100% 90% at 50% 0%,#000 30%,transparent 90%);mask-image:radial-gradient(100% 90% at 50% 0%,#000 30%,transparent 90%);opacity:.5}
-  a{color:inherit;text-decoration:none}
-  :focus-visible{outline:2px solid var(--flow);outline-offset:3px;border-radius:4px}
-  @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
-  .wrap{max-width:1220px;margin:0 auto;padding:0 30px;position:relative;z-index:2}
-  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--flow)}
-  .mono{font-family:var(--mono)}
-  canvas{display:block}
-
-  /* ============ HEADER ============ */
-  .hd{position:sticky;top:0;z-index:100;background:rgba(8,11,20,.72);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
-  .hd-in{max-width:1300px;margin:0 auto;padding:0 30px;display:flex;align-items:center;gap:22px;height:70px}
-  .logo{display:flex;align-items:center;gap:11px;font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:-.01em}
-  .logo canvas{width:34px;height:34px;flex:0 0 auto}
-  .logo small{display:block;font-family:var(--mono);font-size:8.5px;letter-spacing:.28em;color:var(--faint);text-transform:uppercase;line-height:1.2}
-  .nav{display:flex;align-items:center;gap:2px;flex:1}
-  .nav-item{position:static}
-  .nav-link{display:flex;align-items:center;gap:6px;padding:9px 14px;border-radius:10px;font-weight:500;font-size:14px;color:var(--muted);cursor:pointer;background:none;border:none;font-family:var(--body)}
-  .nav-link:hover{color:var(--ink);background:var(--glass)}
-  .car{width:7px;height:7px;border-right:1.4px solid currentColor;border-bottom:1.4px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .2s}
-  .nav-item.open .car{transform:rotate(225deg) translateY(-1px)}
-  .nav-cta{margin-left:auto;display:flex;align-items:center;gap:14px}
-  .team-mini{display:flex;align-items:center}
-  .team-mini i{width:26px;height:26px;border-radius:50%;margin-left:-8px;border:2px solid var(--void);display:block}
-  .team-mini i:nth-child(1){background:linear-gradient(135deg,var(--ai),var(--flow))}
-  .team-mini i:nth-child(2){background:linear-gradient(135deg,var(--flow),var(--ok))}
-  .team-mini i:nth-child(3){background:linear-gradient(135deg,var(--cta),var(--g3))}
-  .team-mini span{font-family:var(--mono);font-size:10px;color:var(--faint);margin-left:8px}
-  .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:11px;font-weight:600;font-size:13.5px;border:1px solid transparent;cursor:pointer;font-family:var(--body);transition:transform .16s, box-shadow .16s}
-  .btn:hover{transform:translateY(-1px)}
-  .btn-cta{background:linear-gradient(120deg,var(--cta),#FF7E5F);color:#1A0A12;box-shadow:0 8px 26px rgba(255,92,138,.36)}
-  .btn-glass{background:var(--glass);border-color:var(--line);color:var(--ink);backdrop-filter:blur(8px)}
-  .btn-glass:hover{border-color:var(--flow)}
-
-  /* mega / dropdown */
-  .mega{position:absolute;left:0;right:0;top:70px;background:rgba(12,17,32,.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--line);box-shadow:0 40px 90px rgba(0,0,0,.5);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .18s, transform .18s}
-  .nav-item.open .mega{opacity:1;visibility:visible;transform:translateY(0)}
-  .mega-in{max-width:1300px;margin:0 auto;padding:26px 30px;display:grid;grid-template-columns:1.15fr 1fr;gap:26px}
-  .mega-col .mh{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);padding-bottom:10px;border-bottom:1px solid var(--line);margin-bottom:12px}
-  .mega-pillars{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-  .pill{display:flex;gap:11px;padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--glass);transition:border-color .15s, background .15s}
-  .pill:hover{border-color:color-mix(in srgb,var(--hue,var(--flow)) 50%,transparent);background:var(--glass-2)}
-  .pill .pi{width:34px;height:34px;border-radius:9px;flex:0 0 auto;display:grid;place-items:center;background:color-mix(in srgb,var(--hue,var(--flow)) 16%,transparent);border:1px solid color-mix(in srgb,var(--hue,var(--flow)) 40%,transparent)}
-  .pill .pi::before{content:"";width:12px;height:12px;border-radius:4px;background:var(--hue,var(--flow));box-shadow:0 0 12px var(--hue,var(--flow))}
-  .pill b{font-size:13.5px;display:block}
-  .pill em{font-size:11.5px;color:var(--muted);display:block;margin-top:2px;font-style:normal}
-  .mega-inds a{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:9px;font-size:13px;color:var(--muted)}
-  .mega-inds a:hover{background:var(--glass);color:var(--ink)}
-  .mega-inds .dot{width:8px;height:8px;border-radius:3px;background:var(--hue,var(--flow));box-shadow:0 0 8px var(--hue,var(--flow))}
-  .drop{position:absolute;top:70px;min-width:290px;background:rgba(12,17,32,.97);backdrop-filter:blur(20px);border:1px solid var(--line);border-radius:0 0 14px 14px;box-shadow:0 30px 70px rgba(0,0,0,.5);padding:10px;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .18s,transform .18s}
-  .nav-item.open .drop{opacity:1;visibility:visible;transform:translateY(0)}
-  .drop a{display:block;padding:11px 12px;border-radius:10px}
-  .drop a:hover{background:var(--glass)}
-  .drop a b{display:block;font-size:13.5px}
-  .drop a span{font-size:12px;color:var(--faint)}
-
-  /* ============ HERO ============ */
-  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
-  #heroFx{position:absolute;inset:0;width:100%;height:100%;z-index:0}
-  .hero-in{position:relative;z-index:2;max-width:1220px;margin:0 auto;padding:96px 30px 108px}
-  .hero h1{font-family:var(--display);font-size:clamp(34px,5vw,62px);font-weight:800;line-height:1.03;letter-spacing:-.03em;max-width:17ch;margin-top:18px;text-wrap:balance}
-  .hero h1 .grad{background:linear-gradient(100deg,var(--flow),var(--ai) 55%,var(--cta));-webkit-background-clip:text;background-clip:text;color:transparent}
-  .hero p.sub{font-size:18px;color:var(--muted);max-width:52ch;margin-top:22px}
-  .hero p.sub b{color:var(--ink);font-weight:600}
-  .hero-ctas{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap}
-  .hero-tags{margin-top:34px;display:flex;gap:10px;flex-wrap:wrap}
-  .tag{font-family:var(--mono);font-size:11px;color:var(--muted);padding:7px 13px;border-radius:99px;border:1px solid var(--line);background:var(--glass);display:flex;align-items:center;gap:7px}
-  .tag::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--flow);box-shadow:0 0 8px var(--flow)}
-
-  /* ============ SECTION CHROME ============ */
-  .band{padding:92px 0 8px}
-  .band h2{font-family:var(--display);font-size:clamp(26px,3.6vw,42px);font-weight:700;letter-spacing:-.025em;margin-top:13px;text-wrap:balance;max-width:24ch}
-  .band .soft{font-size:16.5px;color:var(--muted);margin-top:13px;max-width:62ch}
-  .band .soft b{color:var(--ink)}
-
-  /* glass card base */
-  .glass{background:var(--glass);border:1px solid var(--line);border-radius:18px;backdrop-filter:blur(14px);position:relative;overflow:hidden}
-  .glass::after{content:"";position:absolute;inset:0 0 auto 0;height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent)}
-
-  /* every card carries an animated automation object */
-  .fxcanvas{width:100%;height:130px;display:block;background:
-    radial-gradient(80% 120% at 50% 0%, color-mix(in srgb,var(--hue,var(--flow)) 12%,transparent), transparent 70%);
-    border-bottom:1px solid var(--line)}
-
-  /* ==== HOW WE SOLVE (neuro flow) ==== */
-  .solve{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
-  .solve .step{padding:0 0 22px}
-  .solve .step .k{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--flow);padding:16px 20px 0}
-  .solve .step h4{font-family:var(--display);font-size:18px;font-weight:600;padding:6px 20px 0}
-  .solve .step p{font-size:13.5px;color:var(--muted);padding:8px 20px 0}
-  @media(max-width:860px){.solve{grid-template-columns:1fr}}
-
-  /* ==== SERVICES: 4 micro-offer pillars ==== */
-  .pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px}
-  .pcard{display:flex;flex-direction:column;transition:transform .2s, border-color .2s}
-  .pcard:hover{transform:translateY(-5px);border-color:color-mix(in srgb,var(--hue) 46%,transparent)}
-  .pcard-b{padding:18px 20px 20px;display:flex;flex-direction:column;gap:9px;flex:1}
-  .pcard .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--hue)}
-  .pcard h4{font-family:var(--display);font-size:17px;font-weight:600;line-height:1.25}
-  .pcard p{font-size:13px;color:var(--muted)}
-  .pcard .go{margin-top:auto;font-size:12.5px;font-weight:600;color:var(--hue);display:flex;align-items:center;gap:6px}
-  @media(max-width:980px){.pillars{grid-template-columns:1fr 1fr}}
-  @media(max-width:560px){.pillars{grid-template-columns:1fr}}
-
-  /* ==== SERVICE PAGE TEMPLATE (browser frame) ==== */
-  .browser{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--void-2);box-shadow:0 40px 90px rgba(0,0,0,.45);margin-top:34px}
-  .bbar{display:flex;align-items:center;gap:10px;padding:12px 18px;background:rgba(255,255,255,.03);border-bottom:1px solid var(--line)}
-  .bdots{display:flex;gap:6px}.bdots i{width:10px;height:10px;border-radius:50%;background:#2A3350}
-  .burl{flex:1;background:var(--void);border:1px solid var(--line);border-radius:8px;font-family:var(--mono);font-size:11px;color:var(--faint);padding:6px 12px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
-  .burl b{color:var(--flow)}
-  .svc-scroll{height:640px;overflow-y:auto}
-  .svc-hero{padding:40px 40px 30px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
-  #svcHeroFx{position:absolute;inset:0;opacity:.6}
-  .svc-hero-in{position:relative;z-index:2}
-  .svc-hero .badge{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--g1);background:color-mix(in srgb,var(--g1) 14%,transparent);border:1px solid color-mix(in srgb,var(--g1) 38%,transparent);border-radius:99px;padding:5px 12px}
-  .svc-hero h2{font-family:var(--display);font-size:30px;font-weight:700;letter-spacing:-.02em;margin-top:14px;max-width:20ch}
-  .svc-hero p{color:var(--muted);margin-top:10px;max-width:54ch;font-size:14.5px}
-  .svc-hero .combo{margin-top:16px;display:inline-flex;gap:8px;flex-wrap:wrap}
-  .svc-hero .combo span{font-family:var(--mono);font-size:11px;color:var(--ink);background:var(--glass);border:1px solid var(--line);border-radius:8px;padding:6px 11px}
-  .svc-hero .combo span b{color:var(--flow)}
-  .svc-sec{padding:30px 40px 10px}
-  .svc-sec .st{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);display:flex;align-items:center;gap:10px}
-  .svc-sec .st::after{content:"";height:1px;flex:1;background:var(--line)}
-  /* 4 micro-offer BLOCKS */
-  .blocks{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:18px 40px 10px}
-  .block{display:grid;grid-template-columns:150px 1fr;align-items:stretch;transition:transform .2s,border-color .2s}
-  .block:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--hue) 45%,transparent)}
-  .block .fxwrap{border-right:1px solid var(--line)}
-  .block .fxcanvas{height:100%;min-height:150px;border-bottom:none}
-  .block-b{padding:16px 18px;display:flex;flex-direction:column;gap:8px}
-  .block .no{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--hue)}
-  .block h4{font-family:var(--display);font-size:15.5px;font-weight:600;line-height:1.3}
-  .block p{font-size:12.5px;color:var(--muted);flex:1}
-  .block .bcta{font-size:12px;font-weight:600;color:var(--hue);display:flex;align-items:center;gap:6px}
-  @media(max-width:820px){.blocks{grid-template-columns:1fr}}
-  /* 10 guide cards */
-  .guides{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;padding:18px 40px 40px}
-  .gcard{padding:13px;border-radius:12px;transition:transform .18s,border-color .18s;cursor:pointer}
-  .gcard:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--g1) 45%,transparent)}
-  .gcard .gi{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;color:var(--faint)}
-  .gcard h5{font-size:12px;font-weight:600;margin-top:6px;line-height:1.35}
-  .gcard .ga{font-family:var(--mono);font-size:9px;color:var(--g1);margin-top:8px}
-  @media(max-width:1000px){.guides{grid-template-columns:repeat(3,1fr)}}
-  @media(max-width:640px){.guides{grid-template-columns:1fr 1fr}}
-
-  /* ==== INDUSTRIES / neuro-nav grid ==== */
-  .inds{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}
-  .ind{padding:18px;transition:transform .2s,border-color .2s;cursor:pointer;display:block}
-  .ind:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--hue) 50%,transparent)}
-  .ind .idot{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:color-mix(in srgb,var(--hue) 15%,transparent);border:1px solid color-mix(in srgb,var(--hue) 40%,transparent)}
-  .ind .idot::before{content:"";width:12px;height:12px;border-radius:4px;background:var(--hue);box-shadow:0 0 12px var(--hue)}
-  .ind h4{font-family:var(--display);font-size:15px;font-weight:600;margin-top:12px}
-  .ind p{font-size:12px;color:var(--muted);margin-top:5px}
-  .ind .ip{font-family:var(--mono);font-size:10px;color:var(--hue);margin-top:10px;display:block}
-  @media(max-width:980px){.inds{grid-template-columns:1fr 1fr}}
-  @media(max-width:520px){.inds{grid-template-columns:1fr}}
-
-  /* ==== TEAM ==== */
-  .team{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}
-  .tm{padding:20px;text-align:center}
-  .tm .av{width:74px;height:74px;border-radius:50%;margin:0 auto;border:1px solid var(--line)}
-  .tm:nth-child(1) .av{background:linear-gradient(135deg,var(--ai),var(--flow))}
-  .tm:nth-child(2) .av{background:linear-gradient(135deg,var(--flow),var(--ok))}
-  .tm:nth-child(3) .av{background:linear-gradient(135deg,var(--cta),var(--g3))}
-  .tm:nth-child(4) .av{background:linear-gradient(135deg,var(--g6),var(--ai))}
-  .tm h5{font-family:var(--display);font-size:15px;font-weight:600;margin-top:14px}
-  .tm span{font-family:var(--mono);font-size:10.5px;color:var(--flow)}
-  .tm p{font-size:12px;color:var(--muted);margin-top:8px}
-  @media(max-width:860px){.team{grid-template-columns:1fr 1fr}}
-
-  /* ==== BLOG ==== */
-  .blog{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
-  .post{overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,border-color .2s;cursor:pointer}
-  .post:hover{transform:translateY(-4px)}
-  .post-b{padding:18px;display:flex;flex-direction:column;gap:9px;flex:1}
-  .post .pc{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--flow)}
-  .post h4{font-family:var(--display);font-size:16px;font-weight:600;line-height:1.3}
-  .post p{font-size:12.5px;color:var(--muted)}
-  .post .pr{margin-top:auto;font-size:12px;font-weight:600;color:var(--flow)}
-  @media(max-width:860px){.blog{grid-template-columns:1fr}}
-
-  /* ==== INTERLINK map ==== */
-  .linkmap{margin-top:34px;padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:center}
-  .lm-vis{position:relative;height:280px;border-radius:14px;background:var(--void);border:1px solid var(--line);overflow:hidden}
-  .lm-rules{display:grid;gap:10px}
-  .rule{display:flex;gap:12px;padding:13px 15px;border-radius:12px;border:1px solid var(--line);background:var(--glass)}
-  .rule .rn{font-family:var(--mono);color:var(--flow);font-size:13px;flex:0 0 auto}
-  .rule p{font-size:12.5px;color:var(--muted)}
-  .rule p b{color:var(--ink)}
-  @media(max-width:900px){.linkmap{grid-template-columns:1fr}}
-
-  /* ==== CTA BAND ==== */
-  .ctaband{margin-top:96px;position:relative;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  #ctaFx{position:absolute;inset:0;opacity:.5}
-  .ctaband-in{position:relative;z-index:2;max-width:900px;margin:0 auto;padding:80px 30px;text-align:center}
-  .ctaband h2{font-family:var(--display);font-size:clamp(26px,3.4vw,40px);font-weight:700;letter-spacing:-.02em;text-wrap:balance}
-  .ctaband p{color:var(--muted);margin-top:12px;font-size:16px}
-  .ctaband .btn{margin-top:26px}
-
-  /* ==== FOOTER ==== */
-  footer{background:var(--void-2);border-top:1px solid var(--line);position:relative;z-index:2}
-  .foot{max-width:1220px;margin:0 auto;padding:52px 30px 22px;display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr 1fr;gap:28px}
-  .foot h6{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin-bottom:13px}
-  .foot a{display:block;font-size:12.5px;padding:3.5px 0;color:var(--muted)}
-  .foot a:hover{color:var(--ink)}
-  .foot .gd{display:inline-block;width:7px;height:7px;border-radius:2.5px;margin-right:8px}
-  .foot-brand p{font-size:12.5px;color:var(--muted);max-width:32ch;margin-top:12px}
-  .foot-nap{margin-top:14px;font-family:var(--mono);font-size:10px;color:var(--faint);line-height:1.8}
-  .foot-base{max-width:1220px;margin:0 auto;padding:16px 30px 26px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;color:var(--faint)}
-
-  .spec-note{font-family:var(--mono);font-size:10.5px;color:var(--faint);margin-top:16px}
-  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1)}
-  .reveal.in{opacity:1;transform:none}
-
-  @media(max-width:1000px){.nav{display:none}.mega-in{grid-template-columns:1fr}.team-mini{display:none}}
-  @media(max-width:900px){.foot{grid-template-columns:1fr 1fr}}
-</style>
+<link rel="stylesheet" href="assets/proto.css">
 </head>
 <body>
-
-<!-- ============ HEADER ============ -->
 <header class="hd">
   <div class="hd-in">
-    <a class="logo" href="#top"><canvas class="knot" width="68" height="68"></canvas><span>anthropos<small>automation&nbsp;os</small></span></a>
-    <nav class="nav" aria-label="Primary">
-      <div class="nav-item" data-menu>
-        <button class="nav-link">About Us <span class="car"></span></button>
-        <div class="drop">
-          <a href="#about"><b>Our Company</b><span>Who we are, what we build</span></a>
-          <a href="#team"><b>Our Team</b><span>The people behind the automations</span></a>
-          <a href="#solve"><b>How We Solve It</b><span>Problem → agent → outcome</span></a>
-          <a href="#about"><b>Our Vision</b><span>An automation OS for every small business</span></a>
-        </div>
-      </div>
-      <div class="nav-item" data-menu>
-        <button class="nav-link">Services <span class="car"></span></button>
-        <div class="mega">
-          <div class="mega-in">
-            <div class="mega-col">
-              <div class="mh">The micro-combo — every service page carries all four</div>
-              <div class="mega-pillars">
-                <a class="pill" href="#services" style="--hue:var(--g2)"><span class="pi"></span><span><b>Conversion Web Design</b><em>Fast, trust-first, built to convert</em></span></a>
-                <a class="pill" href="#services" style="--hue:var(--ai)"><span class="pi"></span><span><b>AEO / GEO / SEO</b><em>Found by Google &amp; AI engines</em></span></a>
-                <a class="pill" href="#services" style="--hue:var(--flow)"><span class="pi"></span><span><b>Lead &amp; Marketing Automation</b><em>Capture &amp; nurture 24/7</em></span></a>
-                <a class="pill" href="#services" style="--hue:var(--cta)"><span class="pi"></span><span><b>Whole-Business Automation</b><em>AI agents + n8n workflows</em></span></a>
-              </div>
-            </div>
-            <div class="mega-col">
-              <div class="mh">Service pages — one per industry, 4 blocks + 10 guides each</div>
-              <div class="mega-inds">
-                <a href="#servicepage" style="--hue:var(--g1)"><span class="dot"></span>Regulated Professionals</a>
-                <a href="#servicepage" style="--hue:var(--g2)"><span class="dot"></span>Medical Professionals</a>
-                <a href="#servicepage" style="--hue:var(--g3)"><span class="dot"></span>E-Commerce &amp; Retail</a>
-                <a href="#servicepage" style="--hue:var(--g4)"><span class="dot"></span>Service-Based Professionals</a>
-                <a href="#servicepage" style="--hue:var(--g7)"><span class="dot"></span>Freelancers &amp; Micro-Agencies</a>
-                <a href="#servicepage" style="--hue:var(--g5)"><span class="dot"></span>Creators &amp; Coaches</a>
-                <a href="#servicepage" style="--hue:var(--g6)"><span class="dot"></span>B2B Service Providers</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="nav-item"><a class="nav-link" href="#servicepage">Guides</a></div>
-      <div class="nav-item"><a class="nav-link" href="#blog">Blog</a></div>
-      <div class="nav-item"><a class="nav-link" href="#team">Team</a></div>
-    </nav>
-    <div class="nav-cta">
-      <div class="team-mini"><i></i><i></i><i></i><span>meet the team</span></div>
-      <a class="btn btn-cta" href="#cta">Book a Free Consultation</a>
-    </div>
+    <a class="logo" href="index.html"><canvas class="knot" width="68" height="68"></canvas><span>anthropos<small>automation os</small></span></a>
+    <ul class="nav">
+      <li data-menu><a href="#about">About Us</a><ul class="sub"><li><a href="#about">Our Company</a></li><li><a href="#team">Our Team</a></li><li><a href="#solve">How We Solve It</a></li><li><a href="#about">Our Vision</a></li></ul></li>
+      <li data-menu><a href="service-page.html">Services</a><ul class="sub">
+        <li><a href="service-page.html" style="--hue:var(--g1)"><span class="dot"></span>Automation Service for Regulated Professionals</a></li>
+        <li><a href="service-page.html" style="--hue:var(--g2)"><span class="dot"></span>Automation Service for Medical Professionals</a></li>
+        <li><a href="service-page.html" style="--hue:var(--g3)"><span class="dot"></span>Automation Service for E-Commerce &amp; Retail</a></li>
+        <li><a href="service-page.html" style="--hue:var(--g4)"><span class="dot"></span>Automation Service for Service-Based Professionals</a></li>
+        <li><a href="service-page.html" style="--hue:var(--g7)"><span class="dot"></span>Automation Service for Freelancers &amp; Micro-Agencies</a></li>
+        <li><a href="service-page.html" style="--hue:var(--g5)"><span class="dot"></span>Automation Service for Creators &amp; Coaches</a></li>
+        <li><a href="service-page.html" style="--hue:var(--g6)"><span class="dot"></span>Automation Service for B2B Service Providers</a></li>
+      </ul></li>
+      <li><a href="guide-page.html">Guides</a></li>
+      <li><a href="blog-page.html">Blog</a></li>
+      <li><a href="#team">Team</a></li>
+    </ul>
+    <div class="nav-cta"><a class="btn btn-cta" href="#cta">Book a Free Consultation</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button></div>
   </div>
 </header>
 
-<!-- ============ HERO ============ -->
-<section class="hero" id="top">
-  <canvas id="heroFx" aria-hidden="true"></canvas>
+<!-- HERO -->
+<section class="hero">
+  <canvas class="fx" data-net data-nodes="100" data-pulses="70" data-z="20" aria-hidden="true"></canvas>
   <div class="hero-in">
     <div class="eyebrow">Anthropos Automation OS · web + AEO/GEO + AI automation</div>
     <h1>We turn your business into a <span class="grad">self-running system.</span></h1>
-    <p class="sub">A converting website, answer-engine visibility, and <b>AI agents wired through n8n</b> that capture, qualify and follow up every lead — while you do the work. One micro-combo per industry.</p>
-    <div class="hero-ctas">
-      <a class="btn btn-cta" href="#cta">Book a non-binding consultation</a>
-      <a class="btn btn-glass" href="#services">See how the system works</a>
-    </div>
-    <div class="hero-tags">
-      <span class="tag">Web Design</span>
-      <span class="tag">AEO / GEO</span>
-      <span class="tag">Lead Automation</span>
-      <span class="tag">AI Agents + n8n</span>
-    </div>
+    <p class="sub">A converting website, answer-engine visibility, and <b>AI agents wired through n8n</b> that capture, qualify and follow up every lead — while you do the work. Six automation services, one page per business type.</p>
+    <div class="hero-ctas"><a class="btn btn-cta" href="#cta">Book a non-binding consultation</a><a class="btn btn-glass" href="#services">See the 6 services ↓</a></div>
+    <div class="hero-tags"><span class="tag">Web Design</span><span class="tag" style="--hue:var(--ai)">AEO / GEO</span><span class="tag">Lead Automation</span><span class="tag" style="--hue:var(--g3)">Marketing Automation</span><span class="tag" style="--hue:var(--g5)">Social Media Automation</span><span class="tag" style="--hue:var(--cta)">AI + n8n</span></div>
   </div>
 </section>
 
-<!-- ============ HOW WE SOLVE (About) ============ -->
+<!-- HOW WE SOLVE -->
 <section id="solve">
-  <div class="wrap band reveal">
-    <div class="eyebrow">How we solve the problem</div>
-    <h2>Problem → Agent → Outcome. Every card here is a live piece of that system.</h2>
-    <p class="soft">You don't need more tools — you need them <b>connected and thinking.</b> We map the leak, deploy the agent that closes it, and wire the workflow so it runs without you. Every animated object below is a real automation motif: nodes, agents, and data flowing to a result.</p>
-  </div>
-  <div class="wrap">
-    <div class="solve">
-      <div class="glass step reveal"><canvas class="fxcanvas" data-fx="pipeline" style="--hue:var(--flow)"></canvas><div class="k">01 · MAP</div><h4>Find the leak</h4><p>We trace where leads, replies and revenue quietly drain out — visibility, trust, or follow-up.</p></div>
-      <div class="glass step reveal"><canvas class="fxcanvas" data-fx="agent" style="--hue:var(--ai)"></canvas><div class="k">02 · DEPLOY</div><h4>Build the agent</h4><p>An AI agent + n8n workflow takes over the leak: replies in seconds, qualifies, routes, follows up.</p></div>
-      <div class="glass step reveal"><canvas class="fxcanvas" data-fx="core" style="--hue:var(--cta)"></canvas><div class="k">03 · COMPOUND</div><h4>Watch it run</h4><p>Connected once, working forever — leads flow to booked calls while the system reports what works.</p></div>
-    </div>
-  </div>
+  <div class="wrap band reveal"><div class="eyebrow">How we solve the problem</div><h2>Problem → Agent → Outcome</h2><p class="soft">You don't need more tools — you need them <b>connected and thinking.</b> We map the leak, deploy the agent that closes it, and wire the workflow so it runs without you.</p></div>
+  <div class="wrap"><div class="grid-3">
+    <div class="glass reveal tilt" style="--hue:var(--flow)"><canvas class="fxcanvas" data-fx="pipeline" style="--hue:var(--flow)"></canvas><div class="card-b"><span class="lbl">01 · MAP</span><h4>Find the leak</h4><p>We trace where leads, replies and revenue drain out — visibility, trust, or follow-up.</p></div></div>
+    <div class="glass reveal tilt" style="--hue:var(--ai)"><canvas class="fxcanvas" data-fx="agent" style="--hue:var(--ai)"></canvas><div class="card-b"><span class="lbl">02 · DEPLOY</span><h4>Build the agent</h4><p>An AI agent + n8n workflow takes over: replies in seconds, qualifies, routes, follows up.</p></div></div>
+    <div class="glass reveal tilt" style="--hue:var(--cta)"><canvas class="fxcanvas" data-fx="core" style="--hue:var(--cta)"></canvas><div class="card-b"><span class="lbl">03 · COMPOUND</span><h4>Watch it run</h4><p>Connected once, working forever — leads flow to booked calls while it reports what works.</p></div></div>
+  </div></div>
 </section>
 
-<!-- ============ SERVICES: 4 micro-offer pillars ============ -->
+<!-- THE 6 AUTOMATION SERVICES -->
 <section id="services">
-  <div class="wrap band reveal">
-    <div class="eyebrow">The micro-combo · four moves, one system</div>
-    <h2>Four services. Every industry page combines all four.</h2>
-    <p class="soft">Web design that converts, AEO/GEO that gets you found, lead automation that never forgets, and whole-business automation with AI agents on n8n. Each has its own live automation object.</p>
-  </div>
-  <div class="wrap">
-    <div class="pillars">
-      <div class="glass pcard reveal" style="--hue:var(--g2)"><canvas class="fxcanvas" data-fx="pipeline" style="--hue:var(--g2)"></canvas><div class="pcard-b"><span class="lbl">Service 01</span><h4>Conversion Web Design</h4><p>Fast, mobile-first, trust in five seconds — engineered to turn visitors into inquiries.</p><span class="go">Explore →</span></div></div>
-      <div class="glass pcard reveal" style="--hue:var(--ai)"><canvas class="fxcanvas" data-fx="mesh" style="--hue:var(--ai)"></canvas><div class="pcard-b"><span class="lbl">Service 02</span><h4>AEO / GEO / SEO</h4><p>Structured to be quoted by AI engines and ranked locally — found the moment they search.</p><span class="go">Explore →</span></div></div>
-      <div class="glass pcard reveal" style="--hue:var(--flow)"><canvas class="fxcanvas" data-fx="branch" style="--hue:var(--flow)"></canvas><div class="pcard-b"><span class="lbl">Service 03</span><h4>Lead &amp; Marketing Automation</h4><p>60-second replies, nurture sequences, win-backs — the follow-up that closes.</p><span class="go">Explore →</span></div></div>
-      <div class="glass pcard reveal" style="--hue:var(--cta)"><canvas class="fxcanvas" data-fx="hub" style="--hue:var(--cta)"></canvas><div class="pcard-b"><span class="lbl">Service 04</span><h4>Whole-Business Automation</h4><p>AI agents orchestrated on n8n — inbox, CRM, invoicing, reporting, all connected.</p><span class="go">Explore →</span></div></div>
-    </div>
-  </div>
+  <div class="wrap band reveal"><div class="eyebrow">What we automate · six services, one system</div><h2>The six automation services</h2><p class="soft">Every service page combines all six for one business type. Each has its own live automation object.</p></div>
+  <div class="wrap"><div class="grid-3">
+    <a class="glass card reveal tilt" href="service-page.html" style="--hue:var(--g2)"><canvas class="fxcanvas" data-fx="pipeline" style="--hue:var(--g2)"></canvas><div class="card-b"><span class="lbl">Service 01</span><h4>Conversion Web Design</h4><p>Fast, mobile-first, trust in five seconds — built to turn visitors into inquiries.</p><span class="go">Explore →</span></div></a>
+    <a class="glass card reveal tilt" href="service-page.html" style="--hue:var(--ai)"><canvas class="fxcanvas" data-fx="mesh" style="--hue:var(--ai)"></canvas><div class="card-b"><span class="lbl">Service 02</span><h4>AEO / GEO / SEO</h4><p>Quoted by AI engines, ranked locally — found the moment they search.</p><span class="go">Explore →</span></div></a>
+    <a class="glass card reveal tilt" href="service-page.html" style="--hue:var(--flow)"><canvas class="fxcanvas" data-fx="branch" style="--hue:var(--flow)"></canvas><div class="card-b"><span class="lbl">Service 03</span><h4>Lead Automation</h4><p>60-second replies, nurture, win-backs — the follow-up that closes.</p><span class="go">Explore →</span></div></a>
+    <a class="glass card reveal tilt" href="service-page.html" style="--hue:var(--g3)"><canvas class="fxcanvas" data-fx="hub" style="--hue:var(--g3)"></canvas><div class="card-b"><span class="lbl">Service 04</span><h4>Marketing Automation</h4><p>Seasonal campaigns, newsletters, segmented sequences — on schedule, on autopilot.</p><span class="go">Explore →</span></div></a>
+    <a class="glass card reveal tilt" href="service-page.html" style="--hue:var(--g5)"><canvas class="fxcanvas" data-fx="agent" style="--hue:var(--g5)"></canvas><div class="card-b"><span class="lbl">Service 05</span><h4>Social Media Automation</h4><p>An AI agent drafts, schedules and repurposes on-brand content — you approve, it posts.</p><span class="go">Explore →</span></div></a>
+    <a class="glass card reveal tilt" href="service-page.html" style="--hue:var(--cta)"><canvas class="fxcanvas" data-fx="core" style="--hue:var(--cta)"></canvas><div class="card-b"><span class="lbl">Service 06</span><h4>Whole-Business Automation · AI + n8n</h4><p>Inbox, CRM, invoicing, reporting — every tool connected into one nervous system.</p><span class="go">Explore →</span></div></a>
+  </div></div>
 </section>
 
-<!-- ============ SERVICE PAGE TEMPLATE ============ -->
-<section id="servicepage">
-  <div class="wrap band reveal">
-    <div class="eyebrow">The service page template · story = service page</div>
-    <h2>One service page per industry: 4 micro-offer blocks + 10 guides</h2>
-    <p class="soft">Scroll inside. Each page opens with the industry's story, then <b>four blocks</b> — every block is one micro-offer with its own animated automation object and a CTA — then the <b>micro-combo strip</b> and a <b>10-guide</b> library. Fake content; the structure is the point.</p>
-  </div>
-  <div class="wrap">
-    <div class="browser reveal">
-      <div class="bbar"><span class="bdots"><i></i><i></i><i></i></span><span class="burl">anthropos-automation.com/services/<b>b2b-enterprise</b>/</span></div>
-      <div class="svc-scroll" id="svcScroll">
-        <div class="svc-hero">
-          <canvas id="svcHeroFx" aria-hidden="true"></canvas>
-          <div class="svc-hero-in">
-            <span class="badge">Industry · B2B &amp; Enterprise</span>
-            <h2>Automation for teams stuck in six-month sales cycles</h2>
-            <p>You have a real offer and a long, leaky pipeline. We install the website, the visibility and the AI follow-up system that keeps every deal warm — automatically.</p>
-            <div class="combo"><span><b>+</b> Web Design</span><span><b>+</b> AEO / GEO</span><span><b>+</b> Lead Automation</span><span><b>+</b> AI Agents · n8n</span></div>
-          </div>
-        </div>
-
-        <div class="svc-sec"><div class="st">The 4 micro-offers · each a block</div></div>
-        <div class="blocks">
-          <div class="glass block" style="--hue:var(--g2)"><div class="fxwrap"><canvas class="fxcanvas" data-fx="pipeline" style="--hue:var(--g2)"></canvas></div><div class="block-b"><span class="no">BLOCK 01</span><h4>A site that earns enterprise trust</h4><p>Case-study-led pages, proof above the fold, and forms that feed the automation.</p><span class="bcta">Get this block →</span></div></div>
-          <div class="glass block" style="--hue:var(--ai)"><div class="fxwrap"><canvas class="fxcanvas" data-fx="mesh" style="--hue:var(--ai)"></canvas></div><div class="block-b"><span class="no">BLOCK 02</span><h4>Found when buyers research</h4><p>AEO/GEO structure so procurement and AI assistants surface you, not the incumbent.</p><span class="bcta">Get this block →</span></div></div>
-          <div class="glass block" style="--hue:var(--flow)"><div class="fxwrap"><canvas class="fxcanvas" data-fx="branch" style="--hue:var(--flow)"></canvas></div><div class="block-b"><span class="no">BLOCK 03</span><h4>Proposals that follow themselves up</h4><p>Day-5 nudges, stakeholder routing, and reminders — no more deals lost to silence.</p><span class="bcta">Get this block →</span></div></div>
-          <div class="glass block" style="--hue:var(--cta)"><div class="fxwrap"><canvas class="fxcanvas" data-fx="agent" style="--hue:var(--cta)"></canvas></div><div class="block-b"><span class="no">BLOCK 04</span><h4>An AI agent across your stack</h4><p>n8n workflows unify inbox, CRM and reporting so the whole cycle runs on autopilot.</p><span class="bcta">Get this block →</span></div></div>
-        </div>
-
-        <div class="svc-sec"><div class="st">10 guides for this industry · problem → solution → CTA</div></div>
-        <div class="guides" id="svcGuides"></div>
-      </div>
-    </div>
-    <p class="spec-note">WordPress mapping: post type “service” (one per industry) · repeatable “micro-offer block” (title · body · CTA · 3D preset) · attached “guide” cards (10) · each block &amp; guide internally linked to its pillar service and sibling industries.</p>
-  </div>
+<!-- THE 7 SERVICE PAGES -->
+<section id="servicepages">
+  <div class="wrap band reveal"><div class="eyebrow">Neuro-navigation · pick your business</div><h2>Automation service pages — one per business type</h2><p class="soft">Each page combines the six services into a micro-combo for that business, with 4–6 blocks and 10 guides.</p></div>
+  <div class="wrap"><div class="grid-4">
+    <a class="glass card reveal tilt" href="service-page.html" style="--hue:var(--g1)"><div class="card-b"><span class="lbl">Regulated Professionals</span><h4>Automation Service for Regulated Professionals</h4><p>Lawyers, financial advisors &amp; tax consultants.</p><span class="go">Open →</span></div></a>
+    <a class="glass card reveal tilt" href="service-page.html" style="--hue:var(--g2)"><div class="card-b"><span class="lbl">Medical Professionals</span><h4>Automation Service for Medical Professionals</h4><p>Doctors, dentists &amp; therapists.</p><span class="go">Open →</span></div></a>
+    <a class="glass card reveal tilt" href="service-page.html" style="--hue:var(--g3)"><div class="card-b"><span class="lbl">E-Commerce &amp; Retail</span><h4>Automation Service for E-Commerce &amp; Retail</h4><p>Shopify &amp; multi-channel sellers.</p><span class="go">Open →</span></div></a>
+    <a class="glass card reveal tilt" href="service-page.html" style="--hue:var(--g4)"><div class="card-b"><span class="lbl">Service-Based Professionals</span><h4>Automation Service for Service-Based Professionals</h4><p>Home services, trainers &amp; consultants.</p><span class="go">Open →</span></div></a>
+    <a class="glass card reveal tilt" href="service-page.html" style="--hue:var(--g7)"><div class="card-b"><span class="lbl">Freelancers &amp; Micro-Agencies</span><h4>Automation Service for Freelancers &amp; Micro-Agencies</h4><p>Designers, developers &amp; small agencies.</p><span class="go">Open →</span></div></a>
+    <a class="glass card reveal tilt" href="service-page.html" style="--hue:var(--g5)"><div class="card-b"><span class="lbl">Creators &amp; Coaches</span><h4>Automation Service for Creators &amp; Coaches</h4><p>Course creators &amp; newsletter writers.</p><span class="go">Open →</span></div></a>
+    <a class="glass card reveal tilt" href="service-page.html" style="--hue:var(--g6)"><div class="card-b"><span class="lbl">B2B Service Providers</span><h4>Automation Service for B2B Service Providers</h4><p>SaaS implementation &amp; training providers.</p><span class="go">Open →</span></div></a>
+    <a class="glass card reveal tilt" href="#cta" style="--hue:var(--cta)"><div class="card-b"><span class="lbl">Not sure?</span><h4>Book a non-binding call</h4><p>We map your leak in 30 minutes.</p><span class="go">Talk to a human →</span></div></a>
+  </div></div>
 </section>
 
-<!-- ============ INDUSTRIES (neuro nav) ============ -->
-<section id="industries">
-  <div class="wrap band reveal">
-    <div class="eyebrow">Neuro-navigation · find yourself</div>
-    <h2>Which system do you need? Pick the page that sounds like your business.</h2>
-  </div>
-  <div class="wrap">
-    <div class="inds">
-      <a class="glass ind reveal" href="#servicepage" style="--hue:var(--g1)"><span class="idot"></span><h4>Regulated Professionals</h4><p>Lawyers, financial advisors &amp; tax consultants — referral-dependent, slow follow-up.</p><span class="ip">4 blocks · 10 guides →</span></a>
-      <a class="glass ind reveal" href="#servicepage" style="--hue:var(--g2)"><span class="idot"></span><h4>Medical Professionals</h4><p>Doctors, dentists &amp; therapists — invisible locally, no reviews.</p><span class="ip">4 blocks · 10 guides →</span></a>
-      <a class="glass ind reveal" href="#servicepage" style="--hue:var(--g3)"><span class="idot"></span><h4>E-Commerce &amp; Retail</h4><p>Shopify &amp; multi-channel sellers — carts abandoned, no repeat buyers.</p><span class="ip">4 blocks · 10 guides →</span></a>
-      <a class="glass ind reveal" href="#servicepage" style="--hue:var(--g4)"><span class="idot"></span><h4>Service-Based Professionals</h4><p>Home services, trainers &amp; consultants — missed calls, feast-or-famine.</p><span class="ip">4 blocks · 10 guides →</span></a>
-      <a class="glass ind reveal" href="#servicepage" style="--hue:var(--g7)"><span class="idot"></span><h4>Freelancers &amp; Micro-Agencies</h4><p>Designers, developers &amp; small agencies — tire-kickers, forgotten proposals.</p><span class="ip">4 blocks · 10 guides →</span></a>
-      <a class="glass ind reveal" href="#servicepage" style="--hue:var(--g5)"><span class="idot"></span><h4>Creators &amp; Coaches</h4><p>Course creators &amp; newsletter writers — low conversion, churn.</p><span class="ip">4 blocks · 10 guides →</span></a>
-      <a class="glass ind reveal" href="#servicepage" style="--hue:var(--g6)"><span class="idot"></span><h4>B2B Service Providers</h4><p>SaaS implementation &amp; training providers — six-month cycles, price pressure.</p><span class="ip">4 blocks · 10 guides →</span></a>
-      <a class="glass ind reveal" href="#cta" style="--hue:var(--cta)"><span class="idot"></span><h4>Not sure yet?</h4><p>Book a non-binding call — we map your leak in 30 minutes.</p><span class="ip">Talk to a human →</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ INTERLINK MAP ============ -->
-<section id="linking">
-  <div class="wrap band reveal">
-    <div class="eyebrow">Internal linking · nothing is an island</div>
-    <h2>Four link rules turn every page into a network</h2>
-  </div>
-  <div class="wrap">
-    <div class="glass linkmap reveal">
-      <div class="lm-vis"><canvas class="fxcanvas" data-fx="hub" style="--hue:var(--ai);height:280px"></canvas></div>
-      <div class="lm-rules">
-        <div class="rule"><span class="rn">1</span><p><b>Block → Pillar.</b> Every micro-offer block links up to its service pillar (web / AEO / automation).</p></div>
-        <div class="rule"><span class="rn">2</span><p><b>Guide → Block.</b> Each of the 10 guides links to the block that fixes its problem, and to its CTA.</p></div>
-        <div class="rule"><span class="rn">3</span><p><b>Industry ↔ Industry.</b> Sibling service pages cross-link the same block across audiences.</p></div>
-        <div class="rule"><span class="rn">4</span><p><b>Everything → Consultation.</b> Every node ends at the non-binding call — the single conversion.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ TEAM ============ -->
+<!-- TEAM -->
 <section id="team">
-  <div class="wrap band reveal">
-    <div class="eyebrow">Our team · in the header, on top</div>
-    <h2>Real people building the machines</h2>
-    <p class="soft">Automation feels human when humans design it. <b>[Placeholder bios — real content later.]</b></p>
-  </div>
-  <div class="wrap">
-    <div class="team">
-      <div class="glass tm reveal"><div class="av"></div><h5>Founder Name</h5><span>Automation Strategy</span><p>Maps the leak, designs the agent system.</p></div>
-      <div class="glass tm reveal"><div class="av"></div><h5>Team Member</h5><span>n8n Engineer</span><p>Wires the workflows across your stack.</p></div>
-      <div class="glass tm reveal"><div class="av"></div><h5>Team Member</h5><span>Web &amp; AEO</span><p>Builds the site and the visibility layer.</p></div>
-      <div class="glass tm reveal"><div class="av"></div><h5>Team Member</h5><span>Client Success</span><p>Keeps every system running and reporting.</p></div>
-    </div>
-  </div>
+  <div class="wrap band reveal"><div class="eyebrow">Our team · on top</div><h2>Real people building the machines</h2><p class="soft">Automation feels human when humans design it. <b>[Placeholder bios — real content later.]</b></p></div>
+  <div class="wrap"><div class="team">
+    <div class="glass tm reveal"><div class="av"></div><h5>Founder Name</h5><span>Automation Strategy</span><p>Maps the leak, designs the agent system.</p></div>
+    <div class="glass tm reveal"><div class="av"></div><h5>Team Member</h5><span>n8n Engineer</span><p>Wires the workflows across your stack.</p></div>
+    <div class="glass tm reveal"><div class="av"></div><h5>Team Member</h5><span>Web &amp; AEO</span><p>Builds the site and the visibility layer.</p></div>
+    <div class="glass tm reveal"><div class="av"></div><h5>Team Member</h5><span>Client Success</span><p>Keeps every system running and reporting.</p></div>
+  </div></div>
 </section>
 
-<!-- ============ BLOG ============ -->
+<!-- BLOG PREVIEW -->
 <section id="blog">
-  <div class="wrap band reveal">
-    <div class="eyebrow">Blog · in the header</div>
-    <h2>Field notes on AI automation for small business</h2>
-  </div>
-  <div class="wrap">
-    <div class="blog">
-      <div class="glass post reveal"><canvas class="fxcanvas" data-fx="mesh" style="--hue:var(--ai)"></canvas><div class="post-b"><span class="pc">AI Agents</span><h4>What an AI agent actually does in a small business</h4><p>[Fake excerpt] A plain-language tour of triggers, tools and memory.</p><span class="pr">Read →</span></div></div>
-      <div class="glass post reveal"><canvas class="fxcanvas" data-fx="branch" style="--hue:var(--flow)"></canvas><div class="post-b"><span class="pc">n8n Workflows</span><h4>The 5 workflows every service business should automate first</h4><p>[Fake excerpt] Inbound, follow-up, booking, invoicing, reviews.</p><span class="pr">Read →</span></div></div>
-      <div class="glass post reveal"><canvas class="fxcanvas" data-fx="pipeline" style="--hue:var(--g2)"></canvas><div class="post-b"><span class="pc">AEO / GEO</span><h4>How to get quoted by ChatGPT and Google's AI answers</h4><p>[Fake excerpt] Structure, schema and the quotable answer box.</p><span class="pr">Read →</span></div></div>
-    </div>
-  </div>
+  <div class="wrap band reveal"><div class="eyebrow">Blog · in the header</div><h2>Field notes on AI automation</h2></div>
+  <div class="wrap"><div class="grid-3">
+    <a class="glass post reveal tilt" href="blog-page.html" style="--hue:var(--ai)"><canvas class="fxcanvas" data-fx="mesh" style="--hue:var(--ai)"></canvas><div class="post-b"><span class="pc">AI Agents</span><h4>What an AI agent actually does in a small business</h4><p>[Fake excerpt] Triggers, tools and memory in plain language.</p><span class="pr">Read →</span></div></a>
+    <a class="glass post reveal tilt" href="blog-page.html" style="--hue:var(--flow)"><canvas class="fxcanvas" data-fx="branch" style="--hue:var(--flow)"></canvas><div class="post-b"><span class="pc">n8n Workflows</span><h4>The 5 workflows every service business should automate first</h4><p>[Fake excerpt] Inbound, follow-up, booking, invoicing, reviews.</p><span class="pr">Read →</span></div></a>
+    <a class="glass post reveal tilt" href="blog-page.html" style="--hue:var(--g5)"><canvas class="fxcanvas" data-fx="agent" style="--hue:var(--g5)"></canvas><div class="post-b"><span class="pc">Social &amp; Marketing</span><h4>Social media automation that doesn't sound like a robot</h4><p>[Fake excerpt] Draft, approve, schedule, repurpose.</p><span class="pr">Read →</span></div></a>
+  </div><p class="spec-note" style="margin-top:20px">All content is placeholder — UI/UX first, real copy later. Pages: Home · Service page (Automation Service for {Segment}) · Guide page · Blog page.</p></div>
 </section>
 
-<!-- ============ CTA BAND ============ -->
-<section class="ctaband" id="cta">
-  <canvas id="ctaFx" aria-hidden="true"></canvas>
-  <div class="ctaband-in">
-    <div class="eyebrow" style="display:inline-block">The only button that matters</div>
-    <h2>Book a non-binding consultation</h2>
-    <p>Thirty minutes. We map one leak in your business live and show you the agent that closes it. No pitch, no obligation.</p>
-    <a class="btn btn-cta" href="#">Book a Free Consultation</a>
-  </div>
-</section>
-
-<!-- ============ FOOTER ============ -->
-<footer>
+<section class="ctaband" id="cta"><canvas class="fx" data-net data-nodes="60" data-pulses="40" aria-hidden="true"></canvas>
+  <div class="ctaband-in"><div class="eyebrow" style="display:inline-block">The only button that matters</div><h2>Book a non-binding consultation</h2><p>Thirty minutes. We map one leak in your business live and show you the agent that closes it. No pitch, no obligation.</p><a class="btn btn-cta" href="#">Book a Free Consultation</a></div></section>
+<footer class="ftr">
   <div class="foot">
-    <div class="foot-brand">
-      <a class="logo" href="#top"><canvas class="knot" width="68" height="68"></canvas><span>anthropos<small>automation&nbsp;os</small></span></a>
-      <p>Web design + AEO/GEO + AI business automation for solo operators and small teams. Live systems in 4 weeks. Munich · EU-hosted.</p>
-      <div class="foot-nap">ANTHROPOS AUTOMATION<br>MUNICH, GERMANY · EU-HOSTED<br>HELLO@ANTHROPOS-AUTOMATION.COM</div>
-    </div>
-    <div>
-      <h6>About Us</h6>
-      <a href="#about">Our Company</a><a href="#team">Our Team</a><a href="#solve">How We Solve It</a><a href="#about">Our Vision</a>
-    </div>
-    <div>
-      <h6>Services</h6>
-      <a href="#services">Conversion Web Design</a><a href="#services">AEO / GEO / SEO</a><a href="#services">Lead Automation</a><a href="#services">AI Agents · n8n</a>
-    </div>
-    <div>
-      <h6>Industries</h6>
-      <a href="#servicepage"><span class="gd" style="background:var(--g1)"></span>Regulated Professionals</a><a href="#servicepage"><span class="gd" style="background:var(--g2)"></span>Medical Professionals</a><a href="#servicepage"><span class="gd" style="background:var(--g4)"></span>Service-Based Professionals</a><a href="#servicepage"><span class="gd" style="background:var(--g6)"></span>B2B Service Providers</a>
-    </div>
-    <div>
-      <h6>Company</h6>
-      <a href="#blog">Blog</a><a href="#servicepage">Guides</a><a href="#cta">Book a Consultation</a><a href="#">Impressum</a><a href="#">Privacy (GDPR)</a>
-    </div>
+    <div class="foot-brand"><a class="logo" href="index.html"><canvas class="knot" width="68" height="68"></canvas><span>anthropos<small>automation os</small></span></a><p>Web design + AEO/GEO + AI business automation for solo operators and small teams. Live systems in 4 weeks. Munich · EU-hosted.</p><div class="foot-nap">ANTHROPOS AUTOMATION<br>MUNICH, GERMANY · EU-HOSTED<br>HELLO@ANTHROPOS-AUTOMATION.COM</div></div>
+    <div><h6>About Us</h6><a href="#about">Our Company</a><a href="#team">Our Team</a><a href="#solve">How We Solve It</a><a href="#about">Our Vision</a></div>
+    <div><h6>Services</h6><a href="service-page.html">Regulated Professionals</a><a href="service-page.html">Medical Professionals</a><a href="service-page.html">E-Commerce &amp; Retail</a><a href="service-page.html">B2B Service Providers</a></div>
+    <div><h6>Learn</h6><a href="blog-page.html">Blog</a><a href="guide-page.html">Guides</a><a href="#solve">How We Solve It</a></div>
+    <div><h6>Company</h6><a href="#cta">Book a Consultation</a><a href="#team">Team</a><a href="#">Impressum</a><a href="#">Privacy (GDPR)</a></div>
   </div>
-  <div class="foot-base">
-    <span>© 2026 ANTHROPOS AUTOMATION · MUNICH</span>
-    <span>UI/UX CONCEPT v3 · EN / DE</span>
-  </div>
+  <div class="foot-base"><span>© 2026 ANTHROPOS AUTOMATION · MUNICH</span><span>UI/UX CONCEPT v4 · EN / DE</span></div>
 </footer>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script>
-const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-/* ---------- dropdowns ---------- */
-document.querySelectorAll('[data-menu]').forEach(item=>{
-  const btn=item.querySelector('.nav-link');
-  btn.addEventListener('click',e=>{e.stopPropagation();const was=item.classList.contains('open');
-    document.querySelectorAll('[data-menu]').forEach(i=>i.classList.remove('open'));if(!was)item.classList.add('open');});
-});
-document.addEventListener('click',()=>document.querySelectorAll('[data-menu]').forEach(i=>i.classList.remove('open')));
-
-/* ---------- scroll reveal ---------- */
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-/* ================================================================
-   MiniFlow — lightweight Canvas-2D automation motif on every card.
-   Presets represent AI/n8n automation, not generic 3D.
-   ================================================================ */
-const PRESETS = {
-  pipeline:{nodes:[[.1,.5],[.32,.34],[.54,.62],[.76,.4],[.92,.55]],edges:[[0,1],[1,2],[2,3],[3,4]],big:[]},
-  agent:{nodes:[[.12,.5],[.44,.5],[.82,.24],[.82,.5],[.82,.76]],edges:[[0,1],[1,2],[1,3],[1,4]],big:[1]},
-  hub:{nodes:[[.5,.5],[.5,.16],[.83,.32],[.86,.7],[.5,.86],[.16,.7],[.15,.31]],edges:[[0,1],[0,2],[0,3],[0,4],[0,5],[0,6]],big:[0]},
-  mesh:{nodes:[[.2,.28],[.5,.18],[.8,.32],[.28,.66],[.6,.62],[.84,.7],[.46,.44]],edges:[[0,1],[1,2],[0,6],[6,1],[6,2],[6,4],[3,6],[3,4],[4,5],[0,3]],big:[6]},
-  core:{nodes:[[.5,.5],[.5,.2],[.78,.38],[.72,.72],[.32,.74],[.24,.36]],edges:[[0,1],[0,2],[0,3],[0,4],[0,5]],big:[0],ring:true},
-  branch:{nodes:[[.12,.5],[.4,.5],[.66,.28],[.66,.72],[.9,.28],[.9,.72]],edges:[[0,1],[1,2],[1,3],[2,4],[3,5]],big:[1]}
-};
-const flows = [];
-function accentRgb(canvas){
-  const raw=(canvas.style.getPropertyValue('--hue')||'').trim();
-  const varName = raw.startsWith('var(') ? raw.slice(4,-1).trim() : null;
-  let v = varName ? getComputedStyle(document.documentElement).getPropertyValue(varName).trim() : (raw||'#2FE3D2');
-  v=v.replace('#','');if(v.length===3)v=v.split('').map(x=>x+x).join('');
-  const n=parseInt(v,16);return `${n>>16&255},${n>>8&255},${n&255}`;
-}
-function makeFlow(canvas){
-  const P = PRESETS[canvas.dataset.fx] || PRESETS.mesh;
-  const rc = accentRgb(canvas);
-  const ctx = canvas.getContext('2d');
-  let W=0,H=0,dpr=Math.min(window.devicePixelRatio||1,2);
-  function size(){const r=canvas.getBoundingClientRect();W=r.width;H=r.height;canvas.width=W*dpr;canvas.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);}
-  const pulses = P.edges.map((e,i)=>({e,t:(i/P.edges.length)}));
-  let visible=true;
-  new IntersectionObserver(es=>visible=es[0].isIntersecting).observe(canvas);
-  flows.push({visible:()=>visible,draw:(time)=>{
-    if(!W||Math.abs(canvas.getBoundingClientRect().width-W)>1)size();
-    if(!W||!H)return;
-    ctx.clearRect(0,0,W,H);
-    const pts=P.nodes.map(n=>[n[0]*W,n[1]*H]);
-    ctx.lineWidth=1;
-    P.edges.forEach(([a,b])=>{
-      const g=ctx.createLinearGradient(pts[a][0],pts[a][1],pts[b][0],pts[b][1]);
-      g.addColorStop(0,`rgba(${rc},.10)`);g.addColorStop(1,`rgba(${rc},.30)`);
-      ctx.strokeStyle=g;ctx.beginPath();ctx.moveTo(pts[a][0],pts[a][1]);
-      const mx=(pts[a][0]+pts[b][0])/2, my=(pts[a][1]+pts[b][1])/2 - 10;
-      ctx.quadraticCurveTo(mx,my,pts[b][0],pts[b][1]);ctx.stroke();
-    });
-    if(P.ring){const cx=pts[0][0],cy=pts[0][1],rr=Math.min(W,H)*0.32;
-      ctx.strokeStyle=`rgba(${rc},.18)`;ctx.beginPath();ctx.ellipse(cx,cy,rr,rr*0.5,time*0.0006,0,Math.PI*2);ctx.stroke();}
-    if(!reduced) pulses.forEach(p=>{
-      p.t+=0.006; if(p.t>1)p.t-=1;
-      const a=pts[p.e[0]],b=pts[p.e[1]],mx=(a[0]+b[0])/2,my=(a[1]+b[1])/2-10,t=p.t,it=1-t;
-      const x=it*it*a[0]+2*it*t*mx+t*t*b[0], y=it*it*a[1]+2*it*t*my+t*t*b[1];
-      const grd=ctx.createRadialGradient(x,y,0,x,y,7);grd.addColorStop(0,`rgba(${rc},.95)`);grd.addColorStop(1,`rgba(${rc},0)`);
-      ctx.fillStyle=grd;ctx.beginPath();ctx.arc(x,y,7,0,Math.PI*2);ctx.fill();
-    });
-    pts.forEach((p,i)=>{
-      const big=P.big.includes(i),r=big?7:3.4,pulse=big?(1+Math.sin(time*0.003)*0.18):1;
-      const glow=ctx.createRadialGradient(p[0],p[1],0,p[0],p[1],r*4*pulse);
-      glow.addColorStop(0,`rgba(${rc},.5)`);glow.addColorStop(1,`rgba(${rc},0)`);
-      ctx.fillStyle=glow;ctx.beginPath();ctx.arc(p[0],p[1],r*4*pulse,0,Math.PI*2);ctx.fill();
-      ctx.fillStyle=big?`rgba(${rc},1)`:`rgba(${rc},.85)`;ctx.beginPath();ctx.arc(p[0],p[1],r*pulse,0,Math.PI*2);ctx.fill();
-      if(big){ctx.strokeStyle=`rgba(${rc},.5)`;ctx.beginPath();ctx.arc(p[0],p[1],r*2.1*pulse,0,Math.PI*2);ctx.stroke();}
-    });
-  }});
-  size();
-}
-document.querySelectorAll('.fxcanvas').forEach(makeFlow);
-(function loop(t){requestAnimationFrame(loop);flows.forEach(f=>{if(f.visible())f.draw(t);});})(0);
-
-/* ---------- 10 guide cards ---------- */
-(function(){
-  const grid=document.getElementById('svcGuides');if(!grid)return;
-  [['G01','Why enterprise buyers ghost after the demo'],['G02','The AEO answer box that gets you cited'],
-   ['G03','Local + AI visibility for B2B services'],['G04','The 60-second reply, enterprise edition'],
-   ['G05','Mapping a 6-month cycle into n8n stages'],['G06','Which 5 workflows to automate first'],
-   ['G07','Stakeholder routing without a big CRM'],['G08','Proof pages that survive procurement'],
-   ['G09','Reading your lead report, honestly'],['G10','From pilot to always-on automation']
-  ].forEach(g=>{const el=document.createElement('div');el.className='glass gcard';
-    el.innerHTML=`<div class="gi">${g[0]}</div><h5>${g[1]}</h5><div class="ga">problem → solution → CTA</div>`;grid.appendChild(el);});
-})();
-
-/* ================================================================
-   HERO — Three.js AI agent network / intelligence core / data flow
-   ================================================================ */
-function agentNetwork(canvasId, opts){
-  const canvas=document.getElementById(canvasId);if(!canvas||!window.THREE)return;opts=opts||{};
-  const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true});
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
-  const scene=new THREE.Scene();
-  const camera=new THREE.PerspectiveCamera(55,2,0.1,100);camera.position.set(0,0,opts.z||20);
-  const NODES=opts.nodes||90,pos=[];
-  for(let i=0;i<NODES;i++){const r=6+Math.random()*8,th=Math.random()*Math.PI*2,ph=Math.acos(2*Math.random()-1);
-    pos.push(new THREE.Vector3(r*Math.sin(ph)*Math.cos(th),r*Math.sin(ph)*Math.sin(th)*0.7,r*Math.cos(ph)));}
-  const npos=new Float32Array(NODES*3),ncol=new Float32Array(NODES*3);
-  const cFlow=new THREE.Color('#2FE3D2'),cAI=new THREE.Color('#8B7CFF'),cCta=new THREE.Color('#FF5C8A');
-  pos.forEach((p,i)=>{npos[i*3]=p.x;npos[i*3+1]=p.y;npos[i*3+2]=p.z;
-    const c=i%7===0?cCta:(i%2?cAI:cFlow);ncol[i*3]=c.r;ncol[i*3+1]=c.g;ncol[i*3+2]=c.b;});
-  const ng=new THREE.BufferGeometry();ng.setAttribute('position',new THREE.BufferAttribute(npos,3));ng.setAttribute('color',new THREE.BufferAttribute(ncol,3));
-  scene.add(new THREE.Points(ng,new THREE.PointsMaterial({size:0.28,vertexColors:true,transparent:true,opacity:.95,blending:THREE.AdditiveBlending,depthWrite:false})));
-  const everts=[],ecol=[];
-  for(let i=0;i<NODES;i++)for(let j=i+1;j<NODES;j++){
-    if(pos[i].distanceTo(pos[j])<4.2 && Math.random()>0.55){
-      everts.push(pos[i].x,pos[i].y,pos[i].z,pos[j].x,pos[j].y,pos[j].z);
-      ecol.push(cAI.r,cAI.g,cAI.b,cFlow.r,cFlow.g,cFlow.b);}}
-  const eg=new THREE.BufferGeometry();eg.setAttribute('position',new THREE.BufferAttribute(new Float32Array(everts),3));eg.setAttribute('color',new THREE.BufferAttribute(new Float32Array(ecol),3));
-  scene.add(new THREE.LineSegments(eg,new THREE.LineBasicMaterial({vertexColors:true,transparent:true,opacity:.14,blending:THREE.AdditiveBlending})));
-  const core=new THREE.Mesh(new THREE.IcosahedronGeometry(2.1,1),new THREE.MeshBasicMaterial({color:'#8B7CFF',wireframe:true,transparent:true,opacity:.5}));scene.add(core);
-  const coreGlow=new THREE.Mesh(new THREE.SphereGeometry(1.2,24,24),new THREE.MeshBasicMaterial({color:'#B9A9FF',transparent:true,opacity:.28}));scene.add(coreGlow);
-  const PN=opts.pulses||60,ppos=new Float32Array(PN*3),pdata=[];
-  for(let i=0;i<PN;i++){const src=pos[(Math.random()*NODES)|0];pdata.push({src,t:Math.random()});ppos[i*3]=src.x;ppos[i*3+1]=src.y;ppos[i*3+2]=src.z;}
-  const pg=new THREE.BufferGeometry();pg.setAttribute('position',new THREE.BufferAttribute(ppos,3));
-  scene.add(new THREE.Points(pg,new THREE.PointsMaterial({color:'#2FE3D2',size:0.42,transparent:true,opacity:.9,blending:THREE.AdditiveBlending,depthWrite:false})));
-  let mx=0,my=0,visible=true;
-  new IntersectionObserver(e=>visible=e[0].isIntersecting).observe(canvas);
-  window.addEventListener('mousemove',e=>{mx=(e.clientX/window.innerWidth-0.5);my=(e.clientY/window.innerHeight-0.5);});
-  function frame(t){requestAnimationFrame(frame);if(!visible)return;
-    const w=canvas.clientWidth,h=canvas.clientHeight;if(!w||!h)return;
-    if(canvas.width!==w||canvas.height!==h){renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();}
-    const time=t/1000;scene.rotation.y=time*0.05+mx*0.4;scene.rotation.x=my*0.25;
-    core.rotation.x=time*0.3;core.rotation.y=time*0.22;coreGlow.scale.setScalar(1+Math.sin(time*1.6)*0.12);
-    if(!reduced){const arr=pg.attributes.position.array;
-      for(let i=0;i<PN;i++){const d=pdata[i];d.t+=0.008;if(d.t>1){d.t=0;d.src=pos[(Math.random()*NODES)|0];}
-        const k=1-d.t;arr[i*3]=d.src.x*k;arr[i*3+1]=d.src.y*k;arr[i*3+2]=d.src.z*k;}
-      pg.attributes.position.needsUpdate=true;}
-    renderer.render(scene,camera);}
-  requestAnimationFrame(frame);
-}
-agentNetwork('heroFx',{nodes:100,pulses:70,z:20});
-agentNetwork('svcHeroFx',{nodes:55,pulses:36,z:18});
-agentNetwork('ctaFx',{nodes:60,pulses:40,z:19});
-
-/* ---------- logo knots ---------- */
-document.querySelectorAll('canvas.knot').forEach(canvas=>{
-  if(!window.THREE)return;
-  const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true});renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
-  const scene=new THREE.Scene();const camera=new THREE.PerspectiveCamera(45,1,0.1,50);camera.position.z=7;
-  const m=new THREE.Mesh(new THREE.TorusKnotGeometry(1.7,0.4,120,16,2,3),new THREE.MeshStandardMaterial({color:'#8B7CFF',metalness:.6,roughness:.3,emissive:'#2FE3D2',emissiveIntensity:.15}));
-  scene.add(m);scene.add(new THREE.AmbientLight('#5B6684',.8));
-  const k=new THREE.DirectionalLight('#CFC7FF',1.4);k.position.set(3,4,5);scene.add(k);
-  let visible=true;new IntersectionObserver(e=>visible=e[0].isIntersecting).observe(canvas);
-  (function fr(){requestAnimationFrame(fr);if(!visible)return;
-    const w=canvas.clientWidth,h=canvas.clientHeight;if(canvas.width!==w||canvas.height!==h){renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();}
-    if(!reduced)m.rotation.y+=0.006;m.rotation.x=0.4;renderer.render(scene,camera);})();
-});
-</script>
+<script src="assets/proto.js"></script>
 </body>
 </html>
