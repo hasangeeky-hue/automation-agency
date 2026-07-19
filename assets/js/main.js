@@ -4,6 +4,20 @@
   'use strict';
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* mobile nav toggle */
+  var toggle = document.getElementById('navToggle');
+  var hd = document.querySelector('.hd');
+  if (toggle && hd) {
+    toggle.addEventListener('click', function () {
+      var open = hd.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    // close the menu after tapping a link
+    hd.querySelectorAll('.nav a').forEach(function (a) {
+      a.addEventListener('click', function () { hd.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); });
+    });
+  }
+
   /* scroll reveal */
   var io = new IntersectionObserver(function (es) {
     es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });

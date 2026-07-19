@@ -29,6 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 		<div class="nav-cta">
 			<div class="team-mini" aria-hidden="true"><i></i><i></i><i></i><span><?php esc_html_e( 'meet the team', 'anthropos' ); ?></span></div>
 			<a class="btn btn-cta" href="#cta"><?php esc_html_e( 'Book a Free Consultation', 'anthropos' ); ?></a>
+			<button class="nav-toggle" id="navToggle" aria-label="<?php esc_attr_e( 'Open menu', 'anthropos' ); ?>" aria-expanded="false"><span></span><span></span><span></span></button>
 		</div>
 	</div>
 </header>

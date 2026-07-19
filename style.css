@@ -4,7 +4,7 @@ Theme URI: https://github.com/hasangeeky-hue/automation-agency
 Author: Anthropos Automation
 Author URI: https://anthropos-automation.com
 Description: AI Automation OS theme for anthropos-automation.com — dark glass "automation canvas", node-graph/agent-network 3D on every card, micro-combo services, service pages with 4 blocks + 10 guides, neuro-navigation and internal linking. Web design + AEO/GEO + AI/n8n automation.
-Version: 3.0.0
+Version: 3.0.1
 Requires at least: 6.0
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
@@ -244,4 +244,24 @@ canvas{display:block}
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1)}
 .reveal.in{opacity:1;transform:none}
 .screen-reader-text{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-@media(max-width:1000px){.nav{display:none}.team-mini{display:none}}
+
+/* mobile nav toggle (hamburger) */
+.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:42px;height:38px;border:1px solid var(--line);border-radius:10px;background:var(--glass);cursor:pointer;padding:0 10px}
+.nav-toggle span{display:block;height:2px;background:var(--ink);border-radius:2px;transition:transform .2s, opacity .2s}
+.hd.open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hd.open .nav-toggle span:nth-child(2){opacity:0}
+.hd.open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+@media(max-width:1000px){
+  .team-mini{display:none}
+  .nav-toggle{display:flex}
+  .nav{display:none;position:absolute;top:70px;left:0;right:0;flex-direction:column;align-items:stretch;gap:2px;
+    background:rgba(12,17,32,.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--line);
+    box-shadow:0 30px 70px rgba(0,0,0,.5);padding:12px 18px 18px;max-height:calc(100vh - 70px);overflow-y:auto}
+  .hd.open .nav{display:flex}
+  .nav > li > a{padding:13px 12px;font-size:15px;border-radius:10px}
+  /* touch: sub-menus expand inline, no hover needed */
+  .nav .sub-menu{position:static;opacity:1;visibility:visible;transform:none;background:transparent;
+    border:none;box-shadow:none;padding:0 0 6px 12px;margin:0;border-left:1px solid var(--line)}
+  .nav .sub-menu a{padding:9px 12px;font-size:13.5px}
+}

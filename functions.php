@@ -4,7 +4,7 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'ANTHROPOS_VERSION', '3.0.0' );
+define( 'ANTHROPOS_VERSION', '3.0.1' );
 
 function anthropos_setup() {
 	add_theme_support( 'title-tag' );
