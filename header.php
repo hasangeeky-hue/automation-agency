@@ -1,8 +1,22 @@
 <?php
 /**
- * Theme header (v3).
+ * Theme header (v4) — renders the fixed nav that matches the design system.
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
+$home = home_url( '/' );
+$svc  = home_url( '/services/' );
+$guides = home_url( '/guides/' );
+$blog = get_permalink( get_option( 'page_for_posts' ) );
+if ( ! $blog ) { $blog = home_url( '/blog/' ); }
+$segs = array(
+	array( 'Automation Service for Regulated Professionals', 'var(--g1)' ),
+	array( 'Automation Service for Medical Professionals', 'var(--g2)' ),
+	array( 'Automation Service for E-Commerce &amp; Retail', 'var(--g3)' ),
+	array( 'Automation Service for Service-Based Professionals', 'var(--g4)' ),
+	array( 'Automation Service for Freelancers &amp; Micro-Agencies', 'var(--g7)' ),
+	array( 'Automation Service for Creators &amp; Coaches', 'var(--g5)' ),
+	array( 'Automation Service for B2B Service Providers', 'var(--g6)' ),
+);
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -14,22 +28,28 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 <?php wp_body_open(); ?>
 <header class="hd">
 	<div class="hd-in">
-		<a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-			<canvas class="knot" width="68" height="68" aria-hidden="true"></canvas>
-			<span><?php bloginfo( 'name' ); ?><small><?php esc_html_e( 'automation os', 'anthropos' ); ?></small></span>
-		</a>
-		<?php
-		wp_nav_menu( array(
-			'theme_location' => 'primary',
-			'menu_class'     => 'nav',
-			'container'      => false,
-			'fallback_cb'    => 'anthropos_fallback_menu',
-		) );
-		?>
+		<a class="logo" href="<?php echo esc_url( $home ); ?>"><canvas class="knot" width="68" height="68" aria-hidden="true"></canvas><span><?php bloginfo( 'name' ); ?><small><?php esc_html_e( 'automation os', 'anthropos' ); ?></small></span></a>
+		<ul class="nav">
+			<li data-menu><a href="<?php echo esc_url( $home ); ?>#about"><?php esc_html_e( 'About Us', 'anthropos' ); ?></a>
+				<ul class="sub">
+					<li><a href="<?php echo esc_url( $home ); ?>#about">Our Company</a></li>
+					<li><a href="<?php echo esc_url( $home ); ?>#team">Our Team</a></li>
+					<li><a href="<?php echo esc_url( $home ); ?>#solve">How We Solve It</a></li>
+					<li><a href="<?php echo esc_url( $home ); ?>#about">Our Vision</a></li>
+				</ul>
+			</li>
+			<li data-menu><a href="<?php echo esc_url( $svc ); ?>"><?php esc_html_e( 'Services', 'anthropos' ); ?></a>
+				<ul class="sub">
+					<?php foreach ( $segs as $s ) { echo '<li><a href="' . esc_url( $svc ) . '" style="--hue:' . esc_attr( $s[1] ) . '"><span class="dot"></span>' . wp_kses_post( $s[0] ) . '</a></li>'; } ?>
+				</ul>
+			</li>
+			<li><a href="<?php echo esc_url( $guides ); ?>"><?php esc_html_e( 'Guides', 'anthropos' ); ?></a></li>
+			<li><a href="<?php echo esc_url( $blog ); ?>"><?php esc_html_e( 'Blog', 'anthropos' ); ?></a></li>
+			<li><a href="<?php echo esc_url( $home ); ?>#team"><?php esc_html_e( 'Team', 'anthropos' ); ?></a></li>
+		</ul>
 		<div class="nav-cta">
-			<div class="team-mini" aria-hidden="true"><i></i><i></i><i></i><span><?php esc_html_e( 'meet the team', 'anthropos' ); ?></span></div>
 			<a class="btn btn-cta" href="#cta"><?php esc_html_e( 'Book a Free Consultation', 'anthropos' ); ?></a>
-			<button class="nav-toggle" id="navToggle" aria-label="<?php esc_attr_e( 'Open menu', 'anthropos' ); ?>" aria-expanded="false"><span></span><span></span><span></span></button>
+			<button class="nav-toggle" id="navToggle" aria-label="<?php esc_attr_e( 'Menu', 'anthropos' ); ?>" aria-expanded="false"><span></span><span></span><span></span></button>
 		</div>
 	</div>
 </header>

@@ -1,10 +1,10 @@
 <?php
 /**
- * Anthropos Automation OS — theme setup (v3).
+ * Anthropos Automation OS — theme setup (v4).
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'ANTHROPOS_VERSION', '3.0.3' );
+define( 'ANTHROPOS_VERSION', '4.0.0' );
 
 function anthropos_setup() {
 	add_theme_support( 'title-tag' );
@@ -29,31 +29,57 @@ function anthropos_assets() {
 add_action( 'wp_enqueue_scripts', 'anthropos_assets' );
 
 /**
- * Fallback primary menu (used until the user assigns one).
+ * One-time bootstrap: create the Services / Guides / Blog pages the menu links to,
+ * and set a static front page. Runs once in admin; guarded by an option flag so it
+ * fires the first time an admin loads the dashboard after this version deploys.
  */
-function anthropos_fallback_menu() {
-	echo '<ul class="nav">';
-	echo '<li><a href="#about">About Us</a><ul class="sub-menu">';
-	echo '<li><a href="#about">Our Company</a></li><li><a href="#team">Our Team</a></li><li><a href="#solve">How We Solve It</a></li><li><a href="#about">Our Vision</a></li>';
-	echo '</ul></li>';
-	echo '<li><a href="#services">Services</a><ul class="sub-menu">';
-	echo '<li><a href="#services">Conversion Web Design</a></li><li><a href="#services">AEO / GEO / SEO</a></li><li><a href="#services">Lead &amp; Marketing Automation</a></li><li><a href="#services">Whole-Business Automation</a></li>';
-	echo '</ul></li>';
-	echo '<li><a href="#industries">Industries</a><ul class="sub-menu">';
-	foreach ( anthropos_groups() as $g ) {
-		echo '<li><a href="#industries">' . wp_kses_post( $g[0] ) . '</a></li>';
+function anthropos_bootstrap_pages() {
+	if ( ! is_admin() || ! current_user_can( 'manage_options' ) ) { return; }
+	if ( get_option( 'anthropos_bootstrapped_v4' ) ) { return; }
+
+	// Services page using the Automation Service template.
+	$svc = get_page_by_path( 'services' );
+	if ( ! $svc ) {
+		$id = wp_insert_post( array(
+			'post_title'  => 'Automation Service for Regulated Professionals',
+			'post_name'   => 'services',
+			'post_status' => 'publish',
+			'post_type'   => 'page',
+			'post_content'=> '',
+		) );
+		if ( $id && ! is_wp_error( $id ) ) { update_post_meta( $id, '_wp_page_template', 'template-service.php' ); }
 	}
-	echo '</ul></li>';
-	echo '<li><a href="#servicepage">Guides</a></li>';
-	$blog = get_permalink( get_option( 'page_for_posts' ) );
-	echo '<li><a href="' . esc_url( $blog ? $blog : home_url( '/blog/' ) ) . '">Blog</a></li>';
-	echo '<li><a href="#team">Team</a></li>';
-	echo '</ul>';
+	// Guides landing page.
+	if ( ! get_page_by_path( 'guides' ) ) {
+		wp_insert_post( array( 'post_title' => 'Guides', 'post_name' => 'guides', 'post_status' => 'publish', 'post_type' => 'page', 'post_content' => 'Research-grade guides — one library per automation service. [Placeholder]' ) );
+	}
+	// Blog page (posts page).
+	$blog = get_page_by_path( 'blog' );
+	if ( ! $blog ) {
+		$blog_id = wp_insert_post( array( 'post_title' => 'Blog', 'post_name' => 'blog', 'post_status' => 'publish', 'post_type' => 'page', 'post_content' => '' ) );
+	} else {
+		$blog_id = $blog->ID;
+	}
+	// Home page + static front.
+	$home = get_page_by_path( 'home' );
+	if ( ! $home ) {
+		$home_id = wp_insert_post( array( 'post_title' => 'Home', 'post_name' => 'home', 'post_status' => 'publish', 'post_type' => 'page', 'post_content' => '' ) );
+	} else {
+		$home_id = $home->ID;
+	}
+	if ( $home_id && ! is_wp_error( $home_id ) ) {
+		update_option( 'show_on_front', 'page' );
+		update_option( 'page_on_front', $home_id );
+	}
+	if ( $blog_id && ! is_wp_error( $blog_id ) ) {
+		update_option( 'page_for_posts', $blog_id );
+	}
+	update_option( 'anthropos_bootstrapped_v4', 1 );
 }
+add_action( 'admin_init', 'anthropos_bootstrap_pages' );
 
 /**
- * Customer segments (slug => [label, hex]) — the 7 groups from the business
- * model. Shared by the industries section, the Services menu, and the footer.
+ * The 7 customer segments (slug => [label, hex]) — for reference/reuse.
  */
 function anthropos_groups() {
 	return array(
