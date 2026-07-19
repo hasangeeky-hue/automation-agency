@@ -50,7 +50,20 @@
   /* ---------- blog filters ---------- */
   var filters = document.querySelectorAll('.filters .fbtn');
   if (filters.length) filters.forEach(function (b) {
-    b.addEventListener('click', function () { filters.forEach(function (x) { x.classList.remove('on'); }); b.classList.add('on'); var f = b.dataset.f; document.querySelectorAll('[data-post]').forEach(function (p) { p.classList.toggle('hidden', f !== 'all' && p.dataset.post !== f); }); });
+    b.addEventListener('click', function () {
+      // allow separate active state per filter group (data-group)
+      var grp = b.closest('.filters');
+      grp.querySelectorAll('.fbtn').forEach(function (x) { x.classList.remove('on'); });
+      b.classList.add('on');
+      // collect the active filter from every group; a post must match all active (non-"all") groups
+      var active = [];
+      document.querySelectorAll('.filters .fbtn.on').forEach(function (x) { if (x.dataset.f && x.dataset.f !== 'all') active.push(x.dataset.f); });
+      document.querySelectorAll('[data-cats],[data-post]').forEach(function (p) {
+        var cats = (p.dataset.cats || p.dataset.post || '').split(' ');
+        var show = active.every(function (f) { return cats.indexOf(f) !== -1; });
+        p.classList.toggle('hidden', !show);
+      });
+    });
   });
 
   /* =====================================================================
@@ -155,6 +168,41 @@
     /* particles — drifting field (ambient / premium) */
     particles: function (ctx, W, H, t, c) {
       for (var i = 0; i < 26; i++) { var sx = (i * 97 % 100) / 100, sy = (i * 57 % 100) / 100; var x = (sx * W + t * 0.008 * ((i % 3) + 1)) % W; var y = sy * H + Math.sin(t * 0.001 + i) * 7; dot(ctx, x, y, 1.6 + (i % 3) * 0.5, c, .5); }
+    },
+    /* holographic scan grid (interface / vision) */
+    holo: function (ctx, W, H, t, c) {
+      ctx.strokeStyle = 'rgba(' + c + ',.12)'; ctx.lineWidth = 1;
+      for (var i = 0; i <= 6; i++) { var y = (H * i / 6 + (t * 0.02) % (H / 6)); ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
+      for (var j = 0; j <= 8; j++) { var x = W * j / 8; ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
+      var sy = (t * 0.05) % H, g = ctx.createLinearGradient(0, sy - 12, 0, sy + 12); g.addColorStop(0, 'rgba(' + c + ',0)'); g.addColorStop(.5, 'rgba(' + c + ',.45)'); g.addColorStop(1, 'rgba(' + c + ',0)'); ctx.fillStyle = g; ctx.fillRect(0, sy - 12, W, 24);
+    },
+    /* liquid metal — morphing blob (transformation) */
+    liquid: function (ctx, W, H, t, c) {
+      var cx = W / 2, cy = H / 2, R = Math.min(W, H) * .3; ctx.beginPath();
+      for (var a = 0; a <= TAU + 0.2; a += 0.2) { var rr = R * (1 + 0.18 * Math.sin(a * 3 + t * 0.002) + 0.12 * Math.cos(a * 5 - t * 0.0015)); var x = cx + Math.cos(a) * rr, y = cy + Math.sin(a) * rr; a ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }
+      ctx.closePath(); var g = ctx.createRadialGradient(cx, cy, 0, cx, cy, R * 1.3); g.addColorStop(0, 'rgba(' + c + ',.5)'); g.addColorStop(1, 'rgba(' + c + ',.05)'); ctx.fillStyle = g; ctx.fill(); ctx.strokeStyle = 'rgba(' + c + ',.6)'; ctx.lineWidth = 1; ctx.stroke();
+    },
+    /* crystal — rotating faceted gem (premium / quality) */
+    crystal: function (ctx, W, H, t, c) {
+      var cx = W / 2, cy = H / 2, R = Math.min(W, H) * .32, n = 6, rot = t * 0.0006, pts = [];
+      for (var i = 0; i < n; i++) { var a = rot + i / n * TAU; pts.push([cx + Math.cos(a) * R, cy + Math.sin(a) * R * .82]); }
+      ctx.strokeStyle = 'rgba(' + c + ',.4)'; ctx.lineWidth = 1; ctx.beginPath(); pts.forEach(function (p, i) { i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]); }); ctx.closePath(); ctx.stroke();
+      pts.forEach(function (p) { line(ctx, [cx, cy], p, c, 1, .16); }); glow(ctx, cx, cy, 14, c, .5); dot(ctx, cx, cy, 4, c, 1);
+    },
+    /* orbit — nested orbiting rings (systems in motion) */
+    orbit: function (ctx, W, H, t, c) {
+      var cx = W / 2, cy = H / 2, R = Math.min(W, H) * .4;
+      for (var r = 0; r < 3; r++) { var rr = R * (0.4 + r * 0.3); ctx.strokeStyle = 'rgba(' + c + ',.12)'; ctx.lineWidth = 1; ctx.beginPath(); ctx.arc(cx, cy, rr, 0, TAU); ctx.stroke(); var a = t * 0.001 * (r % 2 ? 1 : -1) + r; glow(ctx, cx + Math.cos(a) * rr, cy + Math.sin(a) * rr, 6, c, .8); }
+      glow(ctx, cx, cy, 12, c, .5); dot(ctx, cx, cy, 4, c, 1);
+    },
+    /* matrix — falling data columns (content / feeds) */
+    matrix: function (ctx, W, H, t, c) {
+      var cols = 9; for (var i = 0; i < cols; i++) { var x = W * (i + 0.5) / cols, sp = (i % 3 + 1), y = ((t * 0.03 * sp) + i * 40) % (H + 40) - 20; var g = ctx.createLinearGradient(x, y - 40, x, y + 18); g.addColorStop(0, 'rgba(' + c + ',0)'); g.addColorStop(1, 'rgba(' + c + ',.7)'); ctx.strokeStyle = g; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x, y - 40); ctx.lineTo(x, y + 14); ctx.stroke(); dot(ctx, x, y + 14, 2, c, .9); }
+    },
+    /* pulse — concentric pulses from a node cluster (reach / signal) */
+    pulse: function (ctx, W, H, t, c) {
+      var pts = [[.3, .35], [.7, .3], [.5, .6], [.25, .7], [.78, .68]], M = Math.min(W, H) * .25;
+      pts.forEach(function (p, i) { var x = p[0] * W, y = p[1] * H, ph = ((t * 0.0008) + i * 0.2) % 1; ctx.strokeStyle = 'rgba(' + c + ',' + (0.5 * (1 - ph)) + ')'; ctx.lineWidth = 1; ctx.beginPath(); ctx.arc(x, y, ph * M, 0, TAU); ctx.stroke(); glow(ctx, x, y, 8, c, .4); dot(ctx, x, y, 3, c, .9); });
     }
   };
   /* legacy aliases so old data-fx values still render */

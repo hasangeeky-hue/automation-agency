@@ -9,6 +9,8 @@ $guides = home_url( '/guides/' );
 $blog = get_permalink( get_option( 'page_for_posts' ) );
 if ( ! $blog ) { $blog = home_url( '/blog/' ); }
 $segs = function_exists( 'anthropos_segments' ) ? anthropos_segments() : array();
+$about_pg = get_page_by_path( 'about' );
+$about = $about_pg ? get_permalink( $about_pg ) : home_url( '/about/' );
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -22,12 +24,11 @@ $segs = function_exists( 'anthropos_segments' ) ? anthropos_segments() : array()
 	<div class="hd-in">
 		<a class="logo" href="<?php echo esc_url( $home ); ?>"><canvas class="knot" width="68" height="68" aria-hidden="true"></canvas><span><?php bloginfo( 'name' ); ?><small><?php esc_html_e( 'automation os', 'anthropos' ); ?></small></span></a>
 		<ul class="nav">
-			<li data-menu><a href="<?php echo esc_url( $home ); ?>#about"><?php esc_html_e( 'About Us', 'anthropos' ); ?></a>
+			<li data-menu><a href="<?php echo esc_url( $about ); ?>"><?php esc_html_e( 'About Us', 'anthropos' ); ?></a>
 				<ul class="sub">
-					<li><a href="<?php echo esc_url( $home ); ?>#about">Our Company</a></li>
-					<li><a href="<?php echo esc_url( $home ); ?>#team">Our Team</a></li>
-					<li><a href="<?php echo esc_url( $home ); ?>#solve">How We Solve It</a></li>
-					<li><a href="<?php echo esc_url( $home ); ?>#about">Our Vision</a></li>
+					<li><a href="<?php echo esc_url( $about ); ?>#company"><span class="dot" style="background:var(--flow)"></span>Our Company</a></li>
+					<li><a href="<?php echo esc_url( $about ); ?>#vision"><span class="dot" style="background:var(--ai)"></span>Our Vision</a></li>
+					<li><a href="<?php echo esc_url( $about ); ?>#team"><span class="dot" style="background:var(--cta)"></span>Our Team</a></li>
 				</ul>
 			</li>
 			<li data-menu><a href="<?php echo esc_url( $svc ); ?>"><?php esc_html_e( 'Services', 'anthropos' ); ?></a>
@@ -43,7 +44,6 @@ $segs = function_exists( 'anthropos_segments' ) ? anthropos_segments() : array()
 				</ul>
 			</li>
 			<li><a href="<?php echo esc_url( $blog ); ?>"><?php esc_html_e( 'Blog', 'anthropos' ); ?></a></li>
-			<li><a href="<?php echo esc_url( $home ); ?>#team"><?php esc_html_e( 'Team', 'anthropos' ); ?></a></li>
 		</ul>
 		<div class="nav-cta">
 			<a class="btn btn-cta" href="#cta"><?php esc_html_e( 'Book a Free Consultation', 'anthropos' ); ?></a>
