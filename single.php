@@ -1,12 +1,13 @@
 <?php
 /**
- * Single post / guide (v6) — editorial long-read: 3D cover, auto-built sticky
- * table of contents (from the article's H2s) with scroll-spy, reading time,
- * reading-progress bar, related guides, contextual service link, prev/next.
+ * Single post / guide (v7) — service-page-style layout: 3D cover, the article
+ * rendered as alternating blocks (each with its own 3D visual), reading time,
+ * related guides, contextual service link, prev/next, CTA.
  * Reader-guide classes usable in content: .qa, .hl.hl-do/.hl-stat/.hl-res/.hl-warn.
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 get_header();
+$segs = function_exists( 'anthropos_segments' ) ? anthropos_segments() : array();
 ?>
 <div class="progress-wrap"><div class="progress" id="progress"></div></div>
 <?php
@@ -14,6 +15,7 @@ while ( have_posts() ) : the_post();
 	$cats = get_the_category();
 	$tags = get_the_tags();
 	$cat  = $cats ? $cats[0] : null;
+	$hue  = ( $cat && isset( $segs[ $cat->slug ] ) ) ? $segs[ $cat->slug ]['hue'] : 'var(--flow)';
 
 	// Resolve the specific parent service page for this article.
 	$svc_url = ''; $svc_label = '';
@@ -28,18 +30,21 @@ while ( have_posts() ) : the_post();
 	}
 	if ( ! $svc_url ) { $svc_url = home_url( '/services/' ); $svc_label = 'our services'; }
 
-	// Build the article HTML and a table of contents from its H2 headings.
-	$raw  = get_the_content();
-	$html = apply_filters( 'the_content', $raw );
-	$toc  = array();
-	$html = preg_replace_callback( '/<h2([^>]*)>(.*?)<\/h2>/is', function ( $m ) use ( &$toc ) {
-		if ( preg_match( '/\bid=/i', $m[1] ) ) { return $m[0]; }
-		$id = 'sec-' . ( count( $toc ) + 1 );
-		$toc[] = array( 'id' => $id, 'text' => trim( wp_strip_all_tags( $m[2] ) ) );
-		return '<h2 id="' . $id . '"' . $m[1] . '>' . $m[2] . '</h2>';
-	}, $html );
-	$has_toc = count( $toc ) >= 2;
-	$mins    = max( 1, (int) round( str_word_count( wp_strip_all_tags( $raw ) ) / 200 ) );
+	// Split the article into blocks: intro (before first H2), then one per H2 section.
+	$raw   = get_the_content();
+	$html  = apply_filters( 'the_content', $raw );
+	$parts = preg_split( '/(?=<h2)/i', $html );
+	$blocks = array();
+	$intro  = trim( $parts[0] );
+	if ( '' !== $intro ) { $blocks[] = array( 't' => 'The short version', 'b' => $intro ); }
+	for ( $i = 1; $i < count( $parts ); $i++ ) {
+		if ( preg_match( '/^<h2[^>]*>(.*?)<\/h2>(.*)$/is', $parts[ $i ], $m ) ) {
+			$blocks[] = array( 't' => trim( wp_strip_all_tags( $m[1] ) ), 'b' => trim( $m[2] ) );
+		} else {
+			$blocks[] = array( 't' => '', 'b' => trim( $parts[ $i ] ) );
+		}
+	}
+	$mins = max( 1, (int) round( str_word_count( wp_strip_all_tags( $raw ) ) / 200 ) );
 
 	// Related guides — other posts in the same segment (falls back to recent).
 	$related_args = array(
@@ -56,9 +61,7 @@ while ( have_posts() ) : the_post();
 	$next = get_next_post();
 	$ptype = get_the_terms( get_the_ID(), 'ao_type' );
 	$ptype_label = ( $ptype && ! is_wp_error( $ptype ) ) ? ucfirst( $ptype[0]->slug ) : 'Guide';
-
-	$wrap_class = $has_toc ? 'gp' : 'wrap-sm';
-	$wrap_style = $has_toc ? '' : ' style="padding-top:34px;padding-bottom:70px"';
+	$bfx = array( 'radar', 'dataflow', 'workflow', 'growth', 'broadcast', 'funnel', 'holo', 'pulse', 'neural', 'core' );
 	?>
 <script type="application/ld+json"><?php echo wp_json_encode( array(
 	'@context'         => 'https://schema.org',
@@ -70,15 +73,8 @@ while ( have_posts() ) : the_post();
 	'publisher'        => array( '@type' => 'Organization', 'name' => get_bloginfo( 'name' ) ),
 	'mainEntityOfPage' => get_permalink(),
 ) ); ?></script>
-<div class="<?php echo esc_attr( $wrap_class ); ?>"<?php echo $wrap_style; ?>>
-	<?php if ( $has_toc ) : ?>
-	<aside class="toc">
-		<div class="tl">On this page</div>
-		<?php foreach ( $toc as $t ) { echo '<a data-t="' . esc_attr( $t['id'] ) . '" href="#' . esc_attr( $t['id'] ) . '">' . esc_html( $t['text'] ) . '</a>'; } ?>
-		<div class="pos"><b><?php echo esc_html( $cat ? $cat->name : $ptype_label ); ?></b><br><?php echo (int) $mins; ?> min read · part of the full system. <a href="<?php echo esc_url( $svc_url ); ?>" style="color:var(--flow)">See your service page →</a></div>
-	</aside>
-	<?php endif; ?>
-	<article class="art">
+<div class="wrap" style="padding-top:34px;padding-bottom:66px">
+	<div class="art art-head">
 		<div class="art-cover">
 			<canvas class="fx" data-net data-nodes="42" data-pulses="30" data-z="18" aria-hidden="true"></canvas>
 			<span class="acv-tag"><?php echo esc_html( $ptype_label . ( $cat ? ' · ' . $cat->name : '' ) ); ?></span>
@@ -90,8 +86,26 @@ while ( have_posts() ) : the_post();
 		</div>
 		<h1><?php the_title(); ?></h1>
 		<div class="byline"><span class="ava">A</span><span><b>Anthropos Automation</b> · Editorial team<br>Reviewed <?php echo esc_html( get_the_modified_date() ); ?> · <?php echo esc_html( $cat ? $cat->name : $ptype_label ); ?></span></div>
-		<div class="aa-content" style="margin-top:22px;color:var(--muted)"><?php echo $html; // phpcs:ignore WordPress.Security.EscapeOutput -- post content through the_content filter ?></div>
+	</div>
 
+	<?php if ( $blocks ) : ?>
+	<div class="gblocks">
+		<?php foreach ( $blocks as $bi => $bl ) : ?>
+		<div class="glass sp-block reveal" style="--hue:<?php echo esc_attr( $hue ); ?>">
+			<div class="sp-fx"><canvas data-fx="<?php echo esc_attr( $bfx[ $bi % 10 ] ); ?>" style="--hue:<?php echo esc_attr( $hue ); ?>"></canvas></div>
+			<div class="sp-body">
+				<span class="no"><?php echo esc_html( sprintf( '%02d', $bi + 1 ) ); ?></span>
+				<?php if ( '' !== $bl['t'] ) : ?><h3><?php echo esc_html( $bl['t'] ); ?></h3><?php endif; ?>
+				<div class="aa-content"><?php echo $bl['b']; // phpcs:ignore WordPress.Security.EscapeOutput -- post content ?></div>
+			</div>
+		</div>
+		<?php endforeach; ?>
+	</div>
+	<?php else : ?>
+	<div class="art art-head"><div class="aa-content"><?php echo $html; // phpcs:ignore ?></div></div>
+	<?php endif; ?>
+
+	<div class="art art-foot">
 		<?php if ( $related ) : ?>
 		<div class="related">
 			<div class="glh">Related guides <?php echo $cat ? 'for ' . esc_html( $cat->name ) : ''; ?></div>
@@ -123,8 +137,8 @@ while ( have_posts() ) : the_post();
 		<?php endif; ?>
 
 		<div style="margin-top:26px;text-align:center">
-			<a class="btn btn-cta" href="<?php echo esc_url( $svc_url ); ?>">See how we build this for you →</a>
+			<a class="btn btn-cta" href="<?php echo esc_url( $svc_url ); ?>">Talk to an expert about this →</a>
 		</div>
-	</article>
+	</div>
 </div>
 <?php endwhile; anthropos_faq_section(); get_footer(); ?>

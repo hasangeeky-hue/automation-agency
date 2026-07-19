@@ -1,6 +1,6 @@
 <?php
 /**
- * Front page (v4) — AI Automation OS.
+ * Front page — AI Automation OS. Warm, solution-first homepage.
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 get_header();
@@ -24,54 +24,54 @@ $blurbs = array(
 	<div class="hero-in">
 		<div class="eyebrow">Anthropos Automation OS · web + AEO/GEO + AI automation</div>
 		<h1>The leads are coming in. <span class="grad">You're just losing them.</span></h1>
-		<p class="sub">Slow replies, a dated website, follow-up nobody has time for — that's where the inquiries you already paid to earn quietly disappear. We build the website, the answer-engine visibility and the <b>AI agents on n8n</b> that capture, qualify and chase every lead for you, automatically. Six services, one page per business type.</p>
-		<div class="hero-ctas"><a class="btn btn-cta" href="#cta">Book a non-binding consultation</a><a class="btn btn-glass" href="#services">See the 6 services ↓</a></div>
+		<p class="sub">Slow replies, a dated website, follow-up nobody has time for — that's where the work you've already earned quietly slips away. We build the website, the visibility and the <b>AI agents on n8n</b> that answer, qualify and follow up on every enquiry for you — so being busy stops costing you customers.</p>
+		<div class="hero-ctas"><a class="btn btn-cta" href="#cta">Book a free consultation</a><a class="btn btn-glass" href="#services">See what we do ↓</a></div>
 		<div class="hero-tags"><span class="tag">Web Design</span><span class="tag" style="--hue:var(--ai)">AEO / GEO</span><span class="tag">Lead Automation</span><span class="tag" style="--hue:var(--g3)">Marketing Automation</span><span class="tag" style="--hue:var(--g5)">Social Media Automation</span><span class="tag" style="--hue:var(--cta)">AI + n8n</span></div>
 	</div>
 </section>
 
 <section id="solve">
-	<div class="wrap band reveal"><div class="eyebrow">How we solve the problem</div><h2>Problem → Agent → Outcome</h2><p class="soft">You don't need more tools — you need them <b>connected and thinking.</b> We map the leak, deploy the agent that closes it, and wire the workflow so it runs without you.</p></div>
+	<div class="wrap band reveal"><div class="eyebrow">How it works</div><h2>Three steps to a business that runs itself</h2><p class="soft">You're brilliant at the work — you're just stretched too thin to chase every lead, post every week and follow up on time. So we take that off your plate, quietly in the background, and hand you back the hours.</p></div>
 	<div class="wrap"><div class="grid-3" role="list">
-		<div class="glass reveal tilt" role="listitem" style="--hue:var(--flow)"><canvas class="fxcanvas" data-fx="radar" style="--hue:var(--flow)"></canvas><div class="card-b"><span class="lbl">01 · MAP</span><h4>Find the leak</h4><p>We trace where leads, replies and revenue drain out — visibility, trust, or follow-up.</p></div></div>
-		<div class="glass reveal tilt" role="listitem" style="--hue:var(--ai)"><canvas class="fxcanvas" data-fx="workflow" style="--hue:var(--ai)"></canvas><div class="card-b"><span class="lbl">02 · DEPLOY</span><h4>Build the agent</h4><p>An AI agent + n8n workflow takes over: replies in seconds, qualifies, routes, follows up.</p></div></div>
-		<div class="glass reveal tilt" role="listitem" style="--hue:var(--cta)"><canvas class="fxcanvas" data-fx="growth" style="--hue:var(--cta)"></canvas><div class="card-b"><span class="lbl">03 · COMPOUND</span><h4>Watch it run</h4><p>Connected once, working forever — leads flow to booked calls while it reports what works.</p></div></div>
+		<div class="glass reveal tilt" role="listitem" style="--hue:var(--flow)"><canvas class="fxcanvas" data-fx="radar" style="--hue:var(--flow)"></canvas><div class="card-b"><span class="lbl">01 · WE LISTEN</span><h4>We find what's slipping</h4><p>A friendly audit of where enquiries, replies and repeat business are quietly falling through the cracks.</p></div></div>
+		<div class="glass reveal tilt" role="listitem" style="--hue:var(--ai)"><canvas class="fxcanvas" data-fx="workflow" style="--hue:var(--ai)"></canvas><div class="card-b"><span class="lbl">02 · WE BUILD</span><h4>We set up your system</h4><p>A modern website and AI helpers on n8n that answer, follow up and post for you — wired to the tools you already use.</p></div></div>
+		<div class="glass reveal tilt" role="listitem" style="--hue:var(--cta)"><canvas class="fxcanvas" data-fx="growth" style="--hue:var(--cta)"></canvas><div class="card-b"><span class="lbl">03 · YOU GROW</span><h4>You get your time back</h4><p>It runs in the background, turning enquiries into booked jobs, while you focus on the work you actually love.</p></div></div>
 	</div></div>
 </section>
 
 <section id="services">
-	<div class="wrap band reveal"><div class="eyebrow">What we automate · six services, one system</div><h2>The six automation services</h2><p class="soft">Every service page combines all six for one business type. Each has its own live automation object.</p></div>
+	<div class="wrap band reveal"><div class="eyebrow">What we can take off your plate</div><h2>Six ways we help you grow</h2><p class="soft">Take one, or the whole system. Every business-type page below combines the ones that matter most for you.</p></div>
 	<div class="wrap"><div class="grid-3" role="list">
-		<a class="glass card reveal tilt" role="listitem" href="<?php echo esc_url( $svc ); ?>" style="--hue:var(--g2)"><canvas class="fxcanvas" data-fx="funnel" style="--hue:var(--g2)"></canvas><div class="card-b"><span class="lbl">Service 01</span><h4>Conversion Web Design</h4><p>Fast, mobile-first, trust in five seconds — built to turn visitors into inquiries.</p><span class="go">Explore →</span></div></a>
-		<a class="glass card reveal tilt" role="listitem" href="<?php echo esc_url( $svc ); ?>" style="--hue:var(--ai)"><canvas class="fxcanvas" data-fx="neural" style="--hue:var(--ai)"></canvas><div class="card-b"><span class="lbl">Service 02</span><h4>AEO / GEO / SEO</h4><p>Quoted by AI engines, ranked locally — found the moment they search.</p><span class="go">Explore →</span></div></a>
-		<a class="glass card reveal tilt" role="listitem" href="<?php echo esc_url( $svc ); ?>" style="--hue:var(--flow)"><canvas class="fxcanvas" data-fx="dataflow" style="--hue:var(--flow)"></canvas><div class="card-b"><span class="lbl">Service 03</span><h4>Lead Automation</h4><p>60-second replies, nurture, win-backs — the follow-up that closes.</p><span class="go">Explore →</span></div></a>
-		<a class="glass card reveal tilt" role="listitem" href="<?php echo esc_url( home_url( '/marketing-automation/' ) ); ?>" style="--hue:var(--g3)"><canvas class="fxcanvas" data-fx="broadcast" style="--hue:var(--g3)"></canvas><div class="card-b"><span class="lbl">Service 04</span><h4>Marketing Automation</h4><p>Seasonal campaigns, newsletters, segmented sequences — on schedule, on autopilot.</p><span class="go">Explore →</span></div></a>
-		<a class="glass card reveal tilt" role="listitem" href="<?php echo esc_url( home_url( '/social-media-automation/' ) ); ?>" style="--hue:var(--g5)"><canvas class="fxcanvas" data-fx="social" style="--hue:var(--g5)"></canvas><div class="card-b"><span class="lbl">Service 05</span><h4>Social Media Automation</h4><p>An AI agent drafts, schedules and repurposes on-brand content — you approve, it posts.</p><span class="go">Explore →</span></div></a>
-		<a class="glass card reveal tilt" role="listitem" href="<?php echo esc_url( $svc ); ?>" style="--hue:var(--cta)"><canvas class="fxcanvas" data-fx="core" style="--hue:var(--cta)"></canvas><div class="card-b"><span class="lbl">Service 06</span><h4>Whole-Business Automation · AI + n8n</h4><p>Inbox, CRM, invoicing, reporting — every tool connected into one nervous system.</p><span class="go">Explore →</span></div></a>
+		<a class="glass card reveal tilt" role="listitem" href="<?php echo esc_url( $svc ); ?>" style="--hue:var(--g2)"><canvas class="fxcanvas" data-fx="funnel" style="--hue:var(--g2)"></canvas><div class="card-b"><span class="lbl">Service 01</span><h4>Conversion Web Design</h4><p>A site that loads fast and earns trust in five seconds — so visitors reach out instead of leaving.</p><span class="go">Explore →</span></div></a>
+		<a class="glass card reveal tilt" role="listitem" href="<?php echo esc_url( $svc ); ?>" style="--hue:var(--ai)"><canvas class="fxcanvas" data-fx="neural" style="--hue:var(--ai)"></canvas><div class="card-b"><span class="lbl">Service 02</span><h4>AEO / GEO / SEO</h4><p>Show up the moment someone searches for what you do — in Google and in AI answers.</p><span class="go">Explore →</span></div></a>
+		<a class="glass card reveal tilt" role="listitem" href="<?php echo esc_url( $svc ); ?>" style="--hue:var(--flow)"><canvas class="fxcanvas" data-fx="dataflow" style="--hue:var(--flow)"></canvas><div class="card-b"><span class="lbl">Service 03</span><h4>Lead Automation</h4><p>Every enquiry answered in seconds and followed up until they book — even while you're on the job.</p><span class="go">Explore →</span></div></a>
+		<a class="glass card reveal tilt" role="listitem" href="<?php echo esc_url( home_url( '/marketing-automation/' ) ); ?>" style="--hue:var(--g3)"><canvas class="fxcanvas" data-fx="broadcast" style="--hue:var(--g3)"></canvas><div class="card-b"><span class="lbl">Service 04</span><h4>Marketing Automation</h4><p>Campaigns and newsletters that go out on time, every time, without you remembering to send them.</p><span class="go">Explore →</span></div></a>
+		<a class="glass card reveal tilt" role="listitem" href="<?php echo esc_url( home_url( '/social-media-automation/' ) ); ?>" style="--hue:var(--g5)"><canvas class="fxcanvas" data-fx="social" style="--hue:var(--g5)"></canvas><div class="card-b"><span class="lbl">Service 05</span><h4>Social Media Automation</h4><p>An AI helper drafts and schedules on-brand posts; you just approve, and your feed stays alive.</p><span class="go">Explore →</span></div></a>
+		<a class="glass card reveal tilt" role="listitem" href="<?php echo esc_url( $svc ); ?>" style="--hue:var(--cta)"><canvas class="fxcanvas" data-fx="core" style="--hue:var(--cta)"></canvas><div class="card-b"><span class="lbl">Service 06</span><h4>Whole-Business Automation · AI + n8n</h4><p>Inbox, CRM, invoicing and reporting all talking to each other, so nothing falls through the cracks.</p><span class="go">Explore →</span></div></a>
 	</div></div>
 </section>
 
 <section id="servicepages">
-	<div class="wrap band reveal"><div class="eyebrow">Neuro-navigation · pick your business</div><h2>Automation service pages — one per business type</h2><p class="soft">Each page combines the six services into a micro-combo for that business, with blocks and 10 guides.</p></div>
+	<div class="wrap band reveal"><div class="eyebrow">Pick your business</div><h2>Built for your line of work</h2><p class="soft">Choose your business type for a page built around your world — your customers, your pains, and the guides that help most.</p></div>
 	<div class="wrap"><div class="grid-4" role="list">
 		<?php foreach ( $segs as $slug => $seg ) { echo '<a class="glass card reveal tilt" role="listitem" href="' . esc_url( anthropos_seg_url( $slug ) ) . '" style="--hue:' . esc_attr( $seg['hue'] ) . '"><div class="card-b"><span class="lbl">' . wp_kses_post( $seg['label'] ) . '</span><h4>' . wp_kses_post( $seg['title'] ) . '</h4><p>' . wp_kses_post( isset( $blurbs[ $slug ] ) ? $blurbs[ $slug ] : '' ) . '</p><span class="go">Open →</span></div></a>'; } ?>
-		<a class="glass card reveal tilt" role="listitem" href="#cta" style="--hue:var(--cta)"><div class="card-b"><span class="lbl">Not sure?</span><h4>Book a non-binding call</h4><p>We map your leak in 30 minutes.</p><span class="go">Talk to a human →</span></div></a>
+		<a class="glass card reveal tilt" role="listitem" href="#cta" style="--hue:var(--cta)"><div class="card-b"><span class="lbl">Not sure?</span><h4>Let's talk it through</h4><p>We'll show you where you're losing work — in 30 minutes, free.</p><span class="go">Talk to a human →</span></div></a>
 	</div></div>
 </section>
 
 <section id="team">
-	<div class="wrap band reveal"><div class="eyebrow">Our team · on top</div><h2>Real people building the machines</h2><p class="soft">Automation feels human when humans design it. <a href="<?php echo esc_url( $about ); ?>#team" style="color:var(--flow)">Meet the full team →</a></p></div>
+	<div class="wrap band reveal"><div class="eyebrow">The people behind it</div><h2>A small, senior team — and you work with us directly</h2><p class="soft">No account managers, no hand-offs. The people who build your system are the ones who answer when you call. <a href="<?php echo esc_url( $about ); ?>#team" style="color:var(--flow)">Meet the team →</a></p></div>
 	<div class="wrap"><div class="team" role="list">
-		<div class="glass tm reveal" role="listitem"><div class="av">MH</div><h5>Murtuja Hasan</h5><span>Founder &amp; CEO</span><p>E-commerce &amp; performance-marketing lead running a 7-person team at a consistent 10x return on ad spend.</p></div>
-		<div class="glass tm reveal" role="listitem"><div class="av">AH</div><h5>Ahasanul Haque</h5><span>CTO</span><p>AI engineer and data scientist (M.Sc., TU Munich) with ML experience at Adobe and NewNow.</p></div>
-		<div class="glass tm reveal" role="listitem"><div class="av">SK</div><h5>Sina Khouei</h5><span>Cybersecurity &amp; Applied AI</span><p>M.Sc. Computer Science, University of Bonn — hardens every agent before it touches client data.</p></div>
-		<div class="glass tm reveal" role="listitem"><div class="av">AI</div><h5>Ariful Islam</h5><span>Media Buyer &amp; Ads Automation</span><p>Runs Google &amp; Meta ad accounts at 1,300%+ ROAS for e-commerce brands.</p></div>
-		<div class="glass tm reveal" role="listitem"><div class="av">AR</div><h5><a href="https://www.razzakabdur.com/" target="_blank" rel="noopener">Abdur Razak</a></h5><span>Head of Web Development</span><p>Full-stack developer (Drupal, full-stack web) and documentation specialist — ships the client sites plus the custom Excel/VBA tools and process systems operations run on.</p></div>
+		<div class="glass tm reveal" role="listitem"><div class="av">MH</div><h5>Murtuja Hasan</h5><span>Founder &amp; CEO</span><p>Grows real businesses with the exact automation-and-marketing playbook he'll build for you.</p></div>
+		<div class="glass tm reveal" role="listitem"><div class="av">AH</div><h5>Ahasanul Haque</h5><span>CTO</span><p>Builds the AI under the hood and makes sure the clever stuff just works — every time.</p></div>
+		<div class="glass tm reveal" role="listitem"><div class="av">SK</div><h5>Sina Khouei</h5><span>Cybersecurity &amp; Applied AI</span><p>Keeps your data and your automations locked down, so you never have to think about it.</p></div>
+		<div class="glass tm reveal" role="listitem"><div class="av">AI</div><h5>Ariful Islam</h5><span>Media Buyer &amp; Ads Automation</span><p>Turns ad budget into booked customers, not wasted clicks.</p></div>
+		<div class="glass tm reveal" role="listitem"><div class="av">AR</div><h5><a href="https://www.razzakabdur.com/" target="_blank" rel="noopener">Abdur Razak</a></h5><span>Head of Web Development</span><p>Builds the websites and behind-the-scenes tools your whole system runs on.</p></div>
 	</div></div>
 </section>
 
 <section id="blog">
-	<div class="wrap band reveal"><div class="eyebrow">Blog · in the header</div><h2>Field notes on AI automation</h2></div>
+	<div class="wrap band reveal"><div class="eyebrow">From the blog</div><h2>Straight talk on automation</h2></div>
 	<div class="wrap"><div class="grid-3" role="list">
 		<?php
 		$q = new WP_Query( array( 'posts_per_page' => 3, 'ignore_sticky_posts' => true ) );

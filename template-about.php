@@ -28,7 +28,7 @@ get_header();
 				<p><b style="color:var(--ink)">We don't do</b> enterprise, custom consulting, or anything that keeps you dependent on us.</p>
 				<div class="astats">
 					<div class="astat"><b>4 wk</b><span>from start to live system</span></div>
-					<div class="astat"><b>€50–500k</b><span>revenue we serve</span></div>
+					<div class="astat"><b>100%</b><span>yours at handover</span></div>
 					<div class="astat"><b>7</b><span>customer segments</span></div>
 				</div>
 			</div>
@@ -56,11 +56,11 @@ get_header();
 			<div class="glass wstep reveal" style="--hue:var(--g4)"><canvas class="fxcanvas" data-fx="growth" style="--hue:var(--g4)"></canvas><div class="wk">STEP 03 · HAND OVER</div><h4>You own it</h4><p>Documented, reporting, running — no dependency on us.</p></div>
 		</div>
 		<div class="team" role="list" style="margin-top:16px">
-			<div class="glass tm reveal" role="listitem"><div class="av">MH</div><h5>Murtuja Hasan</h5><span>Founder &amp; CEO</span><p>E-commerce &amp; performance-marketing lead running a 7-person team and €150k+/month in paid media at a consistent 10x return — brings that same growth discipline to every client build.</p></div>
-			<div class="glass tm reveal" role="listitem"><div class="av">AH</div><h5>Ahasanul Haque</h5><span>CTO</span><p>AI engineer and data scientist (M.Sc., Technical University of Munich) with production ML experience at Adobe and NewNow — architects the AI systems under the hood.</p></div>
-			<div class="glass tm reveal" role="listitem"><div class="av">SK</div><h5>Sina Khouei</h5><span>Team Lead, Cybersecurity &amp; Applied AI</span><p>M.Sc. Computer Science, University of Bonn, working across threat intelligence and applied AI — hardens every agent and workflow before it ever touches client data.</p></div>
-			<div class="glass tm reveal" role="listitem"><div class="av">AI</div><h5>Ariful Islam</h5><span>Media Buyer &amp; Ads Automation Strategist</span><p>Runs Google &amp; Meta ad accounts at 1,300%+ ROAS for e-commerce brands — automates the campaigns and tracking that keep a pipeline full.</p></div>
-			<div class="glass tm reveal" role="listitem"><div class="av">AR</div><h5><a href="https://www.razzakabdur.com/" target="_blank" rel="noopener">Abdur Razak</a></h5><span>Head of Web Development</span><p>Full-stack developer (Drupal, full-stack web) and documentation specialist — ships the client sites plus the custom Excel/VBA tools and process systems that keep operations running.</p></div>
+			<div class="glass tm reveal" role="listitem"><div class="av">MH</div><h5>Murtuja Hasan</h5><span>Founder &amp; CEO</span><p>Murtuja has spent years growing e-commerce and marketing for real businesses — leading a team, running serious ad budgets, and delivering a steady 10x return. He brings that same hard-won playbook to your project, personally.</p></div>
+			<div class="glass tm reveal" role="listitem"><div class="av">AH</div><h5>Ahasanul Haque</h5><span>CTO</span><p>Ahasan builds the AI that runs quietly under the hood. With a data-science Master's from TU Munich and production experience at Adobe, he makes sure the clever stuff actually works — every single time.</p></div>
+			<div class="glass tm reveal" role="listitem"><div class="av">SK</div><h5>Sina Khouei</h5><span>Team Lead, Cybersecurity &amp; Applied AI</span><p>Sina keeps your data and your automations safe. A computer scientist from the University of Bonn, he hardens every system before it ever touches a real customer, so security is never an afterthought.</p></div>
+			<div class="glass tm reveal" role="listitem"><div class="av">AI</div><h5>Ariful Islam</h5><span>Media Buyer &amp; Ads Automation Strategist</span><p>Ariful turns ad budget into booked customers. He runs Google and Meta campaigns at exceptional returns and automates the tracking, so every euro you spend is accountable.</p></div>
+			<div class="glass tm reveal" role="listitem"><div class="av">AR</div><h5><a href="https://www.razzakabdur.com/" target="_blank" rel="noopener">Abdur Razak</a></h5><span>Head of Web Development</span><p>Abdur builds the websites and the behind-the-scenes tools your system runs on — a full-stack developer who cares as much about clear documentation as he does about clean code.</p></div>
 		</div>
 	</div>
 </section>
