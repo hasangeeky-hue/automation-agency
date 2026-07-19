@@ -1,5 +1,17 @@
 # automation-agency
 
+**This repo is now an installable WordPress theme** ("Anthropos Automation") *and* contains the design prototype + content import package.
+
+## Install the theme via Git (no FTP, no hPanel)
+
+1. In WP Admin install the free **WP Pusher** plugin (wppusher.com) — or **Git Updater**
+2. WP Pusher → **Install Theme** → GitHub → repository: `hasangeeky-hue/automation-agency` → branch `main` → Install
+3. Appearance → Themes → activate **Anthropos Automation**
+4. Optional: enable WP Pusher "Push-to-Deploy" so every push to this repo updates the theme automatically
+5. Then import `wordpress-import/anthropos-import.xml` (Tools → Import → WordPress) for all pages/stories, and set Settings → Reading (Homepage: "Home", Posts page: "Stories")
+
+Theme files: `style.css`, `functions.php`, `header.php`, `footer.php`, `front-page.php` (Three.js lead-river hero + journey + latest stories), `index.php` (story hub with color filters), `single.php` (reading progress + series prev/next), `page.php`, `assets/js/main.js` (3D logo knots, particle river, progress bar).
+
 Design prototype for **anthropos-automation.com** — website redesign + customer lead marketing automation for solo operators and small teams.
 
 ## What's in here
