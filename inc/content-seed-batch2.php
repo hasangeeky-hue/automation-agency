@@ -30,7 +30,7 @@ function anthropos_seed_posts_batch2() {
 <li>An automated follow-up sequence so every one of those new, colder leads gets the same fast, warm reply a referred client would.</li>
 </ul>
 <div class="hl hl-do">Treat search-driven leads with the same urgency as a referred client — a fast, personal-sounding reply converts a cold inquiry almost as well as a warm one.</div>
-<h2>Where this connects</h2>
+<h2>How this fits together</h2>
 <p>This is the foundation of our <a href="/services/regulated-professionals/">Automation Service for Regulated Professionals</a> — see the full page for how the website and automation layers combine, or read <a href="/guides/">the 60-second reply guide</a> for the sequence that captures these new leads once they arrive.</p>
 <p>Ready to see your referral dependency mapped against a real second channel? <a href="/services/regulated-professionals/">Book a free consultation</a>.</p>
 HTML,
@@ -53,7 +53,7 @@ HTML,
 <li>Request reviews consistently after a matter closes, rather than sporadically when you remember.</li>
 </ul>
 <div class="hl hl-warn">Never post client reviews yourself or offer anything in exchange for one — Google's review policies and most bar/professional-conduct rules prohibit incentivized or fabricated reviews.</div>
-<h2>Where this connects</h2>
+<h2>Where this pairs with</h2>
 <p>Local visibility is the first layer we set up in every <a href="/services/regulated-professionals/">Automation Service for Regulated Professionals</a> engagement, paired with the website trust signals covered in our <a href="/guides/">case-results guide</a>.</p>
 <p>Want your current local visibility audited for free? <a href="/services/regulated-professionals/">Book a consultation</a>.</p>
 HTML,
@@ -76,7 +76,7 @@ HTML,
 <li>A steady, automated cadence of review requests after each matter closes.</li>
 </ul>
 <div class="hl hl-do">Revisit your profile quarterly — Google periodically adds new fields (services, attributes, Q&amp;A) that stale profiles miss entirely, quietly falling behind competitors who keep theirs current.</div>
-<h2>Where this connects</h2>
+<h2>Part of the bigger picture</h2>
 <p>We set up and maintain this profile as part of every <a href="/services/regulated-professionals/">Automation Service for Regulated Professionals</a> engagement. See our <a href="/guides/">local SEO guide</a> for the ranking factors around it, or <a href="/faq/">read the FAQ</a> for scope.</p>
 <p>Want your current profile reviewed for free? <a href="/services/regulated-professionals/">Book a consultation</a>.</p>
 HTML,
@@ -101,7 +101,7 @@ HTML,
 <li><b>Email 5 (day 14):</b> a final, respectful check-in before the sequence closes.</li>
 </ul>
 <div class="hl hl-warn">No email in this sequence gives legal, financial or tax advice, or discusses fees in specific terms — that conversation happens with you, in the consultation.</div>
-<h2>Where this connects</h2>
+<h2>Where this leads next</h2>
 <p>This sequence sits directly behind the <a href="/guides/">60-second reply</a> inside our <a href="/services/regulated-professionals/">Automation Service for Regulated Professionals</a>. See our <a href="/faq/">FAQ</a> for how templates are customized to your specific practice area.</p>
 <p>Want this sequence written for your practice this month? <a href="/services/regulated-professionals/">Book a consultation</a>.</p>
 HTML,
@@ -124,7 +124,7 @@ HTML,
 <li>Collect testimonials automatically after a matter closes, while satisfaction is highest and consent is simplest to obtain.</li>
 </ul>
 <div class="hl hl-warn">Always confirm your specific jurisdiction's advertising rules before publishing results — requirements vary by profession and region, and this guide is not a substitute for checking your own bar or regulatory body's current advertising rules.</div>
-<h2>Where this connects</h2>
+<h2>Fits alongside</h2>
 <p>We build this proof layer into every website inside our <a href="/services/regulated-professionals/">Automation Service for Regulated Professionals</a>, paired with the automated testimonial-request sequence covered in our <a href="/guides/">guide library</a>.</p>
 <p>Want your case results structured safely and persuasively? <a href="/services/regulated-professionals/">Book a consultation</a>.</p>
 HTML,
@@ -147,7 +147,7 @@ HTML,
 <li>An immediate on-screen confirmation plus the automated email reply, so the visitor knows instantly that it worked.</li>
 </ul>
 <div class="hl hl-do">Place your confidentiality statement directly above the submit button, not buried in a separate privacy policy link — visible reassurance at the moment of action measurably reduces hesitation.</div>
-<h2>Where this connects</h2>
+<h2>The bigger system</h2>
 <p>This form feeds directly into the <a href="/guides/">60-second reply sequence</a> as part of our <a href="/services/regulated-professionals/">Automation Service for Regulated Professionals</a>. See our <a href="/faq/">FAQ</a> for how form data is handled and stored.</p>
 <p>Want your current form reviewed for friction points? <a href="/services/regulated-professionals/">Book a consultation</a>.</p>
 HTML,
@@ -169,7 +169,7 @@ HTML,
 <li><b>Win-back:</b> inquiries from six-plus months ago who never converted receive a respectful, no-pressure offer to revisit their situation.</li>
 </ul>
 <div class="hl hl-do">Frame your win-back message around a change in circumstance — "if your situation has changed since we last spoke" — rather than a generic discount, which reads better for regulated services.</div>
-<h2>Where this connects</h2>
+<h2>Where this ties in</h2>
 <p>This is one of the five offers inside our standalone <a href="/services/marketing-automation/">Marketing Automation</a> service, tailored here for regulated professionals as part of the <a href="/services/regulated-professionals/">Automation Service for Regulated Professionals</a>.</p>
 <p>Want your specific seasonal pattern mapped into a campaign? <a href="/services/regulated-professionals/">Book a consultation</a>.</p>
 HTML,
@@ -215,7 +215,7 @@ HTML,
 <li>Layer in seasonal campaigns and reporting last, once the core funnel is capturing and converting reliably.</li>
 </ul>
 <div class="hl hl-do">Resist the urge to build every piece simultaneously — sequencing the build in this order means each new piece has something solid to plug into.</div>
-<h2>Where this connects</h2>
+<h2>How this fits together</h2>
 <p>This exact sequence is how we deliver the full <a href="/services/regulated-professionals/">Automation Service for Regulated Professionals</a> in four weeks. Explore the rest of our <a href="/guides/">guide library</a> for each piece in depth, or <a href="/faq/">read the FAQ</a> for timeline and pricing.</p>
 <p>Ready to start? <a href="/services/regulated-professionals/">Book a free, non-binding consultation</a>.</p>
 HTML,
@@ -240,7 +240,7 @@ HTML,
 <li>Too few visible reviews, since review volume is a direct local-ranking signal, not just a trust signal.</li>
 </ul>
 <div class="hl hl-do">Start with the profile, not the website — it's the faster, cheaper fix, and it's usually where the largest single visibility gap is hiding.</div>
-<h2>Where this connects</h2>
+<h2>Where this pairs with</h2>
 <p>This is the starting point of every <a href="/services/medical-professionals/">Automation Service for Medical Professionals</a> engagement. See our <a href="/guides/">local visibility guide</a> for the specific ranking factors, or <a href="/faq/">the FAQ</a> for the boundary around patient data.</p>
 <p>Want your current visibility audited for free? <a href="/services/medical-professionals/">Book a consultation</a>.</p>
 HTML,
@@ -263,7 +263,7 @@ HTML,
 <li>Automate a review request after every visit, since consistency matters more than volume alone.</li>
 </ul>
 <div class="hl hl-do">Check your practice's listing on three or four common directories today — inconsistent phone formatting or an old address on even one of them can quietly undermine your ranking.</div>
-<h2>Where this connects</h2>
+<h2>Part of the bigger picture</h2>
 <p>We audit and fix all of this as part of the visibility layer inside <a href="/services/medical-professionals/">Automation Service for Medical Professionals</a>. See our <a href="/guides/">GBP review guide</a> for the full profile checklist.</p>
 <p>Want a free visibility audit for your specific specialty and location? <a href="/services/medical-professionals/">Book a consultation</a>.</p>
 HTML,
@@ -286,7 +286,7 @@ HTML,
 <li>Never offer an incentive for a review — this violates <a href="https://www.google.com/business/" target="_blank" rel="noopener">Google's review policies</a> and most professional guidelines.</li>
 </ul>
 <div class="hl hl-warn">Never filter which patients receive a review request based on how the visit went — selectively asking only satisfied patients is against Google's terms and undermines the authenticity of your review profile.</div>
-<h2>Where this connects</h2>
+<h2>Where this leads next</h2>
 <p>This sequence is built into every <a href="/services/medical-professionals/">Automation Service for Medical Professionals</a> engagement, alongside the new-patient inquiry automation covered in our <a href="/guides/">60-second reply guide</a>.</p>
 <p>Want this set up for your practice this month? <a href="/services/medical-professionals/">Book a consultation</a>.</p>
 HTML,
@@ -309,7 +309,7 @@ HTML,
 <li>A single, respectful reminder at day five if no booking has followed.</li>
 </ul>
 <div class="hl hl-warn">This automation only ever points to your existing booking system — it never stores appointment data, patient records, or anything resembling protected health information itself.</div>
-<h2>Where this connects</h2>
+<h2>Fits alongside</h2>
 <p>This is the core of the automation layer inside <a href="/services/medical-professionals/">Automation Service for Medical Professionals</a>, working alongside the <a href="/guides/">60-second reply</a> sequence.</p>
 <p>Want to see your current inquiry-to-booking rate improved? <a href="/services/medical-professionals/">Book a consultation</a>.</p>
 HTML,
@@ -332,7 +332,7 @@ HTML,
 <li>A clear, single next step — "new patients welcome, book here" — with no ambiguity.</li>
 </ul>
 <div class="hl hl-do">Ask someone unfamiliar with your practice to look at your homepage for five seconds, then describe what you do and whether they'd trust you. Hesitation on either answer means the homepage needs work first.</div>
-<h2>Where this connects</h2>
+<h2>The bigger system</h2>
 <p>This is the first layer we rebuild inside every <a href="/services/medical-professionals/">Automation Service for Medical Professionals</a> engagement — see our <a href="/guides/">guide library</a> for the review-request and follow-up layers built on top of it.</p>
 <p>Want your homepage reviewed against this test? <a href="/services/medical-professionals/">Book a consultation</a>.</p>
 HTML,
@@ -355,7 +355,7 @@ HTML,
 <li>Send to every patient consistently — never selectively based on how the visit went.</li>
 </ul>
 <div class="hl hl-do">Test two or three different one-sentence phrasings over a month and keep whichever gets the highest response rate — small wording changes often move this more than expected.</div>
-<h2>Where this connects</h2>
+<h2>Where this ties in</h2>
 <p>This sequence is included in every <a href="/services/medical-professionals/">Automation Service for Medical Professionals</a> engagement. See our <a href="/guides/">GBP guide</a> for how review volume feeds directly into local ranking.</p>
 <p>Want this running for your practice this month? <a href="/services/medical-professionals/">Book a consultation</a>.</p>
 HTML,
@@ -401,7 +401,7 @@ HTML,
 <li>Any communication containing specific health information about a named patient.</li>
 </ul>
 <div class="hl hl-do">Ask any automation vendor for this same boundary in writing before signing anything — a specific, published "we never touch X" list is a far stronger trust signal than a general compliance claim.</div>
-<h2>Where this connects</h2>
+<h2>How this fits together</h2>
 <p>This boundary is stated on every page of our <a href="/services/medical-professionals/">Automation Service for Medical Professionals</a>. See our <a href="/faq/">FAQ</a> for the full scope of what is and isn't included.</p>
 <p>Questions about where the line sits for your specific practice? <a href="/services/medical-professionals/">Book a consultation</a>.</p>
 HTML,
@@ -424,7 +424,7 @@ HTML,
 <li>Layer in review automation and win-backs last, compounding the gains from the first two layers.</li>
 </ul>
 <div class="hl hl-do">Build in this order rather than all at once — each layer gives the next something solid to build on, and results compound faster than trying to launch everything simultaneously.</div>
-<h2>Where this connects</h2>
+<h2>Where this pairs with</h2>
 <p>This is exactly how we deliver the full <a href="/services/medical-professionals/">Automation Service for Medical Professionals</a> in four weeks. Browse the rest of our <a href="/guides/">guide library</a>, or <a href="/faq/">read the FAQ</a> for timeline and the HIPAA boundary.</p>
 <p>Ready to start? <a href="/services/medical-professionals/">Book a free, non-binding consultation</a>.</p>
 HTML,

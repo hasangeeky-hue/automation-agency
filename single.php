@@ -8,6 +8,16 @@ get_header();
 ?>
 <div class="progress-wrap"><div class="progress" id="progress"></div></div>
 <?php while ( have_posts() ) : the_post(); $cats = get_the_category(); ?>
+<script type="application/ld+json"><?php echo wp_json_encode( array(
+	'@context'         => 'https://schema.org',
+	'@type'            => 'Article',
+	'headline'         => get_the_title(),
+	'datePublished'    => get_the_date( 'c' ),
+	'dateModified'     => get_the_modified_date( 'c' ),
+	'author'           => array( '@type' => 'Organization', 'name' => get_bloginfo( 'name' ) ),
+	'publisher'        => array( '@type' => 'Organization', 'name' => get_bloginfo( 'name' ) ),
+	'mainEntityOfPage' => get_permalink(),
+) ); ?></script>
 <div class="wrap-sm" style="padding-top:44px;padding-bottom:70px">
 	<article class="art">
 		<div class="crumb">

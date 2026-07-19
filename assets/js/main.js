@@ -216,62 +216,12 @@
     var fn = EFFECTS[canvas.dataset.fx] || EFFECTS.neural, c = rgb(canvas), ctx = canvas.getContext('2d');
     var W = 0, H = 0, dpr = Math.min(window.devicePixelRatio || 1, 2), vis = true;
     function size() { var r = canvas.getBoundingClientRect(); W = r.width; H = r.height; canvas.width = W * dpr; canvas.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); }
-    new IntersectionObserver(function (e) { vis = e[0].isIntersecting; }).observe(canvas);
     size();
+    if (reduced) { if (W && H) fn(ctx, W, H, 0, c); return; } // one static frame, no continuous animation
+    new IntersectionObserver(function (e) { vis = e[0].isIntersecting; }).observe(canvas);
     fxList.push({ v: function () { return vis; }, d: function (t) { if (!W || Math.abs(canvas.getBoundingClientRect().width - W) > 1) size(); if (!W || !H) return; ctx.clearRect(0, 0, W, H); fn(ctx, W, H, t, c); } });
   });
-  (function loop(t) { requestAnimationFrame(loop); fxList.forEach(function (f) { if (f.v()) f.d(t); }); })(0);
-
-  /* ---------- FAQ builder (10 Q, segmentable) ---------- */
-  var FAQ = {
-    general: [
-      ['How fast can you build my system?', 'Most systems go live in 4 weeks — audit &amp; blueprint, website, automation wiring, then connect-test-launch.'],
-      ['Do I own everything, or am I locked in?', 'You own it. Systems are built on your tools, handed over, and documented — no dependency on us.'],
-      ['What does it cost?', 'It depends on scope. Each service page shows five offers (€ Starter → €€€ A-to-Z); book a call for a fixed quote.'],
-      ['Do I need any technical skills?', 'No. We set everything up and hand it over with a simple walkthrough. You approve; the system runs.'],
-      ['Which tools do you use?', 'Your website + n8n + your existing CRM/email/calendar. We connect what you have — no rip-and-replace.'],
-      ['Will automation feel robotic to my customers?', 'No. It reads as attentive and on-brand — the goal is that it feels like you finally had time, not like a bot.'],
-      ['Is my data safe and GDPR-compliant?', 'Yes — EU-hosted, consent-based tools. For medical/therapy we never touch clinical or patient-data systems.'],
-      ['What if I only need one thing, like a website?', 'Start with a single offer and add the rest whenever you\'re ready. Mix &amp; match by pain and budget.'],
-      ['Do you write the content for me?', 'We launch with your existing info, credentials and proof. Ongoing content help is optional.'],
-      ['What happens after launch?', 'A documented handover, reporting on what works, and support options so the system keeps running.']
-    ],
-    gettingStarted: [
-      ['How do we start?', 'Book a free 30-minute consultation. We map one leak live and show you the agent that closes it — no obligation.'],
-      ['How long until it\'s live?', 'Four weeks from kickoff for a full system; single offers are faster.'],
-      ['What do you need from me?', 'Access to your site/tools, your credentials and proof, and quick approvals along the way.'],
-      ['Can you work with my current website?', 'Often yes — we optimise what converts and rebuild only what\'s holding you back.']
-    ],
-    servicesScope: [
-      ['What are the five offers?', 'Website Redesign, Lead &amp; Follow-up Automation, Marketing Automation, Social Media Automation, and full A-to-Z Transformation.'],
-      ['Can I combine services?', 'Yes — every service page is a micro-combo. Take one, or the whole system.'],
-      ['Do you serve my industry?', 'We serve seven segments: regulated, medical, e-commerce, service-based, freelancers, creators and B2B.'],
-      ['Who do you NOT work with?', 'Enterprise, large regulated practices, and anything needing heavy custom or compliance work.']
-    ],
-    automationTools: [
-      ['What is n8n and why do you use it?', 'n8n is a workflow tool that connects your apps. It lets an AI agent move data between inbox, CRM, calendar and more — without brittle custom code.'],
-      ['What can an AI agent actually do?', 'Reply in seconds, qualify and route leads, follow up, draft content, and keep your tools in sync — within limits you set.'],
-      ['What will you never automate?', 'Anything that should stay human: clinical care, legal advice in writing, and sensitive decisions. Boundaries build trust.'],
-      ['Does it integrate with my CRM?', 'Yes — we connect common CRMs, inboxes, calendars and stores rather than replacing them.']
-    ],
-    trustPricing: [
-      ['Is there a contract or lock-in?', 'No lock-in. You own the system; support is optional and month-to-month.'],
-      ['How is pricing structured?', 'By scope: € Starter, €€ Core/Growth, €€€ A-to-Z. You get a fixed quote after the consultation.'],
-      ['What ROI should I expect?', 'Ranges vary by profession — typically more leads, better conversion, and 10–20 hours/week saved. We show your numbers in the lead report.']
-    ]
-  };
-  document.querySelectorAll('[data-faq]').forEach(function (box) {
-    var items = FAQ[box.dataset.faq] || FAQ.general;
-    items.forEach(function (f, i) { var d = document.createElement('details'); if (i === 0) d.open = true; d.innerHTML = '<summary>' + f[0] + '</summary><p>' + f[1] + '</p>'; box.appendChild(d); });
-  });
-
-  /* ---------- guide cards builder ---------- */
-  document.querySelectorAll('[data-guides]').forEach(function (grid) {
-    var seg = grid.dataset.guides || 'this business';
-    ['Why ' + seg + ' lose leads they earned', 'The AEO answer box that gets you cited', 'Local + AI visibility, step by step', 'The 60-second reply that doubles bookings', 'Mapping your funnel into n8n stages', 'The 5 workflows to automate first', 'Marketing automation without the bloat', 'Social posts on autopilot, on-brand', 'Reading your lead report, honestly', 'From pilot to always-on automation'].forEach(function (tt, i) {
-      var a = document.createElement('a'); a.className = 'glass gcard'; a.href = 'guide-page.html'; a.innerHTML = '<div class="gi">G' + (i < 9 ? '0' : '') + (i + 1) + '</div><h5>' + tt + '</h5><div class="ga">problem → solution → CTA</div>'; grid.appendChild(a);
-    });
-  });
+  if (!reduced) (function loop(t) { requestAnimationFrame(loop); fxList.forEach(function (f) { if (f.v()) f.d(t); }); })(0);
 
   /* =================== Three.js hero agent network =================== */
   function agentNetwork(canvas, o) {

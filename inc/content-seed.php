@@ -289,7 +289,7 @@ HTML,
 <li><b>Re-engagement</b> — a seasonal or maintenance nudge to anyone who hasn't booked in 90 days.</li>
 </ul>
 <div class="hl hl-do">Build these one at a time, in the order above, and confirm each is working before adding the next — five half-finished automations cause more confusion than one that works perfectly.</div>
-<h2>Where this connects</h2>
+<h2>How this fits together</h2>
 <p>This exact sequence is what we install as the automation layer inside our <a href="/services/service-professionals/">Automation Service for Service-Based Professionals</a>, alongside the website and visibility work that brings the leads in the first place.</p>
 <p>Read the full <a href="/guides/">guide library</a> for a deeper walkthrough of each workflow, or <a href="/services/service-professionals/">book a free consultation</a> to see which of the five your business is missing.</p>
 HTML,
@@ -312,7 +312,7 @@ HTML,
 <li>Use structured markup — <a href="https://schema.org/FAQPage" target="_blank" rel="noopener">FAQPage schema</a> for question-and-answer content — so machines can parse the structure, not just the words.</li>
 </ul>
 <div class="hl hl-do">Write your first paragraph as if it were the only thing anyone would ever read — because for an AI summary, it often is.</div>
-<h2>Where this connects</h2>
+<h2>Where this pairs with</h2>
 <p>Every service page and guide on this site is deliberately built this way — a quick-answer box first, structured sections after. See it in practice across our <a href="/services/">seven segment service pages</a> or the <a href="/guides/">guide library</a>, and read our <a href="/faq/">FAQ</a> for how we apply this to client sites specifically.</p>
 HTML,
 		),
@@ -334,7 +334,7 @@ HTML,
 <li>Feed your edits back into future drafts, so the system gets closer to your voice over time rather than staying generic.</li>
 </ul>
 <div class="hl hl-do">Never let a fully automated post publish without at least one human review pass in the first few months — the small time cost buys a large trust dividend.</div>
-<h2>Where this connects</h2>
+<h2>Part of the bigger picture</h2>
 <p>This is exactly how we build the drafting and approval workflow inside our <a href="/services/social-media-automation/">Social Media Automation</a> service — see the full page for the five moving parts, or read our <a href="/guides/">guide library</a> for the repurposing workflow specifically.</p>
 HTML,
 		),
@@ -356,7 +356,7 @@ HTML,
 <li>At least one piece of real proof (a testimonial, a case result, a review count) above the fold.</li>
 </ul>
 <div class="hl hl-do">Show your homepage to someone unfamiliar with your business for five seconds, then ask what you do and whether they'd trust you. If they hesitate on either answer, the homepage needs work before anything else.</div>
-<h2>Where this connects</h2>
+<h2>Where this leads next</h2>
 <p>This is the first thing we rebuild in every <a href="/services/">Website Redesign engagement</a> — see how it's applied specifically to regulated professionals on our <a href="/services/regulated-professionals/">Automation Service for Regulated Professionals</a> page, or explore all seven <a href="/services/">segment service pages</a>.</p>
 HTML,
 		),
@@ -378,7 +378,7 @@ HTML,
 <li>A booked call auto-populates your calendar and sends a confirmation, without you touching either app.</li>
 </ul>
 <div class="hl hl-do">Start with your single most repeated manual task — usually re-entering the same contact details in two or three places — and automate only that connection first.</div>
-<h2>Where this connects</h2>
+<h2>Fits alongside</h2>
 <p>Every automation layer we build, across all <a href="/services/">seven segment service pages</a>, runs on this same underlying n8n workflow logic. See it applied to B2B specifically on our <a href="/services/b2b-providers/">Automation Service for B2B Service Providers</a> page.</p>
 HTML,
 		),
@@ -400,7 +400,7 @@ HTML,
 <li>Never send anything irreversible — a booking cancellation, a legal filing — without a human confirming first.</li>
 </ul>
 <div class="hl hl-warn">If a task requires professional judgment, the agent's only job is to get the right information to the right human quickly — never to make the call itself.</div>
-<h2>Where this connects</h2>
+<h2>The bigger system</h2>
 <p>This is exactly the boundary we build into every medical, therapy and legal automation — see it stated plainly on our <a href="/services/medical-professionals/">Automation Service for Medical Professionals</a> page, and read our <a href="/faq/">FAQ</a> for the full scope of what we never automate.</p>
 HTML,
 		),
@@ -422,7 +422,7 @@ HTML,
 <li>Identical name, address and phone details across your website, profile and any directory listing.</li>
 </ul>
 <div class="hl hl-do">Request a review the same day a job finishes, while satisfaction is highest — waiting a week measurably lowers the response rate.</div>
-<h2>Where this connects</h2>
+<h2>Where this ties in</h2>
 <p>This is the visibility layer we set up as part of every <a href="/services/service-professionals/">Automation Service for Service-Based Professionals</a> engagement, alongside the booking and follow-up automation that turns that visibility into booked jobs. See our full <a href="/guides/">guide library</a> for more on local SEO specifically.</p>
 HTML,
 		),

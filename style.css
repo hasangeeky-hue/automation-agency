@@ -4,7 +4,7 @@ Theme URI: https://github.com/hasangeeky-hue/automation-agency
 Author: Anthropos Automation
 Author URI: https://anthropos-automation.com
 Description: AI Automation OS theme — dark glass automation canvas, node-graph/agent-network 3D on every card, 6 automation services, per-segment service pages named "Automation Service for {Segment}", guide + blog templates, neuro-navigation and internal linking.
-Version: 5.7.0
+Version: 5.8.0
 Requires at least: 6.0
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
@@ -14,7 +14,7 @@ Primary Branch: main
 */
 :root{
   --void:#080B14; --void-2:#0C1120; --panel:#0F1626;
-  --ink:#EAF0FF; --muted:#9AA6C6; --faint:#5B6684;
+  --ink:#EAF0FF; --muted:#9AA6C6; --faint:#8891B8;
   --line:rgba(255,255,255,.09); --line-2:rgba(255,255,255,.05);
   --glass:rgba(255,255,255,.035); --glass-2:rgba(255,255,255,.06);
   --flow:#2FE3D2; --ai:#8B7CFF; --cta:#FF5C8A; --ok:#46E08B;
@@ -210,7 +210,7 @@ canvas{display:block}
 /* ===== TEAM ===== */
 .team{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:34px}
 .tm{padding:20px;text-align:center}
-.tm .av{width:74px;height:74px;border-radius:50%;margin:0 auto;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:700;font-size:20px;color:var(--ink)}
+.tm .av{width:74px;height:74px;border-radius:50%;margin:0 auto;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:700;font-size:20px;color:var(--void)}
 .tm:nth-child(1) .av{background:linear-gradient(135deg,var(--ai),var(--flow))}
 .tm:nth-child(2) .av{background:linear-gradient(135deg,var(--flow),var(--ok))}
 .tm:nth-child(3) .av{background:linear-gradient(135deg,var(--cta),var(--g3))}
@@ -286,6 +286,7 @@ canvas{display:block}
 .manifesto p{color:var(--muted);margin-top:10px}
 .manifesto .no{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--flow)}
 .astats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+@media(max-width:480px){.astats{grid-template-columns:1fr}}
 .astat{border:1px solid var(--line);border-radius:14px;padding:16px;background:var(--glass)}
 .astat b{font-family:var(--display);font-size:23px;font-weight:800;color:var(--flow);display:block}
 .astat span{font-size:12px;color:var(--muted)}

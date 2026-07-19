@@ -41,9 +41,9 @@ $blog_q = new WP_Query( array(
 </section>
 <section id="pillars">
 	<div class="wrap band reveal"><div class="eyebrow">Start here · five reading paths</div><h2>Pick the outcome you're chasing</h2></div>
-	<div class="wrap"><div class="grid-3">
-		<?php foreach ( $pillars as $p ) { echo '<a class="glass card reveal tilt" href="#grid" data-jump="' . esc_attr( $p[5] ) . '" style="--hue:' . esc_attr( $p[1] ) . '"><canvas class="fxcanvas" data-fx="' . esc_attr( $p[0] ) . '" style="--hue:' . esc_attr( $p[1] ) . '"></canvas><div class="card-b"><span class="lbl">' . esc_html( $p[2] ) . '</span><h4>' . esc_html( $p[3] ) . '</h4><p>' . wp_kses_post( $p[4] ) . '</p><span class="go">Read →</span></div></a>'; } ?>
-		<a class="glass card reveal tilt" href="#cta" style="--hue:var(--ok)"><canvas class="fxcanvas" data-fx="crystal" style="--hue:var(--ok)"></canvas><div class="card-b"><span class="lbl">Prefer it done?</span><h4>Book a non-binding call</h4><p>We map your biggest leak in 30 minutes.</p><span class="go">Talk to a human →</span></div></a>
+	<div class="wrap"><div class="grid-3" role="list">
+		<?php foreach ( $pillars as $p ) { echo '<a class="glass card reveal tilt" role="listitem" href="#grid" data-jump="' . esc_attr( $p[5] ) . '" style="--hue:' . esc_attr( $p[1] ) . '"><canvas class="fxcanvas" data-fx="' . esc_attr( $p[0] ) . '" style="--hue:' . esc_attr( $p[1] ) . '"></canvas><div class="card-b"><span class="lbl">' . esc_html( $p[2] ) . '</span><h4>' . esc_html( $p[3] ) . '</h4><p>' . wp_kses_post( $p[4] ) . '</p><span class="go">Read →</span></div></a>'; } ?>
+		<a class="glass card reveal tilt" role="listitem" href="#cta" style="--hue:var(--ok)"><canvas class="fxcanvas" data-fx="crystal" style="--hue:var(--ok)"></canvas><div class="card-b"><span class="lbl">Prefer it done?</span><h4>Book a non-binding call</h4><p>We map your biggest leak in 30 minutes.</p><span class="go">Talk to a human →</span></div></a>
 	</div></div>
 </section>
 <section id="grid">
@@ -51,17 +51,17 @@ $blog_q = new WP_Query( array(
 	<div class="wrap">
 		<div class="filters" data-group="business"><span class="flabel">By business:</span><button class="fbtn on" data-f="all">All</button><?php foreach ( $segs as $slug => $seg ) { echo '<button class="fbtn" data-f="' . esc_attr( $slug ) . '" style="--hue:' . esc_attr( $seg['hue'] ) . '">' . wp_kses_post( $seg['label'] ) . '</button>'; } ?></div>
 		<div class="filters" data-group="service" style="margin-top:8px"><span class="flabel">By service:</span><button class="fbtn on" data-f="all">All</button><?php foreach ( $svckeys as $k => $label ) { echo '<button class="fbtn" data-f="' . esc_attr( $k ) . '">' . esc_html( $label ) . '</button>'; } ?></div>
-		<div class="grid-3" style="margin-top:22px">
+		<div class="grid-3" role="list" style="margin-top:22px">
 			<?php
 			if ( $blog_q->have_posts() ) :
 				$i = 0; $fx = array( 'neural', 'dataflow', 'funnel', 'broadcast', 'social', 'core', 'holo', 'pulse', 'calendar' );
 				while ( $blog_q->have_posts() ) : $blog_q->the_post();
 					$cat = get_the_category(); $tags = get_the_tags();
 					$cats = array(); if ( $cat ) foreach ( $cat as $c ) { $cats[] = $c->slug; } if ( $tags ) foreach ( $tags as $tg ) { $cats[] = $tg->slug; } ?>
-					<a class="glass post reveal tilt" data-cats="<?php echo esc_attr( implode( ' ', $cats ) ); ?>" style="--hue:var(--ai)" href="<?php the_permalink(); ?>"><canvas class="fxcanvas" data-fx="<?php echo esc_attr( $fx[ $i % 9 ] ); ?>" style="--hue:var(--ai)"></canvas><div class="post-b"><span class="pc"><?php echo $cat ? esc_html( $cat[0]->name ) : 'Insights'; ?></span><h4><?php the_title(); ?></h4><p><?php echo esc_html( wp_trim_words( get_the_excerpt(), 16 ) ); ?></p><span class="pr">Read →</span></div></a>
+					<a class="glass post reveal tilt" role="listitem" data-cats="<?php echo esc_attr( implode( ' ', $cats ) ); ?>" style="--hue:var(--ai)" href="<?php the_permalink(); ?>"><canvas class="fxcanvas" data-fx="<?php echo esc_attr( $fx[ $i % 9 ] ); ?>" style="--hue:var(--ai)"></canvas><div class="post-b"><span class="pc"><?php echo $cat ? esc_html( $cat[0]->name ) : 'Insights'; ?></span><h4><?php the_title(); ?></h4><p><?php echo esc_html( wp_trim_words( get_the_excerpt(), 16 ) ); ?></p><span class="pr">Read →</span></div></a>
 				<?php $i++; endwhile; wp_reset_postdata();
 			else :
-				foreach ( $demo as $d ) { echo '<a class="glass post reveal tilt" data-cats="' . esc_attr( $d[0] ) . '" style="--hue:' . esc_attr( $d[1] ) . '" href="#"><canvas class="fxcanvas" data-fx="' . esc_attr( $d[2] ) . '" style="--hue:' . esc_attr( $d[1] ) . '"></canvas><div class="post-b"><span class="pc">' . esc_html( $d[3] ) . '</span><h4>' . wp_kses_post( $d[4] ) . '</h4><p>[Placeholder excerpt — real content queued next batch.]</p><span class="pr">Read →</span></div></a>'; }
+				foreach ( $demo as $d ) { echo '<a class="glass post reveal tilt" role="listitem" data-cats="' . esc_attr( $d[0] ) . '" style="--hue:' . esc_attr( $d[1] ) . '" href="#"><canvas class="fxcanvas" data-fx="' . esc_attr( $d[2] ) . '" style="--hue:' . esc_attr( $d[1] ) . '"></canvas><div class="post-b"><span class="pc">' . esc_html( $d[3] ) . '</span><h4>' . wp_kses_post( $d[4] ) . '</h4><p>More on this soon - check back for the full write-up.</p><span class="pr">Read →</span></div></a>'; }
 			endif;
 			?>
 		</div>

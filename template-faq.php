@@ -1,7 +1,7 @@
 <?php
 /**
  * Template Name: FAQ Page
- * Master FAQ, segmented into topic groups (JS fills [data-faq]).
+ * Master FAQ, segmented into topic groups (server-rendered, each with FAQPage schema).
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 get_header();
@@ -24,7 +24,12 @@ $groups = array(
 <section id="groups">
 	<div class="wrap band reveal"><div class="eyebrow">FAQ · segmented by topic</div><h2>Find your question, fast</h2></div>
 	<div class="wrap"><div class="faq-groups">
-		<?php foreach ( $groups as $g ) { echo '<div class="faq-group reveal" style="--hue:' . esc_attr( $g[2] ) . '"><div class="fgh"><span class="fgd"></span>' . wp_kses_post( $g[0] ) . '</div><div class="faqwrap" data-faq="' . esc_attr( $g[1] ) . '"></div></div>'; } ?>
+		<?php foreach ( $groups as $g ) {
+			echo '<div class="faq-group reveal" style="--hue:' . esc_attr( $g[2] ) . '"><div class="fgh"><span class="fgd"></span>' . wp_kses_post( $g[0] ) . '</div><div class="faqwrap">';
+			anthropos_faq_render( $g[1] );
+			echo '</div></div>';
+			anthropos_faq_schema( $g[1] );
+		} ?>
 	</div></div>
 </section>
 <?php

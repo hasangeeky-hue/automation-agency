@@ -25,7 +25,7 @@ function anthropos_seed_posts_batch3() {
 <li>Slow page load — a five-second load time loses roughly half of mobile visitors before they even see the product.</li>
 </ul>
 <div class="hl hl-do">Calculate your specific number: (visitors × realistic 3–5% conversion) minus your current sales. That gap, made concrete in euros, is usually the fastest way to justify fixing this first.</div>
-<h2>Where this connects</h2>
+<h2>Part of the bigger picture</h2>
 <p>See the full <a href="/guides/">6h/24h/48h cart-recovery sequence</a> for the exact fix, or explore our <a href="/services/ecommerce-retail/">Automation Service for E-Commerce &amp; Retail</a> for how recovery fits alongside speed optimization.</p>
 <p>Want your specific leak calculated for free? <a href="/services/ecommerce-retail/">Book a consultation</a>.</p>
 HTML
@@ -42,7 +42,7 @@ HTML
 <li>A review request at delivery, followed by a complementary-product suggestion two weeks later.</li>
 </ul>
 <div class="hl hl-do">Time the upsell suggestion to when the first product would realistically be in use, not immediately after delivery — relevance beats speed here.</div>
-<h2>Where this connects</h2>
+<h2>Where this leads next</h2>
 <p>This flow pairs directly with our <a href="/guides/">cart-recovery sequence</a> and the email-list growth covered in our <a href="/services/ecommerce-retail/">Automation Service for E-Commerce &amp; Retail</a>.</p>
 <p>Want this built for your store this month? <a href="/services/ecommerce-retail/">Book a consultation</a>.</p>
 HTML
@@ -59,7 +59,7 @@ HTML
 <li>Deliver value immediately after signup, before ever asking for another sale.</li>
 </ul>
 <div class="hl hl-do">Test your popup's timing — capture rates are usually much higher when the offer appears as someone is about to leave, rather than the instant they arrive.</div>
-<h2>Where this connects</h2>
+<h2>Fits alongside</h2>
 <p>Your captured list feeds directly into the <a href="/guides/">post-purchase flows</a> and win-back sequences inside our <a href="/services/ecommerce-retail/">Automation Service for E-Commerce &amp; Retail</a>.</p>
 <p>Want your capture strategy reviewed? <a href="/services/ecommerce-retail/">Book a consultation</a>.</p>
 HTML
@@ -76,7 +76,7 @@ HTML
 <li>Test on an actual mid-range phone on mobile data, not a fast office connection.</li>
 </ul>
 <div class="hl hl-do">Run your homepage and top product page through a free speed test today — most stores are surprised by how much image weight alone is costing them.</div>
-<h2>Where this connects</h2>
+<h2>The bigger system</h2>
 <p>Speed is the first fix inside every <a href="/services/ecommerce-retail/">Automation Service for E-Commerce &amp; Retail</a> engagement, before cart-recovery or marketing automation are layered on top.</p>
 <p>Want your store's speed audited for free? <a href="/services/ecommerce-retail/">Book a consultation</a>.</p>
 HTML
@@ -93,7 +93,7 @@ HTML
 <li>A single view of customer history regardless of which platform they originally bought through.</li>
 </ul>
 <div class="hl hl-do">Start by templating your five most common customer questions — these alone usually account for the majority of your daily message volume.</div>
-<h2>Where this connects</h2>
+<h2>Where this ties in</h2>
 <p>This sits alongside <a href="/guides/">inventory sync alerts</a> and channel-profitability reporting inside our <a href="/services/ecommerce-retail/">Automation Service for E-Commerce &amp; Retail</a>.</p>
 <p>Want your channels unified this month? <a href="/services/ecommerce-retail/">Book a consultation</a>.</p>
 HTML
@@ -127,7 +127,7 @@ HTML
 <li>Segmented email content by purchase history, not a single generic blast to the full list.</li>
 </ul>
 <div class="hl hl-do">Define "VIP" by a simple, measurable threshold — total spend or order count — so the segmentation runs automatically rather than requiring manual judgment calls.</div>
-<h2>Where this connects</h2>
+<h2>How this fits together</h2>
 <p>This is part of the marketing layer inside our <a href="/services/ecommerce-retail/">Automation Service for E-Commerce &amp; Retail</a>, alongside the standalone <a href="/services/marketing-automation/">Marketing Automation</a> service for deeper segmentation.</p>
 <p>Want your customer base segmented this month? <a href="/services/ecommerce-retail/">Book a consultation</a>.</p>
 HTML
@@ -144,7 +144,7 @@ HTML
 <li>Trend over time, so a channel's declining profitability is visible before it becomes a crisis.</li>
 </ul>
 <div class="hl hl-do">Review this report monthly rather than weekly for decision-making — weekly numbers are useful for monitoring, but monthly trends are what should actually drive where you shift effort.</div>
-<h2>Where this connects</h2>
+<h2>Where this pairs with</h2>
 <p>This reporting layer is included in our <a href="/services/ecommerce-retail/">Automation Service for E-Commerce &amp; Retail</a>, alongside the <a href="/guides/">unified inbox</a> and inventory sync systems.</p>
 <p>Want your current channel profitability calculated for free? <a href="/services/ecommerce-retail/">Book a consultation</a>.</p>
 HTML
@@ -161,7 +161,7 @@ HTML
 <li>Layer in post-purchase nurture and channel segmentation last, compounding the first two layers.</li>
 </ul>
 <div class="hl hl-do">Resist building all five simultaneously — sequencing this way means each new layer has a working foundation to build revenue on top of.</div>
-<h2>Where this connects</h2>
+<h2>Part of the bigger picture</h2>
 <p>This is exactly how we deliver the full <a href="/services/ecommerce-retail/">Automation Service for E-Commerce &amp; Retail</a> in four weeks. Browse our <a href="/guides/">guide library</a> for each piece in depth.</p>
 <p>Ready to start? <a href="/services/ecommerce-retail/">Book a free consultation</a>.</p>
 HTML
@@ -180,7 +180,7 @@ HTML
 <li>A re-engagement sequence reaching past customers during naturally slower periods.</li>
 </ul>
 <div class="hl hl-do">Map your own slow-week pattern over the past year — most businesses find it's more predictable than it feels, which makes it easier to build a specific fix around.</div>
-<h2>Where this connects</h2>
+<h2>Where this leads next</h2>
 <p>This is the foundation of our <a href="/services/service-professionals/">Automation Service for Service-Based Professionals</a>. See our <a href="/guides/">booking confirmation guide</a> for the automation layer built on top.</p>
 <p>Want your booking pattern mapped for free? <a href="/services/service-professionals/">Book a consultation</a>.</p>
 HTML
@@ -197,7 +197,7 @@ HTML
 <li>Automate review requests right after job completion, while satisfaction is highest.</li>
 </ul>
 <div class="hl hl-do">Check what your specific service area looks like in an incognito search today — you may be surprised how far down the results you actually appear.</div>
-<h2>Where this connects</h2>
+<h2>Fits alongside</h2>
 <p>This visibility layer is set up as part of every <a href="/services/service-professionals/">Automation Service for Service-Based Professionals</a> engagement, alongside the booking automation that turns visibility into jobs.</p>
 <p>Want a free local visibility audit? <a href="/services/service-professionals/">Book a consultation</a>.</p>
 HTML
@@ -214,7 +214,7 @@ HTML
 <li>Respond to every review, positive or negative, within a few days.</li>
 </ul>
 <div class="hl hl-do">Set a recurring monthly reminder to add three new job photos — this small habit alone measurably improves profile engagement signals over time.</div>
-<h2>Where this connects</h2>
+<h2>The bigger system</h2>
 <p>We set up and maintain this profile inside every <a href="/services/service-professionals/">Automation Service for Service-Based Professionals</a> engagement. See our <a href="/guides/">near-me visibility guide</a> for the broader ranking factors.</p>
 <p>Want your profile reviewed for free? <a href="/services/service-professionals/">Book a consultation</a>.</p>
 HTML
@@ -231,7 +231,7 @@ HTML
 <li>A follow-up reminder goes out automatically if the lead hasn't booked within a day.</li>
 </ul>
 <div class="hl hl-do">Test your own response time by calling your business line during a typical workday — most owners are surprised how long a genuine customer would actually wait.</div>
-<h2>Where this connects</h2>
+<h2>Where this ties in</h2>
 <p>This sits at the center of the automation layer inside our <a href="/services/service-professionals/">Automation Service for Service-Based Professionals</a>, working alongside <a href="/guides/">booking confirmations</a>.</p>
 <p>Want this set up for your business this month? <a href="/services/service-professionals/">Book a consultation</a>.</p>
 HTML
@@ -265,7 +265,7 @@ HTML
 <li>A referral ask — "know someone who needs this? get €50 off" — arrives a few days later.</li>
 </ul>
 <div class="hl hl-do">Keep the referral incentive genuinely worthwhile but simple — a flat discount outperforms a complicated tiered referral program for most trade and studio businesses.</div>
-<h2>Where this connects</h2>
+<h2>How this fits together</h2>
 <p>This automation runs alongside <a href="/guides/">booking confirmations</a> inside our <a href="/services/service-professionals/">Automation Service for Service-Based Professionals</a>.</p>
 <p>Want this running for your business this month? <a href="/services/service-professionals/">Book a consultation</a>.</p>
 HTML
@@ -282,7 +282,7 @@ HTML
 <li>Keep the booking link one click away, removing any friction from re-engaging.</li>
 </ul>
 <div class="hl hl-do">Segment this by service type where possible — a seasonal HVAC reminder and a general "we miss you" message perform very differently depending on the actual service.</div>
-<h2>Where this connects</h2>
+<h2>Where this pairs with</h2>
 <p>This is one of the five offers inside our standalone <a href="/services/marketing-automation/">Marketing Automation</a> service, tailored here for service-based businesses in our <a href="/services/service-professionals/">Automation Service for Service-Based Professionals</a>.</p>
 <p>Want your dormant customer list re-engaged? <a href="/services/service-professionals/">Book a consultation</a>.</p>
 HTML
@@ -299,7 +299,7 @@ HTML
 <li>A simple ranking, so which services to promote is an obvious decision rather than a guess.</li>
 </ul>
 <div class="hl hl-do">Start tracking just your top three job types for one month — you don't need a perfect system immediately to get useful signal about where your margin actually lives.</div>
-<h2>Where this connects</h2>
+<h2>Part of the bigger picture</h2>
 <p>This reporting layer is included in our <a href="/services/service-professionals/">Automation Service for Service-Based Professionals</a>, alongside <a href="/guides/">booking and job-completion automation</a>.</p>
 <p>Want your job profitability calculated for free? <a href="/services/service-professionals/">Book a consultation</a>.</p>
 HTML
@@ -316,7 +316,7 @@ HTML
 <li>Layer in re-engagement and profitability reporting last, compounding the first two layers.</li>
 </ul>
 <div class="hl hl-do">Build in this order rather than all at once — visibility and speed fixes pay for themselves fastest, funding the rest of the build.</div>
-<h2>Where this connects</h2>
+<h2>Where this leads next</h2>
 <p>This is exactly how we deliver the full <a href="/services/service-professionals/">Automation Service for Service-Based Professionals</a> in four weeks. Browse our <a href="/guides/">guide library</a> for each piece in depth.</p>
 <p>Ready to start? <a href="/services/service-professionals/">Book a free consultation</a>.</p>
 HTML
@@ -335,7 +335,7 @@ HTML
 <li>Route qualified leads to a booking link immediately; unqualified ones to a polite, automated response.</li>
 </ul>
 <div class="hl hl-do">Frame budget questions around helping the client, not gatekeeping — "so we can recommend the right scope" reads very differently than a bare requirement.</div>
-<h2>Where this connects</h2>
+<h2>Fits alongside</h2>
 <p>This form feeds directly into the <a href="/guides/">discovery-call sequence</a> inside our <a href="/services/freelancers-agencies/">Automation Service for Freelancers &amp; Micro-Agencies</a>.</p>
 <p>Want your intake form reviewed for free? <a href="/services/freelancers-agencies/">Book a consultation</a>.</p>
 HTML
@@ -352,7 +352,7 @@ HTML
 <li>A measurable result or client quote confirming the impact.</li>
 </ul>
 <div class="hl hl-do">Pick your best 10–15 projects rather than showing everything — a focused, curated set reads as more selective and higher-value than an exhaustive archive.</div>
-<h2>Where this connects</h2>
+<h2>The bigger system</h2>
 <p>This is the first layer we rebuild inside every <a href="/services/freelancers-agencies/">Automation Service for Freelancers &amp; Micro-Agencies</a> engagement, paired with the <a href="/guides/">case studies guide</a>.</p>
 <p>Want your portfolio restructured this month? <a href="/services/freelancers-agencies/">Book a consultation</a>.</p>
 HTML
@@ -369,7 +369,7 @@ HTML
 <li>A direct client quote confirming the result, adding third-party credibility.</li>
 </ul>
 <div class="hl hl-do">Ask clients for a specific number at project close, while the improvement is fresh and easy for them to confirm — waiting months makes this data much harder to collect.</div>
-<h2>Where this connects</h2>
+<h2>Where this ties in</h2>
 <p>This is covered alongside <a href="/guides/">portfolio structure</a> inside our <a href="/services/freelancers-agencies/">Automation Service for Freelancers &amp; Micro-Agencies</a>.</p>
 <p>Want your case studies rebuilt around real outcomes? <a href="/services/freelancers-agencies/">Book a consultation</a>.</p>
 HTML
@@ -403,7 +403,7 @@ HTML
 <li>Back the claim with the case study proving it, so the positioning isn't just a slogan.</li>
 </ul>
 <div class="hl hl-do">Test your new headline against a stranger — if they can immediately state what result you deliver, the positioning is working.</div>
-<h2>Where this connects</h2>
+<h2>How this fits together</h2>
 <p>This positioning shift is part of the website work inside our <a href="/services/freelancers-agencies/">Automation Service for Freelancers &amp; Micro-Agencies</a>, alongside <a href="/guides/">case study structure</a>.</p>
 <p>Want your positioning rewritten this month? <a href="/services/freelancers-agencies/">Book a consultation</a>.</p>
 HTML
@@ -420,7 +420,7 @@ HTML
 <li>Make both asks a single click — a short form or a one-line email reply, not a long request.</li>
 </ul>
 <div class="hl hl-do">Ask for a specific result in the testimonial request — "what changed for your business" — rather than a generic "how was working with me," which produces more usable, persuasive quotes.</div>
-<h2>Where this connects</h2>
+<h2>Where this pairs with</h2>
 <p>This sequence runs alongside <a href="/guides/">proposal follow-up</a> inside our <a href="/services/freelancers-agencies/">Automation Service for Freelancers &amp; Micro-Agencies</a>.</p>
 <p>Want this automated for your business? <a href="/services/freelancers-agencies/">Book a consultation</a>.</p>
 HTML
@@ -437,7 +437,7 @@ HTML
 <li>Include a soft, natural invitation to a discovery call once trust has been established.</li>
 </ul>
 <div class="hl hl-do">Match your capture offer to the specific article topic — a reader of a pricing article wants a pricing-related resource, not a generic newsletter signup.</div>
-<h2>Where this connects</h2>
+<h2>Part of the bigger picture</h2>
 <p>This nurture sequence pairs with our standalone <a href="/services/marketing-automation/">Marketing Automation</a> service, tailored for freelancers inside our <a href="/services/freelancers-agencies/">Automation Service for Freelancers &amp; Micro-Agencies</a>.</p>
 <p>Want your content connected to a real nurture sequence? <a href="/services/freelancers-agencies/">Book a consultation</a>.</p>
 HTML
@@ -454,7 +454,7 @@ HTML
 <li>A simple monthly trend, so a declining channel is visible before it's a crisis.</li>
 </ul>
 <div class="hl hl-do">Review this monthly rather than weekly — monthly trends reveal what's actually worth your limited marketing time far more reliably than short-term noise.</div>
-<h2>Where this connects</h2>
+<h2>Where this leads next</h2>
 <p>This reporting layer is included in every <a href="/services/freelancers-agencies/">Automation Service for Freelancers &amp; Micro-Agencies</a> engagement.</p>
 <p>Want your current lead sources tracked for free? <a href="/services/freelancers-agencies/">Book a consultation</a>.</p>
 HTML
@@ -471,7 +471,7 @@ HTML
 <li>Layer in proposal follow-up and testimonial automation last, compounding the first two layers.</li>
 </ul>
 <div class="hl hl-do">Build in this order rather than all at once — the portfolio and positioning fix pays for itself fastest by improving every inquiry that follows.</div>
-<h2>Where this connects</h2>
+<h2>Fits alongside</h2>
 <p>This is exactly how we deliver the full <a href="/services/freelancers-agencies/">Automation Service for Freelancers &amp; Micro-Agencies</a> in four weeks. Browse our <a href="/guides/">guide library</a> for each piece.</p>
 <p>Ready to start? <a href="/services/freelancers-agencies/">Book a free consultation</a>.</p>
 HTML
@@ -490,7 +490,7 @@ HTML
 <li>A quick win offered specifically to restart momentum, rather than jumping back into the hardest remaining lesson.</li>
 </ul>
 <div class="hl hl-do">Trigger your re-engagement message based on actual inactivity days, not a fixed calendar date — a student who's on track shouldn't get a nudge meant for one who's stalled.</div>
-<h2>Where this connects</h2>
+<h2>The bigger system</h2>
 <p>This is the core of the automation layer inside our <a href="/services/creators-coaches/">Automation Service for Creators &amp; Coaches</a>, working alongside <a href="/guides/">the free-to-paid upgrade sequence</a>.</p>
 <p>Want this built for your course? <a href="/services/creators-coaches/">Book a consultation</a>.</p>
 HTML
@@ -507,7 +507,7 @@ HTML
 <li>A clear, singular call to action — enroll now — without competing secondary offers.</li>
 </ul>
 <div class="hl hl-do">Rewrite your headline as if explaining to a friend what changes for someone after taking this course — that sentence usually outperforms a cleverer, more abstract tagline.</div>
-<h2>Where this connects</h2>
+<h2>Where this ties in</h2>
 <p>This is the first layer we rebuild inside every <a href="/services/creators-coaches/">Automation Service for Creators &amp; Coaches</a> engagement, paired with the <a href="/guides/">lead magnet sequence</a>.</p>
 <p>Want your landing page rebuilt this month? <a href="/services/creators-coaches/">Book a consultation</a>.</p>
 HTML
@@ -541,7 +541,7 @@ HTML
 <li>Send a "you're almost there" push to students nearing completion, when momentum matters most.</li>
 </ul>
 <div class="hl hl-do">Keep the stalled-student message short and specific — naming exactly which lesson comes next reduces the task back down to something manageable.</div>
-<h2>Where this connects</h2>
+<h2>How this fits together</h2>
 <p>This works alongside the <a href="/guides/">lesson-four drop-off guide</a> inside our <a href="/services/creators-coaches/">Automation Service for Creators &amp; Coaches</a>.</p>
 <p>Want this built for your course? <a href="/services/creators-coaches/">Book a consultation</a>.</p>
 HTML
@@ -558,7 +558,7 @@ HTML
 <li>Frame it as a next step in their journey, not a separate sales pitch.</li>
 </ul>
 <div class="hl hl-do">Time the upsell message to arrive within a day of completion, while their sense of accomplishment — and trust in you — is at its peak.</div>
-<h2>Where this connects</h2>
+<h2>Where this pairs with</h2>
 <p>This sits alongside <a href="/guides/">progress-based nurture</a> inside our <a href="/services/creators-coaches/">Automation Service for Creators &amp; Coaches</a>.</p>
 <p>Want an upsell sequence built for your course catalog? <a href="/services/creators-coaches/">Book a consultation</a>.</p>
 HTML
@@ -575,7 +575,7 @@ HTML
 <li>Let a reader's clicks continue to refine their segment over time, rather than a one-time survey.</li>
 </ul>
 <div class="hl hl-do">Start with just two segments — the simplest possible split still captures most of the engagement lift, without building a complex system first.</div>
-<h2>Where this connects</h2>
+<h2>Part of the bigger picture</h2>
 <p>This same logic powers the <a href="/guides/">free-to-paid upgrade sequence</a>, both part of our <a href="/services/creators-coaches/">Automation Service for Creators &amp; Coaches</a>.</p>
 <p>Want your list segmented this month? <a href="/services/creators-coaches/">Book a consultation</a>.</p>
 HTML
@@ -592,7 +592,7 @@ HTML
 <li>Offer a simple, low-friction way to re-engage — a quick-win piece of content, not a long onboarding again.</li>
 </ul>
 <div class="hl hl-do">Reference something specific and current in the check-in message — a recent piece of content they missed — rather than a vague, generic re-engagement line.</div>
-<h2>Where this connects</h2>
+<h2>Where this leads next</h2>
 <p>This runs alongside <a href="/guides/">interest segmentation</a> inside our <a href="/services/creators-coaches/">Automation Service for Creators &amp; Coaches</a>.</p>
 <p>Want your churn risk monitored automatically? <a href="/services/creators-coaches/">Book a consultation</a>.</p>
 HTML
@@ -609,7 +609,7 @@ HTML
 <li>Enough real detail that the story reads as genuine, not templated.</li>
 </ul>
 <div class="hl hl-do">Collect these stories automatically at course completion, while the transformation is fresh and the student is most willing to describe it in detail.</div>
-<h2>Where this connects</h2>
+<h2>Fits alongside</h2>
 <p>This proof layer is built into every <a href="/services/creators-coaches/">Automation Service for Creators &amp; Coaches</a> landing page, alongside <a href="/guides/">outcome-focused positioning</a>.</p>
 <p>Want your proof collected and structured properly? <a href="/services/creators-coaches/">Book a consultation</a>.</p>
 HTML
@@ -626,7 +626,7 @@ HTML
 <li>Layer in progress-based nurture and upsells last, compounding revenue per student.</li>
 </ul>
 <div class="hl hl-do">Build in this order rather than all at once — a better landing page multiplies the value of every later addition to the funnel.</div>
-<h2>Where this connects</h2>
+<h2>The bigger system</h2>
 <p>This is exactly how we deliver the full <a href="/services/creators-coaches/">Automation Service for Creators &amp; Coaches</a> in four weeks. Browse our <a href="/guides/">guide library</a> for each piece.</p>
 <p>Ready to start? <a href="/services/creators-coaches/">Book a free consultation</a>.</p>
 HTML
@@ -645,7 +645,7 @@ HTML
 <li>Show visible certifications and partnerships that a generic implementer can't claim.</li>
 </ul>
 <div class="hl hl-do">Rewrite your homepage headline naming the specific outcome and tool combination you're known for — specificity is what separates you from the thousand others.</div>
-<h2>Where this connects</h2>
+<h2>Where this ties in</h2>
 <p>This positioning work is the first layer inside our <a href="/services/b2b-providers/">Automation Service for B2B Service Providers</a>, paired with <a href="/guides/">case studies procurement trusts</a>.</p>
 <p>Want your positioning rebuilt this month? <a href="/services/b2b-providers/">Book a consultation</a>.</p>
 HTML
@@ -679,7 +679,7 @@ HTML
 <li>A measurable outcome and realistic timeline, not a vague "significant improvement."</li>
 </ul>
 <div class="hl hl-do">Get explicit written permission to name company size and industry even when you can't name the client directly — this level of specificity alone significantly improves credibility.</div>
-<h2>Where this connects</h2>
+<h2>How this fits together</h2>
 <p>This is built into every page inside our <a href="/services/b2b-providers/">Automation Service for B2B Service Providers</a>, alongside the <a href="/guides/">specific positioning guide</a>.</p>
 <p>Want your case studies rebuilt to this standard? <a href="/services/b2b-providers/">Book a consultation</a>.</p>
 HTML
@@ -696,7 +696,7 @@ HTML
 <li>Post-call notes and a proposed timeline sent automatically the same day.</li>
 </ul>
 <div class="hl hl-do">Attach the case study most similar to the buyer's stated company size and tool — relevance measurably improves booking rates over a generic favorite case study.</div>
-<h2>Where this connects</h2>
+<h2>Where this pairs with</h2>
 <p>This sequence connects directly to <a href="/guides/">day-5 proposal follow-up</a> inside our <a href="/services/b2b-providers/">Automation Service for B2B Service Providers</a>.</p>
 <p>Want this sequence written for your services? <a href="/services/b2b-providers/">Book a consultation</a>.</p>
 HTML
@@ -716,7 +716,7 @@ HTML
 <li>Upsell and past-client re-engagement.</li>
 </ul>
 <div class="hl hl-do">Build one stage at a time and confirm it's working before adding the next — six half-finished automations create more confusion than one stage working perfectly.</div>
-<h2>Where this connects</h2>
+<h2>Part of the bigger picture</h2>
 <p>This mapping is how we structure every <a href="/services/b2b-providers/">Automation Service for B2B Service Providers</a> engagement from the start.</p>
 <p>Want your specific cycle mapped this way? <a href="/services/b2b-providers/">Book a consultation</a>.</p>
 HTML
@@ -733,7 +733,7 @@ HTML
 <li>A simple way to ask a question, so concerns surface early rather than at the final review.</li>
 </ul>
 <div class="hl hl-do">Send updates on a fixed, predictable cadence — weekly, for instance — rather than only when there's major news, since the predictability itself is what builds trust.</div>
-<h2>Where this connects</h2>
+<h2>Where this leads next</h2>
 <p>This runs alongside <a href="/guides/">the 6-month cycle mapping</a> inside our <a href="/services/b2b-providers/">Automation Service for B2B Service Providers</a>.</p>
 <p>Want this automated for your current projects? <a href="/services/b2b-providers/">Book a consultation</a>.</p>
 HTML
@@ -749,7 +749,7 @@ HTML
 <li>An optimization or next-phase upsell offered a few weeks later, once the client has seen the implementation in production.</li>
 </ul>
 <div class="hl hl-do">Frame the upsell around what the client has already experienced in production — "here's what we noticed once it went live" — rather than a generic next-service pitch.</div>
-<h2>Where this connects</h2>
+<h2>Fits alongside</h2>
 <p>This pairs with <a href="/guides/">implementation-progress updates</a> inside our <a href="/services/b2b-providers/">Automation Service for B2B Service Providers</a>.</p>
 <p>Want this automated for your next project close? <a href="/services/b2b-providers/">Book a consultation</a>.</p>
 HTML
@@ -766,7 +766,7 @@ HTML
 <li>A simple flag for any deal that's exceeded the normal time at its current stage.</li>
 </ul>
 <div class="hl hl-do">Review this monthly and look specifically for one stage consistently taking longer than the rest — that's almost always where the highest-leverage fix is hiding.</div>
-<h2>Where this connects</h2>
+<h2>The bigger system</h2>
 <p>This reporting layer is included in every <a href="/services/b2b-providers/">Automation Service for B2B Service Providers</a> engagement, alongside <a href="/guides/">the 6-month cycle mapping</a>.</p>
 <p>Want your pipeline analyzed for free? <a href="/services/b2b-providers/">Book a consultation</a>.</p>
 HTML
@@ -783,7 +783,7 @@ HTML
 <li>Layer in progress updates and post-implementation upsell last, compounding revenue per client.</li>
 </ul>
 <div class="hl hl-do">Build in this order rather than all at once — specific positioning improves the conversion of every deal that follows it.</div>
-<h2>Where this connects</h2>
+<h2>Where this ties in</h2>
 <p>This is exactly how we deliver the full <a href="/services/b2b-providers/">Automation Service for B2B Service Providers</a> in four weeks. Browse our <a href="/guides/">guide library</a> for each piece.</p>
 <p>Ready to start? <a href="/services/b2b-providers/">Book a free consultation</a>.</p>
 HTML
@@ -818,7 +818,7 @@ HTML
 <li>Compare campaigns against each other by this number, not by open rate.</li>
 </ul>
 <div class="hl hl-do">Pick one campaign from the past quarter and calculate its actual conversion-to-action rate — most marketers are surprised by how different this looks from the open-rate story they'd been telling themselves.</div>
-<h2>Where this connects</h2>
+<h2>How this fits together</h2>
 <p>This is the attribution layer inside our <a href="/services/marketing-automation/">Marketing Automation</a> service. See our <a href="/guides/">campaign-ROI guide</a> for the full reporting approach.</p>
 <p>Want your campaigns measured by the metric that matters? <a href="/services/marketing-automation/">Book a consultation</a>.</p>
 HTML
@@ -835,7 +835,7 @@ HTML
 <li>Keep fully human: sensitive announcements, crisis communication, anything requiring real judgment.</li>
 </ul>
 <div class="hl hl-do">Start with your seasonal campaign — it's the easiest to automate correctly and typically has the clearest, most measurable payoff.</div>
-<h2>Where this connects</h2>
+<h2>Where this pairs with</h2>
 <p>This sequencing is how we build every <a href="/services/marketing-automation/">Marketing Automation</a> engagement, one workflow at a time.</p>
 <p>Want your specific automation order mapped out? <a href="/services/marketing-automation/">Book a consultation</a>.</p>
 HTML
@@ -852,7 +852,7 @@ HTML
 <li>Send future campaigns to the relevant bucket first, refining the groups over time as more data accumulates.</li>
 </ul>
 <div class="hl hl-do">Don't wait for a perfect system — start segmenting with the data you already have in your existing email platform's click reports.</div>
-<h2>Where this connects</h2>
+<h2>Part of the bigger picture</h2>
 <p>This segmentation feeds every other part of our <a href="/services/marketing-automation/">Marketing Automation</a> service, from seasonal campaigns to win-backs.</p>
 <p>Want your list segmented this month? <a href="/services/marketing-automation/">Book a consultation</a>.</p>
 HTML
@@ -869,7 +869,7 @@ HTML
 <li>A conversion event (a booking, a purchase) automatically updates your CRM without re-entry.</li>
 </ul>
 <div class="hl hl-do">List your three most-used marketing tools today — there's a good chance all three can already be connected without replacing any of them.</div>
-<h2>Where this connects</h2>
+<h2>Where this leads next</h2>
 <p>This is how we wire every layer inside our <a href="/services/marketing-automation/">Marketing Automation</a> service — see the full page for the five moving parts.</p>
 <p>Want your existing tools connected this month? <a href="/services/marketing-automation/">Book a consultation</a>.</p>
 HTML
@@ -886,7 +886,7 @@ HTML
 <li>An inconsistent schedule — subscribers unconsciously learn when to expect (or ignore) your emails.</li>
 </ul>
 <div class="hl hl-do">Review your last ten subject lines — if most could apply to any business in your industry, specificity is your fastest fix.</div>
-<h2>Where this connects</h2>
+<h2>Fits alongside</h2>
 <p>This is covered alongside <a href="/guides/">list segmentation</a> inside our <a href="/services/marketing-automation/">Marketing Automation</a> service.</p>
 <p>Want your open rates diagnosed for free? <a href="/services/marketing-automation/">Book a consultation</a>.</p>
 HTML
@@ -903,7 +903,7 @@ HTML
 <li>Compare the revenue or value of that action against the time spent creating the campaign.</li>
 </ul>
 <div class="hl hl-do">Do this calculation for just one recent campaign today — even a rough estimate is more useful than no measurement at all.</div>
-<h2>Where this connects</h2>
+<h2>The bigger system</h2>
 <p>This is the attribution &amp; reporting layer inside our <a href="/services/marketing-automation/">Marketing Automation</a> service.</p>
 <p>Want your campaign ROI tracked automatically going forward? <a href="/services/marketing-automation/">Book a consultation</a>.</p>
 HTML
@@ -921,7 +921,7 @@ HTML
 <li><b>Week 4:</b> connect simple attribution reporting to see what's working.</li>
 </ul>
 <div class="hl hl-do">Resist adding a fifth workflow in month one — confirming the first four work reliably is more valuable than rushing to add more.</div>
-<h2>Where this connects</h2>
+<h2>Where this ties in</h2>
 <p>This is exactly the build order for our <a href="/services/marketing-automation/">Marketing Automation</a> service. See our <a href="/guides/">guide library</a> for each week's piece in depth.</p>
 <p>Ready to start your 30-day rollout? <a href="/services/marketing-automation/">Book a consultation</a>.</p>
 HTML
@@ -957,7 +957,7 @@ HTML
 <li>Setting a sustainable cadence from the start, rather than an ambitious one that collapses under real workload.</li>
 </ul>
 <div class="hl hl-do">Set your cadence based on your busiest realistic week, not your best week — a sustainable schedule you can maintain always beats an ambitious one you'll abandon.</div>
-<h2>Where this connects</h2>
+<h2>How this fits together</h2>
 <p>This is the core problem our <a href="/services/social-media-automation/">Social Media Automation</a> service solves — see the full page for the five moving parts.</p>
 <p>Want a sustainable posting system built for you? <a href="/services/social-media-automation/">Book a consultation</a>.</p>
 HTML
@@ -974,7 +974,7 @@ HTML
 <li>Compare content types against each other using this number, not likes.</li>
 </ul>
 <div class="hl hl-do">Review your last month of posts and identify which single one drove the most profile visits — that content type is usually worth repeating.</div>
-<h2>Where this connects</h2>
+<h2>Where this pairs with</h2>
 <p>This is the analytics layer inside our <a href="/services/social-media-automation/">Social Media Automation</a> service. See our <a href="/guides/">social-ROI guide</a> for the full reporting approach.</p>
 <p>Want your social content measured by what matters? <a href="/services/social-media-automation/">Book a consultation</a>.</p>
 HTML
@@ -991,7 +991,7 @@ HTML
 <li>Keep human: direct replies to comments and DMs from real prospects.</li>
 </ul>
 <div class="hl hl-do">Start with repurposing your best existing guide or case study — it's the fastest, lowest-risk win before adding fresh AI-drafted content.</div>
-<h2>Where this connects</h2>
+<h2>Part of the bigger picture</h2>
 <p>This sequencing is how we build every <a href="/services/social-media-automation/">Social Media Automation</a> engagement, one piece at a time.</p>
 <p>Want your specific automation order mapped out? <a href="/services/social-media-automation/">Book a consultation</a>.</p>
 HTML
@@ -1008,7 +1008,7 @@ HTML
 <li>Flag any recurring off-voice pattern explicitly, so it stops appearing in future batches.</li>
 </ul>
 <div class="hl hl-do">Keep a running note of phrases or tones you consistently edit out — feeding this back explicitly speeds up how quickly drafts start sounding like you.</div>
-<h2>Where this connects</h2>
+<h2>Where this leads next</h2>
 <p>This approval step is built into the drafting layer inside our <a href="/services/social-media-automation/">Social Media Automation</a> service.</p>
 <p>Want this workflow set up for your account? <a href="/services/social-media-automation/">Book a consultation</a>.</p>
 HTML
@@ -1025,7 +1025,7 @@ HTML
 <li>A comment or DM containing a lead-worthy question routes automatically into your inquiry pipeline.</li>
 </ul>
 <div class="hl hl-do">List your current content and scheduling tools today — there's a good chance both can already be connected without replacing either one.</div>
-<h2>Where this connects</h2>
+<h2>Fits alongside</h2>
 <p>This is how we wire every layer inside our <a href="/services/social-media-automation/">Social Media Automation</a> service — see the full page for the five moving parts.</p>
 <p>Want your existing tools connected this month? <a href="/services/social-media-automation/">Book a consultation</a>.</p>
 HTML
@@ -1042,7 +1042,7 @@ HTML
 <li>Never feeding your edits back into future drafts, so the system never actually learns your voice.</li>
 </ul>
 <div class="hl hl-do">Feed every edit you make back as explicit feedback, even small wording changes — this is what closes the gap between generic AI output and something that sounds genuinely like you.</div>
-<h2>Where this connects</h2>
+<h2>The bigger system</h2>
 <p>This is addressed directly by the approval workflow inside our <a href="/services/social-media-automation/">Social Media Automation</a> service.</p>
 <p>Want this fixed for your current social presence? <a href="/services/social-media-automation/">Book a consultation</a>.</p>
 HTML
@@ -1059,7 +1059,7 @@ HTML
 <li>Compare the time spent creating a post against the value of any resulting inquiry.</li>
 </ul>
 <div class="hl hl-do">Do this calculation for just your last five posts today — even a rough estimate clarifies whether your current approach is working.</div>
-<h2>Where this connects</h2>
+<h2>Where this ties in</h2>
 <p>This is the analytics &amp; optimization layer inside our <a href="/services/social-media-automation/">Social Media Automation</a> service.</p>
 <p>Want your social ROI tracked automatically going forward? <a href="/services/social-media-automation/">Book a consultation</a>.</p>
 HTML
@@ -1094,7 +1094,7 @@ HTML
 <li>Layer in engagement routing and analytics last, compounding the value of the consistent content flow.</li>
 </ul>
 <div class="hl hl-do">Build in this order rather than all at once — a steady scheduling habit makes every later addition easier to layer on top.</div>
-<h2>Where this connects</h2>
+<h2>How this fits together</h2>
 <p>This is exactly how we deliver the full <a href="/services/social-media-automation/">Social Media Automation</a> service. Browse our <a href="/guides/">guide library</a> for each piece.</p>
 <p>Ready to start? <a href="/services/social-media-automation/">Book a free consultation</a>.</p>
 HTML

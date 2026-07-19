@@ -43,9 +43,9 @@ $guide_q = new WP_Query( array(
 </section>
 <section id="pillars">
 	<div class="wrap band reveal"><div class="eyebrow">Five series · the whole curriculum</div><h2>Learn it in order, or jump to your leak</h2></div>
-	<div class="wrap"><div class="grid-3">
-		<?php foreach ( $pillars as $p ) { echo '<a class="glass card reveal tilt" href="#grid" data-jump="' . esc_attr( $p[5] ) . '" style="--hue:' . esc_attr( $p[1] ) . '"><canvas class="fxcanvas" data-fx="' . esc_attr( $p[0] ) . '" style="--hue:' . esc_attr( $p[1] ) . '"></canvas><div class="card-b"><span class="lbl">' . esc_html( $p[2] ) . '</span><h4>' . esc_html( $p[3] ) . '</h4><p>' . wp_kses_post( $p[4] ) . '</p><span class="go">Browse →</span></div></a>'; } ?>
-		<a class="glass card reveal tilt" href="#cta" style="--hue:var(--ok)"><canvas class="fxcanvas" data-fx="crystal" style="--hue:var(--ok)"></canvas><div class="card-b"><span class="lbl">Prefer it done?</span><h4>Book a non-binding call</h4><p>We build the whole system in 4 weeks.</p><span class="go">Talk to a human →</span></div></a>
+	<div class="wrap"><div class="grid-3" role="list">
+		<?php foreach ( $pillars as $p ) { echo '<a class="glass card reveal tilt" role="listitem" href="#grid" data-jump="' . esc_attr( $p[5] ) . '" style="--hue:' . esc_attr( $p[1] ) . '"><canvas class="fxcanvas" data-fx="' . esc_attr( $p[0] ) . '" style="--hue:' . esc_attr( $p[1] ) . '"></canvas><div class="card-b"><span class="lbl">' . esc_html( $p[2] ) . '</span><h4>' . esc_html( $p[3] ) . '</h4><p>' . wp_kses_post( $p[4] ) . '</p><span class="go">Browse →</span></div></a>'; } ?>
+		<a class="glass card reveal tilt" role="listitem" href="#cta" style="--hue:var(--ok)"><canvas class="fxcanvas" data-fx="crystal" style="--hue:var(--ok)"></canvas><div class="card-b"><span class="lbl">Prefer it done?</span><h4>Book a non-binding call</h4><p>We build the whole system in 4 weeks.</p><span class="go">Talk to a human →</span></div></a>
 	</div></div>
 </section>
 <section id="grid">
@@ -53,21 +53,21 @@ $guide_q = new WP_Query( array(
 	<div class="wrap">
 		<div class="filters" data-group="business"><span class="flabel">By business:</span><button class="fbtn on" data-f="all">All</button><?php foreach ( $segs as $slug => $seg ) { echo '<button class="fbtn" data-f="' . esc_attr( $slug ) . '" style="--hue:' . esc_attr( $seg['hue'] ) . '">' . wp_kses_post( $seg['label'] ) . '</button>'; } ?></div>
 		<div class="filters" data-group="service" style="margin-top:8px"><span class="flabel">By service:</span><button class="fbtn on" data-f="all">All</button><?php foreach ( $svckeys as $k => $label ) { echo '<button class="fbtn" data-f="' . esc_attr( $k ) . '">' . esc_html( $label ) . '</button>'; } ?></div>
-		<div class="grid-4" style="margin-top:22px">
+		<div class="grid-4" role="list" style="margin-top:22px">
 			<?php
 			if ( $guide_q->have_posts() ) :
 				while ( $guide_q->have_posts() ) : $guide_q->the_post();
 					$cat = get_the_category(); $tags = get_the_tags();
 					$cats = array(); if ( $cat ) foreach ( $cat as $c ) { $cats[] = $c->slug; } if ( $tags ) foreach ( $tags as $tg ) { $cats[] = $tg->slug; }
 					$label = $cat ? strtoupper( $cat[0]->name ) : 'GUIDE'; ?>
-					<a class="glass gcard" data-cats="<?php echo esc_attr( implode( ' ', $cats ) ); ?>" style="--hue:var(--g1)" href="<?php the_permalink(); ?>"><div class="gi"><?php echo esc_html( $label ); ?></div><h5><?php the_title(); ?></h5><div class="ga">problem → solution → CTA</div></a>
+					<a class="glass gcard" role="listitem" data-cats="<?php echo esc_attr( implode( ' ', $cats ) ); ?>" style="--hue:var(--g1)" href="<?php the_permalink(); ?>"><div class="gi"><?php echo esc_html( $label ); ?></div><h5><?php the_title(); ?></h5><div class="ga">problem → solution → CTA</div></a>
 				<?php endwhile; wp_reset_postdata();
 			else :
-				foreach ( $demo as $g ) { echo '<a class="glass gcard" data-cats="' . esc_attr( $g[0] ) . '" style="--hue:' . esc_attr( $g[1] ) . '" href="#"><div class="gi">' . esc_html( $g[2] ) . '</div><h5>' . wp_kses_post( $g[3] ) . '</h5><div class="ga">problem → solution → CTA · queued next batch</div></a>'; }
+				foreach ( $demo as $g ) { echo '<a class="glass gcard" role="listitem" data-cats="' . esc_attr( $g[0] ) . '" style="--hue:' . esc_attr( $g[1] ) . '" href="#"><div class="gi">' . esc_html( $g[2] ) . '</div><h5>' . wp_kses_post( $g[3] ) . '</h5><div class="ga">problem → solution → CTA · queued next batch</div></a>'; }
 			endif;
 			?>
 		</div>
-		<p class="spec-note">WordPress: guides carry a customer-segment category + a service tag; the two filter rows read both. 16 professions × 20 guides is the full library target.</p>
+		<p class="spec-note">WordPress: guides carry a customer-segment category + a service tag; the two filter rows read both. 90 real guides across all 9 service pages, plus 9 field-note posts on the blog.</p>
 	</div>
 </section>
 <script>document.querySelectorAll('[data-jump]').forEach(function(a){a.addEventListener('click',function(){var f=a.dataset.jump;var b=document.querySelector('.filters[data-group="service"] .fbtn[data-f="'+f+'"]');if(b)setTimeout(function(){b.click();},400);});});</script>

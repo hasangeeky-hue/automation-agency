@@ -13,10 +13,19 @@ $segs       = function_exists( 'anthropos_segments' ) ? anthropos_segments() : a
 $svcpages   = function_exists( 'anthropos_service_pages' ) ? anthropos_service_pages() : array();
 $slug       = get_post_field( 'post_name', get_queried_object_id() );
 
-/** Real post URL by slug, or null if not published yet. */
-function anthropos_find_post_url( $slug ) {
-	$posts = get_posts( array( 'name' => $slug, 'post_type' => 'post', 'post_status' => 'publish', 'posts_per_page' => 1 ) );
-	return $posts ? get_permalink( $posts[0] ) : null;
+/** Batch-resolve real post URLs for a set of slugs in ONE query — avoids
+ *  running a separate get_posts() per guide card (was up to 10 per page). */
+function anthropos_resolve_post_urls( $slugs ) {
+	static $cache = array();
+	$need = array_diff( array_unique( $slugs ), array_keys( $cache ) );
+	if ( $need ) {
+		$posts = get_posts( array( 'post_name__in' => array_values( $need ), 'post_type' => 'post', 'post_status' => 'publish', 'posts_per_page' => count( $need ) ) );
+		foreach ( $posts as $post ) { $cache[ $post->post_name ] = get_permalink( $post ); }
+		foreach ( $need as $s ) { if ( ! array_key_exists( $s, $cache ) ) { $cache[ $s ] = null; } }
+	}
+	$out = array();
+	foreach ( $slugs as $s ) { $out[ $s ] = isset( $cache[ $s ] ) ? $cache[ $s ] : null; }
+	return $out;
 }
 
 /** Map of page slug => [ guide-index => real post slug ]. Every guide listed
@@ -139,12 +148,13 @@ function anthropos_written_guides() {
  *  to it, the rest link to the guides library — queued, not dead. */
 function anthropos_guide_grid( $titles, $hue, $url, $page_slug = '' ) {
 	$written = ( $page_slug && isset( anthropos_written_guides()[ $page_slug ] ) ) ? anthropos_written_guides()[ $page_slug ] : array();
-	echo '<div class="wrap"><div class="guides" style="--hue:' . esc_attr( $hue ) . '">';
+	$urls    = $written ? anthropos_resolve_post_urls( array_values( $written ) ) : array();
+	echo '<div class="wrap"><div class="guides" role="list" style="--hue:' . esc_attr( $hue ) . '">';
 	foreach ( $titles as $i => $t ) {
-		$real_url = isset( $written[ $i ] ) ? anthropos_find_post_url( $written[ $i ] ) : null;
+		$real_url = ( isset( $written[ $i ] ) && ! empty( $urls[ $written[ $i ] ] ) ) ? $urls[ $written[ $i ] ] : null;
 		$href     = $real_url ? $real_url : $url;
 		$tag      = $real_url ? 'Read the full guide →' : 'problem → solution → CTA';
-		echo '<a class="glass gcard" href="' . esc_url( $href ) . '" style="--hue:' . esc_attr( $hue ) . '"><div class="gi">G' . ( $i < 9 ? '0' : '' ) . ( $i + 1 ) . '</div><h5>' . wp_kses_post( $t ) . '</h5><div class="ga">' . esc_html( $tag ) . '</div></a>';
+		echo '<a class="glass gcard" role="listitem" href="' . esc_url( $href ) . '" style="--hue:' . esc_attr( $hue ) . '"><div class="gi">G' . ( $i < 9 ? '0' : '' ) . ( $i + 1 ) . '</div><h5>' . wp_kses_post( $t ) . '</h5><div class="ga">' . esc_html( $tag ) . '</div></a>';
 	}
 	echo '</div></div>';
 }
@@ -172,7 +182,7 @@ if ( isset( $svcpages[ $slug ] ) ) :
 	</section>
 	<section id="article">
 		<div class="wrap band reveal"><div class="eyebrow">Why this, and how it works</div><h2>The full picture</h2></div>
-		<div class="wrap"><div class="glass" style="padding:32px 36px"><div class="aa-content"><?php echo wp_kses_post( $s['article'] ); ?></div></div></div>
+		<div class="wrap"><div class="glass" style="padding:32px 36px"><div class="aa-content"><?php echo wp_kses_post( anthropos_localize_links( $s['article'] ) ); ?></div></div></div>
 	</section>
 	<section id="guides">
 		<div class="wrap band reveal"><div class="eyebrow">10 guides · problem → solution → CTA</div><h2>Guides for <?php echo wp_kses_post( $s['label'] ); ?></h2></div>
@@ -180,8 +190,8 @@ if ( isset( $svcpages[ $slug ] ) ) :
 	</section>
 	<section id="siblings">
 		<div class="wrap band reveal"><div class="eyebrow">Need it for a specific business?</div><h2>See it inside your automation service page</h2></div>
-		<div class="wrap"><div class="siblings">
-			<?php foreach ( $segs as $sslug => $seg ) { echo '<a class="glass sib reveal" href="' . esc_url( anthropos_seg_url( $sslug ) ) . '" style="--hue:' . esc_attr( $seg['hue'] ) . '"><span class="sd"></span><span><b>' . wp_kses_post( $seg['label'] ) . '</b></span></a>'; } ?>
+		<div class="wrap"><div class="siblings" role="list">
+			<?php foreach ( $segs as $sslug => $seg ) { echo '<a class="glass sib reveal" role="listitem" href="' . esc_url( anthropos_seg_url( $sslug ) ) . '" style="--hue:' . esc_attr( $seg['hue'] ) . '"><span class="sd"></span><span><b>' . wp_kses_post( $seg['label'] ) . '</b></span></a>'; } ?>
 		</div></div>
 	</section>
 	<?php
@@ -203,14 +213,14 @@ if ( ! isset( $segs[ $slug ] ) ) :
 	</section>
 	<section id="all">
 		<div class="wrap band reveal"><div class="eyebrow">By business type · one page each</div><h2>The seven automation service pages</h2></div>
-		<div class="wrap"><div class="grid-4">
-			<?php foreach ( $segs as $sslug => $seg ) { echo '<a class="glass card reveal tilt" href="' . esc_url( anthropos_seg_url( $sslug ) ) . '" style="--hue:' . esc_attr( $seg['hue'] ) . '"><div class="card-b"><span class="lbl">' . wp_kses_post( $seg['label'] ) . '</span><h4>' . wp_kses_post( $seg['title'] ) . '</h4><span class="go">Open →</span></div></a>'; } ?>
+		<div class="wrap"><div class="grid-4" role="list">
+			<?php foreach ( $segs as $sslug => $seg ) { echo '<a class="glass card reveal tilt" role="listitem" href="' . esc_url( anthropos_seg_url( $sslug ) ) . '" style="--hue:' . esc_attr( $seg['hue'] ) . '"><div class="card-b"><span class="lbl">' . wp_kses_post( $seg['label'] ) . '</span><h4>' . wp_kses_post( $seg['title'] ) . '</h4><span class="go">Open →</span></div></a>'; } ?>
 		</div></div>
 	</section>
 	<section id="svcpages">
 		<div class="wrap band reveal"><div class="eyebrow">By service · standalone</div><h2>Marketing &amp; Social Media Automation</h2></div>
-		<div class="wrap"><div class="grid-3">
-			<?php foreach ( $svcpages as $sslug => $sp ) { $u = get_page_by_path( $sslug ); $uu = $u ? get_permalink( $u ) : home_url( '/' . $sslug . '/' ); echo '<a class="glass card reveal tilt" href="' . esc_url( $uu ) . '" style="--hue:' . esc_attr( $sp['hue'] ) . '"><div class="card-b"><span class="lbl">Service</span><h4>' . wp_kses_post( $sp['title'] ) . '</h4><span class="go">Open →</span></div></a>'; } ?>
+		<div class="wrap"><div class="grid-3" role="list">
+			<?php foreach ( $svcpages as $sslug => $sp ) { $u = get_page_by_path( $sslug ); $uu = $u ? get_permalink( $u ) : home_url( '/' . $sslug . '/' ); echo '<a class="glass card reveal tilt" role="listitem" href="' . esc_url( $uu ) . '" style="--hue:' . esc_attr( $sp['hue'] ) . '"><div class="card-b"><span class="lbl">Service</span><h4>' . wp_kses_post( $sp['title'] ) . '</h4><span class="go">Open →</span></div></a>'; } ?>
 		</div></div>
 	</section>
 	<?php
@@ -246,7 +256,7 @@ $offers = function_exists( 'anthropos_offers' ) ? anthropos_offers() : array();
 
 <section id="article">
 	<div class="wrap band reveal"><div class="eyebrow">Why this, and how it works</div><h2>The full picture for <?php echo wp_kses_post( $seg['label'] ); ?></h2></div>
-	<div class="wrap"><div class="glass" style="padding:32px 36px"><div class="aa-content"><?php echo wp_kses_post( $seg['article'] ); ?></div></div></div>
+	<div class="wrap"><div class="glass" style="padding:32px 36px"><div class="aa-content"><?php echo wp_kses_post( anthropos_localize_links( $seg['article'] ) ); ?></div></div></div>
 </section>
 
 <section id="guides">
@@ -256,8 +266,8 @@ $offers = function_exists( 'anthropos_offers' ) ? anthropos_offers() : array();
 
 <section id="siblings">
 	<div class="wrap band reveal"><div class="eyebrow">Not your world? Jump to yours</div><h2>The other automation service pages</h2></div>
-	<div class="wrap"><div class="siblings">
-		<?php foreach ( $segs as $sslug => $s2 ) { if ( $sslug === $slug ) { continue; } echo '<a class="glass sib reveal" href="' . esc_url( anthropos_seg_url( $sslug ) ) . '" style="--hue:' . esc_attr( $s2['hue'] ) . '"><span class="sd"></span><span><b>' . wp_kses_post( $s2['label'] ) . '</b></span></a>'; } ?>
+	<div class="wrap"><div class="siblings" role="list">
+		<?php foreach ( $segs as $sslug => $s2 ) { if ( $sslug === $slug ) { continue; } echo '<a class="glass sib reveal" role="listitem" href="' . esc_url( anthropos_seg_url( $sslug ) ) . '" style="--hue:' . esc_attr( $s2['hue'] ) . '"><span class="sd"></span><span><b>' . wp_kses_post( $s2['label'] ) . '</b></span></a>'; } ?>
 	</div></div>
 </section>
 <?php
