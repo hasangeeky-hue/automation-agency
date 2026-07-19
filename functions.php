@@ -4,7 +4,7 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'ANTHROPOS_VERSION', '3.0.2' );
+define( 'ANTHROPOS_VERSION', '3.0.3' );
 
 function anthropos_setup() {
 	add_theme_support( 'title-tag' );
@@ -39,6 +39,12 @@ function anthropos_fallback_menu() {
 	echo '<li><a href="#services">Services</a><ul class="sub-menu">';
 	echo '<li><a href="#services">Conversion Web Design</a></li><li><a href="#services">AEO / GEO / SEO</a></li><li><a href="#services">Lead &amp; Marketing Automation</a></li><li><a href="#services">Whole-Business Automation</a></li>';
 	echo '</ul></li>';
+	echo '<li><a href="#industries">Industries</a><ul class="sub-menu">';
+	foreach ( anthropos_groups() as $g ) {
+		echo '<li><a href="#industries">' . wp_kses_post( $g[0] ) . '</a></li>';
+	}
+	echo '</ul></li>';
+	echo '<li><a href="#servicepage">Guides</a></li>';
 	$blog = get_permalink( get_option( 'page_for_posts' ) );
 	echo '<li><a href="' . esc_url( $blog ? $blog : home_url( '/blog/' ) ) . '">Blog</a></li>';
 	echo '<li><a href="#team">Team</a></li>';
