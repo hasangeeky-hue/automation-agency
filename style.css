@@ -4,7 +4,7 @@ Theme URI: https://github.com/hasangeeky-hue/automation-agency
 Author: Anthropos Automation
 Author URI: https://anthropos-automation.com
 Description: AI Automation OS theme — dark glass automation canvas, node-graph/agent-network 3D on every card, 6 automation services, per-segment service pages named "Automation Service for {Segment}", guide + blog templates, neuro-navigation and internal linking.
-Version: 5.1.0
+Version: 5.2.0
 Requires at least: 6.0
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
@@ -65,7 +65,7 @@ canvas{display:block}
 .hd.open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
 /* ===== SECTION CHROME ===== */
-.band{padding:88px 0 8px}
+.band{padding-top:88px;padding-bottom:8px}
 .band h2{font-family:var(--display);font-size:clamp(26px,3.6vw,42px);font-weight:700;letter-spacing:-.025em;margin-top:13px;text-wrap:balance;max-width:26ch}
 .band .soft{font-size:16.5px;color:var(--muted);margin-top:13px;max-width:64ch}
 .band .soft b{color:var(--ink)}
@@ -262,3 +262,16 @@ canvas{display:block}
 .offer-note{margin-top:18px;padding:14px 18px;font-size:13px;color:var(--muted);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 .offer-note b{color:var(--ink)}
 .offer-note .pill{font-family:var(--mono);font-size:10.5px;color:var(--flow);border:1px solid var(--line);border-radius:8px;padding:5px 10px}
+
+/* ===== FAQ + filter label polish ===== */
+.flabel{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);align-self:center;margin-right:4px}
+.faqwrap{max-width:880px;margin:8px auto 0}
+.faqwrap details{border:1px solid var(--line);border-radius:12px;margin-top:8px;background:var(--glass);backdrop-filter:blur(8px)}
+.faqwrap summary{padding:15px 18px;font-weight:600;font-size:14px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:14px;color:var(--ink)}
+.faqwrap summary::-webkit-details-marker{display:none}
+.faqwrap summary::after{content:"+";font-family:var(--mono);color:var(--flow);font-size:17px;line-height:1}
+.faqwrap details[open] summary::after{content:"\2013"}
+.faqwrap details p{padding:0 18px 15px;font-size:13.5px;color:var(--muted);margin:0}
+.faq-groups{display:grid;gap:26px;margin-top:8px}
+.faq-group .fgh{font-family:var(--display);font-size:18px;font-weight:600;margin-bottom:4px;display:flex;align-items:center;gap:10px}
+.faq-group .fgh .fgd{width:10px;height:10px;border-radius:3px;background:var(--hue,var(--flow));box-shadow:0 0 10px var(--hue,var(--flow))}

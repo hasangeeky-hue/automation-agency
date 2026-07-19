@@ -57,6 +57,7 @@ if ( isset( $svcpages[ $slug ] ) ) :
 		</div></div>
 	</section>
 	<?php
+	anthropos_faq_section();
 	get_footer();
 	return;
 endif;
@@ -85,6 +86,7 @@ if ( ! isset( $segs[ $slug ] ) ) :
 		</div></div>
 	</section>
 	<?php
+	anthropos_faq_section();
 	get_footer();
 	return;
 endif;
@@ -126,4 +128,5 @@ $offers = function_exists( 'anthropos_offers' ) ? anthropos_offers() : array();
 	</div></div>
 </section>
 <?php
+anthropos_faq_section();
 get_footer();

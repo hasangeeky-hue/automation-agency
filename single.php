@@ -27,4 +27,4 @@ get_header();
 		</div>
 	</article>
 </div>
-<?php endwhile; get_footer(); ?>
+<?php endwhile; anthropos_faq_section(); get_footer(); ?>

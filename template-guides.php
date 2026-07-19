@@ -56,4 +56,5 @@ $guides = array(
 </section>
 <script>document.querySelectorAll('[data-jump]').forEach(function(a){a.addEventListener('click',function(){var f=a.dataset.jump;var b=document.querySelector('.filters[data-group="service"] .fbtn[data-f="'+f+'"]');if(b)setTimeout(function(){b.click();},400);});});</script>
 <?php
+anthropos_faq_section();
 get_footer();

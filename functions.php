@@ -4,7 +4,7 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'ANTHROPOS_VERSION', '5.1.0' );
+define( 'ANTHROPOS_VERSION', '5.2.0' );
 
 require_once get_template_directory() . '/inc/segments.php';
 
@@ -12,6 +12,18 @@ require_once get_template_directory() . '/inc/segments.php';
 function anthropos_seg_url( $slug ) {
 	$p = get_page_by_path( 'services/' . $slug );
 	return $p ? get_permalink( $p ) : home_url( '/services/' . $slug . '/' );
+}
+
+/** Reusable 10-item FAQ section (JS fills [data-faq] from the shared FAQ set). */
+function anthropos_faq_section() {
+	$faq_pg = get_page_by_path( 'faq' );
+	$faq_url = $faq_pg ? get_permalink( $faq_pg ) : home_url( '/faq/' );
+	?>
+	<section id="faq">
+		<div class="wrap band reveal"><div class="eyebrow">FAQ · straight answers</div><h2>Questions we hear every week</h2><p class="soft">Ten honest answers before you book. Want more? See the <a href="<?php echo esc_url( $faq_url ); ?>" style="color:var(--flow)">full FAQ</a>.</p></div>
+		<div class="wrap"><div class="faqwrap" data-faq="general"></div></div>
+	</section>
+	<?php
 }
 
 function anthropos_setup() {
@@ -43,7 +55,7 @@ add_action( 'wp_enqueue_scripts', 'anthropos_assets' );
  */
 function anthropos_bootstrap_pages() {
 	if ( ! is_admin() || ! current_user_can( 'manage_options' ) ) { return; }
-	if ( get_option( 'anthropos_bootstrapped_v52' ) ) { return; }
+	if ( get_option( 'anthropos_bootstrapped_v53' ) ) { return; }
 
 	// Parent "Services" page (overview listing) using the service template.
 	$svc = get_page_by_path( 'services' );
@@ -93,6 +105,11 @@ function anthropos_bootstrap_pages() {
 		$aid = wp_insert_post( array( 'post_title' => 'About Us', 'post_name' => 'about', 'post_status' => 'publish', 'post_type' => 'page', 'post_content' => '' ) );
 		if ( $aid && ! is_wp_error( $aid ) ) { update_post_meta( $aid, '_wp_page_template', 'template-about.php' ); }
 	}
+	// FAQ page (segmented master FAQ).
+	if ( ! get_page_by_path( 'faq' ) ) {
+		$fid = wp_insert_post( array( 'post_title' => 'FAQ', 'post_name' => 'faq', 'post_status' => 'publish', 'post_type' => 'page', 'post_content' => '' ) );
+		if ( $fid && ! is_wp_error( $fid ) ) { update_post_meta( $fid, '_wp_page_template', 'template-faq.php' ); }
+	}
 	// Guides library landing (linked from inside service pages, not the header).
 	$gpg = get_page_by_path( 'guides' );
 	if ( ! $gpg ) {
@@ -124,7 +141,7 @@ function anthropos_bootstrap_pages() {
 	}
 	// Flush permalinks so the new /services/{slug}/ URLs resolve.
 	flush_rewrite_rules();
-	update_option( 'anthropos_bootstrapped_v52', 1 );
+	update_option( 'anthropos_bootstrapped_v53', 1 );
 }
 add_action( 'admin_init', 'anthropos_bootstrap_pages' );
 

@@ -44,6 +44,8 @@ $about = $about_pg ? get_permalink( $about_pg ) : home_url( '/about/' );
 				</ul>
 			</li>
 			<li><a href="<?php echo esc_url( $blog ); ?>"><?php esc_html_e( 'Blog', 'anthropos' ); ?></a></li>
+			<?php $faq_pg = get_page_by_path( 'faq' ); $faq_url = $faq_pg ? get_permalink( $faq_pg ) : home_url( '/faq/' ); ?>
+			<li><a href="<?php echo esc_url( $faq_url ); ?>"><?php esc_html_e( 'FAQ', 'anthropos' ); ?></a></li>
 		</ul>
 		<div class="nav-cta">
 			<a class="btn btn-cta" href="#cta"><?php esc_html_e( 'Book a Free Consultation', 'anthropos' ); ?></a>
