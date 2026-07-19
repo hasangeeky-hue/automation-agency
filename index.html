@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anthropos Automation — Story→Guide Content System · Header · Blog · Guide · Footer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --night:#131A2C; --night-2:#1C2540; --night-soft:#8E9AC0;
+    --dawn:#E8A34C; --dawn-deep:#C97F2B; --dawn-soft:#F7E3C6;
+    --clay:#D97862;
+    --paper:#FAF7F2; --paper-2:#F1EBE1;
+    --ink:#232838; --ink-2:#4A5062; --ink-3:#7A8093;
+    --line:#E6DFD2; --card:#FFFFFF;
+    --g1:#5B54C7; --g1-soft:#EFEEFB;
+    --g2:#2E9C8F; --g2-soft:#E7F5F2;
+    --g3:#E07A3F; --g3-soft:#FBEFE5;
+    --g4:#4C9E5F; --g4-soft:#EAF5EC;
+    --g5:#CC5B8B; --g5-soft:#FAEBF1;
+    --g6:#9061C9; --g6-soft:#F3ECFA;
+    --g7:#3E8FA8; --g7-soft:#E8F3F6;
+    --display:'Bricolage Grotesque', system-ui, sans-serif;
+    --serif:'Fraunces', Georgia, serif;
+    --body:'Instrument Sans', system-ui, sans-serif;
+    --mono:'JetBrains Mono', ui-monospace, monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  :focus-visible{outline:2px solid var(--dawn);outline-offset:2px;border-radius:3px}
+  @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+  .eyebrow{font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.18em;text-transform:uppercase}
+  .quote{font-family:var(--serif);font-style:italic;font-weight:400}
+  .band{padding:88px 0 20px}
+  .band .eyebrow{color:var(--clay)}
+  .band h2{font-family:var(--display);font-size:clamp(27px,3.6vw,40px);font-weight:700;letter-spacing:-.02em;margin-top:14px;text-wrap:balance;max-width:28ch}
+  .band .soft{font-size:16.5px;color:var(--ink-2);margin-top:13px;max-width:64ch}
+  .band .soft .quote{color:var(--clay)}
+  .note{font-family:var(--mono);font-size:11px;color:var(--ink-3);letter-spacing:.02em}
+
+  /* ================= HEADER ================= */
+  .site-header{position:sticky;top:0;z-index:90;background:rgba(19,26,44,.9);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08)}
+  .nav-wrap{max-width:1280px;margin:0 auto;padding:0 32px;display:flex;align-items:center;gap:24px;height:70px}
+  .logo{display:flex;align-items:center;gap:11px;color:#fff;font-family:var(--display);font-weight:700;font-size:18px}
+  .logo-canvas{width:34px;height:34px;flex:0 0 auto}
+  .logo small{display:block;font-family:var(--mono);font-weight:400;font-size:9px;letter-spacing:.24em;color:var(--night-soft);text-transform:uppercase;line-height:1.2}
+  .nav-main{display:flex;align-items:center;gap:2px;flex:1}
+  .nav-item{position:static}
+  .nav-link{display:flex;align-items:center;gap:6px;padding:9px 14px;border-radius:99px;font-weight:500;font-size:14px;color:#C9D0E4;cursor:pointer;background:none;border:none;font-family:var(--body)}
+  .nav-link:hover{background:rgba(255,255,255,.08);color:#fff}
+  .car{width:7px;height:7px;border-right:1.4px solid currentColor;border-bottom:1.4px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .2s}
+  .nav-item.open .car{transform:rotate(225deg) translateY(-1px)}
+  .nav-cta{margin-left:auto}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:99px;font-weight:600;font-size:14px;border:1.5px solid transparent;cursor:pointer;font-family:var(--body);transition:transform .18s, box-shadow .18s}
+  .btn:hover{transform:translateY(-1px)}
+  .btn-dawn{background:linear-gradient(120deg,var(--dawn),var(--dawn-deep));color:#20180A;box-shadow:0 8px 24px rgba(232,163,76,.35)}
+  .btn-ghost-l{border-color:rgba(255,255,255,.25);color:#fff;background:transparent}
+
+  /* mega panels — organised under headings */
+  .mega{position:absolute;left:0;right:0;top:70px;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 40px 80px rgba(19,26,44,.28);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(10px);transition:opacity .18s, transform .18s}
+  .nav-item.open .mega{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
+  .mega-in{max-width:1280px;margin:0 auto;padding:30px 32px 26px}
+  .mh{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);padding-bottom:9px;border-bottom:1px solid var(--line);margin-bottom:11px;display:flex;align-items:center;gap:7px}
+  .mh .hdot{width:9px;height:9px;border-radius:3px;background:var(--hue,var(--dawn))}
+  /* guides mega */
+  .mega-series{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px}
+  .mser{border:1px solid var(--line);border-radius:14px;padding:14px 15px;background:var(--paper)}
+  .mser b{font-size:13px;display:flex;gap:8px;align-items:baseline}
+  .mser b i{font-family:var(--serif);font-style:italic;color:var(--dawn-deep);font-size:15px}
+  .mser span{display:block;font-size:11.5px;color:var(--ink-3);margin-top:4px;line-height:1.5}
+  .mega-cols{display:grid;grid-template-columns:repeat(7,1fr);gap:18px}
+  .mcol a{display:block;font-size:12.5px;color:var(--ink-2);padding:3.5px 0;line-height:1.4}
+  .mcol a:hover{color:var(--hue)}
+  .mega-foot{margin-top:22px;padding-top:14px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-3)}
+  .mega-foot b{color:var(--ink-2)}
+  .mega-foot a{color:var(--dawn-deep);font-weight:600}
+  /* stories mega (narrower grid) */
+  .mega-stories{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .mst{border-radius:14px;padding:14px 15px;border:1px solid transparent}
+  .mst:hover{background:var(--soft);border-color:color-mix(in srgb,var(--hue) 22%,transparent)}
+  .mst .t{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--ink);line-height:1.45;display:block}
+  .mst .w{display:block;font-size:11px;color:var(--hue);font-weight:600;margin-top:7px}
+  /* simple dropdown */
+  .drop{position:absolute;top:70px;background:#fff;border:1px solid var(--line);border-radius:0 0 16px 16px;box-shadow:0 30px 60px rgba(19,26,44,.25);padding:12px;width:330px;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(8px);transition:opacity .18s,transform .18s}
+  .nav-item.open .drop{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
+  .drop a{display:block;padding:10px 12px;border-radius:10px}
+  .drop a:hover{background:var(--paper-2)}
+  .drop a b{display:block;font-size:13.5px;color:var(--ink)}
+  .drop a span{font-size:12px;color:var(--ink-3)}
+
+  /* ================= HERO (compact) ================= */
+  .hero{position:relative;background:radial-gradient(120% 100% at 70% 0%, var(--night-2) 0%, var(--night) 60%);color:#fff;overflow:hidden}
+  #heroCanvas{position:absolute;inset:0;width:100%;height:100%}
+  .hero-in{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:74px 32px 84px}
+  .hero .eyebrow{color:var(--dawn)}
+  .hero h1{font-family:var(--display);font-size:clamp(30px,4.2vw,50px);font-weight:800;line-height:1.08;letter-spacing:-.025em;max-width:21ch;margin-top:16px;text-wrap:balance}
+  .hero .whisper{font-family:var(--serif);font-style:italic;font-size:clamp(16px,1.9vw,20px);color:var(--night-soft);margin-top:18px;max-width:52ch;line-height:1.7}
+  .hero .whisper b{color:#fff;font-weight:500}
+  .hero-ctas{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+
+  /* ================= JOURNEY STRIP ================= */
+  .journey{max-width:1180px;margin:-34px auto 0;padding:0 32px;position:relative;z-index:5}
+  .j-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+  .j{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px 24px;box-shadow:0 18px 44px rgba(19,26,44,.10)}
+  .j .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--dawn-deep)}
+  .j h5{font-family:var(--display);font-size:16.5px;font-weight:700;margin-top:6px}
+  .j p{font-size:13px;color:var(--ink-2);margin-top:6px;line-height:1.6}
+  .j p i{font-family:var(--serif);color:var(--clay)}
+
+  /* ================= STORIES (BLOG HUB) ================= */
+  .story-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+  .story{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s, box-shadow .2s}
+  .story:hover{transform:translateY(-4px);box-shadow:0 22px 55px rgba(19,26,44,.12)}
+  .story-top{padding:20px 22px 0;display:flex;justify-content:space-between;align-items:center;gap:10px}
+  .schip{font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--hue);background:var(--soft);padding:4px 10px;border-radius:99px}
+  .rtime{font-family:var(--mono);font-size:10.5px;color:var(--ink-3)}
+  .story h4{font-family:var(--serif);font-style:italic;font-weight:400;font-size:19px;line-height:1.45;padding:14px 22px 0;color:var(--ink)}
+  .story .hook{padding:12px 22px 0;font-size:13.5px;color:var(--ink-2);line-height:1.6}
+  .story .cost{margin:14px 22px 0;background:var(--soft);border-left:3px solid var(--hue);border-radius:0 10px 10px 0;padding:10px 14px;font-size:12.5px;color:var(--ink-2)}
+  .story .cost b{color:var(--hue)}
+  .story-foot{margin-top:auto;padding:16px 22px 18px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+  .story-foot .me{font-weight:700;font-size:13px;color:var(--hue)}
+  .story-foot .gcount{font-family:var(--mono);font-size:10px;color:var(--ink-3)}
+  .hidden{display:none!important}
+  .filter-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+  .fbtn{font-family:var(--body);font-weight:600;font-size:13px;padding:8px 14px;border-radius:99px;border:1.5px solid var(--line);background:var(--card);color:var(--ink-2);cursor:pointer;transition:all .15s}
+  .fbtn:hover{border-color:var(--hue,var(--ink-3))}
+  .fbtn.active{background:var(--hue,var(--night));border-color:var(--hue,var(--night));color:#fff}
+
+  /* ================= GUIDE LIBRARY ================= */
+  .lib-frame{margin-top:34px;background:var(--night);border-radius:24px;padding:36px;color:#fff}
+  .lib-head{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-end}
+  .lib-head h3{font-family:var(--display);font-size:24px;font-weight:700;max-width:24ch}
+  .lib-head .lp{font-size:13.5px;color:#A7B0CC;max-width:46ch;line-height:1.65}
+  .lib-head .lp b{color:var(--dawn)}
+  .matrix{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:26px}
+  .mx{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:18px}
+  .mx .sr{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--dawn)}
+  .mx h6{font-family:var(--display);font-size:15px;font-weight:700;margin-top:5px}
+  .mx p{font-size:12px;color:#A7B0CC;margin-top:6px;line-height:1.6}
+  .mx .n5{margin-top:10px;font-family:var(--mono);font-size:10px;color:#8E9AC0;letter-spacing:.08em}
+  .lib-math{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-family:var(--mono);font-size:12px;color:#A7B0CC}
+  .lib-math b{background:rgba(232,163,76,.15);border:1px solid rgba(232,163,76,.4);color:var(--dawn);border-radius:8px;padding:4px 10px}
+
+  /* profession demo: 20 guides */
+  .twenty{margin-top:26px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:30px 32px}
+  .twenty-head{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+  .twenty-head h4{font-family:var(--display);font-size:19px;font-weight:700}
+  .twenty-head h4 b{color:var(--g1)}
+  .prof-tabs{display:flex;gap:6px;flex-wrap:wrap}
+  .ptab{font-size:12px;font-weight:600;padding:7px 12px;border-radius:99px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink-2);cursor:pointer}
+  .ptab.active{background:var(--g1);border-color:var(--g1);color:#fff}
+  .g20{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px;margin-top:22px}
+  .gser .gh{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);padding-bottom:8px;border-bottom:2px solid var(--soft-h,var(--paper-2));margin-bottom:8px}
+  .gser .gh b{color:var(--hue-h,var(--ink-2))}
+  .gser a{display:flex;gap:8px;padding:7px 4px;font-size:12.5px;color:var(--ink-2);line-height:1.45;border-radius:8px}
+  .gser a:hover{background:var(--paper-2);color:var(--ink)}
+  .gser a i{font-family:var(--mono);font-style:normal;font-size:10px;color:var(--g1);flex:0 0 auto;margin-top:2px}
+
+  /* ================= GUIDE PAGE PROTOTYPE ================= */
+  .browser{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--card);box-shadow:0 30px 70px rgba(19,26,44,.10);margin-top:34px}
+  .browser-bar{display:flex;align-items:center;gap:10px;padding:12px 18px;background:var(--paper-2);border-bottom:1px solid var(--line)}
+  .bdots{display:flex;gap:6px}
+  .bdots i{width:10px;height:10px;border-radius:50%;background:#D8D3C6}
+  .burl{flex:1;background:var(--card);border:1px solid var(--line);border-radius:8px;font-family:var(--mono);font-size:11px;color:var(--ink-3);padding:6px 12px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+  .burl b{color:var(--g1)}
+  .g-scroll{height:600px;overflow-y:auto;position:relative;background:var(--card)}
+  .progress-wrap{position:sticky;top:0;z-index:5;height:4px;background:var(--paper-2)}
+  .progress{height:100%;width:0%;background:linear-gradient(90deg,var(--g1),var(--dawn))}
+  .g-grid{display:grid;grid-template-columns:208px 1fr;gap:38px;padding:34px 40px 56px;max-width:920px}
+  .toc{position:sticky;top:22px;align-self:start}
+  .toc .tl{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3);margin-bottom:10px}
+  .toc a{display:block;font-size:12px;color:var(--ink-3);padding:5px 0 5px 12px;border-left:2px solid var(--line);line-height:1.4}
+  .toc a.on{color:var(--g1);border-left-color:var(--g1);font-weight:600}
+  .toc .ser-pos{margin-top:18px;background:var(--g1-soft);border-radius:12px;padding:12px 13px;font-size:11px;color:var(--ink-2);line-height:1.55}
+  .toc .ser-pos b{color:var(--g1)}
+  .crumb{font-family:var(--mono);font-size:10.5px;color:var(--ink-3)}
+  .crumb b{color:var(--g1)}
+  .gart h1{font-family:var(--display);font-size:27px;font-weight:800;line-height:1.18;letter-spacing:-.02em;margin-top:10px;text-wrap:balance}
+  .serband{display:flex;gap:8px;align-items:center;margin-top:12px;flex-wrap:wrap}
+  .serband .sb{font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:4px 10px;border-radius:99px}
+  .serband .sb.s1{background:var(--g1-soft);color:var(--g1)}
+  .serband .sb.s2{background:var(--dawn-soft);color:var(--dawn-deep)}
+  .serband .upd{font-family:var(--mono);font-size:10.5px;color:var(--ink-3)}
+  .byline{display:flex;align-items:center;gap:10px;margin-top:14px;font-size:12px;color:var(--ink-3)}
+  .ava{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--g1),var(--dawn));flex:0 0 auto}
+  .byline b{color:var(--ink);font-size:12.5px}
+  .qa-box{margin-top:20px;background:var(--g1-soft);border:1px solid color-mix(in srgb,var(--g1) 25%,transparent);border-radius:14px;padding:17px 19px}
+  .qa-box .ql{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--g1)}
+  .qa-box p{font-size:14px;margin-top:7px;line-height:1.65}
+  .gart h2{font-family:var(--display);font-size:19px;font-weight:700;margin-top:32px;letter-spacing:-.01em}
+  .gart p.tx{font-size:14px;color:var(--ink-2);margin-top:11px;max-width:62ch}
+  .hl{border-radius:12px;padding:13px 15px;margin-top:14px;font-size:13px;display:flex;gap:11px;align-items:flex-start;max-width:62ch}
+  .hl .tag{font-family:var(--mono);font-size:9.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:6px;flex:0 0 auto;margin-top:1px}
+  .hl-action{background:#E9F5EC;border:1px solid #BFE3C8}.hl-action .tag{background:#15803D;color:#fff}
+  .hl-stat{background:#FDF3E3;border:1px solid #F0DCB4}.hl-stat .tag{background:#B45309;color:#fff}
+  .hl-warn{background:#FBEDED;border:1px solid #EFC9C9}.hl-warn .tag{background:#B91C1C;color:#fff}
+  .hl-res{background:#EDF1FB;border:1px solid #C9D4F0}.hl-res .tag{background:#3B5BDB;color:#fff}
+  .faq{margin-top:14px;max-width:62ch}
+  .faq details{border:1px solid var(--line);border-radius:12px;margin-top:8px;background:var(--paper)}
+  .faq summary{padding:12px 15px;font-weight:600;font-size:13px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px}
+  .faq summary::after{content:"+";font-family:var(--mono);color:var(--g1)}
+  .faq details[open] summary::after{content:"–"}
+  .faq details p{padding:0 15px 13px;font-size:13px;color:var(--ink-2)}
+  /* interlink footer inside guide */
+  .glinks{margin-top:30px;border-top:1px solid var(--line);padding-top:20px;max-width:64ch}
+  .glinks .glh{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3)}
+  .gl-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+  .gl{border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:12.5px;line-height:1.5}
+  .gl:hover{background:var(--paper-2)}
+  .gl b{display:block;font-size:10px;font-family:var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--g1);margin-bottom:3px}
+  .gl.bridge b{color:var(--g2)}
+  .gl.story b{color:var(--clay)}
+  .gl.hub b{color:var(--dawn-deep)}
+  .gcta{margin-top:24px;background:var(--night);border-radius:16px;padding:20px 22px;color:#fff;max-width:64ch}
+  .gcta h5{font-family:var(--display);font-size:16px;font-weight:700}
+  .gcta p{font-size:13px;color:#A7B0CC;margin-top:5px}
+  .gcta .btn{margin-top:12px;background:#fff;color:var(--ink);padding:10px 18px}
+  .legend{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+  .lg{border:1px solid var(--line);background:var(--card);border-radius:14px;padding:13px 15px;font-size:12.5px;color:var(--ink-2)}
+  .lg b{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--ink);margin-bottom:3px}
+  .sw{width:12px;height:12px;border-radius:4px;flex:0 0 auto}
+
+  /* ================= INTERLINK MAP ================= */
+  .linkmap{margin-top:34px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:30px 32px;display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center}
+  .lm-canvas{position:relative;height:330px;background:var(--night);border-radius:16px;overflow:hidden}
+  .lm-node{position:absolute;transform:translate(-50%,-50%);font-family:var(--mono);font-size:10px;letter-spacing:.04em;padding:7px 11px;border-radius:99px;white-space:nowrap;border:1px solid}
+  .lm-center{background:var(--dawn);color:#20180A;border-color:var(--dawn);font-weight:600;z-index:2}
+  .lm-g{background:rgba(91,84,199,.2);color:#B9B4F0;border-color:rgba(91,84,199,.6)}
+  .lm-b{background:rgba(46,156,143,.18);color:#9AD8CF;border-color:rgba(46,156,143,.6)}
+  .lm-s{background:rgba(217,120,98,.18);color:#F0B4A5;border-color:rgba(217,120,98,.6)}
+  .lm-h{background:rgba(232,163,76,.14);color:#F0CD9A;border-color:rgba(232,163,76,.5)}
+  .lm-line{position:absolute;height:1px;background:linear-gradient(90deg,rgba(232,163,76,.55),rgba(255,255,255,.12));transform-origin:0 0}
+  .lm-rules{display:grid;gap:9px}
+  .rule{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+  .rule .rn{font-family:var(--serif);font-style:italic;color:var(--dawn-deep);font-size:15px;flex:0 0 auto;width:20px}
+  .rule p{font-size:12.5px;color:var(--ink-2);line-height:1.55}
+  .rule p b{color:var(--ink)}
+
+  /* ================= SEO STRIP ================= */
+  .seo-strip{margin-top:34px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .seo-c{background:var(--night);color:#C6CBD8;border-radius:16px;padding:20px 22px}
+  .seo-c .k{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#8FA3FF}
+  .seo-c ul{list-style:none;margin-top:9px;display:grid;gap:6px}
+  .seo-c li{font-size:12px;line-height:1.55;padding-left:14px;position:relative}
+  .seo-c li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:2px;background:#8FA3FF}
+  .seo-c li b{color:#fff}
+
+  /* ================= FOOTER ================= */
+  .site-footer{margin-top:96px;background:var(--night);color:#A7B0CC;padding:0}
+  .foot-cta{border-bottom:1px solid rgba(255,255,255,.08)}
+  .foot-cta-in{max-width:1180px;margin:0 auto;padding:52px 32px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+  .foot-cta-in .fq{font-family:var(--serif);font-style:italic;font-size:clamp(17px,2.2vw,22px);color:#C9D0E4;max-width:38ch;line-height:1.55}
+  .foot-cta-in .fq b{color:#fff;font-weight:500}
+  .foot-grid{max-width:1180px;margin:0 auto;padding:48px 32px 20px;display:grid;grid-template-columns:1.25fr 1fr 1fr 1fr 1fr;gap:30px}
+  .foot-grid h6{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#7C86A3;margin-bottom:13px;display:flex;align-items:center;gap:7px}
+  .foot-grid h6 .hdot{width:8px;height:8px;border-radius:3px;background:var(--dawn)}
+  .foot-grid a{display:block;font-size:12.5px;padding:3.5px 0;color:#A7B0CC}
+  .foot-grid a:hover{color:#fff}
+  .foot-grid a .gd{display:inline-block;width:7px;height:7px;border-radius:2.5px;margin-right:8px}
+  .foot-brand p{font-size:12.5px;max-width:34ch;margin-top:12px;line-height:1.65}
+  .foot-nap{margin-top:16px;font-family:var(--mono);font-size:10.5px;color:#7C86A3;line-height:1.8}
+  .foot-base{max-width:1180px;margin:0 auto;padding:18px 32px 26px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:10.5px;color:#7C86A3}
+
+  @media(max-width:1020px){
+    .nav-main{display:none}
+    .mega-cols{grid-template-columns:repeat(3,1fr)}
+    .mega-series,.mega-stories,.g20,.legend{grid-template-columns:1fr 1fr}
+    .j-row,.story-grid,.matrix,.seo-strip{grid-template-columns:1fr 1fr}
+    .linkmap,.g-grid{grid-template-columns:1fr}
+    .toc{display:none}
+    .foot-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:640px){
+    .j-row,.story-grid,.matrix,.seo-strip,.mega-series,.mega-stories,.g20,.legend,.gl-row{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== HEADER ==================== -->
+<header class="site-header">
+  <div class="nav-wrap">
+    <a class="logo" href="#"><canvas id="markCanvas" class="logo-canvas" width="68" height="68"></canvas><span>anthropos<small>automation</small></span></a>
+    <nav class="nav-main" aria-label="Primary">
+
+      <div class="nav-item" data-menu>
+        <button class="nav-link">Stories <span class="car"></span></button>
+        <div class="mega">
+          <div class="mega-in">
+            <div class="mh"><span class="hdot" style="background:var(--clay)"></span>Read the story that sounds like your Tuesday — then follow its guides</div>
+            <div class="mega-stories">
+              <a class="mst" href="#stories" style="--hue:var(--g1);--soft:var(--g1-soft)"><span class="t">“The lawyer whose referrals went quiet”</span><span class="w">Lawyers · Advisors · Tax → 3 guides</span></a>
+              <a class="mst" href="#stories" style="--hue:var(--g2);--soft:var(--g2-soft)"><span class="t">“The doctor nobody new can find”</span><span class="w">Doctors · Dentists · Therapists → 3 guides</span></a>
+              <a class="mst" href="#stories" style="--hue:var(--g3);--soft:var(--g3-soft)"><span class="t">“The shop watching carts disappear”</span><span class="w">Shopify · Multi-channel → 3 guides</span></a>
+              <a class="mst" href="#stories" style="--hue:var(--g4);--soft:var(--g4-soft)"><span class="t">“The plumber who can't answer at 2pm”</span><span class="w">Home services · Trainers · Consultants → 3 guides</span></a>
+              <a class="mst" href="#stories" style="--hue:var(--g5);--soft:var(--g5-soft)"><span class="t">“The designer chasing instead of making”</span><span class="w">Designers · Developers · Agencies → 3 guides</span></a>
+              <a class="mst" href="#stories" style="--hue:var(--g6);--soft:var(--g6-soft)"><span class="t">“The teacher whose students drift away”</span><span class="w">Course creators · Newsletter writers → 3 guides</span></a>
+              <a class="mst" href="#stories" style="--hue:var(--g7);--soft:var(--g7-soft)"><span class="t">“The specialist stuck in six-month maybes”</span><span class="w">SaaS implementation · Training → 3 guides</span></a>
+              <a class="mst" href="#stories" style="--hue:var(--dawn-deep);--soft:var(--dawn-soft)"><span class="t">“I just know something's leaking…”</span><span class="w">Not sure? Free 12-point audit →</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-item" data-menu>
+        <button class="nav-link">Guide Library <span class="car"></span></button>
+        <div class="mega">
+          <div class="mega-in">
+            <div class="mh"><span class="hdot"></span>Four series — every profession gets all four, five guides each</div>
+            <div class="mega-series">
+              <div class="mser"><b><i>A</i> Get Found</b><span>Visibility: local search, Google Business Profile, what your clients type</span></div>
+              <div class="mser"><b><i>B</i> Earn Trust</b><span>Website &amp; proof: the 5-second test, credentials, testimonials, forms</span></div>
+              <div class="mser"><b><i>C</i> Never Lose a Lead</b><span>Automation: 60-second replies, reminder sequences, win-backs</span></div>
+              <div class="mser"><b><i>D</i> Grow Calmly</b><span>Retention &amp; tracking: repeat clients, seasonal campaigns, lead reports</span></div>
+            </div>
+            <div class="mega-cols">
+              <div class="mcol"><div class="mh" style="--hue:var(--g1)"><span class="hdot" style="background:var(--g1)"></span>Regulated</div><a href="#twenty">Lawyers</a><a href="#twenty">Financial Advisors</a><a href="#twenty">Tax Consultants</a></div>
+              <div class="mcol"><div class="mh"><span class="hdot" style="background:var(--g2)"></span>Medical</div><a href="#twenty">Doctors</a><a href="#twenty">Dentists</a><a href="#twenty">Therapists</a></div>
+              <div class="mcol"><div class="mh"><span class="hdot" style="background:var(--g3)"></span>E-Commerce</div><a href="#twenty">Shopify Stores</a><a href="#twenty">Multi-Channel Sellers</a></div>
+              <div class="mcol"><div class="mh"><span class="hdot" style="background:var(--g4)"></span>Service</div><a href="#twenty">Home Services</a><a href="#twenty">Personal Trainers</a><a href="#twenty">Consultants</a></div>
+              <div class="mcol"><div class="mh"><span class="hdot" style="background:var(--g5)"></span>Freelance</div><a href="#twenty">Designers &amp; Developers</a><a href="#twenty">Marketing Agencies</a></div>
+              <div class="mcol"><div class="mh"><span class="hdot" style="background:var(--g6)"></span>Creators</div><a href="#twenty">Course Creators</a><a href="#twenty">Newsletter Writers</a></div>
+              <div class="mcol"><div class="mh"><span class="hdot" style="background:var(--g7)"></span>B2B</div><a href="#twenty">SaaS Implementation</a><a href="#twenty">Training Providers</a></div>
+            </div>
+            <div class="mega-foot">
+              <span><b>16 professions × 20 guides = 320 research-grade guides</b> — every one linked to its story, its series, and its siblings.</span>
+              <a href="#library">Browse the full library →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-item" data-menu>
+        <button class="nav-link">What We Do <span class="car"></span></button>
+        <div class="drop">
+          <a href="#"><b>Website Layer</b><span>Modern, mobile-friendly, trust-building, lead-capturing</span></a>
+          <a href="#"><b>Automation Layer</b><span>Sequences that capture &amp; nurture leads 24/7</span></a>
+          <a href="#"><b>Lead Tracking &amp; Reporting</b><span>Know what works, stop guessing</span></a>
+          <a href="#"><b>How It Works — 4 Weeks</b><span>Audit → Build → Wire → Live</span></a>
+        </div>
+      </div>
+      <div class="nav-item"><a class="nav-link" href="#">Results</a></div>
+    </nav>
+    <div class="nav-cta"><a class="btn btn-dawn" href="#">Get Free Website Audit</a></div>
+  </div>
+</header>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero">
+  <canvas id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="hero-in">
+    <div class="eyebrow">Anthropos · read your story · find your fix</div>
+    <h1>Somewhere below is a story that sounds exactly like your week.</h1>
+    <p class="whisper">Start there. It will name the leak, show what it costs, and hand you the guide that closes it. <b>Read free, fix free — or ask us to build it in 4 weeks.</b></p>
+    <div class="hero-ctas">
+      <a class="btn btn-dawn" href="#stories">Find my story ↓</a>
+      <a class="btn btn-ghost-l" href="#library">Browse 320 guides</a>
+    </div>
+  </div>
+</section>
+
+<!-- journey strip -->
+<div class="journey">
+  <div class="j-row">
+    <div class="j"><div class="k">STEP 1 · READ</div><h5>You recognise yourself</h5><p>A short story about someone with your job and your quiet frustration. <i>“That's me,”</i> is the whole point.</p></div>
+    <div class="j"><div class="k">STEP 2 · IDENTIFY</div><h5>The guide names the leak</h5><p>Each story links to research-grade guides that name the exact problem, what it costs monthly, and the fix — step by step.</p></div>
+    <div class="j"><div class="k">STEP 3 · CONVERT</div><h5>Fix it — or have it built</h5><p>Do it yourself with the checklist, or take the free 12-point audit and we build the whole system in 4 weeks.</p></div>
+  </div>
+</div>
+
+<!-- ==================== STORIES / BLOG HUB ==================== -->
+<section id="stories">
+  <div class="wrap band">
+    <div class="eyebrow">The blog · stories first</div>
+    <h2>Every story is a mirror. Find yours.</h2>
+    <p class="soft">Seven colors, seven kinds of quiet frustration — the same colors as the menu, so your path is <span class="quote">recognisable by feel.</span> Each story ends with one question: <span class="quote">does this sound like you?</span> — and three guides that answer it.</p>
+    <div class="filter-row" id="filters">
+      <button class="fbtn active" data-f="all">All stories</button>
+      <button class="fbtn" data-f="g1" style="--hue:var(--g1)">Regulated</button>
+      <button class="fbtn" data-f="g2" style="--hue:var(--g2)">Medical</button>
+      <button class="fbtn" data-f="g3" style="--hue:var(--g3)">E-Commerce</button>
+      <button class="fbtn" data-f="g4" style="--hue:var(--g4)">Service</button>
+      <button class="fbtn" data-f="g5" style="--hue:var(--g5)">Freelance</button>
+      <button class="fbtn" data-f="g6" style="--hue:var(--g6)">Creators</button>
+      <button class="fbtn" data-f="g7" style="--hue:var(--g7)">B2B</button>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="story-grid" id="storyGrid">
+      <article class="story" data-g="g1" style="--hue:var(--g1);--soft:var(--g1-soft)">
+        <div class="story-top"><span class="schip">Regulated · Lawyers</span><span class="rtime">4 min story</span></div>
+        <h4>“The referrals always came. Until the month they didn't.”</h4>
+        <p class="hook">A solo family lawyer, booked for years by word of mouth alone. Then one quiet month became three, and she realised she had no other door for clients to walk through.</p>
+        <div class="cost">The leak: no lead system + slow follow-up. Typical cost: <b>€5k–20k per month</b> in slow-season revenue.</div>
+        <div class="story-foot"><span class="me">Does this sound like you? →</span><span class="gcount">LINKS TO GUIDES A1 · C1 · C2</span></div>
+      </article>
+      <article class="story" data-g="g2" style="--hue:var(--g2);--soft:var(--g2-soft)">
+        <div class="story-top"><span class="schip">Medical · Doctors</span><span class="rtime">4 min story</span></div>
+        <h4>“Patients say I changed their lives. Strangers can't find my door.”</h4>
+        <p class="hook">A dermatologist with a half-empty waiting room — excellent in the exam room, invisible in the search results where new patients actually decide.</p>
+        <div class="cost">The leak: low local visibility + no reviews. Typical cost: <b>€15k–40k per month</b> in lost new patients.</div>
+        <div class="story-foot"><span class="me">Does this sound like you? →</span><span class="gcount">LINKS TO GUIDES A2 · A3 · B4</span></div>
+      </article>
+      <article class="story" data-g="g3" style="--hue:var(--g3);--soft:var(--g3-soft)">
+        <div class="story-top"><span class="schip">E-Commerce · Shopify</span><span class="rtime">5 min story</span></div>
+        <h4>“Eight in ten carts just… leave. I never get to say wait.”</h4>
+        <p class="hook">A two-person store with good traffic and a 1–2% checkout rate. The buyers were there. The follow-up wasn't.</p>
+        <div class="cost">The leak: cart abandonment + no email list. Typical cost: <b>€3k–10k per month</b> in lost sales.</div>
+        <div class="story-foot"><span class="me">Does this sound like you? →</span><span class="gcount">LINKS TO GUIDES C1 · C3 · D2</span></div>
+      </article>
+      <article class="story" data-g="g4" style="--hue:var(--g4);--soft:var(--g4-soft)">
+        <div class="story-top"><span class="schip">Service · Home Services</span><span class="rtime">4 min story</span></div>
+        <h4>“I'm under a sink at 2pm. Every missed call is someone else's job.”</h4>
+        <p class="hook">A solo plumber, hands full, phone ringing. Booked weeks followed by empty ones — and no way to answer while working.</p>
+        <div class="cost">The leak: missed inquiries + manual scheduling. Typical cost: <b>€3k–10k per month</b> plus no-shows.</div>
+        <div class="story-foot"><span class="me">Does this sound like you? →</span><span class="gcount">LINKS TO GUIDES A3 · C2 · C4</span></div>
+      </article>
+      <article class="story" data-g="g5" style="--hue:var(--g5);--soft:var(--g5-soft)">
+        <div class="story-top"><span class="schip">Freelance · Designers</span><span class="rtime">4 min story</span></div>
+        <h4>“I became a freelancer to make things. Now I mostly chase them.”</h4>
+        <p class="hook">A designer whose portfolio undersold her, whose inbox filled with tire-kickers, and whose best proposals died of silence — hers, not theirs.</p>
+        <div class="cost">The leak: no pre-qualification + forgotten follow-up. Typical cost: <b>50% of proposals</b> lost.</div>
+        <div class="story-foot"><span class="me">Does this sound like you? →</span><span class="gcount">LINKS TO GUIDES B2 · C5 · D1</span></div>
+      </article>
+      <article class="story" data-g="g6" style="--hue:var(--g6);--soft:var(--g6-soft)">
+        <div class="story-top"><span class="schip">Creators · Courses</span><span class="rtime">5 min story</span></div>
+        <h4>“They were so excited in week one. By lesson four, silence.”</h4>
+        <p class="hook">A course creator with 1,000 monthly visitors, twenty buyers, and students who vanish at 40% — taking reviews, referrals and upsells with them.</p>
+        <div class="cost">The leak: low landing conversion + student churn. Typical cost: <b>60% of student lifetime value</b>.</div>
+        <div class="story-foot"><span class="me">Does this sound like you? →</span><span class="gcount">LINKS TO GUIDES B1 · C3 · D4</span></div>
+      </article>
+      <article class="story" data-g="g7" style="--hue:var(--g7);--soft:var(--g7-soft)">
+        <div class="story-top"><span class="schip">B2B · Implementation</span><span class="rtime">4 min story</span></div>
+        <h4>“Everyone says the proposal looks great. Then nobody signs.”</h4>
+        <p class="hook">A Salesforce implementation specialist — one of a thousand, by his own description — losing six-month deals to silence and price comparisons.</p>
+        <div class="cost">The leak: no differentiation + forgotten proposals. Typical cost: <b>€2k–5k per month</b> in lost projects.</div>
+        <div class="story-foot"><span class="me">Does this sound like you? →</span><span class="gcount">LINKS TO GUIDES B3 · C5 · D5</span></div>
+      </article>
+      <article class="story" data-g="g1" style="--hue:var(--g1);--soft:var(--g1-soft)">
+        <div class="story-top"><span class="schip">Regulated · Tax</span><span class="rtime">4 min story</span></div>
+        <h4>“January pays for July. I hold my breath the rest of the year.”</h4>
+        <p class="hook">A solo tax consultant whose income drops by half after March — while his contact list, full of past clients, sits silent for nine months.</p>
+        <div class="cost">The leak: seasonal silence + no campaigns. Typical cost: <b>50% income drop</b> off-season.</div>
+        <div class="story-foot"><span class="me">Does this sound like you? →</span><span class="gcount">LINKS TO GUIDES D3 · C1 · D2</span></div>
+      </article>
+      <article class="story" data-g="g2" style="--hue:var(--g2);--soft:var(--g2-soft)">
+        <div class="story-top"><span class="schip">Medical · Therapists</span><span class="rtime">5 min story</span></div>
+        <h4>“Taking the first step is hard. My website made it harder.”</h4>
+        <p class="hook">A therapist whose prospective clients feared exposure more than they feared asking for help — and whose site said nothing to calm them.</p>
+        <div class="cost">The leak: trust &amp; confidentiality unaddressed. Typical cost: <b>30–40% of qualified prospects</b> never inquire.</div>
+        <div class="story-foot"><span class="me">Does this sound like you? →</span><span class="gcount">LINKS TO GUIDES B1 · B5 · C1</span></div>
+      </article>
+    </div>
+    <p class="note" style="margin-top:16px">WordPress mapping: post type “Story” · 7 audience categories (color via term meta) · each story's “Does this sound like you?” links to its 3 guides + the profession hub · question-form quick-answer inside each story for AEO.</p>
+  </div>
+</section>
+
+<!-- ==================== GUIDE LIBRARY ==================== -->
+<section id="library">
+  <div class="wrap band">
+    <div class="eyebrow">The guide library · 20 per profession</div>
+    <h2>One framework, four series, twenty guides — for every profession</h2>
+    <p class="soft">Every profession gets the same research-grade curriculum: <span class="quote">Get Found → Earn Trust → Never Lose a Lead → Grow Calmly.</span> Five guides each. Same structure, same numbering — so guide C1 for a lawyer and C1 for a dentist answer the same problem in each world's own language.</p>
+  </div>
+  <div class="wrap">
+    <div class="lib-frame">
+      <div class="lib-head">
+        <h3>The 4 × 5 curriculum every profession receives</h3>
+        <p class="lp">The series order follows the customer's own journey: first they must <b>find you</b>, then <b>believe you</b>, then <b>never slip away</b>, then <b>keep coming back</b>.</p>
+      </div>
+      <div class="matrix">
+        <div class="mx"><div class="sr">Series A</div><h6>Get Found</h6><p>Local search, Google Business Profile, what your clients actually type, attribution basics.</p><div class="n5">GUIDES A1–A5</div></div>
+        <div class="mx"><div class="sr">Series B</div><h6>Earn Trust</h6><p>The 5-second test, credential pages, proof &amp; testimonials, forms that feel safe.</p><div class="n5">GUIDES B1–B5</div></div>
+        <div class="mx"><div class="sr">Series C</div><h6>Never Lose a Lead</h6><p>The 60-second reply, inquiry sequences, reminders, post-consultation, win-backs.</p><div class="n5">GUIDES C1–C5</div></div>
+        <div class="mx"><div class="sr">Series D</div><h6>Grow Calmly</h6><p>Repeat business, seasonal campaigns, segmentation, reading your lead report, the roadmap.</p><div class="n5">GUIDES D1–D5</div></div>
+      </div>
+      <div class="lib-math"><b>7 groups</b>→<b>16 professions</b>×<b>4 series</b>×<b>5 guides</b>=<b>320 interlinked guides</b></div>
+    </div>
+
+    <!-- 20 guides demo: LAWYERS -->
+    <div class="twenty" id="twenty">
+      <div class="twenty-head">
+        <h4>The 20 guides for <b>Lawyers</b> — built from their 5 documented pains</h4>
+        <div class="prof-tabs">
+          <button class="ptab active">Lawyers</button><button class="ptab">Dentists</button><button class="ptab">Shopify</button><button class="ptab">+13 more…</button>
+        </div>
+      </div>
+      <div class="g20">
+        <div class="gser" style="--hue-h:var(--g1);--soft-h:var(--g1-soft)">
+          <div class="gh"><b>Series A · Get Found</b> — pains 2 &amp; 5</div>
+          <a href="#guidepage"><i>A1</i>Why did my referrals dry up? The anatomy of the quiet months</a>
+          <a href="#guidepage"><i>A2</i>Local SEO for solo law firms: ranking for “family lawyer near me”</a>
+          <a href="#guidepage"><i>A3</i>Google Business Profile for lawyers: complete setup, reviewed</a>
+          <a href="#guidepage"><i>A4</i>What legal clients search before they ever call: query research</a>
+          <a href="#guidepage"><i>A5</i>Where did this client come from? Lead attribution for small firms</a>
+        </div>
+        <div class="gser" style="--hue-h:var(--g1);--soft-h:var(--g1-soft)">
+          <div class="gh"><b>Series B · Earn Trust</b> — pains 1 &amp; 4</div>
+          <a href="#guidepage"><i>B1</i>The 5-second test: what a stressed client decides on your homepage</a>
+          <a href="#guidepage"><i>B2</i>Practice-area pages that convert: structure, wording, examples</a>
+          <a href="#guidepage"><i>B3</i>The attorney bio: credentials that read as care, not résumé</a>
+          <a href="#guidepage"><i>B4</i>Case results &amp; testimonials — proof within professional rules</a>
+          <a href="#guidepage"><i>B5</i>The case-evaluation form: lead capture that feels safe to fill</a>
+        </div>
+        <div class="gser" style="--hue-h:var(--g1);--soft-h:var(--g1-soft)">
+          <div class="gh"><b>Series C · Never Lose a Lead</b> — pain 3</div>
+          <a href="#guidepage" style="background:var(--g1-soft);border-radius:8px"><i>C1</i><b>The 60-second reply: why answer speed doubles consultations ← open below</b></a>
+          <a href="#guidepage"><i>C2</i>The 5-email inquiry sequence for law firms, with templates</a>
+          <a href="#guidepage"><i>C3</i>Three gentle reminders: recovering the abandoned consultation</a>
+          <a href="#guidepage"><i>C4</i>After the consultation: summary + retainer, sent automatically</a>
+          <a href="#guidepage"><i>C5</i>The win-back: a kind offer to inquiries from six months ago</a>
+        </div>
+        <div class="gser" style="--hue-h:var(--g1);--soft-h:var(--g1-soft)">
+          <div class="gh"><b>Series D · Grow Calmly</b> — pains 2 &amp; 5</div>
+          <a href="#guidepage"><i>D1</i>From 20–30% to 40–60%: fixing inquiry conversion end to end</a>
+          <a href="#guidepage"><i>D2</i>Readers into clients: nurturing your article audience</a>
+          <a href="#guidepage"><i>D3</i>Which marketing money is wasted? Reading your lead report</a>
+          <a href="#guidepage"><i>D4</i>Feast and famine no more: designing a steady pipeline</a>
+          <a href="#guidepage"><i>D5</i>The solo firm growth roadmap: what to automate first</a>
+        </div>
+      </div>
+      <p class="note" style="margin-top:16px">Same curriculum, translated per profession: for dentists, C1 becomes “the 60-second reply to a new-patient inquiry”; for Shopify, C1 becomes “the 6-hour cart email.” 16 professions × the same 20 slots = the full 320-guide library. WordPress: custom post type “Guide” + taxonomies “profession” and “series”.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== GUIDE PAGE PROTOTYPE ==================== -->
+<section id="guidepage">
+  <div class="wrap band">
+    <div class="eyebrow">The guide page · research-grade template</div>
+    <h2>One guide, opened: scroll it, feel the reader guide</h2>
+    <p class="soft">Reading progress, chapter rail, quick answer for AEO, and the four-color reader guide — <span class="quote">green to act, amber for evidence, blue for research, red for boundaries.</span> The interlinking block at the end is what makes all 320 guides one connected library.</p>
+  </div>
+  <div class="wrap">
+    <div class="browser">
+      <div class="browser-bar">
+        <span class="bdots"><i></i><i></i><i></i></span>
+        <span class="burl">anthropos-automation.com/guides/<b>lawyers</b>/c1-the-60-second-reply/</span>
+      </div>
+      <div class="g-scroll" id="gScroll">
+        <div class="progress-wrap"><div class="progress" id="gProgress"></div></div>
+        <div class="g-grid">
+          <nav class="toc" id="gToc" aria-label="Chapters">
+            <div class="tl">In this guide</div>
+            <a href="#gc1" class="on" data-t="gc1">What the data says about speed</a>
+            <a href="#gc2" data-t="gc2">The 60-second reply, step by step</a>
+            <a href="#gc3" data-t="gc3">What to say (and never say)</a>
+            <a href="#gc4" data-t="gc4">Questions lawyers ask us</a>
+            <div class="ser-pos"><b>Series C · Never Lose a Lead</b><br>Guide 1 of 5 · Lawyers edition<br>Next: C2 — the 5-email sequence</div>
+          </nav>
+          <article class="gart">
+            <div class="crumb">Guides / <b>Lawyers</b> / Series C · Never Lose a Lead / C1</div>
+            <h1>The 60-second reply: why answer speed doubles your consultations</h1>
+            <div class="serband">
+              <span class="sb s1">Series C · Guide 1 of 5</span>
+              <span class="sb s2">Research-grade · with templates</span>
+              <span class="upd">Reviewed 19 Jul 2026 · 7 min</span>
+            </div>
+            <div class="byline"><span class="ava"></span><span><b>Murtuja Hasan</b> · Founder, Anthropos Automation — reviewed against our client benchmarks<br>Applies to: solo practitioners &amp; small firms (1–5 lawyers)</span></div>
+
+            <div class="qa-box">
+              <span class="ql">◆ Quick answer</span>
+              <p>A potential client who inquires with a law firm is usually inquiring with two or three. The firm that answers first — within minutes, not hours — is the one that feels attentive before a single word of advice is given. Firms with manual follow-up convert <b>20–30%</b> of inquiries; with a 60-second automated reply plus a follow-up sequence, <b>40–60%</b> is the realistic range.</p>
+            </div>
+
+            <h2 id="gc1">What the data says about speed</h2>
+            <p class="tx">Someone contacting a lawyer is rarely browsing. They have a deadline, a dispute, a decision they can't delay — and a shortlist. The first firm to respond sets the emotional anchor: <em>this one takes me seriously.</em></p>
+            <div class="hl hl-stat"><span class="tag">Key stat</span><span>Manual follow-up converts <b>20–30%</b> of inquiries. Systematic fast follow-up moves firms toward <b>40–60%</b> — the single largest lever in this series.</span></div>
+            <div class="hl hl-res"><span class="tag">Research note</span><span><b>Sources for this guide:</b> Anthropos client benchmarks (solo &amp; small firms, 2024–2026) · published lead-response-time research <em>[editorial slot: link 2 external studies]</em> · your own numbers via the lead report (guide D3).</span></div>
+            <p class="tx">The uncomfortable part: none of this requires you to be available. It requires a system that is.</p>
+
+            <h2 id="gc2">The 60-second reply, step by step</h2>
+            <p class="tx">The sequence begins the moment your case-evaluation form (guide B5) is submitted. The first message is not marketing — it is reassurance with a timestamp.</p>
+            <div class="hl hl-action"><span class="tag">Do this</span><span>Send an automatic confirmation within 60 seconds: their matter was received, who will read it, and when they'll hear back. Name a real timeframe you can keep.</span></div>
+            <div class="hl hl-action"><span class="tag">Do this</span><span>Attach trust, not pressure: your credentials page and one relevant case result (guide B4) — the two things a shortlisting client compares anyway.</span></div>
+            <div class="hl hl-action"><span class="tag">Do this</span><span>If no consultation is booked, send up to three gentle reminders (guide C3). Then stop. Respect converts better than persistence.</span></div>
+
+            <h2 id="gc3">What to say (and never say)</h2>
+            <p class="tx">The reply's tone decides whether automation feels like care or like a machine. Short sentences. Their matter named. No legal advice in writing at this stage.</p>
+            <div class="hl hl-warn"><span class="tag">Boundary</span><span>No case assessments, no fee promises, and no confidential details in automated email. The sequence builds the relationship; the advice happens in the consultation — with you.</span></div>
+
+            <h2 id="gc4">Questions lawyers ask us</h2>
+            <div class="faq">
+              <details open><summary>Won't clients notice it's automated?</summary><p>They notice speed and clarity. The message is honest — it confirms receipt and sets expectations; it doesn't pretend to be you at midnight. In our client feedback, “they got back to me immediately” is the phrase that recurs.</p></details>
+              <details><summary>We're a two-person firm. Is this overkill?</summary><p>The opposite: the smaller the firm, the more this matters, because there is no receptionist catching what you miss. The whole sequence is set up once and runs unattended.</p></details>
+              <details><summary>What tool does this? Do I need new software?</summary><p>Any standard automation platform connected to your website form. If we build your system, this sequence is part of the 4-week delivery — pre-written for your practice areas.</p></details>
+            </div>
+
+            <div class="glinks">
+              <div class="glh">Where this guide sits in the library — every guide carries these four links</div>
+              <div class="gl-row">
+                <a class="gl" href="#"><b>Series · next up</b>C2 — The 5-email inquiry sequence for law firms (templates)</a>
+                <a class="gl hub" href="#"><b>Hub · up one level</b>All 20 guides for Lawyers · Series C overview</a>
+                <a class="gl bridge" href="#"><b>Bridge · same fix, other worlds</b>C1 for Dentists (new-patient inquiries) · C1 for Shopify (the 6-hour cart email)</a>
+                <a class="gl story" href="#"><b>Story · where you began</b>“The referrals always came. Until the month they didn't.”</a>
+              </div>
+            </div>
+
+            <div class="gcta">
+              <h5>Want this sequence written for your practice areas — this month?</h5>
+              <p>The free 12-point audit shows your current reply time, your follow-up gaps, and what they cost. Delivered in 48 hours, no call required.</p>
+              <a class="btn" href="#">Get the free audit</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+    <div class="legend">
+      <div class="lg"><b><span class="sw" style="background:#15803D"></span>Green · Do this</b>Steps a reader can apply today — skimmers reading only green still win.</div>
+      <div class="lg"><b><span class="sw" style="background:#B45309"></span>Amber · Key stat</b>The model's numbers, quotable — the lines AI engines cite.</div>
+      <div class="lg"><b><span class="sw" style="background:#3B5BDB"></span>Blue · Research note</b>Sources &amp; method — what makes a guide research-grade, not opinion.</div>
+      <div class="lg"><b><span class="sw" style="background:#B91C1C"></span>Red · Boundary</b>What we don't do and won't automate. Honesty is the best trust signal.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== INTERLINK MAP ==================== -->
+<section id="linking">
+  <div class="wrap band">
+    <div class="eyebrow">The interlinking system · every guide, connected</div>
+    <h2>Four link rules make 320 guides one library</h2>
+    <p class="soft">No orphan pages, ever. Each guide carries exactly four kinds of links — enough to route readers and search crawlers everywhere, <span class="quote">never enough to overwhelm.</span></p>
+  </div>
+  <div class="wrap">
+    <div class="linkmap">
+      <div class="lm-canvas" id="lmCanvas">
+        <span class="lm-node lm-center" style="left:50%;top:50%">C1 · Lawyers · 60-second reply</span>
+        <span class="lm-node lm-g" style="left:20%;top:22%">C2 · next in series</span>
+        <span class="lm-node lm-g" style="left:16%;top:78%">B5 · form guide (cited)</span>
+        <span class="lm-node lm-h" style="left:50%;top:12%">Lawyers hub · all 20</span>
+        <span class="lm-node lm-b" style="left:82%;top:28%">C1 · Dentists</span>
+        <span class="lm-node lm-b" style="left:85%;top:60%">C1 · Shopify</span>
+        <span class="lm-node lm-s" style="left:26%;top:50%">Story: “quiet referrals”</span>
+        <span class="lm-node lm-h" style="left:72%;top:86%">Free audit / service page</span>
+      </div>
+      <div class="lm-rules">
+        <div class="rule"><span class="rn">1</span><p><b>Chain</b> — previous / next guide in the same series. Readers move A1→A5, crawlers see a clean silo.</p></div>
+        <div class="rule"><span class="rn">2</span><p><b>Ladder</b> — up to the profession hub (all 20 guides) and the group hub. Authority flows to commercial pages.</p></div>
+        <div class="rule"><span class="rn">3</span><p><b>Bridge</b> — the same guide number in 2 sibling professions. Cross-audience discovery + topical breadth.</p></div>
+        <div class="rule"><span class="rn">4</span><p><b>Return</b> — back to the story that sent the reader here, and forward to the free audit. The conversion loop.</p></div>
+      </div>
+    </div>
+
+    <div class="seo-strip">
+      <div class="seo-c"><span class="k">SEO</span><ul>
+        <li><b>Silo structure:</b> /guides/lawyers/c1-… — profession + series in URL, one intent per page</li>
+        <li><b>Hub pages</b> (profession, 20 links) concentrate authority; breadcrumbs + schema everywhere</li>
+        <li><b>320 pages, zero orphans</b> — the four link rules guarantee crawl paths</li>
+      </ul></div>
+      <div class="seo-c"><span class="k">AEO</span><ul>
+        <li><b>Question H1s</b> + 40–60-word Quick Answer box = the extractable snippet</li>
+        <li><b>FAQPage + Article + Person schema;</b> visible review dates; author benchmarks noted</li>
+        <li><b>Amber stat lines</b> are the quotable one-liners AI engines lift</li>
+      </ul></div>
+      <div class="seo-c"><span class="k">GEO</span><ul>
+        <li><b>Series A is inherently local</b> — “near me” guides double as location content</li>
+        <li><b>/munich/ + DE variants</b> planned from day one; hreflang EN/DE; NAP in footer</li>
+        <li><b>Guide hubs are citation targets:</b> one clean URL per profession for AI recommendations</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="site-footer">
+  <div class="foot-cta">
+    <div class="foot-cta-in">
+      <p class="fq">“Read your story. Name your leak. <b>Then decide — fix it yourself with the guides, or have it built in four weeks.</b>”</p>
+      <a class="btn btn-dawn" href="#">Get Free Website Audit</a>
+    </div>
+  </div>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <a class="logo" href="#"><canvas id="footCanvas" class="logo-canvas" width="68" height="68"></canvas><span>anthropos<small>automation</small></span></a>
+      <p>Website redesign + lead automation for solo operators and small teams (€50k–€500k). Live in 4 weeks. Templated, honest, human.</p>
+      <div class="foot-nap">ANTHROPOS AUTOMATION<br>MUNICH, GERMANY · EU-HOSTED<br>HELLO@ANTHROPOS-AUTOMATION.COM</div>
+    </div>
+    <div>
+      <h6><span class="hdot" style="background:var(--clay)"></span>Stories</h6>
+      <a href="#stories"><span class="gd" style="background:var(--g1)"></span>Regulated professionals</a>
+      <a href="#stories"><span class="gd" style="background:var(--g2)"></span>Medical professionals</a>
+      <a href="#stories"><span class="gd" style="background:var(--g3)"></span>E-commerce &amp; retail</a>
+      <a href="#stories"><span class="gd" style="background:var(--g4)"></span>Service professionals</a>
+      <a href="#stories"><span class="gd" style="background:var(--g5)"></span>Freelancers &amp; agencies</a>
+      <a href="#stories"><span class="gd" style="background:var(--g6)"></span>Creators &amp; coaches</a>
+      <a href="#stories"><span class="gd" style="background:var(--g7)"></span>B2B providers</a>
+    </div>
+    <div>
+      <h6><span class="hdot"></span>Guide series</h6>
+      <a href="#library">A · Get Found</a>
+      <a href="#library">B · Earn Trust</a>
+      <a href="#library">C · Never Lose a Lead</a>
+      <a href="#library">D · Grow Calmly</a>
+      <a href="#twenty">All 320 guides</a>
+    </div>
+    <div>
+      <h6><span class="hdot" style="background:var(--g2)"></span>What we do</h6>
+      <a href="#">Website Layer</a>
+      <a href="#">Automation Layer</a>
+      <a href="#">Lead Tracking &amp; Reporting</a>
+      <a href="#">How It Works — 4 weeks</a>
+      <a href="#">Results</a>
+    </div>
+    <div>
+      <h6><span class="hdot" style="background:var(--night-soft)"></span>Company</h6>
+      <a href="#">About</a>
+      <a href="#">Free Website Audit</a>
+      <a href="#">Contact</a>
+      <a href="#">Impressum</a>
+      <a href="#">Privacy (GDPR)</a>
+    </div>
+  </div>
+  <div class="foot-base">
+    <span>© 2026 ANTHROPOS AUTOMATION · MUNICH</span>
+    <span>EN / DE · ANTHROPOS-AUTOMATION.COM</span>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* dropdowns */
+document.querySelectorAll('[data-menu]').forEach(item=>{
+  const btn=item.querySelector('.nav-link');
+  btn.addEventListener('click',e=>{
+    e.stopPropagation();
+    const was=item.classList.contains('open');
+    document.querySelectorAll('[data-menu]').forEach(i=>i.classList.remove('open'));
+    if(!was)item.classList.add('open');
+  });
+});
+document.addEventListener('click',()=>document.querySelectorAll('[data-menu]').forEach(i=>i.classList.remove('open')));
+
+/* story filters */
+document.querySelectorAll('#filters .fbtn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('#filters .fbtn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f=btn.dataset.f;
+    document.querySelectorAll('#storyGrid .story').forEach(p=>p.classList.toggle('hidden', f!=='all' && p.dataset.g!==f));
+  });
+});
+
+/* guide scroll progress + toc */
+const gs=document.getElementById('gScroll'), gp=document.getElementById('gProgress');
+const gtoc=document.querySelectorAll('#gToc a');
+const gch=['gc1','gc2','gc3','gc4'].map(id=>document.getElementById(id));
+gs.addEventListener('scroll',()=>{
+  const max=gs.scrollHeight-gs.clientHeight;
+  gp.style.width=(gs.scrollTop/max*100)+'%';
+  let cur=gch[0];
+  gch.forEach(ch=>{if(ch.offsetTop-gs.scrollTop<200)cur=ch});
+  gtoc.forEach(a=>a.classList.toggle('on',a.dataset.t===cur.id));
+});
+gtoc.forEach(a=>a.addEventListener('click',e=>{
+  e.preventDefault();
+  gs.scrollTo({top:document.getElementById(a.dataset.t).offsetTop-60,behavior:'smooth'});
+}));
+
+/* interlink map lines */
+(function(){
+  const cv=document.getElementById('lmCanvas');
+  const center=[50,50];
+  const targets=[[20,22],[16,78],[50,12],[82,28],[85,60],[26,50],[72,86]];
+  targets.forEach(t=>{
+    const line=document.createElement('div');line.className='lm-line';
+    const x1=center[0],y1=center[1],x2=t[0],y2=t[1];
+    const W=cv.clientWidth,H=cv.clientHeight;
+    const dx=(x2-x1)/100*W,dy=(y2-y1)/100*H;
+    const len=Math.hypot(dx,dy),ang=Math.atan2(dy,dx)*180/Math.PI;
+    line.style.cssText=`left:${x1}%;top:${y1}%;width:${len}px;transform:rotate(${ang}deg)`;
+    cv.insertBefore(line,cv.firstChild);
+  });
+})();
+
+/* hero particle river (compact) */
+(function(){
+  if(!window.THREE)return;
+  const canvas=document.getElementById('heroCanvas');
+  const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  const scene=new THREE.Scene();
+  const camera=new THREE.PerspectiveCamera(50,2,0.1,100);camera.position.set(0,0,13);
+  const N=1100;
+  const chaos=new Float32Array(N*3),flow=new Float32Array(N*3),pos=new Float32Array(N*3),col=new Float32Array(N*3);
+  const cA=new THREE.Color('#5F6FB8'),cB=new THREE.Color('#E8A34C'),tmp=new THREE.Color();
+  for(let i=0;i<N;i++){
+    chaos[i*3]=(Math.random()-0.5)*26;chaos[i*3+1]=(Math.random()-0.5)*11;chaos[i*3+2]=(Math.random()-0.5)*7;
+    const t=i/N,sp=(1-t)*2.3+0.05;
+    flow[i*3]=-11+t*20;
+    flow[i*3+1]=Math.sin(t*Math.PI*2)*2*(1-t)+(Math.random()-0.5)*sp-1.2;
+    flow[i*3+2]=(Math.random()-0.5)*sp;
+    pos.set([chaos[i*3],chaos[i*3+1],chaos[i*3+2]],i*3);
+  }
+  const geo=new THREE.BufferGeometry();
+  geo.setAttribute('position',new THREE.BufferAttribute(pos,3));
+  geo.setAttribute('color',new THREE.BufferAttribute(col,3));
+  scene.add(new THREE.Points(geo,new THREE.PointsMaterial({size:0.085,vertexColors:true,transparent:true,opacity:0.85,blending:THREE.AdditiveBlending,depthWrite:false})));
+  let mix=reduced?1:0,target=1,tPrev=0,visible=true;
+  new IntersectionObserver(e=>visible=e[0].isIntersecting).observe(canvas);
+  function fr(t){
+    requestAnimationFrame(fr);
+    if(!visible)return;
+    const w=canvas.clientWidth,h=canvas.clientHeight;
+    if(canvas.width!==w||canvas.height!==h){renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();}
+    const dt=Math.min((t-tPrev)/1000,0.05);tPrev=t;
+    if(t>1800)mix+=(target-mix)*(reduced?1:1.2*dt);
+    const p=geo.attributes.position.array,c=geo.attributes.color.array,time=t/1000;
+    for(let i=0;i<N;i++){
+      const wob=Math.sin(time*0.7+i*1.7)*0.13,drift=Math.sin(time*0.5+i)*0.32;
+      p[i*3]=chaos[i*3]*(1-mix)+flow[i*3]*mix;
+      p[i*3+1]=(chaos[i*3+1]+drift)*(1-mix)+(flow[i*3+1]+wob)*mix;
+      p[i*3+2]=chaos[i*3+2]*(1-mix)+flow[i*3+2]*mix;
+      tmp.copy(cA).lerp(cB,mix*(0.35+0.65*(i/N)));
+      c[i*3]=tmp.r;c[i*3+1]=tmp.g;c[i*3+2]=tmp.b;
+    }
+    geo.attributes.position.needsUpdate=true;geo.attributes.color.needsUpdate=true;
+    renderer.render(scene,camera);
+  }
+  requestAnimationFrame(fr);
+})();
+
+/* logo knots (header + footer) */
+(function(){
+  if(!window.THREE)return;
+  function knot(canvas){
+    if(!canvas)return;
+    const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true});
+    renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+    const scene=new THREE.Scene();
+    const camera=new THREE.PerspectiveCamera(45,1,0.1,50);camera.position.z=7;
+    const m=new THREE.Mesh(new THREE.TorusKnotGeometry(1.7,0.42,120,18,2,3),new THREE.MeshStandardMaterial({color:'#E8A34C',metalness:0.55,roughness:0.32}));
+    scene.add(m);
+    scene.add(new THREE.AmbientLight('#7C86A3',0.7));
+    const key=new THREE.DirectionalLight('#FFE9C4',1.4);key.position.set(3,4,5);scene.add(key);
+    let visible=true;new IntersectionObserver(e=>visible=e[0].isIntersecting).observe(canvas);
+    (function fr(){
+      requestAnimationFrame(fr);
+      if(!visible)return;
+      const w=canvas.clientWidth,h=canvas.clientHeight;
+      if(canvas.width!==w||canvas.height!==h){renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();}
+      if(!reduced)m.rotation.y+=0.004;m.rotation.x=0.4;
+      renderer.render(scene,camera);
+    })();
+  }
+  knot(document.getElementById('markCanvas'));
+  knot(document.getElementById('footCanvas'));
+})();
+</script>
+</body>
+</html>
