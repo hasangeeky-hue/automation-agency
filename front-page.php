@@ -23,8 +23,8 @@ $blurbs = array(
 	<canvas class="fx" data-net data-nodes="100" data-pulses="70" data-z="20" aria-hidden="true"></canvas>
 	<div class="hero-in">
 		<div class="eyebrow">Anthropos Automation OS · web + AEO/GEO + AI automation</div>
-		<h1>We turn your business into a <span class="grad">self-running system.</span></h1>
-		<p class="sub">A converting website, answer-engine visibility, and <b>AI agents wired through n8n</b> that capture, qualify and follow up every lead — while you do the work. Six automation services, one page per business type.</p>
+		<h1>The leads are coming in. <span class="grad">You're just losing them.</span></h1>
+		<p class="sub">Slow replies, a dated website, follow-up nobody has time for — that's where the inquiries you already paid to earn quietly disappear. We build the website, the answer-engine visibility and the <b>AI agents on n8n</b> that capture, qualify and chase every lead for you, automatically. Six services, one page per business type.</p>
 		<div class="hero-ctas"><a class="btn btn-cta" href="#cta">Book a non-binding consultation</a><a class="btn btn-glass" href="#services">See the 6 services ↓</a></div>
 		<div class="hero-tags"><span class="tag">Web Design</span><span class="tag" style="--hue:var(--ai)">AEO / GEO</span><span class="tag">Lead Automation</span><span class="tag" style="--hue:var(--g3)">Marketing Automation</span><span class="tag" style="--hue:var(--g5)">Social Media Automation</span><span class="tag" style="--hue:var(--cta)">AI + n8n</span></div>
 	</div>
@@ -66,7 +66,7 @@ $blurbs = array(
 		<div class="glass tm reveal" role="listitem"><div class="av">AH</div><h5>Ahasanul Haque</h5><span>CTO</span><p>AI engineer and data scientist (M.Sc., TU Munich) with ML experience at Adobe and NewNow.</p></div>
 		<div class="glass tm reveal" role="listitem"><div class="av">SK</div><h5>Sina Khouei</h5><span>Cybersecurity &amp; Applied AI</span><p>M.Sc. Computer Science, University of Bonn — hardens every agent before it touches client data.</p></div>
 		<div class="glass tm reveal" role="listitem"><div class="av">AI</div><h5>Ariful Islam</h5><span>Media Buyer &amp; Ads Automation</span><p>Runs Google &amp; Meta ad accounts at 1,300%+ ROAS for e-commerce brands.</p></div>
-		<div class="glass tm reveal" role="listitem"><div class="av">AR</div><h5><a href="https://www.razzakabdur.com/" target="_blank" rel="noopener">Abdur Razak</a></h5><span>Head of Web Development</span><p>Full-stack developer and process-documentation specialist.</p></div>
+		<div class="glass tm reveal" role="listitem"><div class="av">AR</div><h5><a href="https://www.razzakabdur.com/" target="_blank" rel="noopener">Abdur Razak</a></h5><span>Head of Web Development</span><p>Full-stack developer (Drupal, full-stack web) and documentation specialist — ships the client sites plus the custom Excel/VBA tools and process systems operations run on.</p></div>
 	</div></div>
 </section>
 

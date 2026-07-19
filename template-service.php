@@ -149,12 +149,13 @@ function anthropos_written_guides() {
 function anthropos_guide_grid( $titles, $hue, $url, $page_slug = '' ) {
 	$written = ( $page_slug && isset( anthropos_written_guides()[ $page_slug ] ) ) ? anthropos_written_guides()[ $page_slug ] : array();
 	$urls    = $written ? anthropos_resolve_post_urls( array_values( $written ) ) : array();
+	$fx      = array( 'radar', 'dataflow', 'holo', 'workflow', 'neural', 'broadcast', 'growth', 'social', 'pulse', 'core' );
 	echo '<div class="wrap"><div class="guides" role="list" style="--hue:' . esc_attr( $hue ) . '">';
 	foreach ( $titles as $i => $t ) {
 		$real_url = ( isset( $written[ $i ] ) && ! empty( $urls[ $written[ $i ] ] ) ) ? $urls[ $written[ $i ] ] : null;
 		$href     = $real_url ? $real_url : $url;
 		$tag      = $real_url ? 'Read the full guide →' : 'problem → solution → CTA';
-		echo '<a class="glass gcard" role="listitem" href="' . esc_url( $href ) . '" style="--hue:' . esc_attr( $hue ) . '"><div class="gi">G' . ( $i < 9 ? '0' : '' ) . ( $i + 1 ) . '</div><h5>' . wp_kses_post( $t ) . '</h5><div class="ga">' . esc_html( $tag ) . '</div></a>';
+		echo '<a class="glass gcard" role="listitem" href="' . esc_url( $href ) . '" style="--hue:' . esc_attr( $hue ) . '"><canvas class="gfx" data-fx="' . esc_attr( $fx[ $i % 10 ] ) . '" style="--hue:' . esc_attr( $hue ) . '"></canvas><div class="gi">G' . ( $i < 9 ? '0' : '' ) . ( $i + 1 ) . '</div><h5>' . wp_kses_post( $t ) . '</h5><div class="ga">' . esc_html( $tag ) . '</div></a>';
 	}
 	echo '</div></div>';
 }

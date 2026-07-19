@@ -56,14 +56,17 @@ $guide_q = new WP_Query( array(
 		<div class="grid-4" role="list" style="margin-top:22px">
 			<?php
 			if ( $guide_q->have_posts() ) :
+					$gfx = array( 'radar','dataflow','holo','workflow','neural','broadcast','growth','social','pulse','core' ); $gi = 0;
 				while ( $guide_q->have_posts() ) : $guide_q->the_post();
 					$cat = get_the_category(); $tags = get_the_tags();
 					$cats = array(); if ( $cat ) foreach ( $cat as $c ) { $cats[] = $c->slug; } if ( $tags ) foreach ( $tags as $tg ) { $cats[] = $tg->slug; }
-					$label = $cat ? strtoupper( $cat[0]->name ) : 'GUIDE'; ?>
-					<a class="glass gcard" role="listitem" data-cats="<?php echo esc_attr( implode( ' ', $cats ) ); ?>" style="--hue:var(--g1)" href="<?php the_permalink(); ?>"><div class="gi"><?php echo esc_html( $label ); ?></div><h5><?php the_title(); ?></h5><div class="ga">problem → solution → CTA</div></a>
-				<?php endwhile; wp_reset_postdata();
+						$hue = ( $cat && isset( $segs[ $cat[0]->slug ] ) ) ? $segs[ $cat[0]->slug ]['hue'] : 'var(--g1)';
+						$label = $cat ? strtoupper( $cat[0]->name ) : 'GUIDE'; ?>
+						<a class="glass gcard" role="listitem" data-cats="<?php echo esc_attr( implode( ' ', $cats ) ); ?>" style="--hue:<?php echo esc_attr( $hue ); ?>" href="<?php the_permalink(); ?>"><canvas class="gfx" data-fx="<?php echo esc_attr( $gfx[ $gi % 10 ] ); ?>" style="--hue:<?php echo esc_attr( $hue ); ?>"></canvas><div class="gi"><?php echo esc_html( $label ); ?></div><h5><?php the_title(); ?></h5><div class="ga">Read the full guide →</div></a>
+					<?php $gi++; endwhile; wp_reset_postdata();
 			else :
-				foreach ( $demo as $g ) { echo '<a class="glass gcard" role="listitem" data-cats="' . esc_attr( $g[0] ) . '" style="--hue:' . esc_attr( $g[1] ) . '" href="#"><div class="gi">' . esc_html( $g[2] ) . '</div><h5>' . wp_kses_post( $g[3] ) . '</h5><div class="ga">problem → solution → CTA · queued next batch</div></a>'; }
+					$di = 0; $dfx = array( 'radar','dataflow','holo','workflow','neural','broadcast','growth','social','pulse','core' );
+					foreach ( $demo as $g ) { echo '<a class="glass gcard" role="listitem" data-cats="' . esc_attr( $g[0] ) . '" style="--hue:' . esc_attr( $g[1] ) . '" href="#"><canvas class="gfx" data-fx="' . esc_attr( $dfx[ $di % 10 ] ) . '" style="--hue:' . esc_attr( $g[1] ) . '"></canvas><div class="gi">' . esc_html( $g[2] ) . '</div><h5>' . wp_kses_post( $g[3] ) . '</h5><div class="ga">problem → solution → CTA</div></a>'; $di++; }
 			endif;
 			?>
 		</div>

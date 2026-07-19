@@ -4,7 +4,7 @@ Theme URI: https://github.com/hasangeeky-hue/automation-agency
 Author: Anthropos Automation
 Author URI: https://anthropos-automation.com
 Description: AI Automation OS theme — dark glass automation canvas, node-graph/agent-network 3D on every card, 6 automation services, per-segment service pages named "Automation Service for {Segment}", guide + blog templates, neuro-navigation and internal linking.
-Version: 5.8.0
+Version: 5.9.0
 Requires at least: 6.0
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
@@ -123,6 +123,7 @@ canvas{display:block}
 .guides{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:16px}
 .gcard{padding:14px;border-radius:12px;transition:transform .18s,border-color .18s;cursor:pointer;display:block}
 .gcard:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--hue,var(--g1)) 45%,transparent)}
+.gcard .gfx{width:100%;height:58px;border-radius:9px;display:block;margin-bottom:10px;border:1px solid var(--line);background:radial-gradient(80% 130% at 50% 0%, color-mix(in srgb,var(--hue,var(--g1)) 16%,transparent), transparent 70%)}
 .gcard .gi{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;color:var(--faint)}
 .gcard h5{font-size:12.5px;font-weight:600;margin-top:6px;line-height:1.35}
 .gcard .ga{font-family:var(--mono);font-size:9px;color:var(--hue,var(--g1));margin-top:8px}
@@ -150,8 +151,27 @@ canvas{display:block}
 .art .crumb a{color:var(--flow)}
 .art h1{font-family:var(--display);font-size:clamp(26px,3.4vw,38px);font-weight:800;letter-spacing:-.02em;line-height:1.15;margin-top:10px;text-wrap:balance}
 .art .byline{display:flex;align-items:center;gap:10px;margin-top:16px;font-size:12.5px;color:var(--faint);padding-bottom:20px;border-bottom:1px solid var(--line)}
-.art .ava{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--ai),var(--flow));flex:0 0 auto}
+.art .ava{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--ai),var(--flow));flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:800;font-size:14px;color:var(--void)}
 .art .byline b{color:var(--ink)}
+/* article 3D cover band — the per-post visual */
+.art-cover{position:relative;height:210px;border-radius:16px;overflow:hidden;border:1px solid var(--line);margin-bottom:8px;background:var(--void-2)}
+.art-cover canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.art-cover .acv-tag{position:absolute;left:16px;bottom:14px;z-index:2;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);background:rgba(8,11,20,.55);border:1px solid var(--line);border-radius:99px;padding:6px 13px;backdrop-filter:blur(8px)}
+/* related guides + prev/next navigation */
+.related{margin-top:30px;border-top:1px solid var(--line);padding-top:22px}
+.related .glh{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--faint)}
+.rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.rel-card{border:1px solid var(--line);border-radius:12px;padding:13px 14px;background:var(--glass);transition:border-color .18s,transform .18s;display:block}
+.rel-card:hover{border-color:var(--flow);transform:translateY(-2px)}
+.rel-card .rc-k{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--flow)}
+.rel-card h6{font-family:var(--display);font-size:13px;font-weight:600;line-height:1.35;margin-top:6px;color:var(--ink)}
+@media(max-width:760px){.rel-grid{grid-template-columns:1fr}}
+.prevnext{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.prevnext a{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--glass);font-size:12.5px;color:var(--muted);display:block}
+.prevnext a:hover{border-color:var(--flow)}
+.prevnext .pn-k{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);display:block;margin-bottom:4px}
+.prevnext .nx{text-align:right}
+@media(max-width:600px){.prevnext{grid-template-columns:1fr}}
 .art h2{font-family:var(--display);font-size:21px;font-weight:600;margin-top:30px}
 .art p{margin-top:12px;color:var(--muted)}
 .art ul,.art ol{margin:12px 0 0 22px;color:var(--muted)}

@@ -18,13 +18,13 @@ get_header();
 </section>
 
 <section id="company">
-	<div class="wrap band reveal"><div class="eyebrow" style="color:var(--flow)">Our Company</div><h2>A small studio for a single, honest promise</h2></div>
+	<div class="wrap band reveal"><div class="eyebrow" style="color:var(--flow)">Our Company</div><h2>One promise: every lead answered, nothing forgotten</h2></div>
 	<div class="wrap">
 		<div class="manifesto reveal" style="--hue:var(--flow)">
 			<div>
 				<span class="no">WHO WE ARE</span>
-				<h3>Web design + AEO/GEO + AI automation, in one place</h3>
-				<p>We help solo operators and small teams turn a good service into a self-running system: a website that converts, visibility that gets you found, and AI agents on n8n that follow up for you.</p>
+				<h3>Website, visibility and AI automation — built as one system</h3>
+					<p>We help solo operators and small teams stop leaking revenue between the cracks — the missed call while you're with a client, the quote you meant to send on Tuesday, the past customer nobody followed up with. One connected system on n8n catches all of it, so being busy stops costing you the next job.</p>
 				<p><b style="color:var(--ink)">We don't do</b> enterprise, custom consulting, or anything that keeps you dependent on us.</p>
 				<div class="astats">
 					<div class="astat"><b>4 wk</b><span>from start to live system</span></div>
@@ -42,7 +42,7 @@ get_header();
 	<div class="visionband-in">
 		<div class="veyebrow">Our Vision</div>
 		<h2>An automation OS for every small business</h2>
-		<p class="vlead">Large companies win because their tools think and talk to each other. We want every plumber, therapist and shop owner to have the same nervous system — <b>an AI-run operating layer that captures demand and never forgets a name.</b> Not more software to manage. Fewer decisions to make.</p>
+		<p class="vlead">Big companies win because their tools think and talk to each other. We want every plumber, therapist and shop owner to have the same advantage — <b>an AI-run layer that captures every inquiry and never forgets a name.</b> Not another app to check at 9pm; the system does the chasing, so your evenings are yours again.</p>
 		<span class="pill2">◆ Human by design — it just feels like you finally had time</span>
 	</div>
 </section>
@@ -55,12 +55,12 @@ get_header();
 			<div class="glass wstep reveal" style="--hue:var(--ai)"><canvas class="fxcanvas" data-fx="workflow" style="--hue:var(--ai)"></canvas><div class="wk">STEP 02 · BUILD</div><h4>We wire the agent</h4><p>Website + automation on n8n, connected to your tools.</p></div>
 			<div class="glass wstep reveal" style="--hue:var(--g4)"><canvas class="fxcanvas" data-fx="growth" style="--hue:var(--g4)"></canvas><div class="wk">STEP 03 · HAND OVER</div><h4>You own it</h4><p>Documented, reporting, running — no dependency on us.</p></div>
 		</div>
-		<div class="team" style="margin-top:16px">
-			<div class="glass tm reveal"><div class="av">MH</div><h5>Murtuja Hasan</h5><span>Founder &amp; CEO</span><p>E-commerce &amp; performance-marketing lead running a 7-person team and €150k+/month in paid media at a consistent 10x return — brings that same growth discipline to every client build.</p></div>
-			<div class="glass tm reveal"><div class="av">AH</div><h5>Ahasanul Haque</h5><span>CTO</span><p>AI engineer and data scientist (M.Sc., Technical University of Munich) with production ML experience at Adobe and NewNow — architects the AI systems under the hood.</p></div>
-			<div class="glass tm reveal"><div class="av">SK</div><h5>Sina Khouei</h5><span>Team Lead, Cybersecurity &amp; Applied AI</span><p>M.Sc. Computer Science, University of Bonn, working across threat intelligence and applied AI — hardens every agent and workflow before it ever touches client data.</p></div>
-			<div class="glass tm reveal"><div class="av">AI</div><h5>Ariful Islam</h5><span>Media Buyer &amp; Ads Automation Strategist</span><p>Runs Google &amp; Meta ad accounts at 1,300%+ ROAS for e-commerce brands — automates the campaigns and tracking that keep a pipeline full.</p></div>
-			<div class="glass tm reveal"><div class="av">AR</div><h5><a href="https://www.razzakabdur.com/" target="_blank" rel="noopener">Abdur Razak</a></h5><span>Head of Web Development</span><p>Full-stack developer and process-documentation specialist — builds and ships the sites and internal tooling every system runs on.</p></div>
+		<div class="team" role="list" style="margin-top:16px">
+			<div class="glass tm reveal" role="listitem"><div class="av">MH</div><h5>Murtuja Hasan</h5><span>Founder &amp; CEO</span><p>E-commerce &amp; performance-marketing lead running a 7-person team and €150k+/month in paid media at a consistent 10x return — brings that same growth discipline to every client build.</p></div>
+			<div class="glass tm reveal" role="listitem"><div class="av">AH</div><h5>Ahasanul Haque</h5><span>CTO</span><p>AI engineer and data scientist (M.Sc., Technical University of Munich) with production ML experience at Adobe and NewNow — architects the AI systems under the hood.</p></div>
+			<div class="glass tm reveal" role="listitem"><div class="av">SK</div><h5>Sina Khouei</h5><span>Team Lead, Cybersecurity &amp; Applied AI</span><p>M.Sc. Computer Science, University of Bonn, working across threat intelligence and applied AI — hardens every agent and workflow before it ever touches client data.</p></div>
+			<div class="glass tm reveal" role="listitem"><div class="av">AI</div><h5>Ariful Islam</h5><span>Media Buyer &amp; Ads Automation Strategist</span><p>Runs Google &amp; Meta ad accounts at 1,300%+ ROAS for e-commerce brands — automates the campaigns and tracking that keep a pipeline full.</p></div>
+			<div class="glass tm reveal" role="listitem"><div class="av">AR</div><h5><a href="https://www.razzakabdur.com/" target="_blank" rel="noopener">Abdur Razak</a></h5><span>Head of Web Development</span><p>Full-stack developer (Drupal, full-stack web) and documentation specialist — ships the client sites plus the custom Excel/VBA tools and process systems that keep operations running.</p></div>
 		</div>
 	</div>
 </section>
