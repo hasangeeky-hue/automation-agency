@@ -2,11 +2,12 @@
 /**
  * Template Name: Guides Library
  * 5 series-pillar blocks (3D + CTA) + categorised guide grid (segment + service).
+ * Shows real posts tagged ao_type=guide; falls back to demo cards if none exist yet.
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 get_header();
-$segkeys = array( 'reg' => array( 'Regulated', 'var(--g1)' ), 'med' => array( 'Medical', 'var(--g2)' ), 'ecom' => array( 'E-Commerce', 'var(--g3)' ), 'svc' => array( 'Service-Based', 'var(--g4)' ), 'free' => array( 'Freelancers', 'var(--g7)' ), 'cre' => array( 'Creators', 'var(--g5)' ), 'b2b' => array( 'B2B', 'var(--g6)' ) );
-$svckeys = array( 'web' => array( 'Web Design', 'var(--g2)' ), 'aeo' => array( 'AEO / GEO', 'var(--ai)' ), 'lead' => array( 'Lead', 'var(--flow)' ), 'mkt' => array( 'Marketing', 'var(--g3)' ), 'soc' => array( 'Social', 'var(--g5)' ), 'whole' => array( 'Whole-Business', 'var(--cta)' ) );
+$segs    = function_exists( 'anthropos_segments' ) ? anthropos_segments() : array();
+$svckeys = anthropos_service_tags();
 $pillars = array(
 	array( 'holo', 'var(--ai)', 'Series A', 'Get Found', 'Local search, GBP, what your clients type, attribution.', 'aeo' ),
 	array( 'funnel', 'var(--g2)', 'Series B', 'Earn Trust', 'The 5-second test, credentials, proof, safe forms.', 'web' ),
@@ -14,20 +15,23 @@ $pillars = array(
 	array( 'broadcast', 'var(--g3)', 'Series D', 'Grow with Campaigns', 'Seasonal campaigns, segmentation, social &amp; reporting.', 'mkt' ),
 	array( 'core', 'var(--cta)', 'Series E', 'Automate Everything', 'AI agents on n8n, the roadmap, always-on systems.', 'whole' ),
 );
-$guides = array(
-	array( 'reg lead', 'var(--g1)', 'REGULATED · C', 'The 60-second reply that doubles consultations' ),
-	array( 'med aeo', 'var(--g2)', 'MEDICAL · A', 'Local visibility for “[specialty] near me”' ),
-	array( 'ecom lead', 'var(--g3)', 'E-COMMERCE · C', 'The cart-recovery sequence that pays for itself' ),
-	array( 'svc whole', 'var(--g4)', 'SERVICE · E', 'The booking confirmation that cuts no-shows 70%' ),
-	array( 'cre mkt', 'var(--g5)', 'CREATORS · D', 'Free-to-paid: the 30-day upgrade sequence' ),
-	array( 'b2b aeo', 'var(--g6)', 'B2B · A', 'Get surfaced when buyers &amp; AI assistants research' ),
-	array( 'free web', 'var(--g7)', 'FREELANCE · B', 'A portfolio that pre-sells you' ),
-	array( 'cre soc', 'var(--g5)', 'CREATORS · D', 'Turn one guide into a month of content' ),
-	array( 'svc mkt', 'var(--g4)', 'SERVICE · D', 'Seasonal campaigns that wake up on schedule' ),
-	array( 'b2b whole', 'var(--g6)', 'B2B · E', 'Mapping a 6-month cycle into n8n stages' ),
-	array( 'reg web', 'var(--g1)', 'REGULATED · B', 'Practice-area pages that convert' ),
-	array( 'med soc', 'var(--g2)', 'MEDICAL · D', 'Review requests that add 0.5–1.0 stars' ),
+$demo = array(
+	array( 'regulated-professionals lead', 'var(--g1)', 'REGULATED · C', 'The 60-second reply that doubles consultations' ),
+	array( 'medical-professionals aeo', 'var(--g2)', 'MEDICAL · A', 'Local visibility for “[specialty] near me”' ),
+	array( 'ecommerce-retail lead', 'var(--g3)', 'E-COMMERCE · C', 'The cart-recovery sequence that pays for itself' ),
+	array( 'service-professionals whole', 'var(--g4)', 'SERVICE · E', 'The booking confirmation that cuts no-shows 70%' ),
+	array( 'creators-coaches mkt', 'var(--g5)', 'CREATORS · D', 'Free-to-paid: the 30-day upgrade sequence' ),
+	array( 'b2b-providers aeo', 'var(--g6)', 'B2B · A', 'Get surfaced when buyers &amp; AI assistants research' ),
+	array( 'freelancers-agencies web', 'var(--g7)', 'FREELANCE · B', 'A portfolio that pre-sells you' ),
+	array( 'creators-coaches soc', 'var(--g5)', 'CREATORS · D', 'Turn one guide into a month of content' ),
+	array( 'service-professionals mkt', 'var(--g4)', 'SERVICE · D', 'Seasonal campaigns that wake up on schedule' ),
+	array( 'b2b-providers whole', 'var(--g6)', 'B2B · E', 'Mapping a 6-month cycle into n8n stages' ),
 );
+$guide_q = new WP_Query( array(
+	'post_type'      => 'post',
+	'posts_per_page' => 40,
+	'tax_query'      => array( array( 'taxonomy' => 'ao_type', 'field' => 'slug', 'terms' => 'guide' ) ),
+) );
 ?>
 <section class="hero" style="--hue:var(--g2)">
 	<canvas class="fx" data-net data-nodes="70" data-pulses="46" aria-hidden="true"></canvas>
@@ -47,11 +51,23 @@ $guides = array(
 <section id="grid">
 	<div class="wrap band reveal"><div class="eyebrow">Filter by customer &amp; service segment</div><h2>Every guide, categorised two ways</h2></div>
 	<div class="wrap">
-		<div class="filters" data-group="business"><span class="fbtn" style="pointer-events:none;opacity:.6">By business:</span><button class="fbtn on" data-f="all">All</button><?php foreach ( $segkeys as $k => $v ) { echo '<button class="fbtn" data-f="' . esc_attr( $k ) . '" style="--hue:' . esc_attr( $v[1] ) . '">' . esc_html( $v[0] ) . '</button>'; } ?></div>
-		<div class="filters" data-group="service" style="margin-top:8px"><span class="fbtn" style="pointer-events:none;opacity:.6">By service:</span><button class="fbtn on" data-f="all">All</button><?php foreach ( $svckeys as $k => $v ) { echo '<button class="fbtn" data-f="' . esc_attr( $k ) . '" style="--hue:' . esc_attr( $v[1] ) . '">' . esc_html( $v[0] ) . '</button>'; } ?></div>
+		<div class="filters" data-group="business"><span class="flabel">By business:</span><button class="fbtn on" data-f="all">All</button><?php foreach ( $segs as $slug => $seg ) { echo '<button class="fbtn" data-f="' . esc_attr( $slug ) . '" style="--hue:' . esc_attr( $seg['hue'] ) . '">' . wp_kses_post( $seg['label'] ) . '</button>'; } ?></div>
+		<div class="filters" data-group="service" style="margin-top:8px"><span class="flabel">By service:</span><button class="fbtn on" data-f="all">All</button><?php foreach ( $svckeys as $k => $label ) { echo '<button class="fbtn" data-f="' . esc_attr( $k ) . '">' . esc_html( $label ) . '</button>'; } ?></div>
 		<div class="grid-4" style="margin-top:22px">
-			<?php foreach ( $guides as $g ) { echo '<a class="glass gcard" data-cats="' . esc_attr( $g[0] ) . '" style="--hue:' . esc_attr( $g[1] ) . '" href="#"><div class="gi">' . esc_html( $g[2] ) . '</div><h5>' . wp_kses_post( $g[3] ) . '</h5><div class="ga">problem → solution → CTA</div></a>'; } ?>
+			<?php
+			if ( $guide_q->have_posts() ) :
+				while ( $guide_q->have_posts() ) : $guide_q->the_post();
+					$cat = get_the_category(); $tags = get_the_tags();
+					$cats = array(); if ( $cat ) foreach ( $cat as $c ) { $cats[] = $c->slug; } if ( $tags ) foreach ( $tags as $tg ) { $cats[] = $tg->slug; }
+					$label = $cat ? strtoupper( $cat[0]->name ) : 'GUIDE'; ?>
+					<a class="glass gcard" data-cats="<?php echo esc_attr( implode( ' ', $cats ) ); ?>" style="--hue:var(--g1)" href="<?php the_permalink(); ?>"><div class="gi"><?php echo esc_html( $label ); ?></div><h5><?php the_title(); ?></h5><div class="ga">problem → solution → CTA</div></a>
+				<?php endwhile; wp_reset_postdata();
+			else :
+				foreach ( $demo as $g ) { echo '<a class="glass gcard" data-cats="' . esc_attr( $g[0] ) . '" style="--hue:' . esc_attr( $g[1] ) . '" href="#"><div class="gi">' . esc_html( $g[2] ) . '</div><h5>' . wp_kses_post( $g[3] ) . '</h5><div class="ga">problem → solution → CTA · queued next batch</div></a>'; }
+			endif;
+			?>
 		</div>
+		<p class="spec-note">WordPress: guides carry a customer-segment category + a service tag; the two filter rows read both. 16 professions × 20 guides is the full library target.</p>
 	</div>
 </section>
 <script>document.querySelectorAll('[data-jump]').forEach(function(a){a.addEventListener('click',function(){var f=a.dataset.jump;var b=document.querySelector('.filters[data-group="service"] .fbtn[data-f="'+f+'"]');if(b)setTimeout(function(){b.click();},400);});});</script>

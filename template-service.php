@@ -13,11 +13,43 @@ $segs       = function_exists( 'anthropos_segments' ) ? anthropos_segments() : a
 $svcpages   = function_exists( 'anthropos_service_pages' ) ? anthropos_service_pages() : array();
 $slug       = get_post_field( 'post_name', get_queried_object_id() );
 
-/** Render a 10-card guide grid. */
-function anthropos_guide_grid( $titles, $hue, $url ) {
+/** Real post URL by slug, or null if not published yet. */
+function anthropos_find_post_url( $slug ) {
+	$posts = get_posts( array( 'name' => $slug, 'post_type' => 'post', 'post_status' => 'publish', 'posts_per_page' => 1 ) );
+	return $posts ? get_permalink( $posts[0] ) : null;
+}
+
+/** One real, published flagship guide per page (index => post slug). The rest
+ *  of each page's 10 guide titles are queued and link to the guides library. */
+function anthropos_flagship_guides() {
+	return array(
+		'regulated-professionals' => array( 3, 'guide-60-second-reply-regulated' ),
+		'medical-professionals'   => array( 3, 'guide-60-second-reply-medical' ),
+		'ecommerce-retail'        => array( 1, 'guide-cart-recovery-sequence' ),
+		'service-professionals'   => array( 3, 'guide-booking-confirmation-noshows' ),
+		'freelancers-agencies'    => array( 4, 'guide-proposal-followup-day5' ),
+		'creators-coaches'        => array( 5, 'guide-free-to-paid-30-day' ),
+		'b2b-providers'           => array( 4, 'guide-day5-followup-stakeholder-routing' ),
+		'marketing-automation'    => array( 2, 'guide-seasonal-campaigns-schedule' ),
+		'social-media-automation' => array( 2, 'guide-repurposing-one-guide-into-month' ),
+	);
+}
+
+/** Render a 10-card guide grid; the page's flagship guide (if published) links
+ *  to its real article, the rest link to the guides library — queued, not dead. */
+function anthropos_guide_grid( $titles, $hue, $url, $page_slug = '' ) {
+	$flagships = anthropos_flagship_guides();
+	$flag_i = -1; $flag_url = null;
+	if ( $page_slug && isset( $flagships[ $page_slug ] ) ) {
+		$flag_i   = $flagships[ $page_slug ][0];
+		$flag_url = anthropos_find_post_url( $flagships[ $page_slug ][1] );
+	}
 	echo '<div class="wrap"><div class="guides" style="--hue:' . esc_attr( $hue ) . '">';
 	foreach ( $titles as $i => $t ) {
-		echo '<a class="glass gcard" href="' . esc_url( $url ) . '" style="--hue:' . esc_attr( $hue ) . '"><div class="gi">G' . ( $i < 9 ? '0' : '' ) . ( $i + 1 ) . '</div><h5>' . wp_kses_post( $t ) . '</h5><div class="ga">problem → solution → CTA</div></a>';
+		$is_flag = ( $i === $flag_i && $flag_url );
+		$href    = $is_flag ? $flag_url : $url;
+		$tag     = $is_flag ? 'Read the full guide →' : 'problem → solution → CTA';
+		echo '<a class="glass gcard" href="' . esc_url( $href ) . '" style="--hue:' . esc_attr( $hue ) . '"><div class="gi">G' . ( $i < 9 ? '0' : '' ) . ( $i + 1 ) . '</div><h5>' . wp_kses_post( $t ) . '</h5><div class="ga">' . esc_html( $tag ) . '</div></a>';
 	}
 	echo '</div></div>';
 }
@@ -43,12 +75,13 @@ if ( isset( $svcpages[ $slug ] ) ) :
 			} ?>
 		</div>
 	</section>
+	<section id="article">
+		<div class="wrap band reveal"><div class="eyebrow">Why this, and how it works</div><h2>The full picture</h2></div>
+		<div class="wrap"><div class="glass" style="padding:32px 36px"><div class="aa-content"><?php echo wp_kses_post( $s['article'] ); ?></div></div></div>
+	</section>
 	<section id="guides">
 		<div class="wrap band reveal"><div class="eyebrow">10 guides · problem → solution → CTA</div><h2>Guides for <?php echo wp_kses_post( $s['label'] ); ?></h2></div>
-		<?php
-		$g = array( 'Where ' . $s['glabel'] . ' waste the most time', 'The one metric that actually matters', 'Templates that get results, with examples', 'What to automate first (and what to keep human)', 'Segmenting without a data team', 'The tools we wire together on n8n', 'Common mistakes that kill results', 'How to prove ROI to yourself', 'A 30-day rollout plan', 'From manual grind to always-on' );
-		anthropos_guide_grid( $g, $s['hue'], $guides_url );
-		?>
+		<?php anthropos_guide_grid( isset( $s['guides'] ) ? $s['guides'] : array(), $s['hue'], $guides_url, $slug ); ?>
 	</section>
 	<section id="siblings">
 		<div class="wrap band reveal"><div class="eyebrow">Need it for a specific business?</div><h2>See it inside your automation service page</h2></div>
@@ -116,9 +149,14 @@ $offers = function_exists( 'anthropos_offers' ) ? anthropos_offers() : array();
 	</div>
 </section>
 
+<section id="article">
+	<div class="wrap band reveal"><div class="eyebrow">Why this, and how it works</div><h2>The full picture for <?php echo wp_kses_post( $seg['label'] ); ?></h2></div>
+	<div class="wrap"><div class="glass" style="padding:32px 36px"><div class="aa-content"><?php echo wp_kses_post( $seg['article'] ); ?></div></div></div>
+</section>
+
 <section id="guides">
 	<div class="wrap band reveal"><div class="eyebrow">10 guides for this business · problem → solution → CTA</div><h2>Research-grade guides for <?php echo wp_kses_post( $seg['label'] ); ?></h2><p class="soft">Read free, apply free — or have us build the whole system.</p></div>
-	<?php anthropos_guide_grid( $seg['guides'], $hue, $guides_url ); ?>
+	<?php anthropos_guide_grid( $seg['guides'], $hue, $guides_url, $slug ); ?>
 </section>
 
 <section id="siblings">

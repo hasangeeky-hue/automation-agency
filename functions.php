@@ -4,9 +4,34 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'ANTHROPOS_VERSION', '5.3.0' );
+define( 'ANTHROPOS_VERSION', '5.4.0' );
 
 require_once get_template_directory() . '/inc/segments.php';
+require_once get_template_directory() . '/inc/content-seed.php';
+
+/** Service tags (short code => label) — used as WP tags + filter buttons. */
+function anthropos_service_tags() {
+	return array(
+		'web'   => 'Web Design',
+		'aeo'   => 'AEO / GEO',
+		'lead'  => 'Lead',
+		'mkt'   => 'Marketing',
+		'soc'   => 'Social',
+		'whole' => 'Whole-Business',
+	);
+}
+
+/** Register the ao_type taxonomy (Guide vs Blog) on posts. */
+function anthropos_register_taxonomy() {
+	register_taxonomy( 'ao_type', 'post', array(
+		'label'        => 'Content Type',
+		'public'       => true,
+		'hierarchical' => false,
+		'show_ui'      => true,
+		'rewrite'      => false,
+	) );
+}
+add_action( 'init', 'anthropos_register_taxonomy' );
 
 /** URL of a segment's service page (child of /services/). */
 function anthropos_seg_url( $slug ) {
@@ -144,6 +169,66 @@ function anthropos_bootstrap_pages() {
 	update_option( 'anthropos_bootstrapped_v53', 1 );
 }
 add_action( 'admin_init', 'anthropos_bootstrap_pages' );
+
+/**
+ * Seed real content: 7 segment categories + 6 service tags + ao_type terms
+ * (guide/blog), then 18 real posts (9 guides + 9 blog articles) from
+ * inc/content-seed.php. Guarded independently of page bootstrap so future
+ * content batches can bump this flag without re-running page creation.
+ */
+function anthropos_seed_content() {
+	if ( ! is_admin() || ! current_user_can( 'manage_options' ) ) { return; }
+	if ( get_option( 'anthropos_content_seeded_v1' ) ) { return; }
+	if ( ! function_exists( 'anthropos_seed_posts' ) ) { return; }
+
+	// Segment categories — slugs match anthropos_segments() keys exactly.
+	if ( function_exists( 'anthropos_segments' ) ) {
+		foreach ( anthropos_segments() as $slug => $seg ) {
+			if ( ! term_exists( $slug, 'category' ) ) {
+				wp_insert_term( wp_specialchars_decode( $seg['label'] ), 'category', array( 'slug' => $slug ) );
+			}
+		}
+	}
+	// Service tags — slugs match anthropos_service_tags() keys exactly.
+	foreach ( anthropos_service_tags() as $slug => $label ) {
+		if ( ! term_exists( $slug, 'post_tag' ) ) {
+			wp_insert_term( $label, 'post_tag', array( 'slug' => $slug ) );
+		}
+	}
+	// ao_type terms.
+	foreach ( array( 'guide' => 'Guide', 'blog' => 'Blog' ) as $slug => $label ) {
+		if ( ! term_exists( $slug, 'ao_type' ) ) {
+			wp_insert_term( $label, 'ao_type', array( 'slug' => $slug ) );
+		}
+	}
+
+	foreach ( anthropos_seed_posts() as $p ) {
+		if ( get_page_by_path( $p['slug'], OBJECT, 'post' ) ) { continue; }
+		$pid = wp_insert_post( array(
+			'post_title'   => $p['title'],
+			'post_name'    => $p['slug'],
+			'post_status'  => 'publish',
+			'post_type'    => 'post',
+			'post_content' => $p['content'],
+		) );
+		if ( ! $pid || is_wp_error( $pid ) ) { continue; }
+		if ( ! empty( $p['cat'] ) ) {
+			$cat_term = get_term_by( 'slug', $p['cat'], 'category' );
+			if ( $cat_term ) { wp_set_post_categories( $pid, array( $cat_term->term_id ) ); }
+		}
+		if ( ! empty( $p['tags'] ) ) {
+			$tag_ids = array();
+			foreach ( $p['tags'] as $tag_slug ) {
+				$tag_term = get_term_by( 'slug', $tag_slug, 'post_tag' );
+				if ( $tag_term ) { $tag_ids[] = $tag_term->term_id; }
+			}
+			if ( $tag_ids ) { wp_set_post_terms( $pid, $tag_ids, 'post_tag' ); }
+		}
+		wp_set_object_terms( $pid, $p['type'], 'ao_type' );
+	}
+	update_option( 'anthropos_content_seeded_v1', 1 );
+}
+add_action( 'admin_init', 'anthropos_seed_content', 20 );
 
 /**
  * The 7 customer segments (slug => [label, hex]) — for reference/reuse.
