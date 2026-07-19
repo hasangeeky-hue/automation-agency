@@ -4,7 +4,15 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'ANTHROPOS_VERSION', '4.0.0' );
+define( 'ANTHROPOS_VERSION', '4.1.0' );
+
+require_once get_template_directory() . '/inc/segments.php';
+
+/** URL of a segment's service page (child of /services/). */
+function anthropos_seg_url( $slug ) {
+	$p = get_page_by_path( 'services/' . $slug );
+	return $p ? get_permalink( $p ) : home_url( '/services/' . $slug . '/' );
+}
 
 function anthropos_setup() {
 	add_theme_support( 'title-tag' );
@@ -35,19 +43,36 @@ add_action( 'wp_enqueue_scripts', 'anthropos_assets' );
  */
 function anthropos_bootstrap_pages() {
 	if ( ! is_admin() || ! current_user_can( 'manage_options' ) ) { return; }
-	if ( get_option( 'anthropos_bootstrapped_v4' ) ) { return; }
+	if ( get_option( 'anthropos_bootstrapped_v41' ) ) { return; }
 
-	// Services page using the Automation Service template.
+	// Parent "Services" page (overview listing) using the service template.
 	$svc = get_page_by_path( 'services' );
 	if ( ! $svc ) {
-		$id = wp_insert_post( array(
-			'post_title'  => 'Automation Service for Regulated Professionals',
+		$svc_id = wp_insert_post( array(
+			'post_title'  => 'Services',
 			'post_name'   => 'services',
 			'post_status' => 'publish',
 			'post_type'   => 'page',
 			'post_content'=> '',
 		) );
-		if ( $id && ! is_wp_error( $id ) ) { update_post_meta( $id, '_wp_page_template', 'template-service.php' ); }
+		if ( $svc_id && ! is_wp_error( $svc_id ) ) { update_post_meta( $svc_id, '_wp_page_template', 'template-service.php' ); }
+	} else {
+		$svc_id = $svc->ID;
+	}
+	// One child page per segment: /services/{slug}/ named "Automation Service for {Segment}".
+	if ( $svc_id && ! is_wp_error( $svc_id ) && function_exists( 'anthropos_segments' ) ) {
+		foreach ( anthropos_segments() as $slug => $seg ) {
+			if ( get_page_by_path( 'services/' . $slug ) ) { continue; }
+			$cid = wp_insert_post( array(
+				'post_title'  => wp_specialchars_decode( $seg['title'] ),
+				'post_name'   => $slug,
+				'post_status' => 'publish',
+				'post_type'   => 'page',
+				'post_parent' => $svc_id,
+				'post_content'=> '',
+			) );
+			if ( $cid && ! is_wp_error( $cid ) ) { update_post_meta( $cid, '_wp_page_template', 'template-service.php' ); }
+		}
 	}
 	// Guides landing page.
 	if ( ! get_page_by_path( 'guides' ) ) {
@@ -74,7 +99,9 @@ function anthropos_bootstrap_pages() {
 	if ( $blog_id && ! is_wp_error( $blog_id ) ) {
 		update_option( 'page_for_posts', $blog_id );
 	}
-	update_option( 'anthropos_bootstrapped_v4', 1 );
+	// Flush permalinks so the new /services/{slug}/ URLs resolve.
+	flush_rewrite_rules();
+	update_option( 'anthropos_bootstrapped_v41', 1 );
 }
 add_action( 'admin_init', 'anthropos_bootstrap_pages' );
 

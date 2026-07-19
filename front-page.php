@@ -7,14 +7,15 @@ get_header();
 $svc  = home_url( '/services/' );
 $blog = get_permalink( get_option( 'page_for_posts' ) );
 if ( ! $blog ) { $blog = home_url( '/blog/' ); }
-$pages = array(
-	array( 'Regulated Professionals', 'Automation Service for Regulated Professionals', 'Lawyers, financial advisors &amp; tax consultants.', 'var(--g1)' ),
-	array( 'Medical Professionals', 'Automation Service for Medical Professionals', 'Doctors, dentists &amp; therapists.', 'var(--g2)' ),
-	array( 'E-Commerce &amp; Retail', 'Automation Service for E-Commerce &amp; Retail', 'Shopify &amp; multi-channel sellers.', 'var(--g3)' ),
-	array( 'Service-Based Professionals', 'Automation Service for Service-Based Professionals', 'Home services, trainers &amp; consultants.', 'var(--g4)' ),
-	array( 'Freelancers &amp; Micro-Agencies', 'Automation Service for Freelancers &amp; Micro-Agencies', 'Designers, developers &amp; small agencies.', 'var(--g7)' ),
-	array( 'Creators &amp; Coaches', 'Automation Service for Creators &amp; Coaches', 'Course creators &amp; newsletter writers.', 'var(--g5)' ),
-	array( 'B2B Service Providers', 'Automation Service for B2B Service Providers', 'SaaS implementation &amp; training providers.', 'var(--g6)' ),
+$segs = function_exists( 'anthropos_segments' ) ? anthropos_segments() : array();
+$blurbs = array(
+	'regulated-professionals' => 'Lawyers, financial advisors &amp; tax consultants.',
+	'medical-professionals'   => 'Doctors, dentists &amp; therapists.',
+	'ecommerce-retail'        => 'Shopify &amp; multi-channel sellers.',
+	'service-professionals'   => 'Home services, trainers &amp; consultants.',
+	'freelancers-agencies'    => 'Designers, developers &amp; small agencies.',
+	'creators-coaches'        => 'Course creators &amp; newsletter writers.',
+	'b2b-providers'           => 'SaaS implementation &amp; training providers.',
 );
 ?>
 <section class="hero">
@@ -52,7 +53,7 @@ $pages = array(
 <section id="servicepages">
 	<div class="wrap band reveal"><div class="eyebrow">Neuro-navigation · pick your business</div><h2>Automation service pages — one per business type</h2><p class="soft">Each page combines the six services into a micro-combo for that business, with blocks and 10 guides.</p></div>
 	<div class="wrap"><div class="grid-4">
-		<?php foreach ( $pages as $p ) { echo '<a class="glass card reveal tilt" href="' . esc_url( $svc ) . '" style="--hue:' . esc_attr( $p[3] ) . '"><div class="card-b"><span class="lbl">' . wp_kses_post( $p[0] ) . '</span><h4>' . wp_kses_post( $p[1] ) . '</h4><p>' . wp_kses_post( $p[2] ) . '</p><span class="go">Open →</span></div></a>'; } ?>
+		<?php foreach ( $segs as $slug => $seg ) { echo '<a class="glass card reveal tilt" href="' . esc_url( anthropos_seg_url( $slug ) ) . '" style="--hue:' . esc_attr( $seg['hue'] ) . '"><div class="card-b"><span class="lbl">' . wp_kses_post( $seg['label'] ) . '</span><h4>' . wp_kses_post( $seg['title'] ) . '</h4><p>' . wp_kses_post( isset( $blurbs[ $slug ] ) ? $blurbs[ $slug ] : '' ) . '</p><span class="go">Open →</span></div></a>'; } ?>
 		<a class="glass card reveal tilt" href="#cta" style="--hue:var(--cta)"><div class="card-b"><span class="lbl">Not sure?</span><h4>Book a non-binding call</h4><p>We map your leak in 30 minutes.</p><span class="go">Talk to a human →</span></div></a>
 	</div></div>
 </section>

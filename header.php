@@ -8,15 +8,7 @@ $svc  = home_url( '/services/' );
 $guides = home_url( '/guides/' );
 $blog = get_permalink( get_option( 'page_for_posts' ) );
 if ( ! $blog ) { $blog = home_url( '/blog/' ); }
-$segs = array(
-	array( 'Automation Service for Regulated Professionals', 'var(--g1)' ),
-	array( 'Automation Service for Medical Professionals', 'var(--g2)' ),
-	array( 'Automation Service for E-Commerce &amp; Retail', 'var(--g3)' ),
-	array( 'Automation Service for Service-Based Professionals', 'var(--g4)' ),
-	array( 'Automation Service for Freelancers &amp; Micro-Agencies', 'var(--g7)' ),
-	array( 'Automation Service for Creators &amp; Coaches', 'var(--g5)' ),
-	array( 'Automation Service for B2B Service Providers', 'var(--g6)' ),
-);
+$segs = function_exists( 'anthropos_segments' ) ? anthropos_segments() : array();
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -40,7 +32,7 @@ $segs = array(
 			</li>
 			<li data-menu><a href="<?php echo esc_url( $svc ); ?>"><?php esc_html_e( 'Services', 'anthropos' ); ?></a>
 				<ul class="sub">
-					<?php foreach ( $segs as $s ) { echo '<li><a href="' . esc_url( $svc ) . '" style="--hue:' . esc_attr( $s[1] ) . '"><span class="dot"></span>' . wp_kses_post( $s[0] ) . '</a></li>'; } ?>
+					<?php foreach ( $segs as $slug => $s ) { echo '<li><a href="' . esc_url( anthropos_seg_url( $slug ) ) . '" style="--hue:' . esc_attr( $s['hue'] ) . '"><span class="dot"></span>' . wp_kses_post( $s['title'] ) . '</a></li>'; } ?>
 				</ul>
 			</li>
 			<li><a href="<?php echo esc_url( $guides ); ?>"><?php esc_html_e( 'Guides', 'anthropos' ); ?></a></li>
