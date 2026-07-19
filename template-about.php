@@ -56,10 +56,11 @@ get_header();
 			<div class="glass wstep reveal" style="--hue:var(--g4)"><canvas class="fxcanvas" data-fx="growth" style="--hue:var(--g4)"></canvas><div class="wk">STEP 03 · HAND OVER</div><h4>You own it</h4><p>Documented, reporting, running — no dependency on us.</p></div>
 		</div>
 		<div class="team" style="margin-top:16px">
-			<div class="glass tm reveal"><div class="av"></div><h5>Founder Name</h5><span>Automation Strategy</span><p>Maps the leak, designs the agent system.</p></div>
-			<div class="glass tm reveal"><div class="av"></div><h5>Team Member</h5><span>n8n Engineer</span><p>Wires the workflows across your stack.</p></div>
-			<div class="glass tm reveal"><div class="av"></div><h5>Team Member</h5><span>Web &amp; AEO</span><p>Builds the site and the visibility layer.</p></div>
-			<div class="glass tm reveal"><div class="av"></div><h5>Team Member</h5><span>Client Success</span><p>Keeps every system running and reporting.</p></div>
+			<div class="glass tm reveal"><div class="av">MH</div><h5>Murtuja Hasan</h5><span>Founder &amp; CEO</span><p>E-commerce &amp; performance-marketing lead running a 7-person team and €150k+/month in paid media at a consistent 10x return — brings that same growth discipline to every client build.</p></div>
+			<div class="glass tm reveal"><div class="av">AH</div><h5>Ahasanul Haque</h5><span>CTO</span><p>AI engineer and data scientist (M.Sc., Technical University of Munich) with production ML experience at Adobe and NewNow — architects the AI systems under the hood.</p></div>
+			<div class="glass tm reveal"><div class="av">SK</div><h5>Sina Khouei</h5><span>Team Lead, Cybersecurity &amp; Applied AI</span><p>M.Sc. Computer Science, University of Bonn, working across threat intelligence and applied AI — hardens every agent and workflow before it ever touches client data.</p></div>
+			<div class="glass tm reveal"><div class="av">AI</div><h5>Ariful Islam</h5><span>Media Buyer &amp; Ads Automation Strategist</span><p>Runs Google &amp; Meta ad accounts at 1,300%+ ROAS for e-commerce brands — automates the campaigns and tracking that keep a pipeline full.</p></div>
+			<div class="glass tm reveal"><div class="av">AR</div><h5><a href="https://www.razzakabdur.com/" target="_blank" rel="noopener">Abdur Razak</a></h5><span>Head of Web Development</span><p>Full-stack developer and process-documentation specialist — builds and ships the sites and internal tooling every system runs on.</p></div>
 		</div>
 	</div>
 </section>
