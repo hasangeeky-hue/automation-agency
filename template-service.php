@@ -19,36 +19,54 @@ function anthropos_find_post_url( $slug ) {
 	return $posts ? get_permalink( $posts[0] ) : null;
 }
 
-/** One real, published flagship guide per page (index => post slug). The rest
- *  of each page's 10 guide titles are queued and link to the guides library. */
-function anthropos_flagship_guides() {
+/** Map of page slug => [ guide-index => real post slug ]. Every guide listed
+ *  here is a real, published article; any index not listed for a page is
+ *  queued and links to the guides library instead of a dead single page. */
+function anthropos_written_guides() {
 	return array(
-		'regulated-professionals' => array( 3, 'guide-60-second-reply-regulated' ),
-		'medical-professionals'   => array( 3, 'guide-60-second-reply-medical' ),
-		'ecommerce-retail'        => array( 1, 'guide-cart-recovery-sequence' ),
-		'service-professionals'   => array( 3, 'guide-booking-confirmation-noshows' ),
-		'freelancers-agencies'    => array( 4, 'guide-proposal-followup-day5' ),
-		'creators-coaches'        => array( 5, 'guide-free-to-paid-30-day' ),
-		'b2b-providers'           => array( 4, 'guide-day5-followup-stakeholder-routing' ),
-		'marketing-automation'    => array( 2, 'guide-seasonal-campaigns-schedule' ),
-		'social-media-automation' => array( 2, 'guide-repurposing-one-guide-into-month' ),
+		'regulated-professionals' => array(
+			0 => 'guide-why-referrals-went-quiet',
+			1 => 'guide-local-seo-solo-firms',
+			2 => 'guide-gbp-regulated-professionals',
+			3 => 'guide-60-second-reply-regulated',
+			4 => 'guide-5-email-inquiry-sequence',
+			5 => 'guide-case-results-testimonials-rules',
+			6 => 'guide-case-evaluation-form',
+			7 => 'guide-seasonal-winback-quiet-months-regulated',
+			8 => 'guide-reading-lead-report-regulated',
+			9 => 'guide-referral-only-to-steady-pipeline',
+		),
+		'medical-professionals' => array(
+			0 => 'guide-why-waiting-room-half-empty',
+			1 => 'guide-local-visibility-specialty-near-me',
+			2 => 'guide-gbp-reviews-lift-ranking',
+			3 => 'guide-60-second-reply-medical',
+			4 => 'guide-turning-inquiries-into-bookings',
+			5 => 'guide-trust-in-five-seconds',
+			6 => 'guide-review-requests-05-10-stars',
+			7 => 'guide-winback-overdue-checkup',
+			8 => 'guide-boundary-no-hipaa',
+			9 => 'guide-word-of-mouth-to-full-schedule',
+		),
+		'ecommerce-retail'        => array( 1 => 'guide-cart-recovery-sequence' ),
+		'service-professionals'   => array( 3 => 'guide-booking-confirmation-noshows' ),
+		'freelancers-agencies'    => array( 4 => 'guide-proposal-followup-day5' ),
+		'creators-coaches'        => array( 5 => 'guide-free-to-paid-30-day' ),
+		'b2b-providers'           => array( 4 => 'guide-day5-followup-stakeholder-routing' ),
+		'marketing-automation'    => array( 2 => 'guide-seasonal-campaigns-schedule' ),
+		'social-media-automation' => array( 2 => 'guide-repurposing-one-guide-into-month' ),
 	);
 }
 
-/** Render a 10-card guide grid; the page's flagship guide (if published) links
- *  to its real article, the rest link to the guides library — queued, not dead. */
+/** Render a 10-card guide grid; any guide with a real published article links
+ *  to it, the rest link to the guides library — queued, not dead. */
 function anthropos_guide_grid( $titles, $hue, $url, $page_slug = '' ) {
-	$flagships = anthropos_flagship_guides();
-	$flag_i = -1; $flag_url = null;
-	if ( $page_slug && isset( $flagships[ $page_slug ] ) ) {
-		$flag_i   = $flagships[ $page_slug ][0];
-		$flag_url = anthropos_find_post_url( $flagships[ $page_slug ][1] );
-	}
+	$written = ( $page_slug && isset( anthropos_written_guides()[ $page_slug ] ) ) ? anthropos_written_guides()[ $page_slug ] : array();
 	echo '<div class="wrap"><div class="guides" style="--hue:' . esc_attr( $hue ) . '">';
 	foreach ( $titles as $i => $t ) {
-		$is_flag = ( $i === $flag_i && $flag_url );
-		$href    = $is_flag ? $flag_url : $url;
-		$tag     = $is_flag ? 'Read the full guide →' : 'problem → solution → CTA';
+		$real_url = isset( $written[ $i ] ) ? anthropos_find_post_url( $written[ $i ] ) : null;
+		$href     = $real_url ? $real_url : $url;
+		$tag      = $real_url ? 'Read the full guide →' : 'problem → solution → CTA';
 		echo '<a class="glass gcard" href="' . esc_url( $href ) . '" style="--hue:' . esc_attr( $hue ) . '"><div class="gi">G' . ( $i < 9 ? '0' : '' ) . ( $i + 1 ) . '</div><h5>' . wp_kses_post( $t ) . '</h5><div class="ga">' . esc_html( $tag ) . '</div></a>';
 	}
 	echo '</div></div>';
