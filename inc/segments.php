@@ -5,6 +5,57 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
+/**
+ * The 5 offers shown on every service page — customer chooses by pain & budget.
+ * [ fx, hueVar, no, tier, title, best-for, body ]
+ */
+function anthropos_offers() {
+	return array(
+		array( 'funnel', 'var(--g2)', 'OFFER 01', '€ · Starter', 'Website Redesign', 'your site is dated or visitors leave without acting.', 'A modern, fast, mobile-first site that earns trust in five seconds — with lead-capture forms ready to plug into automation later.' ),
+		array( 'dataflow', 'var(--flow)', 'OFFER 02', '€€ · Core', 'Lead &amp; Follow-up Automation', 'leads slip away from slow or forgotten follow-up.', '60-second replies, nurture sequences, reminders and win-backs — every inquiry captured and chased, then handed to you warm.' ),
+		array( 'broadcast', 'var(--g3)', 'OFFER 03', '€€ · Growth', 'Marketing Automation', 'you never run campaigns consistently.', 'Seasonal campaigns, newsletters and segmented sequences — the right message to the right person at the right moment, on schedule.' ),
+		array( 'social', 'var(--g5)', 'OFFER 04', '€€ · Growth', 'Social Media Automation', 'posting is inconsistent and eats your time.', 'An AI agent drafts, schedules and repurposes on-brand content — you approve, it publishes, engagement flows back to your pipeline.' ),
+		array( 'core', 'var(--cta)', 'OFFER 05', '€€€ · A-to-Z', 'Full Transformation · AI + n8n', 'you want the whole system, done for you.', 'Website + AEO/GEO + all automation wired on n8n — inbox, CRM, invoicing and reporting connected into one nervous system. Live in 4 weeks.' ),
+	);
+}
+
+/**
+ * Standalone service pages (cross-segment): Marketing &amp; Social Media Automation.
+ * Each: label, title, hue, sub, blocks[ [fx,hueVar,no,h3,body] ], glabel.
+ */
+function anthropos_service_pages() {
+	return array(
+		'marketing-automation' => array(
+			'label' => 'Marketing Automation',
+			'title' => 'Marketing Automation',
+			'hue'   => 'var(--g3)',
+			'sub'   => 'You have an audience but never run campaigns consistently. We build the marketing engine — campaigns, newsletters, segmentation, win-backs and reporting — that runs <b>on schedule, without you</b>.',
+			'blocks'=> array(
+				array( 'broadcast', 'var(--g3)', '01', 'Campaign Engine', 'Seasonal &amp; launch campaigns that trigger themselves — the right offer at the right moment, every time.' ),
+				array( 'dataflow', 'var(--flow)', '02', 'Newsletter Nurture', 'Turn readers into buyers with sequenced value that warms them up long before you ask.' ),
+				array( 'neural', 'var(--ai)', '03', 'Smart Segmentation', 'The right message to the right person automatically — by interest, behaviour and value.' ),
+				array( 'workflow', 'var(--g5)', '04', 'Win-backs &amp; Re-engagement', 'Wake dormant leads and past clients with timed, personal sequences.' ),
+				array( 'growth', 'var(--g2)', '05', 'Attribution &amp; Reporting', 'Know which campaign actually made money — and pour budget where it works.' ),
+			),
+			'glabel'=> 'marketers',
+		),
+		'social-media-automation' => array(
+			'label' => 'Social Media Automation',
+			'title' => 'Social Media Automation',
+			'hue'   => 'var(--g5)',
+			'sub'   => 'Posting is inconsistent and eats your time. An AI agent drafts on-brand content, schedules it across channels, repurposes your best ideas and routes engagement back to your pipeline — <b>you just approve</b>.',
+			'blocks'=> array(
+				array( 'social', 'var(--g5)', '01', 'AI Content Drafting', 'An agent drafts on-brand posts from your ideas and content — you review and approve in minutes.' ),
+				array( 'calendar', 'var(--g4)', '02', 'Cross-channel Scheduling', 'Publish across LinkedIn, Instagram and more on a steady, planned cadence.' ),
+				array( 'ecosystem', 'var(--ai)', '03', 'Repurposing Engine', 'One idea becomes many channel-native posts — a guide turns into a month of content.' ),
+				array( 'workflow', 'var(--flow)', '04', 'Engagement Routing', 'Comments and DMs captured and routed to your pipeline, not lost in an app.' ),
+				array( 'radar', 'var(--g2)', '05', 'Analytics &amp; Optimization', 'See what lands, and let the system double down on what works.' ),
+			),
+			'glabel'=> 'social media',
+		),
+	);
+}
+
 function anthropos_segments() {
 	return array(
 		'regulated-professionals' => array(

@@ -4,7 +4,7 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 get_header();
-$fx = array( 'mesh', 'branch', 'pipeline', 'agent', 'hub', 'core' );
+$fx = array( 'neural', 'workflow', 'dataflow', 'social', 'broadcast', 'radar' );
 $hu = array( 'var(--ai)', 'var(--flow)', 'var(--g2)', 'var(--g5)', 'var(--g3)', 'var(--g6)' );
 ?>
 <div class="wrap band reveal">

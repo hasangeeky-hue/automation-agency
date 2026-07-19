@@ -32,10 +32,16 @@ $segs = function_exists( 'anthropos_segments' ) ? anthropos_segments() : array()
 			</li>
 			<li data-menu><a href="<?php echo esc_url( $svc ); ?>"><?php esc_html_e( 'Services', 'anthropos' ); ?></a>
 				<ul class="sub">
-					<?php foreach ( $segs as $slug => $s ) { echo '<li><a href="' . esc_url( anthropos_seg_url( $slug ) ) . '" style="--hue:' . esc_attr( $s['hue'] ) . '"><span class="dot"></span>' . wp_kses_post( $s['title'] ) . '</a></li>'; } ?>
+					<?php foreach ( $segs as $slug => $s ) { echo '<li><a href="' . esc_url( anthropos_seg_url( $slug ) ) . '" style="--hue:' . esc_attr( $s['hue'] ) . '"><span class="dot"></span>' . wp_kses_post( $s['title'] ) . '</a></li>'; }
+					if ( function_exists( 'anthropos_service_pages' ) ) {
+						foreach ( anthropos_service_pages() as $sslug => $sp ) {
+							$sppg = get_page_by_path( $sslug );
+							$spurl = $sppg ? get_permalink( $sppg ) : home_url( '/' . $sslug . '/' );
+							echo '<li><a href="' . esc_url( $spurl ) . '" style="--hue:' . esc_attr( $sp['hue'] ) . '"><span class="dot"></span>' . wp_kses_post( $sp['title'] ) . '</a></li>';
+						}
+					} ?>
 				</ul>
 			</li>
-			<li><a href="<?php echo esc_url( $guides ); ?>"><?php esc_html_e( 'Guides', 'anthropos' ); ?></a></li>
 			<li><a href="<?php echo esc_url( $blog ); ?>"><?php esc_html_e( 'Blog', 'anthropos' ); ?></a></li>
 			<li><a href="<?php echo esc_url( $home ); ?>#team"><?php esc_html_e( 'Team', 'anthropos' ); ?></a></li>
 		</ul>

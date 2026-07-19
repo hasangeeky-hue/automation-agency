@@ -4,7 +4,7 @@ Theme URI: https://github.com/hasangeeky-hue/automation-agency
 Author: Anthropos Automation
 Author URI: https://anthropos-automation.com
 Description: AI Automation OS theme — dark glass automation canvas, node-graph/agent-network 3D on every card, 6 automation services, per-segment service pages named "Automation Service for {Segment}", guide + blog templates, neuro-navigation and internal linking.
-Version: 4.1.0
+Version: 5.0.0
 Requires at least: 6.0
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
@@ -253,3 +253,12 @@ canvas{display:block}
   .nav>li>a,.nav>li>span{padding:13px 12px;font-size:15px;border-radius:10px}
   .nav .sub{position:static;opacity:1;visibility:visible;transform:none;background:transparent;border:none;box-shadow:none;padding:0 0 6px 12px;margin:0;border-left:1px solid var(--line)}
 }
+
+/* ===== offer blocks (5 per service page: choose by pain/budget) ===== */
+.sp-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.sp-body .tier{font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--hue);border:1px solid color-mix(in srgb,var(--hue) 40%,transparent);border-radius:99px;padding:3px 9px}
+.sp-body .bestfor{font-size:12px;color:var(--faint);margin-top:2px}
+.sp-body .bestfor b{color:var(--muted)}
+.offer-note{margin-top:18px;padding:14px 18px;font-size:13px;color:var(--muted);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.offer-note b{color:var(--ink)}
+.offer-note .pill{font-family:var(--mono);font-size:10.5px;color:var(--flow);border:1px solid var(--line);border-radius:8px;padding:5px 10px}

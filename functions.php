@@ -4,7 +4,7 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'ANTHROPOS_VERSION', '4.1.0' );
+define( 'ANTHROPOS_VERSION', '5.0.0' );
 
 require_once get_template_directory() . '/inc/segments.php';
 
@@ -43,7 +43,7 @@ add_action( 'wp_enqueue_scripts', 'anthropos_assets' );
  */
 function anthropos_bootstrap_pages() {
 	if ( ! is_admin() || ! current_user_can( 'manage_options' ) ) { return; }
-	if ( get_option( 'anthropos_bootstrapped_v41' ) ) { return; }
+	if ( get_option( 'anthropos_bootstrapped_v5' ) ) { return; }
 
 	// Parent "Services" page (overview listing) using the service template.
 	$svc = get_page_by_path( 'services' );
@@ -74,7 +74,21 @@ function anthropos_bootstrap_pages() {
 			if ( $cid && ! is_wp_error( $cid ) ) { update_post_meta( $cid, '_wp_page_template', 'template-service.php' ); }
 		}
 	}
-	// Guides landing page.
+	// Standalone service pages: Marketing Automation &amp; Social Media Automation.
+	if ( function_exists( 'anthropos_service_pages' ) ) {
+		foreach ( anthropos_service_pages() as $sslug => $sp ) {
+			if ( get_page_by_path( $sslug ) ) { continue; }
+			$spid = wp_insert_post( array(
+				'post_title'  => wp_specialchars_decode( $sp['title'] ),
+				'post_name'   => $sslug,
+				'post_status' => 'publish',
+				'post_type'   => 'page',
+				'post_content'=> '',
+			) );
+			if ( $spid && ! is_wp_error( $spid ) ) { update_post_meta( $spid, '_wp_page_template', 'template-service.php' ); }
+		}
+	}
+	// Guides landing page (linked from inside service pages, not the header).
 	if ( ! get_page_by_path( 'guides' ) ) {
 		wp_insert_post( array( 'post_title' => 'Guides', 'post_name' => 'guides', 'post_status' => 'publish', 'post_type' => 'page', 'post_content' => 'Research-grade guides — one library per automation service. [Placeholder]' ) );
 	}
@@ -101,7 +115,7 @@ function anthropos_bootstrap_pages() {
 	}
 	// Flush permalinks so the new /services/{slug}/ URLs resolve.
 	flush_rewrite_rules();
-	update_option( 'anthropos_bootstrapped_v41', 1 );
+	update_option( 'anthropos_bootstrapped_v5', 1 );
 }
 add_action( 'admin_init', 'anthropos_bootstrap_pages' );
 
