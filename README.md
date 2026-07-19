@@ -1,36 +1,50 @@
-# automation-agency
+# automation-agency — Anthropos Automation
 
-**This repo is now an installable WordPress theme** ("Anthropos Automation") *and* contains the design prototype + content import package.
+**The repository root is an installable WordPress theme** ("Anthropos Automation").
+The design prototype and the content-import package live in [`/docs`](docs).
 
-## Install the theme via Git (no FTP, no hPanel)
+```
+/                     ← THEME ROOT (deploy target is wp-content/themes/anthropos)
+├── style.css         theme header + all brand styles
+├── functions.php     setup, asset enqueue, menu + group helpers
+├── header.php        dark header, 3D knot logo, menu
+├── footer.php        CTA band + heading-organized footer + NAP
+├── front-page.php    Three.js lead-river hero, journey, latest stories
+├── index.php         story hub with 7 color-coded category filters
+├── single.php        reading progress + series prev/next
+├── page.php          profession pages, hubs, static pages
+├── assets/js/main.js 3D logo knots, particle river, progress bar
+└── docs/             NOT part of the theme output
+    ├── index.html            self-contained interactive design spec
+    └── wordpress-import/      anthropos-import.xml + additional-css.css + SETUP.md
+```
 
-1. In WP Admin install the free **WP Pusher** plugin (wppusher.com) — or **Git Updater**
-2. WP Pusher → **Install Theme** → GitHub → repository: `hasangeeky-hue/automation-agency` → branch `main` → Install
-3. Appearance → Themes → activate **Anthropos Automation**
-4. Optional: enable WP Pusher "Push-to-Deploy" so every push to this repo updates the theme automatically
-5. Then import `wordpress-import/anthropos-import.xml` (Tools → Import → WordPress) for all pages/stories, and set Settings → Reading (Homepage: "Home", Posts page: "Stories")
+## Install the theme (safe method — never touches WordPress core)
 
-Theme files: `style.css`, `functions.php`, `header.php`, `footer.php`, `front-page.php` (Three.js lead-river hero + journey + latest stories), `index.php` (story hub with color filters), `single.php` (reading progress + series prev/next), `page.php`, `assets/js/main.js` (3D logo knots, particle river, progress bar).
+> ⚠️ Do **not** point Hostinger/hPanel Git at `public_html`. That overwrites WordPress
+> and breaks the site. Use a plugin (below), or set the deploy directory to
+> `public_html/wp-content/themes/anthropos`.
 
-Design prototype for **anthropos-automation.com** — website redesign + customer lead marketing automation for solo operators and small teams.
+### Recommended: Git Updater plugin
+1. Fully disconnect any existing Hostinger Git deployment; confirm the site loads.
+2. Install **Git Updater** (`git-updater.com`) → Plugins → Add New → Upload.
+3. Git Updater → **Install Theme** → URI `https://github.com/hasangeeky-hue/automation-agency` → branch `main` → Install.
+4. Appearance → Themes → activate **Anthropos Automation**.
+5. Enable automatic updates so future pushes flow into the theme folder only.
 
-## What's in here
+### Then load the content
+- Tools → Import → WordPress → upload `docs/wordpress-import/anthropos-import.xml`
+- Settings → Reading → Homepage: **Home** · Posts page: **Stories**
+- Settings → Permalinks → **Post name**
 
-- `index.html` — self-contained interactive design spec (open in any browser):
-  - **Header** with heading-organized mega menus (Stories · Guide Library · What We Do) and a live Three.js logo mark
-  - **Story → Identify → Convert** blog architecture: 7 color-coded customer-story cards with cost-of-leak callouts
-  - **Guide Library**: the 4×5 curriculum (Get Found · Earn Trust · Never Lose a Lead · Grow Calmly) — 20 research-grade guides per profession, 16 professions, 320 guides total
-  - **Guide page template**: reading progress, chapter rail, AEO quick-answer box, 4-color reader guide (Do this / Key stat / Research note / Boundary), interlink block
-  - **Interlinking system**: Chain · Ladder · Bridge · Return rules (zero orphan pages)
-  - **SEO / AEO / GEO** strategy strip and a heading-organized footer with NAP
-  - Three.js "Lead River" particle hero (chaos → flow)
+## The design system
+
+- **Story → Identify → Convert**: 7 color-coded customer stories, each linking to its guides.
+- **Guide Library**: 4 series (Get Found · Earn Trust · Never Lose a Lead · Grow Calmly) × 5 guides × 16 professions = 320 interlinked guides.
+- **4-color reader guide**: `aa-do` (green), `aa-stat` (amber), `aa-research` (blue), `aa-warn` (red), plus `aa-quick` (AEO answer box).
+- **Palette**: night indigo → dawn gold → warm paper, with 7 fixed audience hues.
+- **Fonts**: Bricolage Grotesque · Fraunces · Instrument Sans · JetBrains Mono.
 
 ## Stack targets
 
-WordPress + Bricks Builder/Elementor + Three.js + Blender/Spline (glb/embeds) + WebP optimization.
-
-## WordPress mapping
-
-- Post types: `story`, `guide` · Taxonomies: `profession` (16), `series` (A–D), audience group colors via term meta
-- URL silo: `/guides/{profession}/{series-number}-{slug}/`, stories under `/stories/`
-- Fonts: Bricolage Grotesque · Fraunces · Instrument Sans · JetBrains Mono
+WordPress + Bricks Builder/Elementor + Three.js + Blender/Spline (glb/embeds) + WebP.
