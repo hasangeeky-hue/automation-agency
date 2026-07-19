@@ -1,7 +1,14 @@
-# automation-agency — Anthropos Automation
+# automation-agency — Anthropos Automation OS (v3)
 
-**The repository root is an installable WordPress theme** ("Anthropos Automation").
-The design prototype and the content-import package live in [`/docs`](docs).
+**The repository root is an installable WordPress theme** ("Anthropos Automation OS", v3.0.0).
+The v3 design prototype and the content-import package live in [`/docs`](docs).
+
+**v3 = AI Automation OS:** dark glass "automation canvas", node-graph / agent-network 3D
+(Three.js + Canvas-2D) on every card, restructured menu (About Us · Services micro-combo ·
+Guides · Blog · Team + "Book a Free Consultation" CTA), service-page template with 4 micro-offer
+blocks + 10 guides, neuro-navigation and internal-linking. Update the live theme via Git Updater
+(it detects the 3.0.0 version bump). Set a static homepage in Settings → Reading to show the
+front page.
 
 ```
 /                     ← THEME ROOT (deploy target is wp-content/themes/anthropos)

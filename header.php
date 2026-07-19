@@ -1,6 +1,6 @@
 <?php
 /**
- * Theme header.
+ * Theme header (v3).
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 ?><!DOCTYPE html>
@@ -12,23 +12,23 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<header class="aa-header">
-	<div class="aa-nav">
-		<a class="aa-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-			<canvas class="aa-knot" width="68" height="68" aria-hidden="true"></canvas>
-			<span><?php bloginfo( 'name' ); ?><small><?php esc_html_e( 'automation', 'anthropos' ); ?></small></span>
+<header class="hd">
+	<div class="hd-in">
+		<a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+			<canvas class="knot" width="68" height="68" aria-hidden="true"></canvas>
+			<span><?php bloginfo( 'name' ); ?><small><?php esc_html_e( 'automation os', 'anthropos' ); ?></small></span>
 		</a>
 		<?php
 		wp_nav_menu( array(
 			'theme_location' => 'primary',
-			'menu_class'     => 'aa-menu',
+			'menu_class'     => 'nav',
 			'container'      => false,
 			'fallback_cb'    => 'anthropos_fallback_menu',
 		) );
 		?>
-		<div class="aa-nav-cta">
-			<?php $audit = get_page_by_path( 'free-audit' ); ?>
-			<a class="aa-btn" href="<?php echo esc_url( $audit ? get_permalink( $audit ) : home_url( '/free-audit/' ) ); ?>"><?php esc_html_e( 'Get Free Website Audit', 'anthropos' ); ?></a>
+		<div class="nav-cta">
+			<div class="team-mini" aria-hidden="true"><i></i><i></i><i></i><span><?php esc_html_e( 'meet the team', 'anthropos' ); ?></span></div>
+			<a class="btn btn-cta" href="#cta"><?php esc_html_e( 'Book a Free Consultation', 'anthropos' ); ?></a>
 		</div>
 	</div>
 </header>
