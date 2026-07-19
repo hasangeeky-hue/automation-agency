@@ -1,8 +1,8 @@
 <?php
 /**
- * Single post / guide (v5) — article with 3D cover, reading progress,
- * reader-guide styles, and contextual internal linking (related guides in the
- * same segment, the specific parent service page, and prev/next).
+ * Single post / guide (v6) — editorial long-read: 3D cover, auto-built sticky
+ * table of contents (from the article's H2s) with scroll-spy, reading time,
+ * reading-progress bar, related guides, contextual service link, prev/next.
  * Reader-guide classes usable in content: .qa, .hl.hl-do/.hl-stat/.hl-res/.hl-warn.
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
@@ -28,6 +28,19 @@ while ( have_posts() ) : the_post();
 	}
 	if ( ! $svc_url ) { $svc_url = home_url( '/services/' ); $svc_label = 'our services'; }
 
+	// Build the article HTML and a table of contents from its H2 headings.
+	$raw  = get_the_content();
+	$html = apply_filters( 'the_content', $raw );
+	$toc  = array();
+	$html = preg_replace_callback( '/<h2([^>]*)>(.*?)<\/h2>/is', function ( $m ) use ( &$toc ) {
+		if ( preg_match( '/\bid=/i', $m[1] ) ) { return $m[0]; }
+		$id = 'sec-' . ( count( $toc ) + 1 );
+		$toc[] = array( 'id' => $id, 'text' => trim( wp_strip_all_tags( $m[2] ) ) );
+		return '<h2 id="' . $id . '"' . $m[1] . '>' . $m[2] . '</h2>';
+	}, $html );
+	$has_toc = count( $toc ) >= 2;
+	$mins    = max( 1, (int) round( str_word_count( wp_strip_all_tags( $raw ) ) / 200 ) );
+
 	// Related guides — other posts in the same segment (falls back to recent).
 	$related_args = array(
 		'post_type'           => 'post',
@@ -43,6 +56,9 @@ while ( have_posts() ) : the_post();
 	$next = get_next_post();
 	$ptype = get_the_terms( get_the_ID(), 'ao_type' );
 	$ptype_label = ( $ptype && ! is_wp_error( $ptype ) ) ? ucfirst( $ptype[0]->slug ) : 'Guide';
+
+	$wrap_class = $has_toc ? 'gp' : 'wrap-sm';
+	$wrap_style = $has_toc ? '' : ' style="padding-top:34px;padding-bottom:70px"';
 	?>
 <script type="application/ld+json"><?php echo wp_json_encode( array(
 	'@context'         => 'https://schema.org',
@@ -54,7 +70,14 @@ while ( have_posts() ) : the_post();
 	'publisher'        => array( '@type' => 'Organization', 'name' => get_bloginfo( 'name' ) ),
 	'mainEntityOfPage' => get_permalink(),
 ) ); ?></script>
-<div class="wrap-sm" style="padding-top:34px;padding-bottom:70px">
+<div class="<?php echo esc_attr( $wrap_class ); ?>"<?php echo $wrap_style; ?>>
+	<?php if ( $has_toc ) : ?>
+	<aside class="toc">
+		<div class="tl">On this page</div>
+		<?php foreach ( $toc as $t ) { echo '<a data-t="' . esc_attr( $t['id'] ) . '" href="#' . esc_attr( $t['id'] ) . '">' . esc_html( $t['text'] ) . '</a>'; } ?>
+		<div class="pos"><b><?php echo esc_html( $cat ? $cat->name : $ptype_label ); ?></b><br><?php echo (int) $mins; ?> min read · part of the full system. <a href="<?php echo esc_url( $svc_url ); ?>" style="color:var(--flow)">See your service page →</a></div>
+	</aside>
+	<?php endif; ?>
 	<article class="art">
 		<div class="art-cover">
 			<canvas class="fx" data-net data-nodes="42" data-pulses="30" data-z="18" aria-hidden="true"></canvas>
@@ -63,11 +86,11 @@ while ( have_posts() ) : the_post();
 		<div class="crumb" style="margin-top:18px">
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a> /
 			<?php if ( $cat ) : ?><a href="<?php echo esc_url( $svc_url ); ?>"><?php echo esc_html( $cat->name ); ?></a> / <?php endif; ?>
-			<?php echo esc_html( get_the_date() ); ?>
+			<?php echo esc_html( get_the_date() ); ?> · <?php echo (int) $mins; ?> min read
 		</div>
 		<h1><?php the_title(); ?></h1>
 		<div class="byline"><span class="ava">A</span><span><b>Anthropos Automation</b> · Editorial team<br>Reviewed <?php echo esc_html( get_the_modified_date() ); ?> · <?php echo esc_html( $cat ? $cat->name : $ptype_label ); ?></span></div>
-		<div class="aa-content" style="margin-top:22px;color:var(--muted)"><?php the_content(); ?></div>
+		<div class="aa-content" style="margin-top:22px;color:var(--muted)"><?php echo $html; // phpcs:ignore WordPress.Security.EscapeOutput -- post content through the_content filter ?></div>
 
 		<?php if ( $related ) : ?>
 		<div class="related">
