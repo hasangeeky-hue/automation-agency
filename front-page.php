@@ -99,13 +99,13 @@ get_header();
 		<div class="inds">
 			<?php
 			$blurbs = array(
-				'regulated' => 'Lawyers, advisors, tax — referral-dependent, slow follow-up.',
-				'medical'   => 'Doctors, dentists, therapists — invisible locally, no reviews.',
-				'ecommerce' => 'Shops &amp; sellers — carts abandoned, no repeat buyers.',
-				'local'     => 'Trades &amp; trainers — missed calls, empty weeks.',
-				'creators'  => 'Courses &amp; newsletters — low conversion, churn.',
-				'b2b'       => 'Consultants &amp; SaaS — six-month cycles, price pressure.',
-				'freelance' => 'Designers &amp; devs — tire-kickers, forgotten proposals.',
+				'regulated-professionals' => 'Lawyers, financial advisors &amp; tax consultants — referral-dependent, slow follow-up.',
+				'medical-professionals'   => 'Doctors, dentists &amp; therapists — invisible locally, no reviews.',
+				'ecommerce-retail'        => 'Shopify &amp; multi-channel sellers — carts abandoned, no repeat buyers.',
+				'service-professionals'   => 'Home services, trainers &amp; consultants — missed calls, feast-or-famine.',
+				'freelancers-agencies'    => 'Designers, developers &amp; small agencies — tire-kickers, forgotten proposals.',
+				'creators-coaches'        => 'Course creators &amp; newsletter writers — low conversion, churn.',
+				'b2b-providers'           => 'SaaS implementation &amp; training providers — six-month cycles, price pressure.',
 			);
 			foreach ( anthropos_groups() as $slug => $g ) {
 				echo '<a class="glass ind reveal" href="#servicepage" style="--hue:' . esc_attr( $g[1] ) . '"><span class="idot"></span><h4>' . wp_kses_post( $g[0] ) . '</h4><p>' . wp_kses_post( $blurbs[ $slug ] ) . '</p><span class="ip">4 blocks · 10 guides →</span></a>';

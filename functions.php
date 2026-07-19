@@ -4,7 +4,7 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'ANTHROPOS_VERSION', '3.0.1' );
+define( 'ANTHROPOS_VERSION', '3.0.2' );
 
 function anthropos_setup() {
 	add_theme_support( 'title-tag' );
@@ -46,16 +46,17 @@ function anthropos_fallback_menu() {
 }
 
 /**
- * Audience groups (slug => [label, hex]) — shared by nav + footer.
+ * Customer segments (slug => [label, hex]) — the 7 groups from the business
+ * model. Shared by the industries section, the Services menu, and the footer.
  */
 function anthropos_groups() {
 	return array(
-		'regulated'  => array( 'Regulated &amp; Professional', '#7C86FF' ),
-		'medical'    => array( 'Medical &amp; Wellness', '#2FE3D2' ),
-		'ecommerce'  => array( 'E-Commerce &amp; Retail', '#FF8A5C' ),
-		'local'      => array( 'Local &amp; Home Services', '#46E08B' ),
-		'creators'   => array( 'Creators &amp; Coaches', '#E56BFF' ),
-		'b2b'        => array( 'B2B &amp; Enterprise', '#5FA8FF' ),
-		'freelance'  => array( 'Freelancers &amp; Agencies', '#FFC24B' ),
+		'regulated-professionals' => array( 'Regulated Professionals', '#7C86FF' ),
+		'medical-professionals'   => array( 'Medical Professionals', '#2FE3D2' ),
+		'ecommerce-retail'        => array( 'E-Commerce &amp; Retail', '#FF8A5C' ),
+		'service-professionals'   => array( 'Service-Based Professionals', '#46E08B' ),
+		'freelancers-agencies'    => array( 'Freelancers &amp; Micro-Agencies', '#FFC24B' ),
+		'creators-coaches'        => array( 'Creators &amp; Coaches', '#E56BFF' ),
+		'b2b-providers'           => array( 'B2B Service Providers', '#5FA8FF' ),
 	);
 }
