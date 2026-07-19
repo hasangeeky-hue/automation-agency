@@ -5,6 +5,7 @@
    ============================================================ */
 (function () {
   'use strict';
+  document.documentElement.classList.add('js'); // reveal only hides when JS is alive
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var TAU = Math.PI * 2;
 
@@ -26,8 +27,10 @@
   }
 
   /* ---------- scroll reveal ---------- */
-  var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: 0.1 });
+  var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px 20% 0px', threshold: 0.01 });
   document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+  // safety net: nothing ever stays invisible, even if the observer misfires
+  setTimeout(function () { document.querySelectorAll('.reveal:not(.in)').forEach(function (el) { el.classList.add('in'); }); }, 1400);
 
   /* ---------- 3D tilt ---------- */
   if (!reduced) document.querySelectorAll('.tilt').forEach(function (card) {
