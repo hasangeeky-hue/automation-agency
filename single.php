@@ -66,7 +66,7 @@ while ( have_posts() ) : the_post();
 			<?php echo esc_html( get_the_date() ); ?>
 		</div>
 		<h1><?php the_title(); ?></h1>
-		<div class="byline"><span class="ava">A</span><span><b><?php the_author(); ?></b> · Anthropos Automation<br>Reviewed <?php echo esc_html( get_the_modified_date() ); ?> · <?php echo esc_html( $cat ? $cat->name : $ptype_label ); ?></span></div>
+		<div class="byline"><span class="ava">A</span><span><b>Anthropos Automation</b> · Editorial team<br>Reviewed <?php echo esc_html( get_the_modified_date() ); ?> · <?php echo esc_html( $cat ? $cat->name : $ptype_label ); ?></span></div>
 		<div class="aa-content" style="margin-top:22px;color:var(--muted)"><?php the_content(); ?></div>
 
 		<?php if ( $related ) : ?>
