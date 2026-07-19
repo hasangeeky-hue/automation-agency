@@ -105,6 +105,30 @@
   </div>
   <div class="foot-base"><span>© 2026 ANTHROPOS AUTOMATION · MUNICH</span><span>EN / DE · ANTHROPOS-AUTOMATION.COM</span></div>
 </footer>
+<script>
+/* Data-drive this page from ?seg= so all 7 segments render from one file. */
+(function(){
+  var SEG={
+    'regulated-professionals':{l:'Regulated Professionals',hue:'--g1',sub:'Lawyers, financial advisors &amp; tax consultants: referral-dependent, slow to follow up, invisible online. We install the website, visibility and <b>AI agents on n8n</b> that capture and nurture every inquiry — compliantly.'},
+    'medical-professionals':{l:'Medical Professionals',hue:'--g2',sub:'Doctors, dentists &amp; therapists: excellent in the room, invisible in search. We make you findable, trusted in five seconds, and every inquiry answered in sixty — while <b>booking and records stay entirely in your system</b>.'},
+    'ecommerce-retail':{l:'E-Commerce &amp; Retail',hue:'--g3',sub:'Shopify &amp; multi-channel sellers: good traffic, vanishing carts, no repeat buyers. We recover carts, grow your list, and turn one-time orders into <b>lifetime value</b> — on autopilot.'},
+    'service-professionals':{l:'Service-Based Professionals',hue:'--g4',sub:'Home services, trainers &amp; consultants: booked one week, empty the next, missing calls while you work. We fill the calendar, confirm bookings, and <b>cut no-shows</b> — automatically.'},
+    'freelancers-agencies':{l:'Freelancers &amp; Micro-Agencies',hue:'--g7',sub:'Designers, developers &amp; small agencies: tire-kickers in the inbox, best proposals dying of silence. We <b>pre-qualify leads and follow up for you</b>, so you make more and chase less.'},
+    'creators-coaches':{l:'Creators &amp; Coaches',hue:'--g5',sub:'Course creators &amp; newsletter writers: low landing conversion, students who drift, free readers who never pay. We lift conversion, completion and upgrades — with <b>sequences that feel human</b>.'},
+    'b2b-providers':{l:'B2B Service Providers',hue:'--g6',sub:'SaaS implementation &amp; training providers: six-month cycles, price pressure, hard to differentiate. Case-study-led positioning + <b>AI follow-up that keeps every deal warm</b> — automatically.'}
+  };
+  var slug=(new URLSearchParams(location.search)).get('seg');
+  var s=SEG[slug]; if(!s)return;
+  var hero=document.querySelector('.hero');
+  hero.style.setProperty('--hue','var('+s.hue+')');
+  document.querySelector('.hero h1').innerHTML='Automation Service for <span class="grad">'+s.l+'</span>';
+  document.querySelector('.hero .sub').innerHTML=s.sub;
+  var crumb=document.querySelector('.hero .crumb'); if(crumb)crumb.innerHTML='<a href="index.html">Home</a> / <a href="service-page.html">Services</a> / '+s.l;
+  document.querySelector('.hero canvas.fx').style.setProperty('--hue','var('+s.hue+')');
+  document.title='Automation Service for '+s.l.replace(/&amp;/g,'&')+' — Anthropos Automation OS';
+  var g=document.querySelector('.guides'); if(g)g.style.setProperty('--hue','var('+s.hue+')');
+})();
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="assets/proto.js"></script>
 </body>
