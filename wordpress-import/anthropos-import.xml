@@ -1,0 +1,1176 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:wp="http://wordpress.org/export/1.2/">
+<channel>
+<title>Anthropos Automation</title>
+<link>https://anthropos-automation.com</link>
+<description>Website redesign + lead automation for solo operators and small teams</description>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<language>en-US</language>
+<wp:wxr_version>1.2</wp:wxr_version>
+<wp:base_site_url>https://anthropos-automation.com</wp:base_site_url>
+<wp:base_blog_url>https://anthropos-automation.com</wp:base_blog_url>
+<wp:author><wp:author_id>1</wp:author_id><wp:author_login><![CDATA[admin]]></wp:author_login><wp:author_email><![CDATA[hello@anthropos-automation.com]]></wp:author_email><wp:author_display_name><![CDATA[Anthropos]]></wp:author_display_name><wp:author_first_name><![CDATA[]]></wp:author_first_name><wp:author_last_name><![CDATA[]]></wp:author_last_name></wp:author>
+<wp:category><wp:term_id>11</wp:term_id><wp:category_nicename>regulated-professionals</wp:category_nicename><wp:category_parent></wp:category_parent><wp:cat_name><![CDATA[Regulated Professionals]]></wp:cat_name></wp:category>
+<wp:category><wp:term_id>12</wp:term_id><wp:category_nicename>medical-professionals</wp:category_nicename><wp:category_parent></wp:category_parent><wp:cat_name><![CDATA[Medical Professionals]]></wp:cat_name></wp:category>
+<wp:category><wp:term_id>13</wp:term_id><wp:category_nicename>ecommerce-retail</wp:category_nicename><wp:category_parent></wp:category_parent><wp:cat_name><![CDATA[E-Commerce & Retail]]></wp:cat_name></wp:category>
+<wp:category><wp:term_id>14</wp:term_id><wp:category_nicename>service-professionals</wp:category_nicename><wp:category_parent></wp:category_parent><wp:cat_name><![CDATA[Service-Based Professionals]]></wp:cat_name></wp:category>
+<wp:category><wp:term_id>15</wp:term_id><wp:category_nicename>freelancers-agencies</wp:category_nicename><wp:category_parent></wp:category_parent><wp:cat_name><![CDATA[Freelancers & Micro-Agencies]]></wp:cat_name></wp:category>
+<wp:category><wp:term_id>16</wp:term_id><wp:category_nicename>creators-coaches</wp:category_nicename><wp:category_parent></wp:category_parent><wp:cat_name><![CDATA[Creators & Coaches]]></wp:cat_name></wp:category>
+<wp:category><wp:term_id>17</wp:term_id><wp:category_nicename>b2b-providers</wp:category_nicename><wp:category_parent></wp:category_parent><wp:cat_name><![CDATA[B2B Service Providers]]></wp:cat_name></wp:category>
+
+<item>
+<title>Home</title>
+<link>https://anthropos-automation.com/home/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=101</guid>
+<description></description>
+<content:encoded><![CDATA[<h1>You're excellent at your work. The internet just doesn't know it yet.</h1>
+<p class="aa-whisper">Somewhere tonight, someone needed exactly what you do. They searched. They found someone else. We rebuild your website and wire it to automated follow-up — so leads flow from <strong>website → email → follow-up → sale</strong>, 24/7. Live in 4 weeks.</p>
+<div class="aa-stats"><div><strong>30–100%</strong> more leads</div><div><strong>30–50%</strong> better conversion</div><div><strong>10–20 h</strong> saved weekly</div><div><strong>€2k–20k</strong> more monthly revenue</div></div>
+<p><a class="aa-btn" href="/free-audit/">Get Free Website Audit</a> <a class="aa-btn aa-btn-ghost" href="/stories/">Find my story</a></p>]]></content:encoded>
+<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+<wp:post_id>101</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>home</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>0</wp:post_parent>
+<wp:menu_order>0</wp:menu_order>
+<wp:post_type>page</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+</item>
+<item>
+<title>What We Do</title>
+<link>https://anthropos-automation.com/what-we-do/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=102</guid>
+<description></description>
+<content:encoded><![CDATA[<h2>We don't sell software. We give you back your evenings.</h2>
+<p>Three quiet layers, connected once, working forever.</p>
+<ul><li><strong>Website Layer</strong> — a website that earns trust in five seconds: credentials, proof, one gentle invitation.</li>
+<li><strong>Automation Layer</strong> — follow-up that never forgets: every inquiry greeted in sixty seconds, every hesitation met with a kind reminder.</li>
+<li><strong>Lead Tracking &amp; Reporting</strong> — knowing, finally, what works. No more budget thrown into the dark.</li></ul>
+<p><strong>Who we serve:</strong> solo operators and small teams, €50k–€500k revenue.<br>
+<strong>Who we don't:</strong> enterprise, large regulated practices, custom needs. We never touch HIPAA or patient-data systems.</p>]]></content:encoded>
+<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+<wp:post_id>102</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>what-we-do</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>0</wp:post_parent>
+<wp:menu_order>0</wp:menu_order>
+<wp:post_type>page</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+</item>
+<item>
+<title>Website Layer</title>
+<link>https://anthropos-automation.com/website-layer/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=103</guid>
+<description></description>
+<content:encoded><![CDATA[<p>Modern, mobile-friendly, trust-building, lead-capturing — your credentials where eyes land, your happy clients speaking for you.</p>]]></content:encoded>
+<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+<wp:post_id>103</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>website-layer</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>102</wp:post_parent>
+<wp:menu_order>1</wp:menu_order>
+<wp:post_type>page</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+</item>
+<item>
+<title>Automation Layer</title>
+<link>https://anthropos-automation.com/automation-layer/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=104</guid>
+<description></description>
+<content:encoded><![CDATA[<p>Sequences that capture and nurture leads 24/7: inquiry confirmations, gentle reminders, seasonal campaigns, win-backs, upsells.</p>]]></content:encoded>
+<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+<wp:post_id>104</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>automation-layer</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>102</wp:post_parent>
+<wp:menu_order>2</wp:menu_order>
+<wp:post_type>page</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+</item>
+<item>
+<title>Lead Tracking &amp; Reporting</title>
+<link>https://anthropos-automation.com/lead-tracking/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=105</guid>
+<description></description>
+<content:encoded><![CDATA[<p>Where did they come from? What made them call? Know which marketing money works — and stop wasting the rest.</p>]]></content:encoded>
+<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+<wp:post_id>105</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>lead-tracking</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>102</wp:post_parent>
+<wp:menu_order>3</wp:menu_order>
+<wp:post_type>page</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+</item>
+<item>
+<title>How It Works</title>
+<link>https://anthropos-automation.com/how-it-works/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=106</guid>
+<description></description>
+<content:encoded><![CDATA[<h2>Live in 4 weeks</h2>
+<ol><li><strong>Week 1 — Audit &amp; blueprint.</strong> We audit your site &amp; lead flow, pick your profession template, gather credentials and proof.</li>
+<li><strong>Week 2 — Website build.</strong> Pages, forms, social proof, Google Business Profile, mobile &amp; speed.</li>
+<li><strong>Week 3 — Automation wiring.</strong> Your profession's sequences installed and connected to every form.</li>
+<li><strong>Week 4 — Connect, test, live.</strong> Tracking in place, sequences tested end-to-end, launch.</li></ol>]]></content:encoded>
+<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+<wp:post_id>106</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>how-it-works</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>0</wp:post_parent>
+<wp:menu_order>0</wp:menu_order>
+<wp:post_type>page</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+</item>
+<item>
+<title>Results</title>
+<link>https://anthropos-automation.com/results/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=107</guid>
+<description></description>
+<content:encoded><![CDATA[<p>Case studies coming as clients go live — each one with before/after numbers: leads, conversion, hours saved.</p>]]></content:encoded>
+<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+<wp:post_id>107</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>results</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>0</wp:post_parent>
+<wp:menu_order>0</wp:menu_order>
+<wp:post_type>page</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+</item>
+<item>
+<title>Free Website Audit</title>
+<link>https://anthropos-automation.com/free-audit/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=108</guid>
+<description></description>
+<content:encoded><![CDATA[<h2>What is your website quietly losing?</h2><p>A free 12-point look at your visibility, trust signals and follow-up gaps — with what each leak costs monthly. Delivered in 48 hours. No call required.</p><p>[Insert your form here — it feeds the Lead Inquiry sequence.]</p>]]></content:encoded>
+<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+<wp:post_id>108</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>free-audit</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>0</wp:post_parent>
+<wp:menu_order>0</wp:menu_order>
+<wp:post_type>page</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+</item>
+<item>
+<title>Regulated Professionals</title>
+<link>https://anthropos-automation.com/regulated-professionals/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=109</guid>
+<description></description>
+<content:encoded><![CDATA[<p>Websites &amp; lead automation for regulated professionals. Find your profession:</p><ul><li><a href="/for/regulated-professionals/lawyers/">Lawyers</a></li><li><a href="/for/regulated-professionals/financial-advisors/">Financial Advisors</a></li><li><a href="/for/regulated-professionals/tax-consultants/">Tax Consultants &amp; Accountants</a></li></ul>]]></content:encoded>
+<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+<wp:post_id>109</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>regulated-professionals</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>0</wp:post_parent>
+<wp:menu_order>10</wp:menu_order>
+<wp:post_type>page</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+</item>
+<item>
+<title>Medical Professionals</title>
+<link>https://anthropos-automation.com/medical-professionals/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=110</guid>
+<description></description>
+<content:encoded><![CDATA[<p>Websites &amp; lead automation for medical professionals. Find your profession:</p><ul><li><a href="/for/medical-professionals/doctors/">Doctors</a></li><li><a href="/for/medical-professionals/dentists/">Dentists</a></li><li><a href="/for/medical-professionals/therapists/">Therapists &amp; Psychologists</a></li></ul>]]></content:encoded>
+<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+<wp:post_id>110</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>medical-professionals</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>0</wp:post_parent>
+<wp:menu_order>10</wp:menu_order>
+<wp:post_type>page</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+</item>
+<item>
+<title>E-Commerce &amp; Retail</title>
+<link>https://anthropos-automation.com/ecommerce-retail/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=111</guid>
+<description></description>
+<content:encoded><![CDATA[<p>Websites &amp; lead automation for e-commerce &amp; retail. Find your profession:</p><ul><li><a href="/for/ecommerce-retail/shopify-stores/">Shopify Store Owners</a></li><li><a href="/for/ecommerce-retail/multichannel-sellers/">Amazon / eBay Multi-Channel Sellers</a></li></ul>]]></content:encoded>
+<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+<wp:post_id>111</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>ecommerce-retail</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>0</wp:post_parent>
+<wp:menu_order>10</wp:menu_order>
+<wp:post_type>page</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+</item>
+<item>
+<title>Service-Based Professionals</title>
+<link>https://anthropos-automation.com/service-professionals/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=112</guid>
+<description></description>
+<content:encoded><![CDATA[<p>Websites &amp; lead automation for service-based professionals. Find your profession:</p><ul><li><a href="/for/service-professionals/home-services/">Home Services</a></li><li><a href="/for/service-professionals/personal-trainers/">Personal Trainers &amp; Fitness Coaches</a></li><li><a href="/for/service-professionals/business-consultants/">Business &amp; Marketing Consultants</a></li></ul>]]></content:encoded>
+<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+<wp:post_id>112</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>service-professionals</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>0</wp:post_parent>
+<wp:menu_order>10</wp:menu_order>
+<wp:post_type>page</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+</item>
+<item>
+<title>Freelancers &amp; Micro-Agencies</title>
+<link>https://anthropos-automation.com/freelancers-agencies/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=113</guid>
+<description></description>
+<content:encoded><![CDATA[<p>Websites &amp; lead automation for freelancers &amp; micro-agencies. Find your profession:</p><ul><li><a href="/for/freelancers-agencies/designers-developers/">Freelance Designers &amp; Developers</a></li><li><a href="/for/freelancers-agencies/marketing-agencies/">Small Marketing Agencies (1–3)</a></li></ul>]]></content:encoded>
+<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+<wp:post_id>113</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>freelancers-agencies</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>0</wp:post_parent>
+<wp:menu_order>10</wp:menu_order>
+<wp:post_type>page</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+</item>
+<item>
+<title>Creators &amp; Coaches</title>
+<link>https://anthropos-automation.com/creators-coaches/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=114</guid>
+<description></description>
+<content:encoded><![CDATA[<p>Websites &amp; lead automation for creators &amp; coaches. Find your profession:</p><ul><li><a href="/for/creators-coaches/course-creators/">Course Creators &amp; Online Coaches</a></li><li><a href="/for/creators-coaches/newsletter-writers/">Newsletter Writers</a></li></ul>]]></content:encoded>
+<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+<wp:post_id>114</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>creators-coaches</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>0</wp:post_parent>
+<wp:menu_order>10</wp:menu_order>
+<wp:post_type>page</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+</item>
+<item>
+<title>B2B Service Providers</title>
+<link>https://anthropos-automation.com/b2b-providers/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=115</guid>
+<description></description>
+<content:encoded><![CDATA[<p>Websites &amp; lead automation for b2b service providers. Find your profession:</p><ul><li><a href="/for/b2b-providers/saas-implementation/">B2B SaaS Implementation Specialists</a></li></ul>]]></content:encoded>
+<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+<wp:post_id>115</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>b2b-providers</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>0</wp:post_parent>
+<wp:menu_order>10</wp:menu_order>
+<wp:post_type>page</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+</item>
+<item>
+<title>Lawyers</title>
+<link>https://anthropos-automation.com/lawyers/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=116</guid>
+<description></description>
+<content:encoded><![CDATA[<p class="aa-crumb">Who we help / Regulated Professionals</p>
+<h1>Websites &amp; lead automation for Lawyers</h1>
+<p class="aa-who"><strong>Who this is for:</strong> Solo practitioners &amp; small firms (1–5 lawyers) · €50k–€500k/yr</p>
+<h2>What hurts — and what it costs you</h2>
+<div class="aa-pains"><div class="aa-pain"><strong>Outdated website (2010-era, not mobile-friendly)</strong><span>− Lose 30–50% of potential clients who searched online</span></div><div class="aa-pain"><strong>No lead generation — referrals only</strong><span>− €5k–20k/month lost during slow months</span></div><div class="aa-pain"><strong>Manual follow-up chaos</strong><span>− Inquiries convert at 20–30% instead of 40–60%</span></div><div class="aa-pain"><strong>No social proof online</strong><span>− 20–30% worse conversion</span></div><div class="aa-pain"><strong>Can't track where inquiries come from</strong><span>− Wasted marketing budget</span></div></div>
+<h2>What we deliver in 4 weeks</h2>
+<div class="aa-deliver"><div><h3>Website Layer</h3><ul><li>Modern, fast, mobile-friendly law-firm website</li><li>Practice-area pages</li><li>Attorney bio pages</li><li>Case results &amp; testimonials</li><li>Contact + case evaluation form</li><li>Google Business Profile optimized</li></ul></div>
+<div><h3>Automation Layer — your sequences</h3><ol><li>Lead Inquiry Sequence — confirm, credentials, testimonials, consultation offer</li><li>Abandoned Consultation — 3 gentle reminders</li><li>Post-Consultation — summary + retainer</li><li>Blog Reader Nurture</li><li>Win-Back for 6-month-old inquiries</li></ol></div></div>
+
+<h2>What changes</h2>
+<div class="aa-results"><span class="aa-res">✓ +50% conversions from a professional first impression</span><span class="aa-res">✓ +40% conversion via automatic follow-up</span><span class="aa-res">✓ Leads 24/7 — no more feast/famine</span><span class="aa-res">✓ Know where every lead comes from</span></div>
+<p><a class="aa-btn" href="/free-audit/">Get Free Website Audit</a></p>]]></content:encoded>
+<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+<wp:post_id>116</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>lawyers</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>109</wp:post_parent>
+<wp:menu_order>1</wp:menu_order>
+<wp:post_type>page</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+</item>
+<item>
+<title>Financial Advisors</title>
+<link>https://anthropos-automation.com/financial-advisors/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=117</guid>
+<description></description>
+<content:encoded><![CDATA[<p class="aa-crumb">Who we help / Regulated Professionals</p>
+<h1>Websites &amp; lead automation for Financial Advisors</h1>
+<p class="aa-who"><strong>Who this is for:</strong> Independent advisors, solo or 2–3 person practice · €100k–€500k/yr</p>
+<h2>What hurts — and what it costs you</h2>
+<div class="aa-pains"><div class="aa-pain"><strong>Low-quality inbound leads</strong><span>− 10–20 hours/week wasted on unqualified prospects</span></div><div class="aa-pain"><strong>Website doesn't explain philosophy or fees</strong><span>− 30–40% of prospects go to a competitor</span></div><div class="aa-pain"><strong>Long sales cycle, no automation</strong><span>− 50% of prospects lost to bad follow-up</span></div><div class="aa-pain"><strong>No testimonials or case examples</strong><span>− 25–35% worse conversion</span></div><div class="aa-pain"><strong>Same message to every prospect</strong><span>− 40% of prospects never respond</span></div></div>
+<h2>What we deliver in 4 weeks</h2>
+<div class="aa-deliver"><div><h3>Website Layer</h3><ul><li>Wealth-advisor marketing website</li><li>Credentials page (CFP, CFA, FPA)</li><li>Specializations &amp; investment philosophy</li><li>Transparent fee structure</li><li>Testimonials</li><li>Consultation form</li></ul></div>
+<div><h3>Automation Layer — your sequences</h3><ol><li>Lead Inquiry — credentials, philosophy, testimonial, consultation offer</li><li>Abandoned Consultation reminder</li><li>Post-Consultation — summary + proposal</li><li>Content Segmentation by interest</li><li>Win-Back — “market conditions have changed”</li></ol></div></div>
+
+<h2>What changes</h2>
+<div class="aa-results"><span class="aa-res">✓ +50% lead quality</span><span class="aa-res">✓ +35% conversion from a clear website</span><span class="aa-res">✓ +40% close rate via follow-up</span><span class="aa-res">✓ +45% engagement via segmentation</span></div>
+<p><a class="aa-btn" href="/free-audit/">Get Free Website Audit</a></p>]]></content:encoded>
+<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+<wp:post_id>117</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>financial-advisors</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>109</wp:post_parent>
+<wp:menu_order>1</wp:menu_order>
+<wp:post_type>page</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+</item>
+<item>
+<title>Tax Consultants &amp; Accountants</title>
+<link>https://anthropos-automation.com/tax-consultants/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=118</guid>
+<description></description>
+<content:encoded><![CDATA[<p class="aa-crumb">Who we help / Regulated Professionals</p>
+<h1>Websites &amp; lead automation for Tax Consultants &amp; Accountants</h1>
+<p class="aa-who"><strong>Who this is for:</strong> Solo CPAs &amp; small firms (1–3 people) · €50k–€300k/yr</p>
+<h2>What hurts — and what it costs you</h2>
+<div class="aa-pains"><div class="aa-pain"><strong>Seasonal feast/famine (Jan–Mar busy, rest slow)</strong><span>− Income drops 50% off-season</span></div><div class="aa-pain"><strong>No lead generation system</strong><span>− €5k–15k/month lost in slow season</span></div><div class="aa-pain"><strong>Website shows price, not savings</strong><span>− 40% of prospects go to a competitor</span></div><div class="aa-pain"><strong>No automated follow-up</strong><span>− 50% of inquiries never convert</span></div><div class="aa-pain"><strong>Messaging outdated year-round</strong><span>− Missed seasonal campaigns</span></div></div>
+<h2>What we deliver in 4 weeks</h2>
+<div class="aa-deliver"><div><h3>Website Layer</h3><ul><li>Tax/accounting firm website</li><li>Services pages (tax prep, business tax, bookkeeping, payroll)</li><li>Credentials &amp; results page</li><li>FAQ</li><li>Consultation form</li><li>Tax-strategy blog</li></ul></div>
+<div><h3>Automation Layer — your sequences</h3><ol><li>Lead Inquiry — savings email + testimonial</li><li>Abandoned Consultation + “common tax mistakes” article</li><li>Post-Consultation — optimization proposal</li><li>Seasonal Campaign (Jan 1 auto-email)</li><li>Blog Nurture</li><li>Business-type segmentation</li></ol></div></div>
+
+<h2>What changes</h2>
+<div class="aa-results"><span class="aa-res">✓ +30% off-season revenue</span><span class="aa-res">✓ +50% lead flow</span><span class="aa-res">✓ +40% conversion by showing value</span><span class="aa-res">✓ 10–15 new clients in slow season</span></div>
+<p><a class="aa-btn" href="/free-audit/">Get Free Website Audit</a></p>]]></content:encoded>
+<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+<wp:post_id>118</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>tax-consultants</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>109</wp:post_parent>
+<wp:menu_order>1</wp:menu_order>
+<wp:post_type>page</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+</item>
+<item>
+<title>Doctors</title>
+<link>https://anthropos-automation.com/doctors/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=119</guid>
+<description></description>
+<content:encoded><![CDATA[<p class="aa-crumb">Who we help / Medical Professionals</p>
+<h1>Websites &amp; lead automation for Doctors</h1>
+<p class="aa-who"><strong>Who this is for:</strong> Solo &amp; small practices (1–3 doctors) · €100k–€500k/yr</p>
+<h2>What hurts — and what it costs you</h2>
+<div class="aa-pains"><div class="aa-pain"><strong>Half-empty waiting room</strong><span>− €10k–30k/month in lost revenue</span></div><div class="aa-pain"><strong>Outdated or missing website</strong><span>− 40–50% of potential new patients lost</span></div><div class="aa-pain"><strong>Invisible for “[specialty] near me”</strong><span>− €15k–40k/month in lost new patients</span></div><div class="aa-pain"><strong>No reviews or testimonials online</strong><span>− 30% worse inquiry-to-appointment</span></div><div class="aa-pain"><strong>Manual reminders; 15–20% no-shows</strong><span>− €3k–5k/month + staff hours</span></div></div>
+<h2>What we deliver in 4 weeks</h2>
+<div class="aa-deliver"><div><h3>Website Layer</h3><ul><li>Modern medical practice website (mobile-first)</li><li>Doctor bios &amp; services</li><li>Testimonials &amp; reviews</li><li>Hours, location, parking</li><li>New-patient inquiry form</li><li>Google Business Profile</li></ul></div>
+<div><h3>Automation Layer — your sequences</h3><ol><li>New Patient Inquiry — confirm, credentials, testimonials, how to book</li><li>Abandoned Inquiry reminder (5 days)</li><li>Blog Reader nurture</li><li>Post-visit Review Request</li><li>Win-Back — checkup reminder</li></ol></div></div>
+<div class="aa-boundary"><strong>Boundary:</strong> Marketing website + new-patient lead generation ONLY. No patient portal, booking, intake, records, or HIPAA systems — patients book through YOUR system.</div>
+<h2>What changes</h2>
+<div class="aa-results"><span class="aa-res">✓ +100% search visibility</span><span class="aa-res">✓ +50% inquiry-to-appointment</span><span class="aa-res">✓ More 5-star reviews</span><span class="aa-res">✓ +20–40% new patients</span></div>
+<p><a class="aa-btn" href="/free-audit/">Get Free Website Audit</a></p>]]></content:encoded>
+<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+<wp:post_id>119</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>doctors</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>110</wp:post_parent>
+<wp:menu_order>1</wp:menu_order>
+<wp:post_type>page</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+</item>
+<item>
+<title>Dentists</title>
+<link>https://anthropos-automation.com/dentists/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=120</guid>
+<description></description>
+<content:encoded><![CDATA[<p class="aa-crumb">Who we help / Medical Professionals</p>
+<h1>Websites &amp; lead automation for Dentists</h1>
+<p class="aa-who"><strong>Who this is for:</strong> Solo &amp; small dental practices (1–3 dentists) · €100k–€500k/yr</p>
+<h2>What hurts — and what it costs you</h2>
+<div class="aa-pains"><div class="aa-pain"><strong>Inconsistent new patients</strong><span>− €10k–25k/month in lost revenue</span></div><div class="aa-pain"><strong>Website doesn't showcase transformations</strong><span>− 40% of inquiries don't convert</span></div><div class="aa-pain"><strong>Invisible for “dentist near me”</strong><span>− €15k–30k/month lost</span></div><div class="aa-pain"><strong>No before/after gallery</strong><span>− Missing 20–30% of cosmetic revenue</span></div><div class="aa-pain"><strong>Scattered, low review scores</strong><span>− 25–35% fewer inquiries</span></div><div class="aa-pain"><strong>Manual reminders; no-shows</strong><span>− €2k–4k/month</span></div></div>
+<h2>What we deliver in 4 weeks</h2>
+<div class="aa-deliver"><div><h3>Website Layer</h3><ul><li>Modern dental website</li><li>Dentist bios &amp; services</li><li>Before/after gallery</li><li>Testimonials, insurance info</li><li>New-patient inquiry form</li><li>Google Business Profile</li></ul></div>
+<div><h3>Automation Layer — your sequences</h3><ol><li>New Patient Inquiry — confirm, credentials, before/afters</li><li>Abandoned Inquiry (5 days)</li><li>Cosmetic Interest sequence</li><li>Blog Reader nurture</li><li>Review Request</li><li>Win-Back checkup reminder</li></ol></div></div>
+<div class="aa-boundary"><strong>Boundary:</strong> Marketing website + new-patient lead generation ONLY. Appointment booking, intake, records and patient portals stay in YOUR system.</div>
+<h2>What changes</h2>
+<div class="aa-results"><span class="aa-res">✓ +100% visibility</span><span class="aa-res">✓ +45% inquiry-to-booking</span><span class="aa-res">✓ +0.5–1.0 star rating</span><span class="aa-res">✓ +25–40% new patients</span></div>
+<p><a class="aa-btn" href="/free-audit/">Get Free Website Audit</a></p>]]></content:encoded>
+<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+<wp:post_id>120</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>dentists</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>110</wp:post_parent>
+<wp:menu_order>1</wp:menu_order>
+<wp:post_type>page</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+</item>
+<item>
+<title>Therapists &amp; Psychologists</title>
+<link>https://anthropos-automation.com/therapists/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=121</guid>
+<description></description>
+<content:encoded><![CDATA[<p class="aa-crumb">Who we help / Medical Professionals</p>
+<h1>Websites &amp; lead automation for Therapists &amp; Psychologists</h1>
+<p class="aa-who"><strong>Who this is for:</strong> Solo &amp; small practices (1–3 therapists) · €50k–€300k/yr</p>
+<h2>What hurts — and what it costs you</h2>
+<div class="aa-pains"><div class="aa-pain"><strong>No online presence</strong><span>− €5k–15k/month in lost revenue</span></div><div class="aa-pain"><strong>Missing/unprofessional website</strong><span>− 40–50% of potential clients lost</span></div><div class="aa-pain"><strong>Invisible for “therapist near me anxiety”</strong><span>− €10k–20k/month lost</span></div><div class="aa-pain"><strong>No testimonials (confidentiality)</strong><span>− 25–35% worse conversion</span></div><div class="aa-pain"><strong>Clients fear exposure</strong><span>− 30–40% never inquire</span></div><div class="aa-pain"><strong>Manual follow-up</strong><span>− 50% of inquiries never convert</span></div></div>
+<h2>What we deliver in 4 weeks</h2>
+<div class="aa-deliver"><div><h3>Website Layer</h3><ul><li>Therapist marketing website</li><li>Bios: credentials, licenses, approach</li><li>Services &amp; philosophy</li><li>Anonymous testimonials</li><li>Confidentiality &amp; privacy statement</li><li>New-client inquiry form</li></ul></div>
+<div><h3>Automation Layer — your sequences</h3><ol><li>New Client Inquiry — confirm, credentials, how to book securely</li><li>Abandoned Inquiry — “therapy is a brave step”</li><li>Anxiety-interest nurture</li><li>Couples-interest nurture</li><li>Content nurture</li><li>Win-Back offer</li></ol></div></div>
+<div class="aa-boundary"><strong>Boundary:</strong> Marketing website + new-client lead generation ONLY. No client portal, intake forms, therapy notes, or patient data — scheduling stays in YOUR secure system.</div>
+<h2>What changes</h2>
+<div class="aa-results"><span class="aa-res">✓ Visible for high-volume mental-health searches</span><span class="aa-res">✓ +20% inquiries from concerned clients</span><span class="aa-res">✓ +40% conversion</span><span class="aa-res">✓ +30–50% new clients</span></div>
+<p><a class="aa-btn" href="/free-audit/">Get Free Website Audit</a></p>]]></content:encoded>
+<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+<wp:post_id>121</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>therapists</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>110</wp:post_parent>
+<wp:menu_order>1</wp:menu_order>
+<wp:post_type>page</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+</item>
+<item>
+<title>Shopify Store Owners</title>
+<link>https://anthropos-automation.com/shopify-stores/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=122</guid>
+<description></description>
+<content:encoded><![CDATA[<p class="aa-crumb">Who we help / E-Commerce &amp; Retail</p>
+<h1>Websites &amp; lead automation for Shopify Store Owners</h1>
+<p class="aa-who"><strong>Who this is for:</strong> Solo owners &amp; small teams (1–2 people) · €50k–€300k/yr</p>
+<h2>What hurts — and what it costs you</h2>
+<div class="aa-pains"><div class="aa-pain"><strong>Checkout conversion 1–2%</strong><span>− €5k–15k/month in lost revenue</span></div><div class="aa-pain"><strong>70–80% cart abandonment</strong><span>− €3k–10k/month in lost sales</span></div><div class="aa-pain"><strong>No follow-up after purchase</strong><span>− 40% lower repeat rate</span></div><div class="aa-pain"><strong>No email list</strong><span>− 50% higher acquisition costs</span></div><div class="aa-pain"><strong>One-time buyers</strong><span>− €500–2k per new customer</span></div><div class="aa-pain"><strong>5+ second load time</strong><span>− 50% of mobile visitors bounce</span></div></div>
+<h2>What we deliver in 4 weeks</h2>
+<div class="aa-deliver"><div><h3>Website Layer</h3><ul><li>Speed optimization (under 3 seconds)</li><li>Mobile optimization</li><li>Product-page optimization</li><li>Checkout optimization</li><li>Email capture &amp; review forms</li><li>Google Business Profile</li></ul></div>
+<div><h3>Automation Layer — your sequences</h3><ol><li>Welcome Sequence (3 emails / 7 days)</li><li>Abandoned Cart Recovery (6h, 24h, 48h)</li><li>Post-Purchase — confirmation, review request, upsell</li><li>Email List Growth (“10% off”)</li><li>Re-engagement at 60 days</li><li>Upsell / Cross-Sell</li></ol></div></div>
+
+<h2>What changes</h2>
+<div class="aa-results"><span class="aa-res">✓ €2k–5k/month recovered from carts</span><span class="aa-res">✓ +25–40% repeat purchases</span><span class="aa-res">✓ 1,000–5,000 subscribers/month</span><span class="aa-res">✓ +50–100% customer lifetime value</span></div>
+<p><a class="aa-btn" href="/free-audit/">Get Free Website Audit</a></p>]]></content:encoded>
+<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+<wp:post_id>122</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>shopify-stores</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>111</wp:post_parent>
+<wp:menu_order>1</wp:menu_order>
+<wp:post_type>page</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+</item>
+<item>
+<title>Amazon / eBay Multi-Channel Sellers</title>
+<link>https://anthropos-automation.com/multichannel-sellers/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=123</guid>
+<description></description>
+<content:encoded><![CDATA[<p class="aa-crumb">Who we help / E-Commerce &amp; Retail</p>
+<h1>Websites &amp; lead automation for Amazon / eBay Multi-Channel Sellers</h1>
+<p class="aa-who"><strong>Who this is for:</strong> Sellers on 2–4 platforms, 1–2 people · €100k–€500k across channels</p>
+<h2>What hurts — and what it costs you</h2>
+<div class="aa-pains"><div class="aa-pain"><strong>Fragmented customer messages</strong><span>− €500–2k/month in service failures</span></div><div class="aa-pain"><strong>Inventory sync nightmare — overselling</strong><span>− €1k–5k/month in chargebacks</span></div><div class="aa-pain"><strong>Unknown channel profitability</strong><span>− €2k–5k/month wasted</span></div><div class="aa-pain"><strong>No cross-channel marketing</strong><span>− 40% lower repeat revenue</span></div><div class="aa-pain"><strong>Manual pricing per platform</strong><span>− €500–1k/month in errors</span></div><div class="aa-pain"><strong>No customer segmentation</strong><span>− 30% lower engagement</span></div></div>
+<h2>What we deliver in 4 weeks</h2>
+<div class="aa-deliver"><div><h3>Website Layer</h3><ul><li>Unified Shopify storefront</li><li>Organized, synced catalog</li><li>Trust signals</li><li>Lead magnet for email list</li><li>Mobile optimization</li></ul></div>
+<div><h3>Automation Layer — your sequences</h3><ol><li>Unified Customer Inbox (Amazon, eBay, Shopify, WhatsApp)</li><li>Auto-response templates</li><li>Channel-specific sequences</li><li>Price-drop &amp; restock notifications</li><li>Cross-channel promotion</li><li>VIP segmentation</li><li>Inventory sync alerts + weekly profitability report</li></ol></div></div>
+
+<h2>What changes</h2>
+<div class="aa-results"><span class="aa-res">✓ -80% response time</span><span class="aa-res">✓ Overselling eliminated</span><span class="aa-res">✓ Clear channel profitability</span><span class="aa-res">✓ +15–25% cross-channel revenue</span></div>
+<p><a class="aa-btn" href="/free-audit/">Get Free Website Audit</a></p>]]></content:encoded>
+<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+<wp:post_id>123</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>multichannel-sellers</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>111</wp:post_parent>
+<wp:menu_order>1</wp:menu_order>
+<wp:post_type>page</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+</item>
+<item>
+<title>Home Services</title>
+<link>https://anthropos-automation.com/home-services/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=124</guid>
+<description></description>
+<content:encoded><![CDATA[<p class="aa-crumb">Who we help / Service-Based Professionals</p>
+<h1>Websites &amp; lead automation for Home Services</h1>
+<p class="aa-who"><strong>Who this is for:</strong> Electricians, plumbers, HVAC, carpenters, cleaners · 1–3 people · €100k–€400k/yr</p>
+<h2>What hurts — and what it costs you</h2>
+<div class="aa-pains"><div class="aa-pain"><strong>Unpredictable lead flow</strong><span>− €3k–10k/month in lost revenue</span></div><div class="aa-pain"><strong>Manual scheduling</strong><span>− €500–2k/month in no-shows</span></div><div class="aa-pain"><strong>Can't answer while on a job</strong><span>− €1k–3k/month in lost jobs</span></div><div class="aa-pain"><strong>Invisible for “plumber near me”</strong><span>− €5k–15k/month lost</span></div><div class="aa-pain"><strong>No reviews or job photos</strong><span>− 30% worse conversion</span></div><div class="aa-pain"><strong>Unknown job profitability</strong><span>− 20% lower margins</span></div></div>
+<h2>What we deliver in 4 weeks</h2>
+<div class="aa-deliver"><div><h3>Website Layer</h3><ul><li>Service business website + area map</li><li>Before/after gallery</li><li>Testimonials &amp; licenses</li><li>Service descriptions + emergency contact</li><li>Booking form</li><li>Google Business Profile</li></ul></div>
+<div><h3>Automation Layer — your sequences</h3><ol><li>Lead Inquiry — confirm, testimonials, quick quote</li><li>Abandoned Booking reminder</li><li>Appointment Confirmation + tech info</li><li>Job Completion — invoice + review + referral</li><li>Re-engagement at 90 days</li><li>Referral — €50 off</li><li>Weekly job profitability report</li></ol></div></div>
+
+<h2>What changes</h2>
+<div class="aa-results"><span class="aa-res">✓ +30–60% new job inquiries</span><span class="aa-res">✓ -70% no-shows</span><span class="aa-res">✓ +20–40% quote-to-booking</span><span class="aa-res">✓ +25–50% referrals</span></div>
+<p><a class="aa-btn" href="/free-audit/">Get Free Website Audit</a></p>]]></content:encoded>
+<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+<wp:post_id>124</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>home-services</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>112</wp:post_parent>
+<wp:menu_order>1</wp:menu_order>
+<wp:post_type>page</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+</item>
+<item>
+<title>Personal Trainers &amp; Fitness Coaches</title>
+<link>https://anthropos-automation.com/personal-trainers/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=125</guid>
+<description></description>
+<content:encoded><![CDATA[<p class="aa-crumb">Who we help / Service-Based Professionals</p>
+<h1>Websites &amp; lead automation for Personal Trainers &amp; Fitness Coaches</h1>
+<p class="aa-who"><strong>Who this is for:</strong> Solo trainers &amp; small studios (1–3 trainers) · €50k–€300k/yr</p>
+<h2>What hurts — and what it costs you</h2>
+<div class="aa-pains"><div class="aa-pain"><strong>Word-of-mouth only</strong><span>− €2k–8k/month in lost revenue</span></div><div class="aa-pain"><strong>Class capacity 10, attendance 4</strong><span>− €1k–3k/month wasted</span></div><div class="aa-pain"><strong>Clients quit after ~3 months</strong><span>− 50% higher acquisition costs</span></div><div class="aa-pain"><strong>Manual reminders</strong><span>− €500–1k/month in no-shows</span></div><div class="aa-pain"><strong>“I have Instagram” — no real website</strong><span>− €3k–10k/month lost</span></div><div class="aa-pain"><strong>Transformations invisible</strong><span>− 25% worse conversion</span></div></div>
+<h2>What we deliver in 4 weeks</h2>
+<div class="aa-deliver"><div><h3>Website Layer</h3><ul><li>Trainer/studio website</li><li>Bio with certifications</li><li>Services (1-on-1, group, online, nutrition)</li><li>Transformations gallery</li><li>Class schedule &amp; pricing</li><li>Inquiry + free-consultation form</li></ul></div>
+<div><h3>Automation Layer — your sequences</h3><ol><li>Lead Inquiry — credentials, testimonials, free consultation</li><li>Consultation reminder</li><li>New Client Welcome + assessment</li><li>Class Reminder (24h)</li><li>Post-Class Follow-Up</li><li>Churn Prevention (30 days)</li><li>Referral — 1 month free</li></ol></div></div>
+
+<h2>What changes</h2>
+<div class="aa-results"><span class="aa-res">✓ +40–70% new clients</span><span class="aa-res">✓ +30–50% attendance</span><span class="aa-res">✓ +25–40% retention</span><span class="aa-res">✓ -60% no-shows</span></div>
+<p><a class="aa-btn" href="/free-audit/">Get Free Website Audit</a></p>]]></content:encoded>
+<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+<wp:post_id>125</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>personal-trainers</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>112</wp:post_parent>
+<wp:menu_order>1</wp:menu_order>
+<wp:post_type>page</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+</item>
+<item>
+<title>Business &amp; Marketing Consultants</title>
+<link>https://anthropos-automation.com/business-consultants/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=126</guid>
+<description></description>
+<content:encoded><![CDATA[<p class="aa-crumb">Who we help / Service-Based Professionals</p>
+<h1>Websites &amp; lead automation for Business &amp; Marketing Consultants</h1>
+<p class="aa-who"><strong>Who this is for:</strong> Solo consultants &amp; small firms (1–2 people) · €50k–€300k/yr</p>
+<h2>What hurts — and what it costs you</h2>
+<div class="aa-pains"><div class="aa-pain"><strong>3–6 month sales cycle</strong><span>− €2k–5k/month in delayed payments</span></div><div class="aa-pain"><strong>Feast/famine inquiries</strong><span>− €3k–10k/month lost</span></div><div class="aa-pain"><strong>Outdated site, low credibility</strong><span>− 40% worse conversion</span></div><div class="aa-pain"><strong>No case studies visible</strong><span>− 30% lower conversion</span></div><div class="aa-pain"><strong>Proposals forgotten</strong><span>− 50% of proposals dropped</span></div><div class="aa-pain"><strong>Can't prove ROI</strong><span>− 20–30% lower fees</span></div></div>
+<h2>What we deliver in 4 weeks</h2>
+<div class="aa-deliver"><div><h3>Website Layer</h3><ul><li>Consultant marketing website</li><li>Bio &amp; services</li><li>2–3 ROI case studies</li><li>Results page &amp; testimonials</li><li>Thought-leadership blog</li><li>Inquiry + proposal forms</li></ul></div>
+<div><h3>Automation Layer — your sequences</h3><ol><li>Lead Inquiry — credentials + 2 case studies</li><li>Abandoned Consultation + 3rd case study</li><li>Post-Consultation — notes + strategy</li><li>Proposal Follow-Up (day 5)</li><li>Blog Nurture</li><li>Win-Back</li><li>Client Reference request</li></ol></div></div>
+
+<h2>What changes</h2>
+<div class="aa-results"><span class="aa-res">✓ +40–60% leads</span><span class="aa-res">✓ -20–30% sales cycle</span><span class="aa-res">✓ +30–50% proposal close</span><span class="aa-res">✓ +15–25% project size</span></div>
+<p><a class="aa-btn" href="/free-audit/">Get Free Website Audit</a></p>]]></content:encoded>
+<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+<wp:post_id>126</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>business-consultants</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>112</wp:post_parent>
+<wp:menu_order>1</wp:menu_order>
+<wp:post_type>page</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+</item>
+<item>
+<title>Freelance Designers &amp; Developers</title>
+<link>https://anthropos-automation.com/designers-developers/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=127</guid>
+<description></description>
+<content:encoded><![CDATA[<p class="aa-crumb">Who we help / Freelancers &amp; Micro-Agencies</p>
+<h1>Websites &amp; lead automation for Freelance Designers &amp; Developers</h1>
+<p class="aa-who"><strong>Who this is for:</strong> Freelance graphic/UX/web designers &amp; developers · €30k–€150k/yr</p>
+<h2>What hurts — and what it costs you</h2>
+<div class="aa-pains"><div class="aa-pain"><strong>Referral-dependent months</strong><span>− €2k–8k/month lost</span></div><div class="aa-pain"><strong>Outdated portfolio</strong><span>− 40–50% worse conversion</span></div><div class="aa-pain"><strong>70% tire-kicker inquiries</strong><span>− €1k–3k/month wasted</span></div><div class="aa-pain"><strong>Projects without stories/results</strong><span>− 25–30% lower fees</span></div><div class="aa-pain"><strong>Proposal follow-up forgotten</strong><span>− 50% of proposals lost</span></div><div class="aa-pain"><strong>Design seen as cost, not investment</strong><span>− 20% lower fees</span></div></div>
+<h2>What we deliver in 4 weeks</h2>
+<div class="aa-deliver"><div><h3>Website Layer</h3><ul><li>Portfolio website (best 10–15 projects)</li><li>2–3 detailed case studies</li><li>Services &amp; about pages</li><li>Testimonials</li><li>Authority blog</li><li>Pre-qualifying inquiry form</li></ul></div>
+<div><h3>Automation Layer — your sequences</h3><ol><li>Lead Inquiry — portfolio + cases + discovery call</li><li>Abandoned Discovery reminder</li><li>Post-Discovery — scope + pricing</li><li>Proposal Follow-Up (day 5)</li><li>Past-Client Re-engagement</li><li>Testimonial Request</li><li>Blog Nurture</li></ol></div></div>
+
+<h2>What changes</h2>
+<div class="aa-results"><span class="aa-res">✓ +50–80% inquiries</span><span class="aa-res">✓ +40% lead quality</span><span class="aa-res">✓ +35–50% proposal close</span><span class="aa-res">✓ -50% admin time</span></div>
+<p><a class="aa-btn" href="/free-audit/">Get Free Website Audit</a></p>]]></content:encoded>
+<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+<wp:post_id>127</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>designers-developers</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>113</wp:post_parent>
+<wp:menu_order>1</wp:menu_order>
+<wp:post_type>page</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+</item>
+<item>
+<title>Small Marketing Agencies (1–3)</title>
+<link>https://anthropos-automation.com/marketing-agencies/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=128</guid>
+<description></description>
+<content:encoded><![CDATA[<p class="aa-crumb">Who we help / Freelancers &amp; Micro-Agencies</p>
+<h1>Websites &amp; lead automation for Small Marketing Agencies (1–3)</h1>
+<p class="aa-who"><strong>Who this is for:</strong> 1–3 person agencies · social, SEO, email, content, ads · €50k–€300k/yr</p>
+<h2>What hurts — and what it costs you</h2>
+<div class="aa-pains"><div class="aa-pain"><strong>100 agencies, same services</strong><span>− 30–40% lost to price competition</span></div><div class="aa-pain"><strong>3–6 month sales cycle</strong><span>− €3k–10k/month delayed</span></div><div class="aa-pain"><strong>Inconsistent inbound</strong><span>− €2k–8k/month lost</span></div><div class="aa-pain"><strong>“About us” site, not outcomes</strong><span>− 40% worse conversion</span></div><div class="aa-pain"><strong>Work shown, results not</strong><span>− 25–30% lower contracts</span></div><div class="aa-pain"><strong>60% of calls unqualified</strong><span>− €1k–3k/month wasted</span></div></div>
+<h2>What we deliver in 4 weeks</h2>
+<div class="aa-deliver"><div><h3>Website Layer</h3><ul><li>Outcome-focused agency website</li><li>Ideal-client profiles</li><li>Metric case studies</li><li>Results page &amp; testimonials</li><li>Pricing transparency</li><li>Strategy-call form</li></ul></div>
+<div><h3>Automation Layer — your sequences</h3><ol><li>Lead Inquiry — 2 case studies + strategy call</li><li>Abandoned Call + 3rd case study</li><li>Post-Call — notes + pricing</li><li>Proposal Follow-Up</li><li>Ideal-Client Nurture</li><li>Blog Nurture</li><li>Past-Lead Re-engagement</li></ol></div></div>
+
+<h2>What changes</h2>
+<div class="aa-results"><span class="aa-res">✓ +60–100% leads</span><span class="aa-res">✓ +50% lead quality</span><span class="aa-res">✓ +40–60% close rate</span><span class="aa-res">✓ +30–50% contract size</span></div>
+<p><a class="aa-btn" href="/free-audit/">Get Free Website Audit</a></p>]]></content:encoded>
+<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+<wp:post_id>128</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>marketing-agencies</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>113</wp:post_parent>
+<wp:menu_order>1</wp:menu_order>
+<wp:post_type>page</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+</item>
+<item>
+<title>Course Creators &amp; Online Coaches</title>
+<link>https://anthropos-automation.com/course-creators/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=129</guid>
+<description></description>
+<content:encoded><![CDATA[<p class="aa-crumb">Who we help / Creators &amp; Coaches</p>
+<h1>Websites &amp; lead automation for Course Creators &amp; Online Coaches</h1>
+<p class="aa-who"><strong>Who this is for:</strong> Course creators, coaches, membership providers · €2k–€10k/month</p>
+<h2>What hurts — and what it costs you</h2>
+<div class="aa-pains"><div class="aa-pain"><strong>Launches don't fill</strong><span>− €1k–5k/month per course</span></div><div class="aa-pain"><strong>1–2% landing conversion</strong><span>− €2k–10k/month in lost sales</span></div><div class="aa-pain"><strong>Students quit at 40%</strong><span>− 60% of lifetime value lost</span></div><div class="aa-pain"><strong>No upsell to Course B</strong><span>− €1k–3k/month lost</span></div><div class="aa-pain"><strong>Low engagement</strong><span>− 50% of referral revenue lost</span></div><div class="aa-pain"><strong>No proof of results</strong><span>− 30–40% worse conversion</span></div></div>
+<h2>What we deliver in 4 weeks</h2>
+<div class="aa-deliver"><div><h3>Website Layer</h3><ul><li>Outcome-focused sales landing page</li><li>Course preview page</li><li>Credibility page</li><li>Student results &amp; testimonials</li><li>FAQ &amp; pricing pages</li><li>Lead-magnet landing page</li></ul></div>
+<div><h3>Automation Layer — your sequences</h3><ol><li>Lead Magnet delivery + 5-email welcome</li><li>Welcome Sequence with objections &amp; testimonials</li><li>Student Progression emails</li><li>Lagging Student encouragement</li><li>Completed-Course upsell</li><li>Churn Prevention (30 days)</li><li>Feedback + Referral</li></ol></div></div>
+
+<h2>What changes</h2>
+<div class="aa-results"><span class="aa-res">✓ +50–150% landing conversion</span><span class="aa-res">✓ +25–40% completion</span><span class="aa-res">✓ +30–60% upsell revenue</span><span class="aa-res">✓ +100–200% student lifetime value</span></div>
+<p><a class="aa-btn" href="/free-audit/">Get Free Website Audit</a></p>]]></content:encoded>
+<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+<wp:post_id>129</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>course-creators</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>114</wp:post_parent>
+<wp:menu_order>1</wp:menu_order>
+<wp:post_type>page</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+</item>
+<item>
+<title>Newsletter Writers</title>
+<link>https://anthropos-automation.com/newsletter-writers/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=130</guid>
+<description></description>
+<content:encoded><![CDATA[<p class="aa-crumb">Who we help / Creators &amp; Coaches</p>
+<h1>Websites &amp; lead automation for Newsletter Writers</h1>
+<p class="aa-who"><strong>Who this is for:</strong> Substack/Ghost/own-platform writers · €500–€5k/month in paid subs</p>
+<h2>What hurts — and what it costs you</h2>
+<div class="aa-pains"><div class="aa-pain"><strong>~50 new subscribers/month</strong><span>− €500–2k/month in lost potential</span></div><div class="aa-pain"><strong>2–3% free-to-paid</strong><span>− €1k–3k/month lost</span></div><div class="aa-pain"><strong>30% open rate</strong><span>− Wasted content effort</span></div><div class="aa-pain"><strong>No monetization strategy</strong><span>− €2k–5k/month lost</span></div><div class="aa-pain"><strong>Buried in the inbox</strong><span>− 40% of potential revenue lost</span></div><div class="aa-pain"><strong>One email for every reader</strong><span>− 30–40% lower conversion</span></div></div>
+<h2>What we deliver in 4 weeks</h2>
+<div class="aa-deliver"><div><h3>Website Layer</h3><ul><li>Newsletter landing page</li><li>Best-3-issues sample page</li><li>Credibility page</li><li>Reader wins &amp; testimonials</li><li>Pricing tiers</li><li>Searchable SEO archive</li></ul></div>
+<div><h3>Automation Layer — your sequences</h3><ol><li>Welcome Sequence (3 emails)</li><li>Interest segmentation by opens</li><li>Interest-based nurture</li><li>Paid Upgrade pitch (30 days)</li><li>Churn Prevention (60 days)</li><li>Upsell (premium, courses, affiliates)</li><li>Referral + content repurposing</li></ol></div></div>
+
+<h2>What changes</h2>
+<div class="aa-results"><span class="aa-res">✓ +50–100% subscriber growth</span><span class="aa-res">✓ +100–300% free-to-paid</span><span class="aa-res">✓ +30–50% engagement</span><span class="aa-res">✓ +200–400% total revenue</span></div>
+<p><a class="aa-btn" href="/free-audit/">Get Free Website Audit</a></p>]]></content:encoded>
+<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+<wp:post_id>130</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>newsletter-writers</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>114</wp:post_parent>
+<wp:menu_order>1</wp:menu_order>
+<wp:post_type>page</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+</item>
+<item>
+<title>B2B SaaS Implementation Specialists</title>
+<link>https://anthropos-automation.com/saas-implementation/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=131</guid>
+<description></description>
+<content:encoded><![CDATA[<p class="aa-crumb">Who we help / B2B Service Providers</p>
+<h1>Websites &amp; lead automation for B2B SaaS Implementation Specialists</h1>
+<p class="aa-who"><strong>Who this is for:</strong> Onboarding consultants &amp; training providers (Salesforce, HubSpot, Shopify, Zapier…) · €50k–€300k/yr</p>
+<h2>What hurts — and what it costs you</h2>
+<div class="aa-pains"><div class="aa-pain"><strong>Referral-dependent projects</strong><span>− €2k–8k/month lost</span></div><div class="aa-pain"><strong>3–6 month B2B cycle</strong><span>− €3k–10k/month delayed</span></div><div class="aa-pain"><strong>Compared to cheap freelancers</strong><span>− 20–30% lower margins</span></div><div class="aa-pain"><strong>“I implement Salesforce” — so do 1,000 others</strong><span>− 30% lower fees</span></div><div class="aa-pain"><strong>No implementation case studies</strong><span>− 25% worse conversion</span></div><div class="aa-pain"><strong>Proposals forgotten</strong><span>− €2k–5k/month in lost projects</span></div></div>
+<h2>What we deliver in 4 weeks</h2>
+<div class="aa-deliver"><div><h3>Website Layer</h3><ul><li>Consultant marketing website</li><li>Expertise page (tools, implementations, years)</li><li>Case studies with timelines &amp; impact</li><li>Certifications &amp; partnerships</li><li>Services &amp; testimonials</li><li>Best-practices blog</li></ul></div>
+<div><h3>Automation Layer — your sequences</h3><ol><li>Lead Inquiry — cases + roadmap + strategy call</li><li>Abandoned Call + extra case study</li><li>Post-Call — timeline + pricing</li><li>Proposal Follow-Up (day 5)</li><li>Implementation Progress updates</li><li>Post-Implementation — testimonial ask</li><li>Upsell + Past-Client Re-engagement</li></ol></div></div>
+
+<h2>What changes</h2>
+<div class="aa-results"><span class="aa-res">✓ +50–80% inquiries</span><span class="aa-res">✓ -20–30% sales cycle</span><span class="aa-res">✓ +25–40% project fees</span><span class="aa-res">✓ +40–60% referrals</span></div>
+<p><a class="aa-btn" href="/free-audit/">Get Free Website Audit</a></p>]]></content:encoded>
+<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+<wp:post_id>131</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>saas-implementation</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>115</wp:post_parent>
+<wp:menu_order>1</wp:menu_order>
+<wp:post_type>page</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+</item>
+<item>
+<title>Stories</title>
+<link>https://anthropos-automation.com/stories/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=132</guid>
+<description></description>
+<content:encoded><![CDATA[<p>Set this page as your Posts page (Settings → Reading). Every story is a mirror — find yours.</p>]]></content:encoded>
+<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+<wp:post_id>132</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>stories</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>0</wp:post_parent>
+<wp:menu_order>0</wp:menu_order>
+<wp:post_type>page</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+</item>
+<item>
+<title>Guide Library</title>
+<link>https://anthropos-automation.com/guides/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=133</guid>
+<description></description>
+<content:encoded><![CDATA[<h2>Four series, twenty guides per profession</h2>
+<ul><li><strong>Series A — Get Found:</strong> local search, Google Business Profile, what your clients type, attribution.</li>
+<li><strong>Series B — Earn Trust:</strong> the 5-second test, credential pages, proof, forms that feel safe.</li>
+<li><strong>Series C — Never Lose a Lead:</strong> the 60-second reply, sequences, reminders, win-backs.</li>
+<li><strong>Series D — Grow Calmly:</strong> repeat business, seasonal campaigns, segmentation, lead reports.</li></ul>
+<p>16 professions × 20 guides = 320 interlinked guides. Every guide links: next in series · profession hub · same guide in sibling professions · back to its story.</p>]]></content:encoded>
+<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+<wp:post_id>133</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>guides</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>0</wp:post_parent>
+<wp:menu_order>0</wp:menu_order>
+<wp:post_type>page</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+</item>
+<item>
+<title>“The referrals always came. Until the month they didn't.”</title>
+<link>https://anthropos-automation.com/story-lawyers/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=134</guid>
+<description></description>
+<content:encoded><![CDATA[<p class="aa-story-hook">A solo family lawyer, booked for years by word of mouth alone. Then one quiet month became three, and she realised she had no other door for clients to walk through.</p>
+<div class="aa-cost">The leak: no lead system + slow follow-up. Typical cost: €5k–20k per month in slow-season revenue.</div>
+<h2>Does this sound like you?</h2>
+<p>Start with the guides that close this exact leak, or see everything we build for <a href="/for/regulated-professionals/lawyers/">Lawyers</a>.</p>
+<p><a class="aa-btn" href="/free-audit/">Get the free 12-point audit</a></p>]]></content:encoded>
+<excerpt:encoded><![CDATA[A solo family lawyer, booked for years by word of mouth alone. Then one quiet month became three, and she realised she had no other door for clients to walk through.]]></excerpt:encoded>
+<wp:post_id>134</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>story-lawyers</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>0</wp:post_parent>
+<wp:menu_order>0</wp:menu_order>
+<wp:post_type>post</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+<category domain="category" nicename="regulated-professionals"><![CDATA[Regulated Professionals]]></category></item>
+<item>
+<title>“Patients say I changed their lives. Strangers can't find my door.”</title>
+<link>https://anthropos-automation.com/story-doctors/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=135</guid>
+<description></description>
+<content:encoded><![CDATA[<p class="aa-story-hook">A dermatologist with a half-empty waiting room — excellent in the exam room, invisible in the search results where new patients actually decide.</p>
+<div class="aa-cost">The leak: low local visibility + no reviews. Typical cost: €15k–40k per month in lost new patients.</div>
+<h2>Does this sound like you?</h2>
+<p>Start with the guides that close this exact leak, or see everything we build for <a href="/for/medical-professionals/doctors/">Doctors</a>.</p>
+<p><a class="aa-btn" href="/free-audit/">Get the free 12-point audit</a></p>]]></content:encoded>
+<excerpt:encoded><![CDATA[A dermatologist with a half-empty waiting room — excellent in the exam room, invisible in the search results where new patients actually decide.]]></excerpt:encoded>
+<wp:post_id>135</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>story-doctors</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>0</wp:post_parent>
+<wp:menu_order>0</wp:menu_order>
+<wp:post_type>post</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+<category domain="category" nicename="medical-professionals"><![CDATA[Medical Professionals]]></category></item>
+<item>
+<title>“Eight in ten carts just… leave. I never get to say wait.”</title>
+<link>https://anthropos-automation.com/story-shopify-stores/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=136</guid>
+<description></description>
+<content:encoded><![CDATA[<p class="aa-story-hook">A two-person store with good traffic and a 1–2% checkout rate. The buyers were there. The follow-up wasn't.</p>
+<div class="aa-cost">The leak: cart abandonment + no email list. Typical cost: €3k–10k per month in lost sales.</div>
+<h2>Does this sound like you?</h2>
+<p>Start with the guides that close this exact leak, or see everything we build for <a href="/for/ecommerce-retail/shopify-stores/">Shopify</a>.</p>
+<p><a class="aa-btn" href="/free-audit/">Get the free 12-point audit</a></p>]]></content:encoded>
+<excerpt:encoded><![CDATA[A two-person store with good traffic and a 1–2% checkout rate. The buyers were there. The follow-up wasn't.]]></excerpt:encoded>
+<wp:post_id>136</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>story-shopify-stores</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>0</wp:post_parent>
+<wp:menu_order>0</wp:menu_order>
+<wp:post_type>post</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+<category domain="category" nicename="ecommerce-retail"><![CDATA[E-Commerce & Retail]]></category></item>
+<item>
+<title>“I'm under a sink at 2pm. Every missed call is someone else's job.”</title>
+<link>https://anthropos-automation.com/story-home-services/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=137</guid>
+<description></description>
+<content:encoded><![CDATA[<p class="aa-story-hook">A solo plumber, hands full, phone ringing. Booked weeks followed by empty ones — and no way to answer while working.</p>
+<div class="aa-cost">The leak: missed inquiries + manual scheduling. Typical cost: €3k–10k per month plus no-shows.</div>
+<h2>Does this sound like you?</h2>
+<p>Start with the guides that close this exact leak, or see everything we build for <a href="/for/service-professionals/home-services/">Home Services</a>.</p>
+<p><a class="aa-btn" href="/free-audit/">Get the free 12-point audit</a></p>]]></content:encoded>
+<excerpt:encoded><![CDATA[A solo plumber, hands full, phone ringing. Booked weeks followed by empty ones — and no way to answer while working.]]></excerpt:encoded>
+<wp:post_id>137</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>story-home-services</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>0</wp:post_parent>
+<wp:menu_order>0</wp:menu_order>
+<wp:post_type>post</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+<category domain="category" nicename="service-professionals"><![CDATA[Service-Based Professionals]]></category></item>
+<item>
+<title>“I became a freelancer to make things. Now I mostly chase them.”</title>
+<link>https://anthropos-automation.com/story-designers-developers/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=138</guid>
+<description></description>
+<content:encoded><![CDATA[<p class="aa-story-hook">A designer whose portfolio undersold her, whose inbox filled with tire-kickers, and whose best proposals died of silence — hers, not theirs.</p>
+<div class="aa-cost">The leak: no pre-qualification + forgotten follow-up. Typical cost: 50% of proposals lost.</div>
+<h2>Does this sound like you?</h2>
+<p>Start with the guides that close this exact leak, or see everything we build for <a href="/for/freelancers-agencies/designers-developers/">Designers</a>.</p>
+<p><a class="aa-btn" href="/free-audit/">Get the free 12-point audit</a></p>]]></content:encoded>
+<excerpt:encoded><![CDATA[A designer whose portfolio undersold her, whose inbox filled with tire-kickers, and whose best proposals died of silence — hers, not theirs.]]></excerpt:encoded>
+<wp:post_id>138</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>story-designers-developers</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>0</wp:post_parent>
+<wp:menu_order>0</wp:menu_order>
+<wp:post_type>post</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+<category domain="category" nicename="freelancers-agencies"><![CDATA[Freelancers & Micro-Agencies]]></category></item>
+<item>
+<title>“They were so excited in week one. By lesson four, silence.”</title>
+<link>https://anthropos-automation.com/story-course-creators/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=139</guid>
+<description></description>
+<content:encoded><![CDATA[<p class="aa-story-hook">A course creator with 1,000 monthly visitors, twenty buyers, and students who vanish at 40% — taking reviews, referrals and upsells with them.</p>
+<div class="aa-cost">The leak: low landing conversion + student churn. Typical cost: 60% of student lifetime value.</div>
+<h2>Does this sound like you?</h2>
+<p>Start with the guides that close this exact leak, or see everything we build for <a href="/for/creators-coaches/course-creators/">Course Creators</a>.</p>
+<p><a class="aa-btn" href="/free-audit/">Get the free 12-point audit</a></p>]]></content:encoded>
+<excerpt:encoded><![CDATA[A course creator with 1,000 monthly visitors, twenty buyers, and students who vanish at 40% — taking reviews, referrals and upsells with them.]]></excerpt:encoded>
+<wp:post_id>139</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>story-course-creators</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>0</wp:post_parent>
+<wp:menu_order>0</wp:menu_order>
+<wp:post_type>post</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+<category domain="category" nicename="creators-coaches"><![CDATA[Creators & Coaches]]></category></item>
+<item>
+<title>“Everyone says the proposal looks great. Then nobody signs.”</title>
+<link>https://anthropos-automation.com/story-saas-implementation/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=140</guid>
+<description></description>
+<content:encoded><![CDATA[<p class="aa-story-hook">A Salesforce implementation specialist — one of a thousand, by his own description — losing six-month deals to silence and price comparisons.</p>
+<div class="aa-cost">The leak: no differentiation + forgotten proposals. Typical cost: €2k–5k per month in lost projects.</div>
+<h2>Does this sound like you?</h2>
+<p>Start with the guides that close this exact leak, or see everything we build for <a href="/for/b2b-providers/saas-implementation/">B2B Implementation</a>.</p>
+<p><a class="aa-btn" href="/free-audit/">Get the free 12-point audit</a></p>]]></content:encoded>
+<excerpt:encoded><![CDATA[A Salesforce implementation specialist — one of a thousand, by his own description — losing six-month deals to silence and price comparisons.]]></excerpt:encoded>
+<wp:post_id>140</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>story-saas-implementation</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>0</wp:post_parent>
+<wp:menu_order>0</wp:menu_order>
+<wp:post_type>post</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+<category domain="category" nicename="b2b-providers"><![CDATA[B2B Service Providers]]></category></item>
+<item>
+<title>“January pays for July. I hold my breath the rest of the year.”</title>
+<link>https://anthropos-automation.com/story-tax-consultants/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=141</guid>
+<description></description>
+<content:encoded><![CDATA[<p class="aa-story-hook">A solo tax consultant whose income drops by half after March — while his contact list, full of past clients, sits silent for nine months.</p>
+<div class="aa-cost">The leak: seasonal silence + no campaigns. Typical cost: 50% income drop off-season.</div>
+<h2>Does this sound like you?</h2>
+<p>Start with the guides that close this exact leak, or see everything we build for <a href="/for/regulated-professionals/tax-consultants/">Tax Consultants</a>.</p>
+<p><a class="aa-btn" href="/free-audit/">Get the free 12-point audit</a></p>]]></content:encoded>
+<excerpt:encoded><![CDATA[A solo tax consultant whose income drops by half after March — while his contact list, full of past clients, sits silent for nine months.]]></excerpt:encoded>
+<wp:post_id>141</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>story-tax-consultants</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>0</wp:post_parent>
+<wp:menu_order>0</wp:menu_order>
+<wp:post_type>post</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+<category domain="category" nicename="regulated-professionals"><![CDATA[Regulated Professionals]]></category></item>
+<item>
+<title>“Taking the first step is hard. My website made it harder.”</title>
+<link>https://anthropos-automation.com/story-therapists/</link>
+<pubDate>Sat, 19 Jul 2026 10:00:00 +0000</pubDate>
+<dc:creator><![CDATA[admin]]></dc:creator>
+<guid isPermaLink="false">https://anthropos-automation.com/?p=142</guid>
+<description></description>
+<content:encoded><![CDATA[<p class="aa-story-hook">A therapist whose prospective clients feared exposure more than they feared asking for help — and whose site said nothing to calm them.</p>
+<div class="aa-cost">The leak: trust &amp; confidentiality unaddressed. Typical cost: 30–40% of qualified prospects never inquire.</div>
+<h2>Does this sound like you?</h2>
+<p>Start with the guides that close this exact leak, or see everything we build for <a href="/for/medical-professionals/therapists/">Therapists</a>.</p>
+<p><a class="aa-btn" href="/free-audit/">Get the free 12-point audit</a></p>]]></content:encoded>
+<excerpt:encoded><![CDATA[A therapist whose prospective clients feared exposure more than they feared asking for help — and whose site said nothing to calm them.]]></excerpt:encoded>
+<wp:post_id>142</wp:post_id>
+<wp:post_date>2026-07-19 10:00:00</wp:post_date>
+<wp:post_date_gmt>2026-07-19 10:00:00</wp:post_date_gmt>
+<wp:comment_status>closed</wp:comment_status>
+<wp:ping_status>closed</wp:ping_status>
+<wp:post_name>story-therapists</wp:post_name>
+<wp:status>publish</wp:status>
+<wp:post_parent>0</wp:post_parent>
+<wp:menu_order>0</wp:menu_order>
+<wp:post_type>post</wp:post_type>
+<wp:post_password></wp:post_password>
+<wp:is_sticky>0</wp:is_sticky>
+<category domain="category" nicename="medical-professionals"><![CDATA[Medical Professionals]]></category></item>
+</channel>
+</rss>

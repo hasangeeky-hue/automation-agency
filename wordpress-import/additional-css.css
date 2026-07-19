@@ -1,0 +1,80 @@
+/* ============================================================
+   ANTHROPOS AUTOMATION — brand CSS
+   Paste into: WP Admin → Appearance → Customize → Additional CSS
+   (or your Bricks/Elementor global custom CSS)
+   ============================================================ */
+
+:root{
+  /* emotional palette: night (worry) → dawn (relief) → paper (calm) */
+  --aa-night:#131A2C; --aa-night-2:#1C2540; --aa-night-soft:#8E9AC0;
+  --aa-dawn:#E8A34C; --aa-dawn-deep:#C97F2B; --aa-dawn-soft:#F7E3C6;
+  --aa-clay:#D97862;
+  --aa-paper:#FAF7F2; --aa-paper-2:#F1EBE1;
+  --aa-ink:#232838; --aa-ink-2:#4A5062; --aa-ink-3:#7A8093;
+  --aa-line:#E6DFD2;
+  /* one hue per audience group — keep consistent sitewide */
+  --aa-g1:#5B54C7; --aa-g1-soft:#EFEEFB;  /* regulated professionals */
+  --aa-g2:#2E9C8F; --aa-g2-soft:#E7F5F2;  /* medical professionals */
+  --aa-g3:#E07A3F; --aa-g3-soft:#FBEFE5;  /* e-commerce & retail */
+  --aa-g4:#4C9E5F; --aa-g4-soft:#EAF5EC;  /* service professionals */
+  --aa-g5:#CC5B8B; --aa-g5-soft:#FAEBF1;  /* freelancers & agencies */
+  --aa-g6:#9061C9; --aa-g6-soft:#F3ECFA;  /* creators & coaches */
+  --aa-g7:#3E8FA8; --aa-g7-soft:#E8F3F6;  /* b2b providers */
+}
+
+/* buttons */
+.aa-btn{display:inline-block;padding:12px 22px;border-radius:99px;font-weight:600;
+  background:linear-gradient(120deg,var(--aa-dawn),var(--aa-dawn-deep));color:#20180A!important;
+  text-decoration:none;box-shadow:0 8px 24px rgba(232,163,76,.35)}
+.aa-btn-ghost{background:transparent;border:1.5px solid var(--aa-line);color:var(--aa-ink-2)!important;box-shadow:none}
+
+/* hero stats row */
+.aa-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:24px 0}
+.aa-stats div{background:#fff;border:1px solid var(--aa-line);border-radius:16px;padding:16px 18px;font-size:14px}
+.aa-stats strong{display:block;font-size:22px;color:#2E4BE4;color:var(--aa-dawn-deep)}
+@media(max-width:760px){.aa-stats{grid-template-columns:1fr 1fr}}
+
+/* profession pages */
+.aa-crumb{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--aa-ink-3)}
+.aa-who{color:var(--aa-ink-2)}
+.aa-pains{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}
+.aa-pain{background:var(--aa-paper);border:1px solid var(--aa-line);border-radius:12px;padding:14px;font-size:14px}
+.aa-pain span{display:block;color:#B91C1C;font-weight:600;font-size:13px;margin-top:6px}
+@media(max-width:900px){.aa-pains{grid-template-columns:1fr}}
+.aa-deliver{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
+.aa-deliver > div{background:var(--aa-paper-2);border:1px solid var(--aa-line);border-radius:14px;padding:18px}
+@media(max-width:900px){.aa-deliver{grid-template-columns:1fr}}
+.aa-results .aa-res{display:inline-block;background:var(--aa-dawn-soft);border:1px solid var(--aa-dawn);
+  border-radius:99px;padding:7px 14px;font-size:13px;font-weight:600;margin:0 6px 8px 0}
+
+/* boundary box (medical etc.) */
+.aa-boundary{background:#FBEDED;border:1px solid #EFC9C9;border-radius:12px;padding:14px 16px;margin:16px 0;font-size:14px}
+
+/* story posts */
+.aa-story-hook{font-size:18px;font-style:italic;color:var(--aa-ink-2);line-height:1.7}
+.aa-cost{background:var(--aa-paper-2);border-left:3px solid var(--aa-dawn-deep);
+  border-radius:0 10px 10px 0;padding:12px 16px;margin:16px 0;font-size:14px}
+
+/* ---- 4-color reader guide for guides/blog posts ----
+   Usage: <div class="aa-hl aa-do">…</div> etc. */
+.aa-hl{border-radius:12px;padding:14px 16px;margin:14px 0;font-size:14.5px}
+.aa-hl::before{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  display:inline-block;padding:2px 8px;border-radius:6px;color:#fff;margin-right:10px}
+.aa-do{background:#E9F5EC;border:1px solid #BFE3C8}.aa-do::before{content:"Do this";background:#15803D}
+.aa-stat{background:#FDF3E3;border:1px solid #F0DCB4}.aa-stat::before{content:"Key stat";background:#B45309}
+.aa-research{background:#EDF1FB;border:1px solid #C9D4F0}.aa-research::before{content:"Research note";background:#3B5BDB}
+.aa-warn{background:#FBEDED;border:1px solid #EFC9C9}.aa-warn::before{content:"Boundary";background:#B91C1C}
+
+/* quick-answer box (AEO) */
+.aa-quick{background:var(--aa-paper-2);border:1px solid var(--aa-line);border-radius:14px;padding:18px 20px;margin:18px 0}
+.aa-quick::before{content:"◆ Quick answer";display:block;font-size:10px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--aa-dawn-deep);margin-bottom:6px}
+
+/* category color accents on story cards (theme-dependent hooks) */
+.category-regulated-professionals .aa-cost{border-left-color:var(--aa-g1)}
+.category-medical-professionals .aa-cost{border-left-color:var(--aa-g2)}
+.category-ecommerce-retail .aa-cost{border-left-color:var(--aa-g3)}
+.category-service-professionals .aa-cost{border-left-color:var(--aa-g4)}
+.category-freelancers-agencies .aa-cost{border-left-color:var(--aa-g5)}
+.category-creators-coaches .aa-cost{border-left-color:var(--aa-g6)}
+.category-b2b-providers .aa-cost{border-left-color:var(--aa-g7)}
