@@ -4,7 +4,7 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'ANTHROPOS_VERSION', '5.14.0' );
+define( 'ANTHROPOS_VERSION', '5.15.0' );
 
 require_once get_template_directory() . '/inc/segments.php';
 require_once get_template_directory() . '/inc/content-seed.php';
@@ -277,7 +277,7 @@ add_action( 'wp_enqueue_scripts', 'anthropos_assets' );
  */
 function anthropos_bootstrap_pages() {
 	if ( ! is_admin() || ! current_user_can( 'manage_options' ) ) { return; }
-	if ( get_option( 'anthropos_bootstrapped_v53' ) ) { return; }
+	if ( get_option( 'anthropos_bootstrapped_v54' ) ) { return; }
 
 	// Parent "Services" page (overview listing) using the service template.
 	$svc = get_page_by_path( 'services' );
@@ -363,7 +363,7 @@ function anthropos_bootstrap_pages() {
 	}
 	// Flush permalinks so the new /services/{slug}/ URLs resolve.
 	flush_rewrite_rules();
-	update_option( 'anthropos_bootstrapped_v53', 1 );
+	update_option( 'anthropos_bootstrapped_v54', 1 );
 }
 add_action( 'admin_init', 'anthropos_bootstrap_pages' );
 

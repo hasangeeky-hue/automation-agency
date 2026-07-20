@@ -55,6 +55,7 @@ $blurbs = array(
 	<div class="wrap band reveal"><div class="eyebrow">Pick your business</div><h2>Built for your line of work</h2><p class="soft">Choose your business type for a page built around your world — your customers, your pains, and the guides that help most.</p></div>
 	<div class="wrap"><div class="grid-4" role="list">
 		<?php foreach ( $segs as $slug => $seg ) { echo '<a class="glass card reveal tilt" role="listitem" href="' . esc_url( anthropos_seg_url( $slug ) ) . '" style="--hue:' . esc_attr( $seg['hue'] ) . '"><div class="card-b"><span class="lbl">' . wp_kses_post( $seg['label'] ) . '</span><h4>' . wp_kses_post( $seg['title'] ) . '</h4><p>' . wp_kses_post( isset( $blurbs[ $slug ] ) ? $blurbs[ $slug ] : '' ) . '</p><span class="go">Open →</span></div></a>'; } ?>
+			<a class="glass card reveal tilt" role="listitem" href="<?php echo esc_url( home_url( '/business-launch/' ) ); ?>" style="--hue:var(--g6)"><div class="card-b"><span class="lbl">Just starting out?</span><h4>Business Launch</h4><p>Know your idea but not how to launch it? Company, website, bank &amp; automation — done together, US/UK.</p><span class="go">Open →</span></div></a>
 		<a class="glass card reveal tilt" role="listitem" href="#cta" style="--hue:var(--cta)"><div class="card-b"><span class="lbl">Not sure?</span><h4>Let's talk it through</h4><p>We'll show you where you're losing work — in 30 minutes, free.</p><span class="go">Talk to a human →</span></div></a>
 	</div></div>
 </section>

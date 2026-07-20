@@ -124,6 +124,64 @@ HTML,
 				'From inconsistent posting to a steady cadence',
 			),
 		),
+		'business-launch' => array(
+			'label' => 'Business Launch',
+			'title' => 'Business Launch',
+			'hue'   => 'var(--g6)',
+			'sub'   => 'You know exactly what business you want to build. You are just stuck at <b>"where do I even start?"</b> We launch it for you — company, website, bank and automation — as one finished thing you own, in the <b>US or UK</b>.',
+			'article' => <<<'HTML'
+<h2>You have the idea. You are stuck on "where do I even start?"</h2>
+<p>You know exactly what business you want to build — the product, the customer, the reason it will work. But between that idea and your first paying customer sits a wall of things nobody ever teaches you: which company to register, in which country, how to get a business bank account that will not reject you, what website makes you look real, how to take a payment on day one. The drive is there. The map is not. And so the idea sits in a notebook for another six months.</p>
+<h2>Where first-time founders quietly lose months</h2>
+<p>The leak here is not a lack of effort — it is fragmentation. You end up juggling a company-formation agent who only files paperwork, a freelance web designer who does not understand your business, an accountant who speaks a different language, and a bank that keeps asking for one more document. None of them talk to each other, and you become the unpaid project manager of your own launch. Weeks turn into months. Some good businesses never open at all — not because the idea was weak, but because the launch was exhausting.</p>
+<h2>The real problem: five separate jobs, and no one owns the whole thing</h2>
+<p>Registering the company, building the website, opening the bank account, setting up invoicing, and getting your first leads are five different specialities. Hire five different people and the gaps between them become your problem — the website that does not match the registered name, the bank that will not open without a real address, the invoicing that is not ready when the first customer says yes. What a new founder actually needs is not five vendors. It is one team that owns the entire launch and hands back something finished.</p>
+<h2>The fix: one team, one launch, everything wired together</h2>
+<p>We run the whole launch as a single project. Here is the path we take you down.</p>
+<figure class="diagram">
+<svg viewBox="0 0 680 98" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The launch path: from your idea, we register the company, build the website, set up the business bank and payments, connect operations and automation, and you open for business.">
+<defs><marker id="arB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M2 1 L8 5 L2 9" fill="none" stroke="#5FA8FF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<g font-family="system-ui,sans-serif">
+<rect x="6" y="26" width="96" height="46" rx="11" fill="rgba(95,168,255,.10)" stroke="#5FA8FF" stroke-width="1.3"/><text x="54" y="54" text-anchor="middle" fill="#EAF0FF" font-size="13" font-weight="600">Your idea</text>
+<rect x="118" y="26" width="96" height="46" rx="11" fill="rgba(95,168,255,.10)" stroke="#5FA8FF" stroke-width="1.3"/><text x="166" y="54" text-anchor="middle" fill="#EAF0FF" font-size="13" font-weight="600">Register</text>
+<rect x="230" y="26" width="96" height="46" rx="11" fill="rgba(95,168,255,.10)" stroke="#5FA8FF" stroke-width="1.3"/><text x="278" y="54" text-anchor="middle" fill="#EAF0FF" font-size="13" font-weight="600">Website</text>
+<rect x="342" y="26" width="96" height="46" rx="11" fill="rgba(95,168,255,.10)" stroke="#5FA8FF" stroke-width="1.3"/><text x="390" y="54" text-anchor="middle" fill="#EAF0FF" font-size="13" font-weight="600">Bank</text>
+<rect x="454" y="26" width="96" height="46" rx="11" fill="rgba(139,124,255,.10)" stroke="#8B7CFF" stroke-width="1.3"/><text x="502" y="54" text-anchor="middle" fill="#EAF0FF" font-size="13" font-weight="600">Automate</text>
+<rect x="566" y="26" width="108" height="46" rx="11" fill="rgba(70,224,139,.12)" stroke="#46E08B" stroke-width="1.4"/><text x="620" y="54" text-anchor="middle" fill="#EAF0FF" font-size="13" font-weight="700">Open</text>
+<line x1="102" y1="49" x2="116" y2="49" stroke="#5FA8FF" stroke-width="1.6" marker-end="url(#arB)"/>
+<line x1="214" y1="49" x2="228" y2="49" stroke="#5FA8FF" stroke-width="1.6" marker-end="url(#arB)"/>
+<line x1="326" y1="49" x2="340" y2="49" stroke="#5FA8FF" stroke-width="1.6" marker-end="url(#arB)"/>
+<line x1="438" y1="49" x2="452" y2="49" stroke="#5FA8FF" stroke-width="1.6" marker-end="url(#arB)"/>
+<line x1="550" y1="49" x2="564" y2="49" stroke="#5FA8FF" stroke-width="1.6" marker-end="url(#arB)"/>
+</g>
+</svg>
+<figcaption>One team takes you from idea to open — and the business is already running when you get there.</figcaption>
+</figure>
+<p>We form the right company for you in the US or UK, build the website that makes you look established from day one, set up your business bank channel and payments so you can take money immediately, and connect your email, CRM and invoicing so nothing is held together with sticky notes. Then we do the part almost every launch service skips: we switch on the automation that captures and follows up your very first leads — before you have hired a single person. You do not open "a business." You open a business that is already working.</p>
+<h2>Why us, and what you walk away with</h2>
+<p>Plenty of people will register a company for you. Almost no one hands you a company that is registered, banked, online, compliant and automated — as one finished thing that is entirely yours. That is the whole point of this service, and it is built for founders launching in <b>America and the UK</b>. You keep every account and every asset; we simply do the hard, fragmented middle so you can start selling instead of project-managing. Explore the <a href="/guides/">launch guides</a>, read the <a href="/faq/">FAQ</a>, or book a free consultation and we will map your exact launch path in thirty minutes.</p>
+HTML,
+			'blocks'=> array(
+				array( 'core', 'var(--g6)', '01', 'Company formation &amp; filing', 'We register the right company for you in the US or UK — the correct structure for your goals, not just the cheapest one to file. All the paperwork, the registered address, the filings and the compliance basics are handled and handed to you documented, so you are properly set up from the first day instead of fixing it later.' ),
+				array( 'funnel', 'var(--g2)', '02', 'A website that looks established', 'A fast, modern website that makes a brand-new business look like it has been around for years — clear, credible, and built around the five-second test so a stranger trusts you immediately. Lead capture is wired in from day one, ready to feed the automation, so your site is a working tool and not just a brochure.' ),
+				array( 'dataflow', 'var(--flow)', '03', 'Business bank &amp; payments', 'The step that stops most founders cold: we help you set up your business bank channel and payment tools so you can actually take money on launch day. No more applications rejected for a missing detail — the account, the invoicing and the payment links are ready before your first customer says yes.' ),
+				array( 'workflow', 'var(--ai)', '04', 'Your operations, connected', 'Email, calendar, CRM and invoicing wired together on n8n so your new business runs as one system, not five disconnected apps you have to babysit. From the first enquiry to the first invoice, information flows on its own — which is what lets one founder operate like a small team.' ),
+				array( 'growth', 'var(--g4)', '05', 'Automation from day one', 'The part almost every launch service skips. Before you have any staff, the system already answers new enquiries in seconds, qualifies them, and follows up so nothing is lost. You launch with the follow-up muscle of a much bigger company — which is exactly what a new business needs to win its first customers.' ),
+			),
+			'glabel'=> 'new founders',
+			'guides'=> array(
+				'Which company structure is right for you — US vs UK, in plain terms',
+				'Getting a business bank account approved, without the rejections',
+				'The launch-day website checklist for a brand-new business',
+				'Company filing, step by step — what actually has to happen',
+				'Looking established on day one, even as a team of one',
+				'Setting up payments and invoicing before your first sale',
+				'The automation a brand-new business should switch on first',
+				'US or UK? Where to base your business, and why',
+				'From idea to open in 30 days — a realistic launch plan',
+				'The five people you would otherwise hire — and why one team is better',
+			),
+		),
 	);
 }
 

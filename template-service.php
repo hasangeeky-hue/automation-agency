@@ -183,7 +183,7 @@ if ( isset( $svcpages[ $slug ] ) ) :
 	</section>
 	<section id="article">
 		<div class="wrap band reveal"><div class="eyebrow">Why this, and how it works</div><h2>The full picture</h2></div>
-		<div class="wrap"><div class="glass" style="padding:32px 36px"><div class="aa-content"><?php echo wp_kses_post( anthropos_localize_links( $s['article'] ) ); ?></div></div></div>
+		<div class="wrap"><div class="glass" style="padding:32px 36px"><div class="aa-content"><?php echo anthropos_localize_links( $s['article'] ); // phpcs:ignore WordPress.Security.EscapeOutput -- trusted static theme content (may contain inline SVG diagrams) ?></div></div></div>
 	</section>
 	<section id="guides">
 		<div class="wrap band reveal"><div class="eyebrow">10 guides · problem → solution → CTA</div><h2>Guides for <?php echo wp_kses_post( $s['label'] ); ?></h2></div>
@@ -257,7 +257,7 @@ $offers = function_exists( 'anthropos_offers' ) ? anthropos_offers() : array();
 
 <section id="article">
 	<div class="wrap band reveal"><div class="eyebrow">Why this, and how it works</div><h2>The full picture for <?php echo wp_kses_post( $seg['label'] ); ?></h2></div>
-	<div class="wrap"><div class="glass" style="padding:32px 36px"><div class="aa-content"><?php echo wp_kses_post( anthropos_localize_links( $seg['article'] ) ); ?></div></div></div>
+	<div class="wrap"><div class="glass" style="padding:32px 36px"><div class="aa-content"><?php echo anthropos_localize_links( $seg['article'] ); // phpcs:ignore WordPress.Security.EscapeOutput -- trusted static theme content (may contain inline SVG diagrams) ?></div></div></div>
 </section>
 
 <section id="guides">
