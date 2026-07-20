@@ -4,7 +4,7 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'ANTHROPOS_VERSION', '5.22.0' );
+define( 'ANTHROPOS_VERSION', '5.23.0' );
 
 require_once get_template_directory() . '/inc/segments.php';
 require_once get_template_directory() . '/inc/content-seed.php';
@@ -283,7 +283,7 @@ add_action( 'wp_enqueue_scripts', 'anthropos_assets' );
  */
 function anthropos_bootstrap_pages() {
 	if ( get_option( 'anthropos_bootstrapped_v54' ) ) { return; }
-	if ( wp_installing() ) { return; }
+	if ( ! is_admin() || ! current_user_can( 'manage_options' ) ) { return; }
 
 	// Parent "Services" page (overview listing) using the service template.
 	$svc = get_page_by_path( 'services' );
@@ -372,7 +372,6 @@ function anthropos_bootstrap_pages() {
 	update_option( 'anthropos_bootstrapped_v54', 1 );
 }
 add_action( 'admin_init', 'anthropos_bootstrap_pages' );
-add_action( 'init', 'anthropos_bootstrap_pages', 24 ); // also run on front-end so pages seed without an admin login
 
 /**
  * Seed real content: 7 segment categories + 6 service tags + ao_type terms
@@ -382,7 +381,7 @@ add_action( 'init', 'anthropos_bootstrap_pages', 24 ); // also run on front-end 
  */
 function anthropos_seed_content() {
 	if ( get_option( 'anthropos_content_seeded_v9' ) ) { return; }
-	if ( wp_installing() ) { return; }
+	if ( ! is_admin() || ! current_user_can( 'manage_options' ) ) { return; }
 	if ( ! function_exists( 'anthropos_seed_posts' ) ) { return; }
 
 	// Segment categories — slugs match anthropos_segments() keys exactly.
@@ -458,7 +457,6 @@ function anthropos_seed_content() {
 	update_option( 'anthropos_content_seeded_v9', 1 );
 }
 add_action( 'admin_init', 'anthropos_seed_content', 20 );
-add_action( 'init', 'anthropos_seed_content', 25 ); // also run on front-end so posts seed without an admin login
 
 /**
  * One-time: retire the old generic guide/blog library (batches 1-3) by moving
@@ -468,7 +466,7 @@ add_action( 'init', 'anthropos_seed_content', 25 ); // also run on front-end so 
  */
 function anthropos_retire_old_content() {
 	if ( get_option( 'anthropos_old_retired_v1' ) ) { return; }
-	if ( wp_installing() ) { return; }
+	if ( ! is_admin() || ! current_user_can( 'manage_options' ) ) { return; }
 	$old = array();
 	if ( function_exists( 'anthropos_seed_posts' ) )        { $old = array_merge( $old, anthropos_seed_posts() ); }
 	if ( function_exists( 'anthropos_seed_posts_batch2' ) ) { $old = array_merge( $old, anthropos_seed_posts_batch2() ); }
@@ -484,7 +482,6 @@ function anthropos_retire_old_content() {
 	update_option( 'anthropos_old_retired_v1', 1 );
 }
 add_action( 'admin_init', 'anthropos_retire_old_content', 22 );
-add_action( 'init', 'anthropos_retire_old_content', 26 );
 
 /**
  * One-time migration: localize root-relative links in posts seeded before
