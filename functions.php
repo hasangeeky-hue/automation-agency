@@ -4,7 +4,7 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'ANTHROPOS_VERSION', '5.24.0' );
+define( 'ANTHROPOS_VERSION', '5.25.0' );
 
 require_once get_template_directory() . '/inc/segments.php';
 require_once get_template_directory() . '/inc/content-seed.php';
@@ -16,6 +16,7 @@ require_once get_template_directory() . '/inc/content-seed-batch6.php';
 require_once get_template_directory() . '/inc/content-seed-batch7.php';
 require_once get_template_directory() . '/inc/content-seed-batch8.php';
 require_once get_template_directory() . '/inc/content-seed-batch9.php';
+require_once get_template_directory() . '/inc/consultation.php';
 
 /** Service tags (short code => label) — used as WP tags + filter buttons. */
 function anthropos_service_tags() {
@@ -282,7 +283,7 @@ add_action( 'wp_enqueue_scripts', 'anthropos_assets' );
  * fires the first time an admin loads the dashboard after this version deploys.
  */
 function anthropos_bootstrap_pages() {
-	if ( get_option( 'anthropos_bootstrapped_v54' ) ) { return; }
+	if ( get_option( 'anthropos_bootstrapped_v55' ) ) { return; }
 	if ( ! is_admin() || ! current_user_can( 'manage_options' ) ) { return; }
 
 	// Parent "Services" page (overview listing) using the service template.
@@ -338,6 +339,26 @@ function anthropos_bootstrap_pages() {
 		$fid = wp_insert_post( array( 'post_title' => 'FAQ', 'post_name' => 'faq', 'post_status' => 'publish', 'post_type' => 'page', 'post_content' => '' ) );
 		if ( $fid && ! is_wp_error( $fid ) ) { update_post_meta( $fid, '_wp_page_template', 'template-faq.php' ); }
 	}
+	// Legal / policy pages (placeholder copy — replace with your final wording before launch).
+	$legal = array(
+		'privacy-policy' => array(
+			'Privacy Policy',
+			'<p><b>This is a starting-point privacy policy — replace it with your finalised wording before launch.</b></p><p>Anthropos Automation Service ("we", "us") respects your privacy. This page explains what we collect and why.</p><h2>What we collect</h2><p>When you submit the consultation form we collect the details you provide — your name, email, phone number, business information, your answers to our questions, and any file you choose to attach. We collect this only to respond to your enquiry.</p><h2>How we use it</h2><p>We use your information solely to contact you about your enquiry and to prepare for our conversation. We do not sell your data, and we do not share it with third parties except the tools we use to operate our business and reply to you.</p><h2>Data storage &amp; your rights</h2><p>Your data is stored securely on EU-hosted infrastructure. You may ask us at any time to see, correct or delete the information we hold about you by emailing us at the address in our imprint.</p><h2>Cookies</h2><p>This website uses only the cookies necessary to function. We will update this section with full detail before launch.</p>',
+		),
+		'terms' => array(
+			'Terms of Service',
+			'<p><b>This is a starting-point terms page — replace it with your finalised wording before launch.</b></p><p>These terms govern your use of this website and any consultation you book with Anthropos Automation Service.</p><h2>Consultations</h2><p>Booking a consultation is free and places you under no obligation. Any proposal we make is agreed with you in writing before work begins.</p><h2>Ownership</h2><p>Any system we build for a client is built on the client\'s own accounts and handed over to the client. Full terms of any engagement are set out in a separate written agreement.</p><h2>Liability</h2><p>The information on this website is provided for general guidance and does not constitute professional advice. We will update these terms with full detail before launch.</p>',
+		),
+		'imprint' => array(
+			'Imprint',
+			'<p><b>Placeholder imprint — replace with your final legal details before launch.</b></p><p>Anthropos Automation Service<br>[Registered company name and address]<br>[Country of registration]</p><p>Contact: hello@anthropos-automation.com</p><p>Responsible for content: [Name]</p>',
+		),
+	);
+	foreach ( $legal as $lslug => $ldata ) {
+		if ( ! get_page_by_path( $lslug ) ) {
+			wp_insert_post( array( 'post_title' => $ldata[0], 'post_name' => $lslug, 'post_status' => 'publish', 'post_type' => 'page', 'post_content' => $ldata[1] ) );
+		}
+	}
 	// Guides library landing (linked from inside service pages, not the header).
 	$gpg = get_page_by_path( 'guides' );
 	if ( ! $gpg ) {
@@ -369,7 +390,7 @@ function anthropos_bootstrap_pages() {
 	}
 	// Flush permalinks so the new /services/{slug}/ URLs resolve.
 	flush_rewrite_rules();
-	update_option( 'anthropos_bootstrapped_v54', 1 );
+	update_option( 'anthropos_bootstrapped_v55', 1 );
 }
 add_action( 'admin_init', 'anthropos_bootstrap_pages' );
 
