@@ -4,7 +4,7 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'ANTHROPOS_VERSION', '5.21.0' );
+define( 'ANTHROPOS_VERSION', '5.22.0' );
 
 require_once get_template_directory() . '/inc/segments.php';
 require_once get_template_directory() . '/inc/content-seed.php';
@@ -459,6 +459,32 @@ function anthropos_seed_content() {
 }
 add_action( 'admin_init', 'anthropos_seed_content', 20 );
 add_action( 'init', 'anthropos_seed_content', 25 ); // also run on front-end so posts seed without an admin login
+
+/**
+ * One-time: retire the old generic guide/blog library (batches 1-3) by moving
+ * those posts to draft, so only the new-style content (batches 4-9) is shown.
+ * Reversible — nothing is deleted. Service-page guide cards fall back to the
+ * guides library automatically for any slug that is no longer published.
+ */
+function anthropos_retire_old_content() {
+	if ( get_option( 'anthropos_old_retired_v1' ) ) { return; }
+	if ( wp_installing() ) { return; }
+	$old = array();
+	if ( function_exists( 'anthropos_seed_posts' ) )        { $old = array_merge( $old, anthropos_seed_posts() ); }
+	if ( function_exists( 'anthropos_seed_posts_batch2' ) ) { $old = array_merge( $old, anthropos_seed_posts_batch2() ); }
+	if ( function_exists( 'anthropos_seed_posts_batch3' ) ) { $old = array_merge( $old, anthropos_seed_posts_batch3() ); }
+	if ( ! $old ) { return; }
+	foreach ( $old as $p ) {
+		if ( empty( $p['slug'] ) ) { continue; }
+		$post = get_page_by_path( $p['slug'], OBJECT, 'post' );
+		if ( $post && 'publish' === $post->post_status ) {
+			wp_update_post( array( 'ID' => $post->ID, 'post_status' => 'draft' ) );
+		}
+	}
+	update_option( 'anthropos_old_retired_v1', 1 );
+}
+add_action( 'admin_init', 'anthropos_retire_old_content', 22 );
+add_action( 'init', 'anthropos_retire_old_content', 26 );
 
 /**
  * One-time migration: localize root-relative links in posts seeded before
