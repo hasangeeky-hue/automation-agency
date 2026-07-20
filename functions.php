@@ -4,7 +4,7 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'ANTHROPOS_VERSION', '5.25.0' );
+define( 'ANTHROPOS_VERSION', '5.26.0' );
 
 require_once get_template_directory() . '/inc/segments.php';
 require_once get_template_directory() . '/inc/content-seed.php';
@@ -17,6 +17,14 @@ require_once get_template_directory() . '/inc/content-seed-batch7.php';
 require_once get_template_directory() . '/inc/content-seed-batch8.php';
 require_once get_template_directory() . '/inc/content-seed-batch9.php';
 require_once get_template_directory() . '/inc/consultation.php';
+
+/**
+ * Stop WordPress from silently switching to the default theme if it ever thinks
+ * this theme is momentarily "broken" — which happens during a Git Updater file
+ * swap and was falling the live site back to twentytwentyfive / "Hello world".
+ * Our theme is valid; this prevents the false-positive auto-switch.
+ */
+add_filter( 'validate_current_theme', '__return_false' );
 
 /** Service tags (short code => label) — used as WP tags + filter buttons. */
 function anthropos_service_tags() {
