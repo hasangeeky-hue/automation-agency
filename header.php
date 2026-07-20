@@ -22,7 +22,7 @@ $about = $about_pg ? get_permalink( $about_pg ) : home_url( '/about/' );
 <?php wp_body_open(); ?>
 <header class="hd">
 	<div class="hd-in">
-		<a class="logo" href="<?php echo esc_url( $home ); ?>"><canvas class="knot" width="68" height="68" aria-hidden="true"></canvas><span><?php bloginfo( 'name' ); ?><small><?php esc_html_e( 'automation os', 'anthropos' ); ?></small></span></a>
+		<a class="logo" href="<?php echo esc_url( $home ); ?>"><?php echo anthropos_logo_mark( 40, 'hd' ); // phpcs:ignore WordPress.Security.EscapeOutput -- static SVG ?><span><?php bloginfo( 'name' ); ?><small><?php esc_html_e( 'automation os', 'anthropos' ); ?></small></span></a>
 		<ul class="nav">
 			<li data-menu><a href="<?php echo esc_url( $about ); ?>"><?php esc_html_e( 'About Us', 'anthropos' ); ?></a>
 				<ul class="sub">

@@ -4,7 +4,7 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'ANTHROPOS_VERSION', '5.12.0' );
+define( 'ANTHROPOS_VERSION', '5.13.0' );
 
 require_once get_template_directory() . '/inc/segments.php';
 require_once get_template_directory() . '/inc/content-seed.php';
@@ -46,6 +46,29 @@ function anthropos_seg_url( $slug ) {
 function anthropos_localize_links( $html ) {
 	return str_replace( 'href="/', 'href="' . home_url() . '/', $html );
 }
+
+/**
+ * Brand mark — the "Network A" logo (an A drawn as a three-node agent network)
+ * as inline SVG. $uid keeps the gradient id unique when the mark is rendered
+ * more than once on a page (header + footer).
+ */
+function anthropos_logo_mark( $size = 34, $uid = 'a' ) {
+	$s   = (int) $size;
+	$uid = preg_replace( '/[^a-z0-9]/i', '', $uid );
+	return '<svg class="brandmark" width="' . $s . '" height="' . $s . '" viewBox="0 0 100 100" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">'
+		. '<defs><linearGradient id="bm' . $uid . '" x1="26" y1="80" x2="74" y2="24" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2FE3D2"/><stop offset="1" stop-color="#8B7CFF"/></linearGradient></defs>'
+		. '<g class="bm-strokes" fill="none" stroke="url(#bm' . $uid . ')" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="M50 26 L28 76"/><path d="M50 26 L72 76"/><path d="M38 52 L62 52"/></g>'
+		. '<g class="bm-nodes"><circle cx="50" cy="25" r="6.6" fill="#8B7CFF"/><circle cx="27" cy="77" r="6.6" fill="#2FE3D2"/><circle cx="73" cy="77" r="6.6" fill="#2FE3D2"/><circle cx="50" cy="52" r="5" fill="#FF5C8A"/></g>'
+		. '</svg>';
+}
+
+/** SVG favicon (data URI) — the mark on a rounded dark tile so it reads on any browser tab. */
+function anthropos_favicon() {
+	if ( has_site_icon() ) { return; }
+	$svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="24" fill="#0F1626"/><g fill="none" stroke="#2FE3D2" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M50 28 L30 74"/><path d="M50 28 L70 74"/><path d="M39 53 L61 53"/></g><circle cx="50" cy="27" r="7" fill="#8B7CFF"/><circle cx="30" cy="75" r="7" fill="#2FE3D2"/><circle cx="70" cy="75" r="7" fill="#2FE3D2"/><circle cx="50" cy="53" r="5.5" fill="#FF5C8A"/></svg>';
+	echo '<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,' . rawurlencode( $svg ) . '">' . "\n";
+}
+add_action( 'wp_head', 'anthropos_favicon', 1 );
 
 /**
  * Canonical FAQ data — server-rendered as real <details> markup (not

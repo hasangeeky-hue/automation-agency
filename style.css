@@ -4,7 +4,7 @@ Theme URI: https://github.com/hasangeeky-hue/automation-agency
 Author: Anthropos Automation
 Author URI: https://anthropos-automation.com
 Description: AI Automation OS theme — dark glass automation canvas, node-graph/agent-network 3D on every card, 6 automation services, per-segment service pages named "Automation Service for {Segment}", guide + blog templates, neuro-navigation and internal linking.
-Version: 5.12.0
+Version: 5.13.0
 Requires at least: 6.0
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
@@ -40,8 +40,15 @@ canvas{display:block}
 .hd{position:sticky;top:0;z-index:100;background:rgba(8,11,20,.72);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
 .hd-in{max-width:1300px;margin:0 auto;padding:0 30px;display:flex;align-items:center;gap:22px;height:70px}
 .logo{display:flex;align-items:center;gap:11px;font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:-.01em}
-.logo canvas{width:34px;height:34px;flex:0 0 auto}
+.logo canvas,.logo .brandmark{width:36px;height:36px;flex:0 0 auto}
 .logo small{display:block;font-family:var(--mono);font-size:8.5px;letter-spacing:.28em;color:var(--faint);text-transform:uppercase;line-height:1.2}
+/* Network A brand mark + subtle one-time build-in (header only, respects reduced-motion) */
+.brandmark{filter:drop-shadow(0 0 5px rgba(139,124,255,.35));transition:transform .25s ease}
+.logo:hover .brandmark{transform:translateY(-1px) scale(1.04)}
+.js .brandmark .bm-strokes path{stroke-dasharray:72;animation:bmDraw .7s cubic-bezier(.6,.2,.2,1) both}
+.js .brandmark .bm-nodes circle{transform-box:fill-box;transform-origin:center;animation:bmPop .45s ease .5s both}
+@keyframes bmDraw{from{stroke-dashoffset:72}to{stroke-dashoffset:0}}
+@keyframes bmPop{0%{opacity:0;transform:scale(.3)}60%{opacity:1;transform:scale(1.15)}to{opacity:1;transform:scale(1)}}
 .nav{display:flex;align-items:center;gap:2px;flex:1;list-style:none}
 .nav>li{position:static}
 .nav>li>a,.nav>li>span{display:flex;align-items:center;gap:6px;padding:9px 14px;border-radius:10px;font-weight:500;font-size:14px;color:var(--muted);cursor:pointer}

@@ -1,7 +1,7 @@
 /* ============================================================
    Anthropos Automation OS — effects & interactions
    12 distinct Canvas-2D animated objects (each maps to a meaning),
-   Three.js hero agent-network, logo knots, UI interactions.
+   Three.js hero agent-network, UI interactions.
    ============================================================ */
 (function () {
   'use strict';
@@ -249,15 +249,4 @@
     (function frame(tt) { requestAnimationFrame(frame); if (!vis) return; var w = canvas.clientWidth, h = canvas.clientHeight; if (!w || !h) return; if (canvas.width !== w || canvas.height !== h) { renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); } var tm = tt / 1000; scene.rotation.y = tm * 0.05 + mx * 0.4; scene.rotation.x = my * 0.25; core.rotation.x = tm * 0.3; core.rotation.y = tm * 0.22; cg.scale.setScalar(1 + Math.sin(tm * 1.6) * 0.12); if (!reduced) { var arr = pg.attributes.position.array; for (var i = 0; i < PN; i++) { var d = pd[i]; d.t += 0.008; if (d.t > 1) { d.t = 0; d.s = pos[(Math.random() * N) | 0]; } var kk = 1 - d.t; arr[i * 3] = d.s.x * kk; arr[i * 3 + 1] = d.s.y * kk; arr[i * 3 + 2] = d.s.z * kk; } pg.attributes.position.needsUpdate = true; } renderer.render(scene, camera); })(0);
   }
   document.querySelectorAll('[data-net]').forEach(function (c) { agentNetwork(c, { nodes: +c.dataset.nodes || 80, pulses: +c.dataset.pulses || 55, z: +c.dataset.z || 19 }); });
-
-  /* ---------- logo knots ---------- */
-  document.querySelectorAll('canvas.knot').forEach(function (canvas) {
-    if (!window.THREE) return;
-    var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true }); renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    var scene = new THREE.Scene(), camera = new THREE.PerspectiveCamera(45, 1, 0.1, 50); camera.position.z = 7;
-    var m = new THREE.Mesh(new THREE.TorusKnotGeometry(1.7, 0.4, 120, 16, 2, 3), new THREE.MeshStandardMaterial({ color: '#8B7CFF', metalness: .6, roughness: .3, emissive: '#2FE3D2', emissiveIntensity: .15 }));
-    scene.add(m); scene.add(new THREE.AmbientLight('#5B6684', .8)); var key = new THREE.DirectionalLight('#CFC7FF', 1.4); key.position.set(3, 4, 5); scene.add(key);
-    var vis = true; new IntersectionObserver(function (e) { vis = e[0].isIntersecting; }).observe(canvas);
-    (function fr() { requestAnimationFrame(fr); if (!vis) return; var w = canvas.clientWidth, h = canvas.clientHeight; if (canvas.width !== w || canvas.height !== h) { renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); } if (!reduced) m.rotation.y += 0.006; m.rotation.x = 0.4; renderer.render(scene, camera); })();
-  });
 })();
