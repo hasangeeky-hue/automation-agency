@@ -4,7 +4,7 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'ANTHROPOS_VERSION', '5.23.0' );
+define( 'ANTHROPOS_VERSION', '5.24.0' );
 
 require_once get_template_directory() . '/inc/segments.php';
 require_once get_template_directory() . '/inc/content-seed.php';
@@ -430,7 +430,9 @@ function anthropos_seed_content() {
 	if ( function_exists( 'anthropos_seed_posts_batch9' ) ) {
 		$seed_posts = array_merge( $seed_posts, anthropos_seed_posts_batch9() );
 	}
+	$inserted = 0;
 	foreach ( $seed_posts as $p ) {
+		if ( $inserted >= 25 ) { return; } // chunk: continue on the next admin load so no single request is too heavy
 		if ( get_page_by_path( $p['slug'], OBJECT, 'post' ) ) { continue; }
 		$pid = wp_insert_post( array(
 			'post_title'   => $p['title'],
@@ -440,6 +442,7 @@ function anthropos_seed_content() {
 			'post_content' => anthropos_localize_links( $p['content'] ),
 		) );
 		if ( ! $pid || is_wp_error( $pid ) ) { continue; }
+		$inserted++;
 		if ( ! empty( $p['cat'] ) ) {
 			$cat_term = get_term_by( 'slug', $p['cat'], 'category' );
 			if ( $cat_term ) { wp_set_post_categories( $pid, array( $cat_term->term_id ) ); }
@@ -472,11 +475,14 @@ function anthropos_retire_old_content() {
 	if ( function_exists( 'anthropos_seed_posts_batch2' ) ) { $old = array_merge( $old, anthropos_seed_posts_batch2() ); }
 	if ( function_exists( 'anthropos_seed_posts_batch3' ) ) { $old = array_merge( $old, anthropos_seed_posts_batch3() ); }
 	if ( ! $old ) { return; }
+	$done = 0;
 	foreach ( $old as $p ) {
+		if ( $done >= 25 ) { return; } // chunk: continue on the next admin load so no single request is too heavy
 		if ( empty( $p['slug'] ) ) { continue; }
 		$post = get_page_by_path( $p['slug'], OBJECT, 'post' );
 		if ( $post && 'publish' === $post->post_status ) {
 			wp_update_post( array( 'ID' => $post->ID, 'post_status' => 'draft' ) );
+			$done++;
 		}
 	}
 	update_option( 'anthropos_old_retired_v1', 1 );
