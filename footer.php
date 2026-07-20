@@ -20,7 +20,7 @@ if ( ! $blog ) { $blog = home_url( '/blog/' ); }
 <footer class="ftr">
 	<div class="foot">
 		<div class="foot-brand">
-			<a class="logo" href="<?php echo esc_url( $home ); ?>"><?php echo anthropos_logo_mark( 40, 'ft' ); // phpcs:ignore WordPress.Security.EscapeOutput -- static SVG ?><span><?php bloginfo( 'name' ); ?><small><?php esc_html_e( 'automation os', 'anthropos' ); ?></small></span></a>
+			<a class="logo" href="<?php echo esc_url( $home ); ?>"><?php echo anthropos_logo_mark( 40, 'ft' ); // phpcs:ignore WordPress.Security.EscapeOutput -- static SVG ?><span><?php esc_html_e( 'Anthropos Automation', 'anthropos' ); ?><small><?php esc_html_e( 'service', 'anthropos' ); ?></small></span></a>
 			<p><?php esc_html_e( 'Web design + AEO/GEO + AI business automation for solo operators and small teams. Live systems in 4 weeks. Munich · EU-hosted.', 'anthropos' ); ?></p>
 			<div class="foot-nap">ANTHROPOS AUTOMATION<br>MUNICH, GERMANY · EU-HOSTED<br>HELLO@ANTHROPOS-AUTOMATION.COM</div>
 		</div>

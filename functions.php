@@ -4,7 +4,7 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'ANTHROPOS_VERSION', '5.17.0' );
+define( 'ANTHROPOS_VERSION', '5.18.0' );
 
 require_once get_template_directory() . '/inc/segments.php';
 require_once get_template_directory() . '/inc/content-seed.php';
@@ -279,8 +279,8 @@ add_action( 'wp_enqueue_scripts', 'anthropos_assets' );
  * fires the first time an admin loads the dashboard after this version deploys.
  */
 function anthropos_bootstrap_pages() {
-	if ( ! is_admin() || ! current_user_can( 'manage_options' ) ) { return; }
 	if ( get_option( 'anthropos_bootstrapped_v54' ) ) { return; }
+	if ( wp_installing() ) { return; }
 
 	// Parent "Services" page (overview listing) using the service template.
 	$svc = get_page_by_path( 'services' );
@@ -369,6 +369,7 @@ function anthropos_bootstrap_pages() {
 	update_option( 'anthropos_bootstrapped_v54', 1 );
 }
 add_action( 'admin_init', 'anthropos_bootstrap_pages' );
+add_action( 'init', 'anthropos_bootstrap_pages', 24 ); // also run on front-end so pages seed without an admin login
 
 /**
  * Seed real content: 7 segment categories + 6 service tags + ao_type terms
@@ -377,8 +378,8 @@ add_action( 'admin_init', 'anthropos_bootstrap_pages' );
  * content batches can bump this flag without re-running page creation.
  */
 function anthropos_seed_content() {
-	if ( ! is_admin() || ! current_user_can( 'manage_options' ) ) { return; }
 	if ( get_option( 'anthropos_content_seeded_v6' ) ) { return; }
+	if ( wp_installing() ) { return; }
 	if ( ! function_exists( 'anthropos_seed_posts' ) ) { return; }
 
 	// Segment categories — slugs match anthropos_segments() keys exactly.
@@ -445,6 +446,7 @@ function anthropos_seed_content() {
 	update_option( 'anthropos_content_seeded_v6', 1 );
 }
 add_action( 'admin_init', 'anthropos_seed_content', 20 );
+add_action( 'init', 'anthropos_seed_content', 25 ); // also run on front-end so posts seed without an admin login
 
 /**
  * One-time migration: localize root-relative links in posts seeded before
