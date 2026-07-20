@@ -4,13 +4,14 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'ANTHROPOS_VERSION', '5.15.0' );
+define( 'ANTHROPOS_VERSION', '5.16.0' );
 
 require_once get_template_directory() . '/inc/segments.php';
 require_once get_template_directory() . '/inc/content-seed.php';
 require_once get_template_directory() . '/inc/content-seed-batch2.php';
 require_once get_template_directory() . '/inc/content-seed-batch3.php';
 require_once get_template_directory() . '/inc/content-seed-batch4.php';
+require_once get_template_directory() . '/inc/content-seed-batch5.php';
 
 /** Service tags (short code => label) — used as WP tags + filter buttons. */
 function anthropos_service_tags() {
@@ -57,16 +58,17 @@ function anthropos_logo_mark( $size = 34, $uid = 'a' ) {
 	$s   = (int) $size;
 	$uid = preg_replace( '/[^a-z0-9]/i', '', $uid );
 	return '<svg class="brandmark" width="' . $s . '" height="' . $s . '" viewBox="0 0 100 100" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">'
-		. '<defs><linearGradient id="bm' . $uid . '" x1="26" y1="80" x2="74" y2="24" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2FE3D2"/><stop offset="1" stop-color="#8B7CFF"/></linearGradient></defs>'
-		. '<g class="bm-strokes" fill="none" stroke="url(#bm' . $uid . ')" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="M50 26 L28 76"/><path d="M50 26 L72 76"/><path d="M38 52 L62 52"/></g>'
-		. '<g class="bm-nodes"><circle cx="50" cy="25" r="6.6" fill="#8B7CFF"/><circle cx="27" cy="77" r="6.6" fill="#2FE3D2"/><circle cx="73" cy="77" r="6.6" fill="#2FE3D2"/><circle cx="50" cy="52" r="5" fill="#FF5C8A"/></g>'
+		. '<defs><linearGradient id="bm' . $uid . '" x1="26" y1="80" x2="74" y2="26" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2FE3D2"/><stop offset="1" stop-color="#8B7CFF"/></linearGradient></defs>'
+		. '<g class="bm-strokes" fill="none" stroke="url(#bm' . $uid . ')" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="M50 28 L28 76"/><path d="M50 28 L72 76"/><path d="M38 53 L62 53"/></g>'
+		. '<g class="bm-nodes"><circle cx="27" cy="77" r="6.6" fill="#2FE3D2"/><circle cx="73" cy="77" r="6.6" fill="#2FE3D2"/><circle cx="50" cy="53" r="4.6" fill="#8B7CFF"/></g>'
+		. '<g class="bm-human"><path d="M41 29 Q41 20.5 50 20.5 Q59 20.5 59 29 Z" fill="#FF5C8A"/><circle cx="50" cy="15.4" r="4.8" fill="#FF5C8A"/></g>'
 		. '</svg>';
 }
 
 /** SVG favicon (data URI) — the mark on a rounded dark tile so it reads on any browser tab. */
 function anthropos_favicon() {
 	if ( has_site_icon() ) { return; }
-	$svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="24" fill="#0F1626"/><g fill="none" stroke="#2FE3D2" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M50 28 L30 74"/><path d="M50 28 L70 74"/><path d="M39 53 L61 53"/></g><circle cx="50" cy="27" r="7" fill="#8B7CFF"/><circle cx="30" cy="75" r="7" fill="#2FE3D2"/><circle cx="70" cy="75" r="7" fill="#2FE3D2"/><circle cx="50" cy="53" r="5.5" fill="#FF5C8A"/></svg>';
+	$svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="24" fill="#0F1626"/><g fill="none" stroke="#2FE3D2" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M50 32 L30 76"/><path d="M50 32 L70 76"/><path d="M39 56 L61 56"/></g><circle cx="30" cy="77" r="7" fill="#2FE3D2"/><circle cx="70" cy="77" r="7" fill="#2FE3D2"/><circle cx="50" cy="56" r="5" fill="#8B7CFF"/><path d="M40 33 Q40 23.5 50 23.5 Q60 23.5 60 33 Z" fill="#FF5C8A"/><circle cx="50" cy="18" r="5.4" fill="#FF5C8A"/></svg>';
 	echo '<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,' . rawurlencode( $svg ) . '">' . "\n";
 }
 add_action( 'wp_head', 'anthropos_favicon', 1 );
@@ -375,7 +377,7 @@ add_action( 'admin_init', 'anthropos_bootstrap_pages' );
  */
 function anthropos_seed_content() {
 	if ( ! is_admin() || ! current_user_can( 'manage_options' ) ) { return; }
-	if ( get_option( 'anthropos_content_seeded_v4' ) ) { return; }
+	if ( get_option( 'anthropos_content_seeded_v5' ) ) { return; }
 	if ( ! function_exists( 'anthropos_seed_posts' ) ) { return; }
 
 	// Segment categories — slugs match anthropos_segments() keys exactly.
@@ -409,6 +411,9 @@ function anthropos_seed_content() {
 	if ( function_exists( 'anthropos_seed_posts_batch4' ) ) {
 		$seed_posts = array_merge( $seed_posts, anthropos_seed_posts_batch4() );
 	}
+	if ( function_exists( 'anthropos_seed_posts_batch5' ) ) {
+		$seed_posts = array_merge( $seed_posts, anthropos_seed_posts_batch5() );
+	}
 	foreach ( $seed_posts as $p ) {
 		if ( get_page_by_path( $p['slug'], OBJECT, 'post' ) ) { continue; }
 		$pid = wp_insert_post( array(
@@ -433,7 +438,7 @@ function anthropos_seed_content() {
 		}
 		wp_set_object_terms( $pid, $p['type'], 'ao_type' );
 	}
-	update_option( 'anthropos_content_seeded_v4', 1 );
+	update_option( 'anthropos_content_seeded_v5', 1 );
 }
 add_action( 'admin_init', 'anthropos_seed_content', 20 );
 

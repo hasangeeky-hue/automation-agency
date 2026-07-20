@@ -4,7 +4,7 @@ Theme URI: https://github.com/hasangeeky-hue/automation-agency
 Author: Anthropos Automation
 Author URI: https://anthropos-automation.com
 Description: AI Automation OS theme — dark glass automation canvas, node-graph/agent-network 3D on every card, 6 automation services, per-segment service pages named "Automation Service for {Segment}", guide + blog templates, neuro-navigation and internal linking.
-Version: 5.15.0
+Version: 5.16.0
 Requires at least: 6.0
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
@@ -47,6 +47,7 @@ canvas{display:block}
 .logo:hover .brandmark{transform:translateY(-1px) scale(1.04)}
 .js .brandmark .bm-strokes path{stroke-dasharray:72;animation:bmDraw .7s cubic-bezier(.6,.2,.2,1) both}
 .js .brandmark .bm-nodes circle{transform-box:fill-box;transform-origin:center;animation:bmPop .45s ease .5s both}
+.js .brandmark .bm-human{transform-box:fill-box;transform-origin:50% 72%;animation:bmPop .5s ease .62s both}
 @keyframes bmDraw{from{stroke-dashoffset:72}to{stroke-dashoffset:0}}
 @keyframes bmPop{0%{opacity:0;transform:scale(.3)}60%{opacity:1;transform:scale(1.15)}to{opacity:1;transform:scale(1)}}
 .nav{display:flex;align-items:center;gap:2px;flex:1;list-style:none}
