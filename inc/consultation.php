@@ -19,6 +19,24 @@ function anthropos_consult_email() {
 	return apply_filters( 'anthropos_consult_email', get_option( 'admin_email' ) );
 }
 
+/**
+ * Your online booking / scheduling link (Calendly, Cal.com, Google Appointment
+ * Schedule, etc.). This is what customers use to reserve a time AFTER they
+ * answer the questionnaire. The scheduler auto-detects each visitor's timezone,
+ * so the customer always books in their own local time, and the slot lands in
+ * YOUR calendar in your Köln time. Leave '' and customers are told you will
+ * email them to arrange a time instead.
+ * >>> PASTE YOUR BOOKING LINK BETWEEN THE QUOTES BELOW <<<
+ */
+function anthropos_booking_url() {
+	return apply_filters( 'anthropos_booking_url', '' );
+}
+
+/** Your business timezone label, shown next to the customer's own timezone. */
+function anthropos_business_tz() {
+	return apply_filters( 'anthropos_business_tz', 'Köln · Central European Time' );
+}
+
 /** 10 tailored questions per customer group, plus a general set. */
 function anthropos_consultation_questions() {
 	return array(
@@ -153,7 +171,18 @@ function anthropos_consultation_form() {
 	?>
 	<div class="consult">
 		<?php if ( $sent ) : ?>
-			<div class="cf-note cf-ok"><b>Thank you — your request is on its way.</b> We read every one personally and will get back to you within one business day. No pitch, no obligation.</div>
+			<div class="cf-note cf-ok"><b>Thank you — your request is on its way.</b> Now pick a time that suits you and we will be ready with everything you have told us. No pitch, no obligation.</div>
+				<div class="cf-book">
+					<div class="cf-tz" data-biz-tz="<?php echo esc_attr( anthropos_business_tz() ); ?>">Times are shown in <b class="cf-yourtz">your local timezone</b>. We are based in <b><?php echo esc_html( anthropos_business_tz() ); ?></b> and will see your slot in your time too.</div>
+					<?php $book = trim( (string) anthropos_booking_url() ); if ( '' !== $book ) : ?>
+						<div class="cf-embed">
+							<iframe src="<?php echo esc_url( $book ); ?>" title="Book a consultation" loading="lazy" width="100%" height="720" frameborder="0" style="border:0;min-width:100%"></iframe>
+						</div>
+						<p class="cf-book-alt">Trouble with the calendar above? <a href="<?php echo esc_url( $book ); ?>" target="_blank" rel="noopener">Open the booking page in a new tab.</a></p>
+					<?php else : ?>
+						<div class="cf-note cf-soft">We will email you within one business day with a couple of time options in your timezone, so you can pick whatever works.</div>
+					<?php endif; ?>
+				</div>
 		<?php else : ?>
 			<?php if ( $err ) : ?><div class="cf-note cf-err">Something went wrong, or a required field was missing. Please check your name, email and consent, and try again.</div><?php endif; ?>
 			<form class="consult-form" method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" enctype="multipart/form-data">
@@ -190,12 +219,16 @@ function anthropos_consultation_form() {
 
 				<label class="cf-consent"><input type="checkbox" name="cf_consent" value="1" required> <span>I agree to be contacted about my enquiry, and I have read the <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>">privacy policy</a>. <span class="cf-star">*</span></span></label>
 
-				<button class="btn btn-cta cf-submit" type="submit">Send my request →</button>
+				<button class="btn btn-cta cf-submit" type="submit">Send answers &amp; pick a time &rarr;</button>
+					<p class="cf-book-hint">Next you will choose a time slot &mdash; shown in your own timezone.</p>
 			</form>
 		<?php endif; ?>
 	</div>
 	<script>
 	(function(){
+		// Show the visitor their own detected timezone on the booking step.
+		var tzEl=document.querySelector('.cf-yourtz');
+		if(tzEl){ try{ var tz=Intl.DateTimeFormat().resolvedOptions().timeZone; if(tz){ tzEl.textContent='your timezone ('+tz.replace(/_/g,' ')+')'; } }catch(e){} }
 		var f=document.querySelector('.consult-form'); if(!f) return;
 		var sel=f.querySelector('#cf_seg'), segs=f.querySelectorAll('.cf-seg');
 		function show(){ segs.forEach(function(s){ s.hidden = (s.getAttribute('data-seg')!==sel.value); }); }
