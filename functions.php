@@ -4,7 +4,7 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'ANTHROPOS_VERSION', '5.20.0' );
+define( 'ANTHROPOS_VERSION', '5.21.0' );
 
 require_once get_template_directory() . '/inc/segments.php';
 require_once get_template_directory() . '/inc/content-seed.php';
@@ -15,6 +15,7 @@ require_once get_template_directory() . '/inc/content-seed-batch5.php';
 require_once get_template_directory() . '/inc/content-seed-batch6.php';
 require_once get_template_directory() . '/inc/content-seed-batch7.php';
 require_once get_template_directory() . '/inc/content-seed-batch8.php';
+require_once get_template_directory() . '/inc/content-seed-batch9.php';
 
 /** Service tags (short code => label) — used as WP tags + filter buttons. */
 function anthropos_service_tags() {
@@ -380,7 +381,7 @@ add_action( 'init', 'anthropos_bootstrap_pages', 24 ); // also run on front-end 
  * content batches can bump this flag without re-running page creation.
  */
 function anthropos_seed_content() {
-	if ( get_option( 'anthropos_content_seeded_v8' ) ) { return; }
+	if ( get_option( 'anthropos_content_seeded_v9' ) ) { return; }
 	if ( wp_installing() ) { return; }
 	if ( ! function_exists( 'anthropos_seed_posts' ) ) { return; }
 
@@ -427,6 +428,9 @@ function anthropos_seed_content() {
 	if ( function_exists( 'anthropos_seed_posts_batch8' ) ) {
 		$seed_posts = array_merge( $seed_posts, anthropos_seed_posts_batch8() );
 	}
+	if ( function_exists( 'anthropos_seed_posts_batch9' ) ) {
+		$seed_posts = array_merge( $seed_posts, anthropos_seed_posts_batch9() );
+	}
 	foreach ( $seed_posts as $p ) {
 		if ( get_page_by_path( $p['slug'], OBJECT, 'post' ) ) { continue; }
 		$pid = wp_insert_post( array(
@@ -451,7 +455,7 @@ function anthropos_seed_content() {
 		}
 		wp_set_object_terms( $pid, $p['type'], 'ao_type' );
 	}
-	update_option( 'anthropos_content_seeded_v8', 1 );
+	update_option( 'anthropos_content_seeded_v9', 1 );
 }
 add_action( 'admin_init', 'anthropos_seed_content', 20 );
 add_action( 'init', 'anthropos_seed_content', 25 ); // also run on front-end so posts seed without an admin login
