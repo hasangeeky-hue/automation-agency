@@ -23,7 +23,7 @@ if ( ! $blog ) { $blog = home_url( '/blog/' ); }
 	<div class="foot">
 		<div class="foot-brand">
 			<a class="logo" href="<?php echo esc_url( $home ); ?>"><?php echo anthropos_logo_mark( 40, 'ft' ); // phpcs:ignore WordPress.Security.EscapeOutput -- static SVG ?><span><?php esc_html_e( 'Anthropos Automation', 'anthropos' ); ?><small><?php esc_html_e( 'service', 'anthropos' ); ?></small></span></a>
-			<p><?php esc_html_e( 'We turn small businesses into self-running systems — a website that converts, visibility that gets you found, and AI that answers and follows up every lead, so being busy stops costing you customers. Live in four weeks.', 'anthropos' ); ?></p>
+			<p><?php esc_html_e( 'We turn small businesses into self-running systems.', 'anthropos' ); ?></p>
 			<div class="foot-nap">ANTHROPOS AUTOMATION SERVICE<br>SERVING THE US, UK &amp; EUROPE · EU-HOSTED<br>HELLO@ANTHROPOS-AUTOMATION.COM</div>
 		</div>
 		<div>
