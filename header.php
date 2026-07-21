@@ -1,6 +1,6 @@
 <?php
 /**
- * Theme header (v4) — renders the fixed nav that matches the design system.
+ * Theme header (v4), renders the fixed nav that matches the design system.
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 $home = home_url( '/' );

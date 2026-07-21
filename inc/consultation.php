@@ -162,7 +162,7 @@ function anthropos_consultation_form() {
 	<div class="consult">
 		<?php if ( $sent ) : ?>
 			<?php $book = trim( (string) anthropos_booking_url() ); ?>
-			<div class="cf-note cf-ok"><b>Got it &mdash; your answers are on their way to us.</b> Now pick a time that suits you and we will be ready with everything you have told us. No pitch, no obligation.</div>
+			<div class="cf-note cf-ok"><b>Got it, your answers are on their way to us.</b> Now pick a time that suits you and we will be ready with everything you have told us. No pitch, no obligation.</div>
 			<div class="cf-book">
 				<div class="cf-tz" data-biz-tz="<?php echo esc_attr( anthropos_business_tz() ); ?>">Times are shown in <b class="cf-yourtz">your local timezone</b>. We are based in <b><?php echo esc_html( anthropos_business_tz() ); ?></b> and will see your slot in your time too.</div>
 				<?php if ( '' !== $book ) : ?>
@@ -177,7 +177,7 @@ function anthropos_consultation_form() {
 		<?php else : ?>
 			<div class="cf-intro">
 				<h3>Book a free consultation</h3>
-				<p>A quick, tick-box questionnaire &mdash; about two minutes. <b>To hold a real consultation slot, please answer these first</b> so the call is genuinely worth your time. Then you pick a time in your own timezone.</p>
+				<p>A quick, tick-box questionnaire, about two minutes. <b>To hold a real consultation slot, please answer these first</b> so the call is genuinely worth your time. Then you pick a time in your own timezone.</p>
 			</div>
 			<?php if ( $err ) : ?><div class="cf-note cf-err">Something was missing. Please check your name, email, the required questions and consent, then try again.</div><?php endif; ?>
 			<form class="consult-form" method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" enctype="multipart/form-data">
@@ -210,7 +210,7 @@ function anthropos_consultation_form() {
 
 				<div class="cf-field cf-note-field">
 					<label for="cf_notes">Anything else you would like us to know? <span class="cf-opt-tag">optional</span></label>
-					<textarea id="cf_notes" name="cf_notes" rows="3" placeholder="A link, a goal, a deadline, a frustration &mdash; whatever helps us prepare."></textarea>
+					<textarea id="cf_notes" name="cf_notes" rows="3" placeholder="A link, a goal, a deadline, a frustration, whatever helps us prepare."></textarea>
 				</div>
 
 				<div class="cf-field cf-file">

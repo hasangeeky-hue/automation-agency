@@ -13,7 +13,7 @@ if ( ! $blog ) { $blog = home_url( '/blog/' ); }
 	<div class="ctaband-in">
 		<div class="eyebrow" style="display:inline-block"><?php esc_html_e( 'Tell us where you are stuck', 'anthropos' ); ?></div>
 		<h2><?php esc_html_e( 'Book a free consultation', 'anthropos' ); ?></h2>
-		<p><?php esc_html_e( 'It starts with a quick, tick-box questionnaire — about two minutes. That is how we make sure the call is genuinely worth your time. Then you pick a slot in your own timezone.', 'anthropos' ); ?></p>
+		<p><?php esc_html_e( 'It starts with a quick, tick-box questionnaire, about two minutes. That is how we make sure the call is genuinely worth your time. Then you pick a slot in your own timezone.', 'anthropos' ); ?></p>
 		<div class="hero-ctas" style="justify-content:center">
 			<button type="button" class="btn btn-cta" data-open-consult><?php esc_html_e( 'Answer a few questions & book →', 'anthropos' ); ?></button>
 		</div>

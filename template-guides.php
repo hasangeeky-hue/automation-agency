@@ -38,7 +38,7 @@ $guide_q = new WP_Query( array(
 	<div class="hero-in">
 		<div class="crumb"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a> / Guides</div>
 		<h1>Research-grade guides, <span class="grad">organised for you</span></h1>
-		<p class="sub">Every guide names one problem, its cost, and the fix — with sources. Browse by <b>series</b>, or filter by <b>your business</b> and the <b>service</b> you need.</p>
+		<p class="sub">Every guide names one problem, its cost, and the fix, with sources. Browse by <b>series</b>, or filter by <b>your business</b> and the <b>service</b> you need.</p>
 	</div>
 </section>
 <section id="pillars">

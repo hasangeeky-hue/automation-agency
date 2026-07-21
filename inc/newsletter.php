@@ -12,7 +12,7 @@ function anthropos_newsletter_email() {
 	return apply_filters( 'anthropos_newsletter_email', get_option( 'admin_email' ) );
 }
 
-/** Optional webhook — paste an n8n / Mailchimp / Brevo endpoint to push each
+/** Optional webhook, paste an n8n / Mailchimp / Brevo endpoint to push each
  *  subscriber automatically (for real double-opt-in). Empty = email only. */
 function anthropos_newsletter_webhook_url() {
 	return apply_filters( 'anthropos_newsletter_webhook_url', '' );
@@ -26,7 +26,7 @@ function anthropos_newsletter_form() {
 	<div class="art-news" id="news">
 		<h4>Get the next guide in your inbox</h4>
 		<?php if ( $ok ) : ?>
-			<p class="art-news-ok"><b>You're subscribed &mdash; thank you.</b> Practical automation guides, straight to your inbox.</p>
+			<p class="art-news-ok"><b>You're subscribed, thank you.</b> Practical automation guides, straight to your inbox.</p>
 		<?php else : ?>
 			<p>Plain-language automation guides for busy business owners. No spam, unsubscribe any time.</p>
 			<?php if ( $err ) : ?><p class="art-news-err">Please enter a valid email address and try again.</p><?php endif; ?>

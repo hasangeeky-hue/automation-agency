@@ -1,6 +1,6 @@
 <?php
 /**
- * Single post / guide (v7) — service-page-style layout: 3D cover, the article
+ * Single post / guide (v7), service-page-style layout: 3D cover, the article
  * rendered as alternating blocks (each with its own 3D visual), reading time,
  * related guides, contextual service link, prev/next, CTA.
  * Reader-guide classes usable in content: .qa, .hl.hl-do/.hl-stat/.hl-res/.hl-warn.
@@ -52,7 +52,7 @@ while ( have_posts() ) : the_post();
 	}
 	$mins = max( 1, (int) round( str_word_count( wp_strip_all_tags( $raw ) ) / 200 ) );
 
-	// Related guides — other posts in the same segment (falls back to recent).
+	// Related guides, other posts in the same segment (falls back to recent).
 	$related_args = array(
 		'post_type'           => 'post',
 		'posts_per_page'      => 3,
@@ -160,7 +160,7 @@ if ( count( $faq_items ) >= 2 ) {
 		<div class="glinks">
 			<div class="glh">Where this sits</div>
 			<div class="gl-row">
-				<a class="gl" href="<?php echo esc_url( $svc_url ); ?>"><b>Your service page</b>Automation Service for <?php echo esc_html( $svc_label ); ?> — see the full system</a>
+				<a class="gl" href="<?php echo esc_url( $svc_url ); ?>"><b>Your service page</b>Automation Service for <?php echo esc_html( $svc_label ); ?>, see the full system</a>
 				<a class="gl" href="<?php echo esc_url( home_url( '/guides/' ) ); ?>"><b>The guide library</b>Every guide, filterable by business &amp; service</a>
 			</div>
 		</div>
@@ -174,7 +174,7 @@ if ( count( $faq_items ) >= 2 ) {
 
 		<div class="art-cta">
 			<h3>Want this working in your <?php echo esc_html( $cat ? $cat->name : 'business' ); ?>?</h3>
-			<p>Book a free, no-obligation consultation — answer a few quick questions and we map exactly where you are losing clients, then show you the fix.</p>
+			<p>Book a free, no-obligation consultation, answer a few quick questions and we map exactly where you are losing clients, then show you the fix.</p>
 			<div class="art-cta-row">
 				<button type="button" class="btn btn-cta" data-open-consult>Book a free consultation →</button>
 				<a class="btn btn-glass" href="<?php echo esc_url( $svc_url ); ?>">See the full system for <?php echo esc_html( $svc_label ); ?> →</a>

@@ -6,7 +6,7 @@
  * GA4 (G-4EVZC2JPF4) is loaded directly here via gtag so it works with no
  * action needed inside the GTM dashboard. GTM (GTM-MBDCQCMW) is also present
  * for future tag management. IMPORTANT: because GA4 is loaded here directly,
- * do NOT also add a GA4 tag inside GTM — that would double-count.
+ * do NOT also add a GA4 tag inside GTM, that would double-count.
  *
  * Nothing collects data until the visitor accepts the cookie banner: Consent
  * Mode defaults analytics/ads to 'denied', and only Accept flips
@@ -29,7 +29,7 @@ function anthropos_tracking_on() {
 	return '' !== trim( (string) anthropos_gtm_id() ) || '' !== trim( (string) anthropos_ga4_id() );
 }
 
-/** Consent Mode default + GA4 + GTM loaders — printed high in <head>. */
+/** Consent Mode default + GA4 + GTM loaders, printed high in <head>. */
 function anthropos_gtm_head() {
 	$gtm = trim( (string) anthropos_gtm_id() );
 	$ga4 = trim( (string) anthropos_ga4_id() );
@@ -63,7 +63,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 add_action( 'wp_head', 'anthropos_gtm_head', 1 );
 
-/** GTM <noscript> fallback — printed immediately after <body>. */
+/** GTM <noscript> fallback, printed immediately after <body>. */
 function anthropos_gtm_body() {
 	$id = trim( (string) anthropos_gtm_id() );
 	if ( '' === $id ) { return; }

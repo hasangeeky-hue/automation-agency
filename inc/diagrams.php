@@ -71,7 +71,7 @@ function anthropos_dgm_problem() {
 	$o .= '<path d="M360 112 L352 150 M372 112 L380 150" class="da" stroke-width="2" stroke-dasharray="3 4"/>';
 	$o .= '<circle cx="356" cy="150" r="5" class="dm"/><circle cx="380" cy="172" r="5" class="dm"/>';
 	$o .= '<text x="410" y="168" class="t df">Missed calls, unsent quotes,</text>';
-	$o .= '<text x="410" y="186" class="t dm">forgotten follow-ups &mdash; lost</text>';
+	$o .= '<text x="410" y="186" class="t dm">forgotten follow-ups, lost</text>';
 	// won box
 	$o .= '<rect x="560" y="66" width="72" height="40" rx="8" class="dn"/><text x="596" y="91" text-anchor="middle" class="t df">Won</text>';
 	$o .= '<path d="M642 86 h-6" class="da" stroke-width="2"/>';
@@ -158,7 +158,7 @@ function anthropos_dgm_help() {
 		$o .= '<path d="M190 ' . $y . ' C 250 ' . $y . ', 260 105, 320 105" class="dl" stroke-width="2"/>';
 	}
 	$o .= '<rect x="320" y="72" width="180" height="66" rx="12" class="dn"/><rect x="320" y="72" width="180" height="66" rx="12" class="da" stroke-width="2"/>';
-	$o .= '<text x="410" y="100" text-anchor="middle" class="t dc" style="font-weight:700">One connected system</text><text x="410" y="122" text-anchor="middle" class="t dm">on n8n &mdash; 100% yours</text>';
+	$o .= '<text x="410" y="100" text-anchor="middle" class="t dc" style="font-weight:700">One connected system</text><text x="410" y="122" text-anchor="middle" class="t dm">on n8n, 100% yours</text>';
 	$o .= '<path d="M500 105 h40" class="da" stroke-width="2"/><circle cx="562" cy="105" r="22" class="dn"/><path d="M552 105 l7 7 12 -15" class="da" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>';
 	return $o . '</svg>';
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Blog index / archive (v6) — 5 content-pillar blocks + categorised post grid.
+ * Blog index / archive (v6), 5 content-pillar blocks + categorised post grid.
  * Shows real posts tagged ao_type=blog; falls back to demo cards if none exist yet.
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
@@ -8,11 +8,11 @@ get_header();
 $svckeys = anthropos_service_tags();
 $segs    = function_exists( 'anthropos_segments' ) ? anthropos_segments() : array();
 $pillars = array(
-	array( 'holo', 'var(--ai)', 'Pillar 01', 'Get Found', 'AEO / GEO / local search — be the answer AI engines surface.', 'aeo' ),
-	array( 'funnel', 'var(--g2)', 'Pillar 02', 'Convert Visitors', 'Web design &amp; the 5-second test — turn traffic into inquiries.', 'web' ),
+	array( 'holo', 'var(--ai)', 'Pillar 01', 'Get Found', 'AEO / GEO / local search, be the answer AI engines surface.', 'aeo' ),
+	array( 'funnel', 'var(--g2)', 'Pillar 02', 'Convert Visitors', 'Web design &amp; the 5-second test, turn traffic into inquiries.', 'web' ),
 	array( 'dataflow', 'var(--flow)', 'Pillar 03', 'Never Lose a Lead', '60-second replies, nurture &amp; win-backs.', 'lead' ),
-	array( 'broadcast', 'var(--g3)', 'Pillar 04', 'Grow with Campaigns', 'Marketing &amp; social automation — reach that runs itself.', 'mkt' ),
-	array( 'core', 'var(--cta)', 'Pillar 05', 'Automate Everything', 'AI agents on n8n — the whole business as one system.', 'whole' ),
+	array( 'broadcast', 'var(--g3)', 'Pillar 04', 'Grow with Campaigns', 'Marketing &amp; social automation, reach that runs itself.', 'mkt' ),
+	array( 'core', 'var(--cta)', 'Pillar 05', 'Automate Everything', 'AI agents on n8n, the whole business as one system.', 'whole' ),
 );
 $demo = array(
 	array( 'regulated-professionals lead', 'var(--g1)', 'dataflow', 'Regulated · Lead', 'The 60-second reply that doubles consultations' ),
@@ -36,7 +36,7 @@ $blog_q = new WP_Query( array(
 	<div class="hero-in">
 		<div class="crumb"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a> / Blog</div>
 		<h1>Automation, <span class="grad">in plain language</span></h1>
-		<p class="sub">Field notes on AI agents, n8n workflows, web design and answer-engine visibility — organised by <b>your business</b> and by <b>the service</b> you need.</p>
+		<p class="sub">Field notes on AI agents, n8n workflows, web design and answer-engine visibility, organised by <b>your business</b> and by <b>the service</b> you need.</p>
 	</div>
 </section>
 <section id="pillars">

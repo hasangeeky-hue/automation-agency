@@ -1,6 +1,6 @@
 <?php
 /**
- * Content batch 7 — new writing pattern, plain language, real problems,
+ * Content batch 7, new writing pattern, plain language, real problems,
  * SVG diagrams. 4 guides + 4 blogs from the founder's notebook topics.
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
@@ -16,14 +16,14 @@ function anthropos_seed_posts_batch7() {
 			'tags'  => array( 'whole' ),
 			'type'  => 'guide',
 			'content' => <<<'HTML'
-<div class="qa"><p>You do great work, your customers are happy — and almost none of them leave a review, because nobody asked at the right moment. Meanwhile, reviews are the single biggest thing deciding whether the next stranger picks you or the business next door. This is not a quality problem. It is a "you were too busy to ask" problem, and it is completely fixable.</p></div>
+<div class="qa"><p>You do great work, your customers are happy, and almost none of them leave a review, because nobody asked at the right moment. Meanwhile, reviews are the single biggest thing deciding whether the next stranger picks you or the business next door. This is not a quality problem. It is a "you were too busy to ask" problem, and it is completely fixable.</p></div>
 <h2>The moment that keeps getting missed</h2>
-<p>A job finishes, the customer is delighted, and right then — for about a day — they would gladly leave you a glowing review if asked. But you are already on to the next job, and the moment passes. A week later they have forgotten, and the review that would have won you three future customers never happens.</p>
+<p>A job finishes, the customer is delighted, and right then, for about a day, they would gladly leave you a glowing review if asked. But you are already on to the next job, and the moment passes. A week later they have forgotten, and the review that would have won you three future customers never happens.</p>
 <h2>Where the human always loses this</h2>
-<p>Asking every happy customer for a review, at exactly the right time, in a way that is easy for them, is not something a busy owner can keep up by hand. So it happens occasionally, awkwardly, or not at all — and your online reputation grows far slower than the quality of your work deserves.</p>
+<p>Asking every happy customer for a review, at exactly the right time, in a way that is easy for them, is not something a busy owner can keep up by hand. So it happens occasionally, awkwardly, or not at all, and your online reputation grows far slower than the quality of your work deserves.</p>
 <div class="hl hl-stat">Review count and freshness are among the strongest signals deciding local search ranking and whether a new customer trusts you. A steady trickle of recent reviews quietly outranks a competitor with better work but a thin, stale profile.</div>
 <h2>The fix: ask automatically, at the perfect moment</h2>
-<p>The moment a job is marked complete, a friendly request goes out — by text or email — with a one-tap link straight to where you want the review. If they do not respond, one gentle reminder follows. That is it. The asking, the timing and the chasing all happen on their own.</p>
+<p>The moment a job is marked complete, a friendly request goes out, by text or email, with a one-tap link straight to where you want the review. If they do not respond, one gentle reminder follows. That is it. The asking, the timing and the chasing all happen on their own.</p>
 <figure class="diagram">
 <svg viewBox="0 0 680 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Job completed triggers an automatic review request with a one-tap link, a gentle reminder if needed, and reviews build up, lifting your ranking.">
 <defs><marker id="ar7a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M2 1 L8 5 L2 9" fill="none" stroke="#46E08B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
@@ -35,10 +35,10 @@ function anthropos_seed_posts_batch7() {
 <line x1="158" y1="50" x2="188" y2="50" stroke="#46E08B" stroke-width="1.6" marker-end="url(#ar7a)"/><line x1="340" y1="50" x2="370" y2="50" stroke="#2FE3D2" stroke-width="1.6" marker-end="url(#ar7a)"/><line x1="522" y1="50" x2="552" y2="50" stroke="#2FE3D2" stroke-width="1.6" marker-end="url(#ar7a)"/>
 </g>
 </svg>
-<figcaption>Same great work, finally captured as proof — automatically, at the one moment it works.</figcaption>
+<figcaption>Same great work, finally captured as proof, automatically, at the one moment it works.</figcaption>
 </figure>
 <h2>Why us</h2>
-<p>We set this up on your tools and your review platform, tuned to how you work, and hand it over. Nothing is faked and nothing is pushy — it simply asks the happy customers you already have. <a href="/services/service-professionals/">See how we build it for service businesses</a>, or book a free consultation and we will show you the reviews you are leaving on the table.</p>
+<p>We set this up on your tools and your review platform, tuned to how you work, and hand it over. Nothing is faked and nothing is pushy, it simply asks the happy customers you already have. <a href="/services/service-professionals/">See how we build it for service businesses</a>, or book a free consultation and we will show you the reviews you are leaving on the table.</p>
 HTML
 		),
 
@@ -50,9 +50,9 @@ HTML
 			'tags'  => array( 'whole' ),
 			'type'  => 'guide',
 			'content' => <<<'HTML'
-<div class="qa"><p>Your inbox, your calendar, your customer list and your invoicing tool are probably four separate apps that know nothing about each other. So you become the human glue — copying a name from an email into the CRM, into the calendar, into the invoice. Every copy-paste is a few seconds and a chance to make a mistake, all day, every day. That is the tax nobody adds up.</p></div>
+<div class="qa"><p>Your inbox, your calendar, your customer list and your invoicing tool are probably four separate apps that know nothing about each other. So you become the human glue, copying a name from an email into the CRM, into the calendar, into the invoice. Every copy-paste is a few seconds and a chance to make a mistake, all day, every day. That is the tax nobody adds up.</p></div>
 <h2>How information moves in your business today</h2>
-<p>A typical enquiry-to-payment journey looks like this: the email arrives, you type the details into your customer list, you manually create a calendar event, and later you re-type the same details into an invoice. The same three facts — who, what, when — get entered by hand three or four times, because the tools have no idea the others exist.</p>
+<p>A typical enquiry-to-payment journey looks like this: the email arrives, you type the details into your customer list, you manually create a calendar event, and later you re-type the same details into an invoice. The same three facts, who, what, when, get entered by hand three or four times, because the tools have no idea the others exist.</p>
 <h2>Where this quietly costs you</h2>
 <p>Each hop is small, so it feels free. It is not. It is minutes lost hundreds of times a month, and every manual re-entry is a chance for a typo, a missed booking, or an invoice that never went out. Being busy makes it worse, because that is exactly when things get dropped between the apps.</p>
 <h2>The fix: one connective layer under your existing tools</h2>
@@ -83,9 +83,9 @@ HTML
 			'tags'  => array( 'whole' ),
 			'type'  => 'guide',
 			'content' => <<<'HTML'
-<div class="qa"><p>"Automate my business" sounds enormous and vague, which is exactly why most owners never start. But it is not one giant leap — it is four calm weeks, each with one clear job, each building on the last. Here is what a sensible rollout actually looks like, so it feels like a plan instead of a cliff.</p></div>
+<div class="qa"><p>"Automate my business" sounds enormous and vague, which is exactly why most owners never start. But it is not one giant leap, it is four calm weeks, each with one clear job, each building on the last. Here is what a sensible rollout actually looks like, so it feels like a plan instead of a cliff.</p></div>
 <h2>Why "automate everything" stalls before it starts</h2>
-<p>The phrase is the problem. Faced with automating an entire business at once, the sensible reaction is to do nothing — it is too big, too risky, too unclear where to begin. So the leaks keep leaking, not because the owner is lazy, but because nobody broke the task into steps a busy person could actually take.</p>
+<p>The phrase is the problem. Faced with automating an entire business at once, the sensible reaction is to do nothing, it is too big, too risky, too unclear where to begin. So the leaks keep leaking, not because the owner is lazy, but because nobody broke the task into steps a busy person could actually take.</p>
 <h2>The fix: four weeks, one job each</h2>
 <figure class="diagram">
 <svg viewBox="0 0 680 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Week one map the leaks, week two build the website, week three wire the automation, week four test and launch.">
@@ -98,11 +98,11 @@ HTML
 <line x1="158" y1="49" x2="188" y2="49" stroke="#2FE3D2" stroke-width="1.6" marker-end="url(#ar7c)"/><line x1="340" y1="49" x2="370" y2="49" stroke="#2FE3D2" stroke-width="1.6" marker-end="url(#ar7c)"/><line x1="522" y1="49" x2="552" y2="49" stroke="#8B7CFF" stroke-width="1.6" marker-end="url(#ar7c)"/>
 </g>
 </svg>
-<figcaption>Not a leap. Four weeks, one clear job each — with you approving at every step.</figcaption>
+<figcaption>Not a leap. Four weeks, one clear job each, with you approving at every step.</figcaption>
 </figure>
 <p>Week one we map exactly where leads and hours leak, so effort goes where it pays. Week two we build the website that captures and converts. Week three we wire the automation to your existing tools. Week four we test every workflow end to end and go live. You review at each stage, so nothing surprises you.</p>
 <h2>Why it works in this order</h2>
-<div class="hl hl-do">Each week produces something usable on its own, so value arrives early and risk stays low. If week one shows a single change would recover most of your losses, we do that first — you are never waiting a month to see a result.</div>
+<div class="hl hl-do">Each week produces something usable on its own, so value arrives early and risk stays low. If week one shows a single change would recover most of your losses, we do that first, you are never waiting a month to see a result.</div>
 <h2>Why us</h2>
 <p>We run this exact rollout and hand you a documented system you own at the end. <a href="/services/">See how a launch actually goes</a>, or book a free consultation and we will sketch your specific 30 days.</p>
 HTML
@@ -110,15 +110,15 @@ HTML
 
 		/* ===== GUIDE: reading your automation reports ===== */
 		array(
-			'title' => 'Your automation is running — but is it working? The four numbers that tell you',
+			'title' => 'Your automation is running, but is it working? The four numbers that tell you',
 			'slug'  => 'guide-reading-your-automation-reports',
 			'cat'   => '',
 			'tags'  => array( 'whole' ),
 			'type'  => 'guide',
 			'content' => <<<'HTML'
-<div class="qa"><p>Once a system is running quietly in the background, a fair worry creeps in: is it actually doing anything, or just moving data around? Most dashboards drown you in numbers that do not matter. In truth, only four numbers tell you whether your automation is earning its keep — and they are ones any business owner can read.</p></div>
+<div class="qa"><p>Once a system is running quietly in the background, a fair worry creeps in: is it actually doing anything, or just moving data around? Most dashboards drown you in numbers that do not matter. In truth, only four numbers tell you whether your automation is earning its keep, and they are ones any business owner can read.</p></div>
 <h2>The trap of too many numbers</h2>
-<p>Analytics tools proudly show you dozens of metrics, most of which are noise for a small business. Faced with that wall of numbers, owners either obsess over the wrong ones or, more often, stop looking entirely — which means a system could quietly stop working and nobody would notice for weeks.</p>
+<p>Analytics tools proudly show you dozens of metrics, most of which are noise for a small business. Faced with that wall of numbers, owners either obsess over the wrong ones or, more often, stop looking entirely, which means a system could quietly stop working and nobody would notice for weeks.</p>
 <h2>The four that actually matter</h2>
 <figure class="diagram">
 <svg viewBox="0 0 680 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Four numbers: leads in, how fast they were answered, how many converted, and hours saved.">
@@ -131,9 +131,9 @@ HTML
 </svg>
 <figcaption>Ignore the rest. These four tell you if the system is earning its keep.</figcaption>
 </figure>
-<p>Leads in tells you demand is arriving. Response time tells you the follow-up is working. Conversion tells you it is turning into business. Hours saved tells you what the whole thing gave back to you. If those four look healthy, the system is doing its job — regardless of what the other forty numbers say.</p>
+<p>Leads in tells you demand is arriving. Response time tells you the follow-up is working. Conversion tells you it is turning into business. Hours saved tells you what the whole thing gave back to you. If those four look healthy, the system is doing its job, regardless of what the other forty numbers say.</p>
 <h2>Why us</h2>
-<p>We build a plain-language report around exactly these numbers, so a two-minute glance tells you everything — and if one slips, you know where to look. <a href="/services/">See how we make automation measurable</a>, or book a free consultation and we will define your four numbers.</p>
+<p>We build a plain-language report around exactly these numbers, so a two-minute glance tells you everything, and if one slips, you know where to look. <a href="/services/">See how we make automation measurable</a>, or book a free consultation and we will define your four numbers.</p>
 HTML
 		),
 
@@ -145,7 +145,7 @@ HTML
 			'tags'  => array( 'whole' ),
 			'type'  => 'blog',
 			'content' => <<<'HTML'
-<div class="qa"><p>If you have looked into automating anything, you have hit the same three names — Zapier, Make and n8n — and a lot of noise about which is best. The honest answer is that they solve the same problem in different ways, and the right one depends on how much you plan to automate and how much you care about owning it.</p></div>
+<div class="qa"><p>If you have looked into automating anything, you have hit the same three names, Zapier, Make and n8n, and a lot of noise about which is best. The honest answer is that they solve the same problem in different ways, and the right one depends on how much you plan to automate and how much you care about owning it.</p></div>
 <h2>What all three actually do</h2>
 <p>All three are the wiring that connects your apps and moves information between them on rules you set. Think of them as the same kind of tool at different price-and-control points: one is the easy rental, one is the flexible middle, and one is the one you can truly own.</p>
 <h2>The honest trade-off</h2>
@@ -160,15 +160,15 @@ HTML
 <figcaption>Same job, three deals: easy-and-rented, flexible-middle, or owned-and-cheap-at-scale.</figcaption>
 </figure>
 <h2>How to choose without overthinking</h2>
-<div class="hl hl-do">Automating one or two small things and want zero fuss? The easy rental is fine. Serious about automating real chunks of your business and keeping the running cost and control in your own hands? That is where n8n wins — which is why we build on it.</div>
+<div class="hl hl-do">Automating one or two small things and want zero fuss? The easy rental is fine. Serious about automating real chunks of your business and keeping the running cost and control in your own hands? That is where n8n wins, which is why we build on it.</div>
 <h2>Our honest take</h2>
-<p>There is no single "best" — only best for your situation. We build on n8n because our clients want to own their system and keep costs low as they grow, but we will tell you honestly if a simpler tool is all you need. <a href="/services/">See how we build automation you own</a>, or book a free consultation and we will point you to the right tool for your case, even if it is not us.</p>
+<p>There is no single "best", only best for your situation. We build on n8n because our clients want to own their system and keep costs low as they grow, but we will tell you honestly if a simpler tool is all you need. <a href="/services/">See how we build automation you own</a>, or book a free consultation and we will point you to the right tool for your case, even if it is not us.</p>
 HTML
 		),
 
 		/* ===== BLOG: agent OS explained ===== */
 		array(
-			'title' => 'What people mean by an "operating system" for your business — in plain words',
+			'title' => 'What people mean by an "operating system" for your business, in plain words',
 			'slug'  => 'blog-agent-os-explained-simply',
 			'cat'   => '',
 			'tags'  => array( 'whole' ),
@@ -178,11 +178,11 @@ HTML
 <h2>The phrase, decoded</h2>
 <p>An operating system, on a phone or laptop, is the quiet layer that lets all your apps work together and share information. The idea applied to a business is the same: instead of a dozen disconnected tools, one layer underneath them all that lets a detail entered in one place appear everywhere it is needed, and lets an AI agent act across all of them.</p>
 <h2>Why big companies already have this</h2>
-<p>Large companies win partly because their systems talk to each other — a sale updates the stock, the accounts, the customer record and the forecast all at once, without anyone re-typing anything. Small businesses usually cannot afford the enterprise software that does this, so they run on disconnected apps and human glue. The "agent OS" idea is about giving a small business that same connected advantage, affordably.</p>
+<p>Large companies win partly because their systems talk to each other, a sale updates the stock, the accounts, the customer record and the forecast all at once, without anyone re-typing anything. Small businesses usually cannot afford the enterprise software that does this, so they run on disconnected apps and human glue. The "agent OS" idea is about giving a small business that same connected advantage, affordably.</p>
 <h2>What it is not</h2>
 <div class="hl hl-warn">It is not a single new app you have to migrate everything into, and it is not a robot running your company. It is a connective layer under the tools you already have, with clear boundaries and you in control. Anyone promising a magic box that runs your business is selling a fantasy.</div>
 <h2>Our take</h2>
-<p>We build exactly this: your existing tools, connected on n8n into one system, with AI handling the repetitive parts inside it — the enterprise advantage, at a small-business scale, fully owned by you. <a href="/services/">See how whole-business automation actually works</a>, or book a free consultation and we will show you what it would look like for your business.</p>
+<p>We build exactly this: your existing tools, connected on n8n into one system, with AI handling the repetitive parts inside it, the enterprise advantage, at a small-business scale, fully owned by you. <a href="/services/">See how whole-business automation actually works</a>, or book a free consultation and we will show you what it would look like for your business.</p>
 HTML
 		),
 
@@ -194,13 +194,13 @@ HTML
 			'tags'  => array( 'whole' ),
 			'type'  => 'blog',
 			'content' => <<<'HTML'
-<div class="qa"><p>The tools to automate your own business are cheaper and friendlier than ever, and plenty of founders reasonably ask: why pay someone, can I not just do this myself? Sometimes, honestly, yes. But the real cost of doing it yourself is rarely the tool subscription — it is your time and your attention, which are the scarcest things you have.</p></div>
+<div class="qa"><p>The tools to automate your own business are cheaper and friendlier than ever, and plenty of founders reasonably ask: why pay someone, can I not just do this myself? Sometimes, honestly, yes. But the real cost of doing it yourself is rarely the tool subscription, it is your time and your attention, which are the scarcest things you have.</p></div>
 <h2>The case for doing it yourself</h2>
 <p>If you enjoy tinkering, have genuine spare time, and only want to automate one or two simple things, building it yourself is completely reasonable. The tools are designed to be learnable, and you will understand your own system deeply. For a small, contained job, that can be the right call.</p>
 <h2>Where do-it-yourself quietly gets expensive</h2>
-<p>The trouble starts when it grows. The hours you spend learning, building, debugging and maintaining are hours not spent on the work that actually earns money. And a half-finished automation that breaks silently at the wrong moment can cost you a customer — the exact opposite of what you set out to do. The subscription was never the real price; your time was.</p>
+<p>The trouble starts when it grows. The hours you spend learning, building, debugging and maintaining are hours not spent on the work that actually earns money. And a half-finished automation that breaks silently at the wrong moment can cost you a customer, the exact opposite of what you set out to do. The subscription was never the real price; your time was.</p>
 <h2>The question that decides it</h2>
-<div class="hl hl-do">Ask yourself honestly: is my time better spent learning to wire tools together, or serving customers and growing the business? If building it means stealing hours from the work only you can do, having it done pays for itself — and you still own the result.</div>
+<div class="hl hl-do">Ask yourself honestly: is my time better spent learning to wire tools together, or serving customers and growing the business? If building it means stealing hours from the work only you can do, having it done pays for itself, and you still own the result.</div>
 <h2>Our honest take</h2>
 <p>We will happily tell a capable, time-rich founder that a simple job is worth doing themselves. But most owners we meet are already stretched, and the smart move is to have it built properly, handed over documented, and get their hours back. <a href="/services/">See what having it done looks like</a>, or book a free consultation and we will tell you straight which side of this you are on.</p>
 HTML
@@ -214,15 +214,15 @@ HTML
 			'tags'  => array( 'whole' ),
 			'type'  => 'blog',
 			'content' => <<<'HTML'
-<div class="qa"><p>Most businesses do not fail from one big disaster. They underperform from a dozen small leaks — a missed call here, a forgotten follow-up there, an unsent invoice, a review never asked for. Each one feels too small to worry about. Added up, they are the difference between a hard year and a good one.</p></div>
+<div class="qa"><p>Most businesses do not fail from one big disaster. They underperform from a dozen small leaks, a missed call here, a forgotten follow-up there, an unsent invoice, a review never asked for. Each one feels too small to worry about. Added up, they are the difference between a hard year and a good one.</p></div>
 <h2>Why small leaks are so dangerous</h2>
-<p>A big problem gets your attention and gets fixed. A small leak does not — it is beneath the threshold of "worth dealing with today," so it never gets dealt with. But it happens again tomorrow, and the day after, and the quiet, constant drip is far more expensive over a year than the occasional crisis you actually notice.</p>
+<p>A big problem gets your attention and gets fixed. A small leak does not, it is beneath the threshold of "worth dealing with today," so it never gets dealt with. But it happens again tomorrow, and the day after, and the quiet, constant drip is far more expensive over a year than the occasional crisis you actually notice.</p>
 <h2>Where the drips usually are</h2>
 <p>The common ones are always the same: enquiries that waited too long for a reply, quotes that were meant to go out and did not, past customers nobody re-contacted, happy clients never asked for a review, and hours lost re-typing the same details between apps. None of them is dramatic. All of them are money.</p>
 <h2>Why you cannot see them on a report</h2>
-<div class="hl hl-res">The leaks are invisible precisely because nothing records them — there is no line item for "the customer who gave up waiting." That is why they persist: you cannot manage what you never see, and a busy owner has no way to watch every drip by hand.</div>
+<div class="hl hl-res">The leaks are invisible precisely because nothing records them, there is no line item for "the customer who gave up waiting." That is why they persist: you cannot manage what you never see, and a busy owner has no way to watch every drip by hand.</div>
 <h2>Our take</h2>
-<p>Automation is, at heart, a way of plugging exactly these small leaks — answering fast, following up, asking, invoicing, syncing — so being busy stops quietly costing you. Fix the drips and the same business simply keeps more of what it already earns. <a href="/services/">See how we plug the leaks</a>, or book a free consultation and we will help you find yours.</p>
+<p>Automation is, at heart, a way of plugging exactly these small leaks, answering fast, following up, asking, invoicing, syncing, so being busy stops quietly costing you. Fix the drips and the same business simply keeps more of what it already earns. <a href="/services/">See how we plug the leaks</a>, or book a free consultation and we will help you find yours.</p>
 HTML
 		),
 	);

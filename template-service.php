@@ -2,7 +2,7 @@
 /**
  * Template Name: Automation Service Page
  * Renders: (a) a segment page (hero + 5 offers + 10 guides + siblings),
- *          (b) a service page — Marketing / Social Media Automation,
+ *          (b) a service page, Marketing / Social Media Automation,
  *          (c) the /services/ overview listing.
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
@@ -13,7 +13,7 @@ $segs       = function_exists( 'anthropos_segments' ) ? anthropos_segments() : a
 $svcpages   = function_exists( 'anthropos_service_pages' ) ? anthropos_service_pages() : array();
 $slug       = get_post_field( 'post_name', get_queried_object_id() );
 
-/** Batch-resolve real post URLs for a set of slugs in ONE query — avoids
+/** Batch-resolve real post URLs for a set of slugs in ONE query, avoids
  *  running a separate get_posts() per guide card (was up to 10 per page). */
 function anthropos_resolve_post_urls( $slugs ) {
 	static $cache = array();
@@ -145,7 +145,7 @@ function anthropos_written_guides() {
 }
 
 /** Render a 10-card guide grid; any guide with a real published article links
- *  to it, the rest link to the guides library — queued, not dead. */
+ *  to it, the rest link to the guides library, queued, not dead. */
 function anthropos_guide_grid( $titles, $hue, $url, $page_slug = '' ) {
 	$written = ( $page_slug && isset( anthropos_written_guides()[ $page_slug ] ) ) ? anthropos_written_guides()[ $page_slug ] : array();
 	$urls    = $written ? anthropos_resolve_post_urls( array_values( $written ) ) : array();
@@ -209,7 +209,7 @@ if ( ! isset( $segs[ $slug ] ) ) :
 		<div class="hero-in">
 			<div class="crumb"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a> / Services</div>
 			<h1>Automation, <span class="grad">shaped to your business</span></h1>
-			<p class="sub">Pick your business type for a page tailored to your pains and offers — or go straight to a specific service.</p>
+			<p class="sub">Pick your business type for a page tailored to your pains and offers, or go straight to a specific service.</p>
 		</div>
 	</section>
 	<section id="all">
@@ -230,7 +230,7 @@ if ( ! isset( $segs[ $slug ] ) ) :
 	return;
 endif;
 
-/* =================== SEGMENT PAGE — 5 offers =================== */
+/* =================== SEGMENT PAGE, 5 offers =================== */
 $seg = $segs[ $slug ];
 $hue = $seg['hue'];
 $offers = function_exists( 'anthropos_offers' ) ? anthropos_offers() : array();
@@ -246,12 +246,12 @@ $offers = function_exists( 'anthropos_offers' ) ? anthropos_offers() : array();
 </section>
 
 <section id="blocks">
-	<div class="wrap band reveal"><div class="eyebrow">Choose your scope · 5 offers, by your pain &amp; budget</div><h2>Start with what hurts most — or transform everything at once</h2><p class="soft">Five ways to work with us. Pick the one that matches your biggest leak and your budget; add the rest whenever you're ready.</p></div>
+	<div class="wrap band reveal"><div class="eyebrow">Choose your scope · 5 offers, by your pain &amp; budget</div><h2>Start with what hurts most, or transform everything at once</h2><p class="soft">Five ways to work with us. Pick the one that matches your biggest leak and your budget; add the rest whenever you're ready.</p></div>
 	<div class="wrap">
 		<?php foreach ( $offers as $o ) {
 			echo '<div class="glass sp-block reveal" style="--hue:' . esc_attr( $o[1] ) . '"><div class="sp-fx"><canvas data-fx="' . esc_attr( $o[0] ) . '" style="--hue:' . esc_attr( $o[1] ) . '"></canvas></div><div class="sp-body"><div class="sp-head"><span class="no">' . esc_html( $o[2] ) . '</span><span class="tier">' . esc_html( $o[3] ) . '</span></div><h3>' . wp_kses_post( $o[4] ) . '</h3><p class="bestfor"><b>Best if:</b> ' . wp_kses_post( $o[5] ) . '</p><p>' . wp_kses_post( $o[6] ) . '</p><a class="bcta" href="#cta">Book a call about this →</a></div></div>';
 		} ?>
-		<div class="glass offer-note reveal"><b>Not sure which?</b> <span class="pill">Mix &amp; match</span> Start with one, add the rest as you grow — or book a call and we'll map your biggest leak first. <a class="bcta" href="#cta" style="--hue:var(--flow)">Book a non-binding call →</a></div>
+		<div class="glass offer-note reveal"><b>Not sure which?</b> <span class="pill">Mix &amp; match</span> Start with one, add the rest as you grow, or book a call and we'll map your biggest leak first. <a class="bcta" href="#cta" style="--hue:var(--flow)">Book a non-binding call →</a></div>
 	</div>
 </section>
 
@@ -261,7 +261,7 @@ $offers = function_exists( 'anthropos_offers' ) ? anthropos_offers() : array();
 </section>
 
 <section id="guides">
-	<div class="wrap band reveal"><div class="eyebrow">10 guides for this business · problem → solution → CTA</div><h2>Research-grade guides for <?php echo wp_kses_post( $seg['label'] ); ?></h2><p class="soft">Read free, apply free — or have us build the whole system.</p></div>
+	<div class="wrap band reveal"><div class="eyebrow">10 guides for this business · problem → solution → CTA</div><h2>Research-grade guides for <?php echo wp_kses_post( $seg['label'] ); ?></h2><p class="soft">Read free, apply free, or have us build the whole system.</p></div>
 	<?php anthropos_guide_grid( $seg['guides'], $hue, $guides_url, $slug ); ?>
 </section>
 

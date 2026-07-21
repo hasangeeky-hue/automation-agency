@@ -17,7 +17,7 @@ $groups = array(
 	<div class="hero-in">
 		<div class="crumb"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a> / FAQ</div>
 		<h1>Straight answers, <span class="grad">no jargon</span></h1>
-		<p class="sub">Everything you'd ask before booking a call — grouped so you can jump to what matters. Still unsure? <b>The consultation is free and non-binding.</b></p>
+		<p class="sub">Everything you'd ask before booking a call, grouped so you can jump to what matters. Still unsure? <b>The consultation is free and non-binding.</b></p>
 		<div class="hero-ctas"><a class="btn btn-cta" href="#cta">Book a non-binding consultation</a><a class="btn btn-glass" href="#groups">Read the FAQ ↓</a></div>
 	</div>
 </section>
