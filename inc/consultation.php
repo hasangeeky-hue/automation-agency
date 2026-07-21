@@ -29,7 +29,7 @@ function anthropos_consult_email() {
  * >>> PASTE YOUR BOOKING LINK BETWEEN THE QUOTES BELOW <<<
  */
 function anthropos_booking_url() {
-	return apply_filters( 'anthropos_booking_url', '' );
+	return apply_filters( 'anthropos_booking_url', 'https://cal.com/murtuja-hasan-isbyey/30min' );
 }
 
 /** Your business timezone label, shown next to the customer's own timezone. */
