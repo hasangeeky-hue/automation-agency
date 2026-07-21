@@ -20,7 +20,13 @@ while ( have_posts() ) : the_post();
 	// Resolve the specific parent service page for this article.
 	$svc_url = ''; $svc_label = '';
 	if ( $cat ) {
-		$svc_url   = home_url( '/services/' . $cat->slug . '/' );
+		// Prefer the /services/{slug}/ segment page; fall back to a top-level
+		// service page (e.g. Business Launch at /business-launch/); else default.
+		$seg_page = get_page_by_path( 'services/' . $cat->slug );
+		$top_page = $seg_page ? null : get_page_by_path( $cat->slug );
+		if ( $seg_page )      { $svc_url = get_permalink( $seg_page ); }
+		elseif ( $top_page )  { $svc_url = get_permalink( $top_page ); }
+		else                  { $svc_url = home_url( '/services/' . $cat->slug . '/' ); }
 		$svc_label = $cat->name;
 	} elseif ( $tags ) {
 		foreach ( $tags as $t ) {
