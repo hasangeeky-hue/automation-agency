@@ -249,6 +249,7 @@ function anthropos_consultation_modal() {
 		var modal=document.getElementById('consultModal');
 		if(!modal) return;
 		function open(){ modal.hidden=false; document.body.style.overflow='hidden';
+			try{ window.dataLayer=window.dataLayer||[]; window.dataLayer.push({event:'consultation_opened'}); }catch(e){}
 			var first=modal.querySelector('input,select,textarea,button'); if(first){ try{first.focus();}catch(e){} } }
 		function close(){ modal.hidden=true; document.body.style.overflow=''; }
 		// Open from any "Book a consultation" trigger: [data-open-consult] or any link to #cta.

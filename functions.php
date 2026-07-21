@@ -4,7 +4,7 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'ANTHROPOS_VERSION', '5.44.0' );
+define( 'ANTHROPOS_VERSION', '5.45.0' );
 
 require_once get_template_directory() . '/inc/segments.php';
 require_once get_template_directory() . '/inc/content-seed.php';
@@ -31,6 +31,7 @@ require_once get_template_directory() . '/inc/content-seed-batch21.php';
 require_once get_template_directory() . '/inc/content-seed-batch22.php';
 require_once get_template_directory() . '/inc/consultation.php';
 require_once get_template_directory() . '/inc/diagrams.php';
+require_once get_template_directory() . '/inc/analytics.php';
 
 /**
  * Stop WordPress from silently switching to the default theme if it ever thinks
@@ -352,7 +353,7 @@ add_action( 'wp_enqueue_scripts', 'anthropos_assets' );
  * fires the first time an admin loads the dashboard after this version deploys.
  */
 function anthropos_bootstrap_pages() {
-	if ( get_option( 'anthropos_bootstrapped_v56' ) ) { return; }
+	if ( get_option( 'anthropos_bootstrapped_v57' ) ) { return; }
 	if ( ! is_admin() || ! current_user_can( 'manage_options' ) ) { return; }
 
 	// Parent "Services" page (overview listing) using the service template.
@@ -422,7 +423,7 @@ function anthropos_bootstrap_pages() {
 			. '<p><b>Server logs.</b> Our EU-based hosting automatically records technical data such as your IP address, browser type and the time of your visit, to keep the site secure and running.</p>'
 			. '<p><b>WhatsApp.</b> If you choose to message us on WhatsApp, your message and number are processed by WhatsApp / Meta under their own terms.</p>'
 			. '<h2>3. Legal basis</h2><p>We process consultation data on the basis of your consent and to take steps at your request before entering into a contract (Art. 6(1)(a) and (b) GDPR). We process server logs on the basis of our legitimate interest in a secure, functioning website (Art. 6(1)(f) GDPR).</p>'
-			. '<h2>4. Cookies</h2><p>This website uses only the cookies strictly necessary for it to function. We do not use advertising or tracking cookies.</p>'
+			. '<h2>4. Cookies &amp; analytics</h2><p>This website uses cookies that are necessary for it to function, and &mdash; where you consent &mdash; Google Analytics (loaded through Google Tag Manager) to understand how visitors use the site so we can improve it. Analytics cookies are only set with your consent, which you can decline or withdraw at any time. We do not use advertising cookies.</p>'
 			. '<h2>5. Who we share it with</h2><p>We never sell your data. We share it only with the providers that help us operate &mdash; our EU hosting provider, our email provider and our scheduling provider &mdash; and only as far as needed to reply to you. Where a provider is based outside the EU, the transfer is covered by appropriate safeguards such as the EU Standard Contractual Clauses.</p>'
 			. '<h2>6. How long we keep it</h2><p>We keep your enquiry only as long as we need it to deal with your request and for any period required by law, after which it is deleted. You can ask us to delete it sooner at any time.</p>'
 			. '<h2>7. Your rights</h2><p>You have the right to access, correct, delete, restrict or port your data, to object to processing, and to withdraw consent at any time. To exercise any of these, email hello@anthropos-automation.com. You also have the right to lodge a complaint with a data-protection supervisory authority.</p>'
@@ -493,7 +494,7 @@ function anthropos_bootstrap_pages() {
 	}
 	// Flush permalinks so the new /services/{slug}/ URLs resolve.
 	flush_rewrite_rules();
-	update_option( 'anthropos_bootstrapped_v56', 1 );
+	update_option( 'anthropos_bootstrapped_v57', 1 );
 }
 add_action( 'admin_init', 'anthropos_bootstrap_pages' );
 
