@@ -38,6 +38,28 @@ function anthropos_business_tz() {
 }
 
 /**
+ * Optional automation webhook. Paste an n8n (or Make / Zapier) Webhook URL and
+ * every lead is also sent there as clean JSON, already scored HOT/WARM/COOL,
+ * so n8n can drop it straight into a Google Sheet, CRM, etc. Leave '' for
+ * email only. >>> PASTE YOUR n8n WEBHOOK URL BETWEEN THE QUOTES BELOW <<<
+ */
+function anthropos_lead_webhook_url() {
+	return apply_filters( 'anthropos_lead_webhook_url', '' );
+}
+
+/** Simple, transparent lead priority from urgency + budget-readiness. */
+function anthropos_lead_score( $urgency, $budget ) {
+	$u = strtolower( (string) $urgency );
+	$b = strtolower( (string) $budget );
+	$urgent = ( false !== strpos( $u, 'as soon' ) );
+	$funded = ( false !== strpos( $b, 'real budget' ) || false !== strpos( $b, 'complete system' ) );
+	if ( $urgent && $funded ) { return 'HOT'; }
+	if ( false !== strpos( $u, 'just exploring' ) && ! $funded ) { return 'COOL'; }
+	if ( $urgent || $funded ) { return 'WARM'; }
+	return 'WARM';
+}
+
+/**
  * The qualification questions. All multiple-choice so nobody gets bored and
  * every answer is a clean, filterable value we can segment on. One free-text
  * box at the end for anything else. 'type' is radio (pick one) or checkbox
@@ -287,11 +309,14 @@ function anthropos_handle_consultation() {
 		return '' !== $v ? $v : '-';
 	};
 
+	$score = anthropos_lead_score( $pick( 'urgency' ), $pick( 'budget' ) );
+
 	$lines = array(
 		'NEW CONSULTATION REQUEST',
 		'========================',
 		'',
 		'>> QUICK TRIAGE',
+		'   Priority: ' . $score,
 		'   Segment : ' . $pick( 'segment' ),
 		'   Pain    : ' . $pick( 'pain' ),
 		'   Wants   : ' . $pick( 'goal' ),
@@ -318,6 +343,7 @@ function anthropos_handle_consultation() {
 
 	// Handle an optional JPEG/PDF upload, capped at 2 MB.
 	$attachments = array();
+	$attach_url  = '';
 	if ( ! empty( $_FILES['cf_file']['name'] ) && empty( $_FILES['cf_file']['error'] ) ) {
 		if ( (int) $_FILES['cf_file']['size'] <= 2 * 1024 * 1024 ) {
 			require_once ABSPATH . 'wp-admin/includes/file.php';
@@ -327,6 +353,7 @@ function anthropos_handle_consultation() {
 			);
 			if ( is_array( $upload ) && empty( $upload['error'] ) && ! empty( $upload['file'] ) ) {
 				$attachments[] = $upload['file'];
+				$attach_url    = $upload['url'];
 				$lines[]       = "\nAttachment: " . $upload['url'];
 			}
 		} else {
@@ -335,9 +362,42 @@ function anthropos_handle_consultation() {
 	}
 
 	$to      = anthropos_consult_email();
-	$subject = 'Consultation: ' . $pick( 'segment' ) . ' / ' . $pick( 'pain' ) . ' (' . $name . ')';
+	$subject = '[' . $score . '] Consultation: ' . $pick( 'segment' ) . ' / ' . $pick( 'pain' ) . ' (' . $name . ')';
 	$headers = array( 'Reply-To: ' . $name . ' <' . $email . '>' );
 	wp_mail( $to, $subject, implode( "\n", $lines ), $headers, $attachments );
+
+	// Optionally push the structured lead to an automation webhook (n8n -> Google Sheet, etc.).
+	$hook = trim( (string) anthropos_lead_webhook_url() );
+	if ( '' !== $hook ) {
+		$payload = array(
+			'received'   => current_time( 'mysql' ),
+			'priority'   => $score,
+			'name'       => $name,
+			'business'   => $biz,
+			'email'      => $email,
+			'phone'      => $phone,
+			'segment'    => $pick( 'segment' ),
+			'size'       => $pick( 'size' ),
+			'pain'       => $pick( 'pain' ),
+			'goal'       => $pick( 'goal' ),
+			'leads'      => $pick( 'leads' ),
+			'reply'      => $pick( 'reply' ),
+			'website'    => $pick( 'website' ),
+			'tools'      => $pick( 'tools' ),
+			'budget'     => $pick( 'budget' ),
+			'urgency'    => $pick( 'urgency' ),
+			'market'     => $pick( 'market' ),
+			'notes'      => $notes,
+			'attachment' => $attach_url,
+			'source'     => home_url( '/' ),
+		);
+		wp_remote_post( $hook, array(
+			'timeout'  => 8,
+			'blocking' => false,
+			'headers'  => array( 'Content-Type' => 'application/json' ),
+			'body'     => wp_json_encode( $payload ),
+		) );
+	}
 
 	wp_safe_redirect( add_query_arg( 'consult', 'sent', $back ) . '#cta' );
 	exit;
