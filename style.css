@@ -4,7 +4,7 @@ Theme URI: https://github.com/hasangeeky-hue/automation-agency
 Author: Anthropos Automation
 Author URI: https://anthropos-automation.com
 Description: AI Automation OS theme — dark glass automation canvas, node-graph/agent-network 3D on every card, 6 automation services, per-segment service pages named "Automation Service for {Segment}", guide + blog templates, neuro-navigation and internal linking.
-Version: 5.63.0
+Version: 5.64.1
 Requires at least: 6.0
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
@@ -299,7 +299,7 @@ canvas{display:block}
 .pager a.on,.pager a:hover{border-color:var(--flow);color:var(--ink)}
 
 /* ===== TEAM — photo-forward card ===== */
-.team{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:34px}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
 .tm{--tmhue:var(--flow);padding:0;overflow:hidden;border-radius:18px;display:flex;flex-direction:column;transition:transform .22s,border-color .22s,box-shadow .22s}
 .tm:hover{transform:translateY(-6px);border-color:color-mix(in srgb,var(--tmhue) 55%,transparent);box-shadow:0 22px 50px rgba(0,0,0,.45)}
 .tm-photo{position:relative;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;overflow:hidden;background:linear-gradient(155deg,color-mix(in srgb,var(--tmhue) 30%,var(--void-2)),var(--void-2) 75%);border-bottom:1px solid var(--line)}
