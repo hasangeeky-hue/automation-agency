@@ -4,7 +4,7 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'ANTHROPOS_VERSION', '5.41.0' );
+define( 'ANTHROPOS_VERSION', '5.43.0' );
 
 require_once get_template_directory() . '/inc/segments.php';
 require_once get_template_directory() . '/inc/content-seed.php';
@@ -25,6 +25,10 @@ require_once get_template_directory() . '/inc/content-seed-batch15.php';
 require_once get_template_directory() . '/inc/content-seed-batch16.php';
 require_once get_template_directory() . '/inc/content-seed-batch17.php';
 require_once get_template_directory() . '/inc/content-seed-batch18.php';
+require_once get_template_directory() . '/inc/content-seed-batch19.php';
+require_once get_template_directory() . '/inc/content-seed-batch20.php';
+require_once get_template_directory() . '/inc/content-seed-batch21.php';
+require_once get_template_directory() . '/inc/content-seed-batch22.php';
 require_once get_template_directory() . '/inc/consultation.php';
 require_once get_template_directory() . '/inc/diagrams.php';
 
@@ -500,7 +504,7 @@ add_action( 'admin_init', 'anthropos_bootstrap_pages' );
  * content batches can bump this flag without re-running page creation.
  */
 function anthropos_seed_content() {
-	if ( get_option( 'anthropos_content_seeded_v18' ) ) { return; }
+	if ( get_option( 'anthropos_content_seeded_v20' ) ) { return; }
 	if ( ! is_admin() || ! current_user_can( 'manage_options' ) ) { return; }
 	if ( ! function_exists( 'anthropos_seed_posts' ) ) { return; }
 
@@ -582,6 +586,18 @@ function anthropos_seed_content() {
 	if ( function_exists( 'anthropos_seed_posts_batch18' ) ) {
 		$seed_posts = array_merge( $seed_posts, anthropos_seed_posts_batch18() );
 	}
+	if ( function_exists( 'anthropos_seed_posts_batch19' ) ) {
+		$seed_posts = array_merge( $seed_posts, anthropos_seed_posts_batch19() );
+	}
+	if ( function_exists( 'anthropos_seed_posts_batch20' ) ) {
+		$seed_posts = array_merge( $seed_posts, anthropos_seed_posts_batch20() );
+	}
+	if ( function_exists( 'anthropos_seed_posts_batch21' ) ) {
+		$seed_posts = array_merge( $seed_posts, anthropos_seed_posts_batch21() );
+	}
+	if ( function_exists( 'anthropos_seed_posts_batch22' ) ) {
+		$seed_posts = array_merge( $seed_posts, anthropos_seed_posts_batch22() );
+	}
 	$inserted = 0;
 	foreach ( $seed_posts as $p ) {
 		if ( $inserted >= 25 ) { return; } // chunk: continue on the next admin load so no single request is too heavy
@@ -609,7 +625,7 @@ function anthropos_seed_content() {
 		}
 		wp_set_object_terms( $pid, $p['type'], 'ao_type' );
 	}
-	update_option( 'anthropos_content_seeded_v18', 1 );
+	update_option( 'anthropos_content_seeded_v20', 1 );
 }
 add_action( 'admin_init', 'anthropos_seed_content', 20 );
 
