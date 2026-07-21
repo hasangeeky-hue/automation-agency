@@ -4,7 +4,24 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'ANTHROPOS_VERSION', '5.64.1' );
+define( 'ANTHROPOS_VERSION', '5.64.2' );
+
+/**
+ * Never serve a STALE full-page cache for the homepage.
+ * The front page rarely changes, but it must never go stale, it once got stuck
+ * on the default WordPress "Hello world!" copy in Hostinger's page cache. We
+ * signal every cache layer (generic CDN + LiteSpeed) to skip caching the front
+ * page for logged-out visitors, so a deploy or config change is always live.
+ */
+add_action( 'template_redirect', function () {
+	if ( is_front_page() && ! is_user_logged_in() ) {
+		if ( ! headers_sent() ) {
+			header( 'Cache-Control: no-cache, max-age=0, must-revalidate', true );
+			header( 'X-LiteSpeed-Cache-Control: no-cache', true );
+		}
+		do_action( 'litespeed_control_set_nocache', 'anthropos front page must stay fresh' );
+	}
+}, 0 );
 
 require_once get_template_directory() . '/inc/segments.php';
 require_once get_template_directory() . '/inc/content-seed.php';
