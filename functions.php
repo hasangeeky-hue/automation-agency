@@ -4,7 +4,7 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'ANTHROPOS_VERSION', '5.50.0' );
+define( 'ANTHROPOS_VERSION', '5.51.0' );
 
 require_once get_template_directory() . '/inc/segments.php';
 require_once get_template_directory() . '/inc/content-seed.php';
@@ -147,6 +147,12 @@ function anthropos_seo_head() {
 		return;
 	}
 	$site = wp_strip_all_tags( get_bloginfo( 'name' ) );
+	// Open Graph image: post's featured image, else a filterable brand default.
+	$img = '';
+	if ( is_singular() && has_post_thumbnail( $post ) ) {
+		$img = get_the_post_thumbnail_url( $post, 'large' );
+	}
+	$img = apply_filters( 'anthropos_og_image', $img );
 	echo '<meta name="description" content="' . esc_attr( $desc ) . '">' . "\n";
 	echo '<link rel="canonical" href="' . esc_url( $url ) . '">' . "\n";
 	echo '<meta property="og:type" content="' . esc_attr( $type ) . '">' . "\n";
@@ -154,11 +160,119 @@ function anthropos_seo_head() {
 	echo '<meta property="og:description" content="' . esc_attr( $desc ) . '">' . "\n";
 	echo '<meta property="og:url" content="' . esc_url( $url ) . '">' . "\n";
 	echo '<meta property="og:site_name" content="' . esc_attr( $site ) . '">' . "\n";
-	echo '<meta name="twitter:card" content="summary">' . "\n";
+	if ( $img ) { echo '<meta property="og:image" content="' . esc_url( $img ) . '">' . "\n"; }
+	echo '<meta name="twitter:card" content="' . ( $img ? 'summary_large_image' : 'summary' ) . '">' . "\n";
 	echo '<meta name="twitter:title" content="' . esc_attr( $title ) . '">' . "\n";
 	echo '<meta name="twitter:description" content="' . esc_attr( $desc ) . '">' . "\n";
+	if ( $img ) { echo '<meta name="twitter:image" content="' . esc_url( $img ) . '">' . "\n"; }
 }
 add_action( 'wp_head', 'anthropos_seo_head', 2 );
+
+/**
+ * Organization + WebSite structured data on the home page — gives Google and AI
+ * answer engines a clear brand entity (name, founders, area served, contact) to
+ * attribute all the content to. Strong for E-E-A-T and GEO.
+ */
+function anthropos_org_schema() {
+	if ( ! ( is_front_page() || is_home() ) ) { return; }
+	$home = home_url( '/' );
+	$org  = array(
+		'@type'       => 'Organization',
+		'@id'         => $home . '#org',
+		'name'        => wp_strip_all_tags( get_bloginfo( 'name' ) ),
+		'url'         => $home,
+		'email'       => 'hello@anthropos-automation.com',
+		'description' => get_bloginfo( 'description' ),
+		'areaServed'  => array( 'US', 'GB', 'DE', 'EU' ),
+		'founder'     => array(
+			array( '@type' => 'Person', 'name' => 'Murtuja Hasan' ),
+			array( '@type' => 'Person', 'name' => 'Ahasanul Haque' ),
+		),
+	);
+	if ( has_site_icon() ) { $org['logo'] = get_site_icon_url( 512 ); }
+	$site = array(
+		'@type'     => 'WebSite',
+		'@id'       => $home . '#website',
+		'name'      => wp_strip_all_tags( get_bloginfo( 'name' ) ),
+		'url'       => $home,
+		'publisher' => array( '@id' => $home . '#org' ),
+	);
+	echo '<script type="application/ld+json">' . wp_json_encode( array(
+		'@context' => 'https://schema.org',
+		'@graph'   => array( $org, $site ),
+	) ) . '</script>' . "\n";
+}
+add_action( 'wp_head', 'anthropos_org_schema', 3 );
+
+/**
+ * Serve /llms.txt — the emerging standard (llmstxt.org) that gives AI answer
+ * engines a clean, curated map of the site: what we do, our services and our
+ * guides. Generated live from the real service pages + published guides.
+ */
+function anthropos_llms_txt() {
+	$req = isset( $_SERVER['REQUEST_URI'] ) ? strtok( $_SERVER['REQUEST_URI'], '?' ) : '';
+	if ( '/llms.txt' !== $req && '/llms.txt/' !== $req ) { return; }
+
+	nocache_headers();
+	header( 'Content-Type: text/plain; charset=utf-8' );
+	$home = home_url( '/' );
+	$name = wp_strip_all_tags( get_bloginfo( 'name' ) );
+
+	$out  = "# {$name}\n\n";
+	$out .= "> AI and n8n business automation: a website that converts, visibility that gets you found (SEO / AEO / GEO), and AI that answers and follows up every lead. Serving the US, UK and EU; EU-hosted.\n\n";
+	$out .= "Anthropos Automation Service helps solo operators and small teams stop losing leads and time. We build a website plus connected automation on n8n, on your own accounts and tools, and hand it over 100% yours — no lock-in. Founded by Murtuja Hasan and Ahasanul Haque, who met and studied AI at the Technical University of Munich. The name \"Anthropos\" is Greek for \"human\": the automation serves the person.\n\n";
+
+	$out .= "## Services\n";
+	if ( function_exists( 'anthropos_segments' ) ) {
+		foreach ( anthropos_segments() as $slug => $seg ) {
+			$out .= "- [" . wp_strip_all_tags( $seg['title'] ) . "](" . home_url( '/services/' . $slug . '/' ) . ")\n";
+		}
+	}
+	if ( function_exists( 'anthropos_service_pages' ) ) {
+		foreach ( anthropos_service_pages() as $sslug => $sp ) {
+			$pg  = get_page_by_path( $sslug );
+			$url = $pg ? get_permalink( $pg ) : home_url( '/' . $sslug . '/' );
+			$out .= "- [" . wp_strip_all_tags( $sp['title'] ) . "](" . $url . ")\n";
+		}
+	}
+
+	$guides = get_posts( array(
+		'post_type'      => 'post',
+		'posts_per_page' => 60,
+		'orderby'        => 'title',
+		'order'          => 'ASC',
+		'tax_query'      => array( array( 'taxonomy' => 'ao_type', 'field' => 'slug', 'terms' => 'guide' ) ),
+	) );
+	if ( $guides ) {
+		$out .= "\n## Guides\n";
+		foreach ( $guides as $g ) { $out .= "- [" . wp_strip_all_tags( get_the_title( $g ) ) . "](" . get_permalink( $g ) . ")\n"; }
+	}
+
+	$blogs = get_posts( array(
+		'post_type'      => 'post',
+		'posts_per_page' => 40,
+		'orderby'        => 'title',
+		'order'          => 'ASC',
+		'tax_query'      => array( array( 'taxonomy' => 'ao_type', 'field' => 'slug', 'terms' => 'blog' ) ),
+	) );
+	if ( $blogs ) {
+		$out .= "\n## Articles\n";
+		foreach ( $blogs as $b ) { $out .= "- [" . wp_strip_all_tags( get_the_title( $b ) ) . "](" . get_permalink( $b ) . ")\n"; }
+	}
+
+	$about = get_page_by_path( 'about' );
+	$faq   = get_page_by_path( 'faq' );
+	$out  .= "\n## Key pages\n";
+	if ( $about ) { $out .= "- [About Anthropos](" . get_permalink( $about ) . ")\n"; }
+	if ( $faq )   { $out .= "- [FAQ](" . get_permalink( $faq ) . ")\n"; }
+	$out .= "- [Guides library](" . home_url( '/guides/' ) . ")\n";
+	$out .= "- [Book a free consultation](" . $home . "#cta)\n";
+	$out .= "\n## Contact\n- Email: hello@anthropos-automation.com\n";
+
+	echo $out; // phpcs:ignore WordPress.Security.EscapeOutput -- plain-text llms.txt
+	exit;
+}
+add_action( 'init', 'anthropos_llms_txt' );
 
 /**
  * Canonical FAQ data — server-rendered as real <details> markup (not
@@ -318,13 +432,11 @@ function anthropos_schema_organization() {
 }
 add_action( 'wp_head', 'anthropos_schema_organization', 2 );
 
-/** Add the sitemap line to robots.txt (WP core still serves the default file). */
-function anthropos_robots_txt( $output, $public ) {
-	if ( '1' !== (string) $public ) { return $output; }
-	$output .= "Sitemap: " . home_url( '/wp-sitemap.xml' ) . "\n";
-	return $output;
-}
-add_filter( 'robots_txt', 'anthropos_robots_txt', 10, 2 );
+/* robots.txt: WordPress core already appends the wp-sitemap.xml line to the
+ * virtual robots.txt, so we no longer add it here (doing so produced a
+ * duplicate Sitemap: line). Core's default also allows AI/answer-engine
+ * crawlers (GPTBot, PerplexityBot, Google-Extended, etc.), which we WANT for
+ * AEO/GEO — so nothing to block. */
 
 /** Preconnect hints for the two third-party origins the theme depends on. */
 function anthropos_resource_hints( $urls, $relation_type ) {
