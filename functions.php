@@ -4,7 +4,7 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'ANTHROPOS_VERSION', '5.33.0' );
+define( 'ANTHROPOS_VERSION', '5.34.0' );
 
 require_once get_template_directory() . '/inc/segments.php';
 require_once get_template_directory() . '/inc/content-seed.php';
@@ -17,6 +17,7 @@ require_once get_template_directory() . '/inc/content-seed-batch7.php';
 require_once get_template_directory() . '/inc/content-seed-batch8.php';
 require_once get_template_directory() . '/inc/content-seed-batch9.php';
  require_once get_template_directory() . '/inc/content-seed-batch10.php';
+require_once get_template_directory() . '/inc/content-seed-batch11.php';
 require_once get_template_directory() . '/inc/consultation.php';
 require_once get_template_directory() . '/inc/diagrams.php';
 
@@ -445,7 +446,7 @@ add_action( 'admin_init', 'anthropos_bootstrap_pages' );
  * content batches can bump this flag without re-running page creation.
  */
 function anthropos_seed_content() {
-	if ( get_option( 'anthropos_content_seeded_v10' ) ) { return; }
+	if ( get_option( 'anthropos_content_seeded_v11' ) ) { return; }
 	if ( ! is_admin() || ! current_user_can( 'manage_options' ) ) { return; }
 	if ( ! function_exists( 'anthropos_seed_posts' ) ) { return; }
 
@@ -498,6 +499,9 @@ function anthropos_seed_content() {
 	if ( function_exists( 'anthropos_seed_posts_batch10' ) ) {
 		$seed_posts = array_merge( $seed_posts, anthropos_seed_posts_batch10() );
 	}
+	if ( function_exists( 'anthropos_seed_posts_batch11' ) ) {
+		$seed_posts = array_merge( $seed_posts, anthropos_seed_posts_batch11() );
+	}
 	$inserted = 0;
 	foreach ( $seed_posts as $p ) {
 		if ( $inserted >= 25 ) { return; } // chunk: continue on the next admin load so no single request is too heavy
@@ -525,7 +529,7 @@ function anthropos_seed_content() {
 		}
 		wp_set_object_terms( $pid, $p['type'], 'ao_type' );
 	}
-	update_option( 'anthropos_content_seeded_v10', 1 );
+	update_option( 'anthropos_content_seeded_v11', 1 );
 }
 add_action( 'admin_init', 'anthropos_seed_content', 20 );
 
