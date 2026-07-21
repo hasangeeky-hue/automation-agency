@@ -4,7 +4,7 @@ Theme URI: https://github.com/hasangeeky-hue/automation-agency
 Author: Anthropos Automation
 Author URI: https://anthropos-automation.com
 Description: AI Automation OS theme — dark glass automation canvas, node-graph/agent-network 3D on every card, 6 automation services, per-segment service pages named "Automation Service for {Segment}", guide + blog templates, neuro-navigation and internal linking.
-Version: 5.54.0
+Version: 5.55.0
 Requires at least: 6.0
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
@@ -228,6 +228,18 @@ canvas{display:block}
 .art-cta h3{font-family:var(--display);font-size:22px;font-weight:700;letter-spacing:-.02em}
 .art-cta p{color:var(--muted);margin-top:10px;max-width:52ch;margin-inline:auto;font-size:14.5px}
 .art-cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.art-news{margin-top:18px;border:1px solid var(--line);border-radius:18px;background:var(--void-2);padding:24px 26px;text-align:center;scroll-margin-top:90px}
+.art-news h4{font-family:var(--display);font-size:18px;font-weight:700;letter-spacing:-.01em}
+.art-news p{color:var(--muted);margin-top:8px;font-size:14px;max-width:48ch;margin-inline:auto}
+.art-news p b{color:var(--ink)}
+.art-news-form{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.art-news-form input[type=email]{flex:1;min-width:220px;max-width:340px;background:var(--void);border:1px solid var(--line);border-radius:11px;padding:11px 14px;color:var(--ink);font-family:var(--body);font-size:14px}
+.art-news-form input[type=email]:focus{outline:none;border-color:var(--flow);box-shadow:0 0 0 3px rgba(47,227,210,.12)}
+.art-news-form .btn{flex:0 0 auto}
+.art-news small{display:block;margin-top:10px;font-size:11.5px;color:var(--faint)}
+.art-news small a{color:var(--flow)}
+.art-news-ok{color:var(--ok)!important}
+.art-news-err{color:var(--cta)!important}
 .art h2{font-family:var(--display);font-size:21px;font-weight:600;margin-top:30px}
 .art p{margin-top:12px;color:var(--muted)}
 .art ul,.art ol{margin:12px 0 0 22px;color:var(--muted)}

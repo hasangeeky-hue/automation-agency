@@ -4,7 +4,7 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'ANTHROPOS_VERSION', '5.54.0' );
+define( 'ANTHROPOS_VERSION', '5.55.0' );
 
 require_once get_template_directory() . '/inc/segments.php';
 require_once get_template_directory() . '/inc/content-seed.php';
@@ -32,6 +32,7 @@ require_once get_template_directory() . '/inc/content-seed-batch22.php';
 require_once get_template_directory() . '/inc/consultation.php';
 require_once get_template_directory() . '/inc/diagrams.php';
 require_once get_template_directory() . '/inc/analytics.php';
+require_once get_template_directory() . '/inc/newsletter.php';
 
 /**
  * Stop WordPress from silently switching to the default theme if it ever thinks

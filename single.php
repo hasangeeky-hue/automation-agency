@@ -180,6 +180,8 @@ if ( count( $faq_items ) >= 2 ) {
 				<a class="btn btn-glass" href="<?php echo esc_url( $svc_url ); ?>">See the full system for <?php echo esc_html( $svc_label ); ?> →</a>
 			</div>
 		</div>
+
+		<?php if ( function_exists( 'anthropos_newsletter_form' ) ) { anthropos_newsletter_form(); } ?>
 	</div>
 </div>
 <?php endwhile; anthropos_faq_section(); get_footer(); ?>
