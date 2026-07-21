@@ -4,7 +4,7 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'ANTHROPOS_VERSION', '5.28.0' );
+define( 'ANTHROPOS_VERSION', '5.29.0' );
 
 require_once get_template_directory() . '/inc/segments.php';
 require_once get_template_directory() . '/inc/content-seed.php';
@@ -291,7 +291,7 @@ add_action( 'wp_enqueue_scripts', 'anthropos_assets' );
  * fires the first time an admin loads the dashboard after this version deploys.
  */
 function anthropos_bootstrap_pages() {
-	if ( get_option( 'anthropos_bootstrapped_v55' ) ) { return; }
+	if ( get_option( 'anthropos_bootstrapped_v56' ) ) { return; }
 	if ( ! is_admin() || ! current_user_can( 'manage_options' ) ) { return; }
 
 	// Parent "Services" page (overview listing) using the service template.
@@ -347,23 +347,57 @@ function anthropos_bootstrap_pages() {
 		$fid = wp_insert_post( array( 'post_title' => 'FAQ', 'post_name' => 'faq', 'post_status' => 'publish', 'post_type' => 'page', 'post_content' => '' ) );
 		if ( $fid && ! is_wp_error( $fid ) ) { update_post_meta( $fid, '_wp_page_template', 'template-faq.php' ); }
 	}
-	// Legal / policy pages (placeholder copy — replace with your final wording before launch).
+	// Legal / policy pages. Launch-quality copy; only the bracketed [ ] legal-identity
+	// fields need completing by the founder. Existing pages are UPDATED, not skipped.
 	$legal = array(
 		'privacy-policy' => array(
 			'Privacy Policy',
-			'<p><b>This is a starting-point privacy policy — replace it with your finalised wording before launch.</b></p><p>Anthropos Automation Service ("we", "us") respects your privacy. This page explains what we collect and why.</p><h2>What we collect</h2><p>When you submit the consultation form we collect the details you provide — your name, email, phone number, business information, your answers to our questions, and any file you choose to attach. We collect this only to respond to your enquiry.</p><h2>How we use it</h2><p>We use your information solely to contact you about your enquiry and to prepare for our conversation. We do not sell your data, and we do not share it with third parties except the tools we use to operate our business and reply to you.</p><h2>Data storage &amp; your rights</h2><p>Your data is stored securely on EU-hosted infrastructure. You may ask us at any time to see, correct or delete the information we hold about you by emailing us at the address in our imprint.</p><h2>Cookies</h2><p>This website uses only the cookies necessary to function. We will update this section with full detail before launch.</p>',
+			'<p><i>Last updated: July 2026. The bracketed [ ] details below must be completed with your final legal information before public launch.</i></p>'
+			. '<p>Anthropos Automation Service ("we", "us", "our") is committed to protecting your personal data. This policy explains what we collect, why, how we keep it safe, and the rights you have under the EU General Data Protection Regulation (GDPR).</p>'
+			. '<h2>1. Who is responsible</h2><p>The controller responsible for your data is:<br>[Registered name]<br>[Street and number]<br>[Postal code, city, country]<br>Email: hello@anthropos-automation.com</p><p>Full legal and contact details are in our <a href="/imprint/">Imprint</a>.</p>'
+			. '<h2>2. What we collect and why</h2>'
+			. '<p><b>Consultation form.</b> When you book a consultation you give us your name, email address, phone number (optional), business name (optional), your multiple-choice answers, any notes you add, and an optional file (JPEG or PDF, up to 2&nbsp;MB). We use this only to understand your enquiry, prepare for our conversation and reply to you.</p>'
+			. '<p><b>Booking &amp; scheduling.</b> When you choose a time slot, our scheduling provider processes your name, email and timezone to create the appointment and send confirmations. It detects your timezone automatically so times appear in your own local time.</p>'
+			. '<p><b>Server logs.</b> Our EU-based hosting automatically records technical data such as your IP address, browser type and the time of your visit, to keep the site secure and running.</p>'
+			. '<p><b>WhatsApp.</b> If you choose to message us on WhatsApp, your message and number are processed by WhatsApp / Meta under their own terms.</p>'
+			. '<h2>3. Legal basis</h2><p>We process consultation data on the basis of your consent and to take steps at your request before entering into a contract (Art. 6(1)(a) and (b) GDPR). We process server logs on the basis of our legitimate interest in a secure, functioning website (Art. 6(1)(f) GDPR).</p>'
+			. '<h2>4. Cookies</h2><p>This website uses only the cookies strictly necessary for it to function. We do not use advertising or tracking cookies.</p>'
+			. '<h2>5. Who we share it with</h2><p>We never sell your data. We share it only with the providers that help us operate &mdash; our EU hosting provider, our email provider and our scheduling provider &mdash; and only as far as needed to reply to you. Where a provider is based outside the EU, the transfer is covered by appropriate safeguards such as the EU Standard Contractual Clauses.</p>'
+			. '<h2>6. How long we keep it</h2><p>We keep your enquiry only as long as we need it to deal with your request and for any period required by law, after which it is deleted. You can ask us to delete it sooner at any time.</p>'
+			. '<h2>7. Your rights</h2><p>You have the right to access, correct, delete, restrict or port your data, to object to processing, and to withdraw consent at any time. To exercise any of these, email hello@anthropos-automation.com. You also have the right to lodge a complaint with a data-protection supervisory authority.</p>'
+			. '<h2>8. Changes</h2><p>We may update this policy as our services grow. The current version always appears on this page.</p>',
 		),
 		'terms' => array(
 			'Terms of Service',
-			'<p><b>This is a starting-point terms page — replace it with your finalised wording before launch.</b></p><p>These terms govern your use of this website and any consultation you book with Anthropos Automation Service.</p><h2>Consultations</h2><p>Booking a consultation is free and places you under no obligation. Any proposal we make is agreed with you in writing before work begins.</p><h2>Ownership</h2><p>Any system we build for a client is built on the client\'s own accounts and handed over to the client. Full terms of any engagement are set out in a separate written agreement.</p><h2>Liability</h2><p>The information on this website is provided for general guidance and does not constitute professional advice. We will update these terms with full detail before launch.</p>',
+			'<p><i>Last updated: July 2026. Please complete the bracketed [ ] details before public launch.</i></p>'
+			. '<p>These terms govern your use of this website and any free consultation you book with Anthropos Automation Service. By using this site, you agree to them.</p>'
+			. '<h2>1. The consultation</h2><p>Booking a consultation is free and places you under no obligation. It is a conversation about your business, not a binding order. Any work we go on to do for you is agreed separately, in writing, before it begins.</p>'
+			. '<h2>2. Engagements and ownership</h2><p>If you decide to work with us, the scope, timeline and terms are set out in a separate written agreement. Any website, workflow or automation we build for you is built on your own accounts and handed over to you, so you own it in full.</p>'
+			. '<h2>3. No professional advice</h2><p>The articles, guides and other information on this website are provided for general guidance only. They are not legal, financial, medical or other professional advice, and should not be relied on as a substitute for advice from a qualified professional.</p>'
+			. '<h2>4. Intellectual property</h2><p>The content, design and code of this website belong to Anthropos Automation Service unless stated otherwise. You may not copy or reuse them without our permission.</p>'
+			. '<h2>5. External links</h2><p>Where we link to other websites, we are not responsible for their content or their privacy practices.</p>'
+			. '<h2>6. Liability</h2><p>To the extent permitted by law, we are not liable for any loss arising from your use of this website. Nothing in these terms limits any liability that cannot be limited by law.</p>'
+			. '<h2>7. Governing law</h2><p>These terms are governed by the laws of [Germany / your country], and the courts of [your city] have jurisdiction, unless mandatory consumer law provides otherwise.</p>'
+			. '<h2>8. Contact</h2><p>Questions about these terms? Email hello@anthropos-automation.com.</p>',
 		),
 		'imprint' => array(
 			'Imprint',
-			'<p><b>Placeholder imprint — replace with your final legal details before launch.</b></p><p>Anthropos Automation Service<br>[Registered company name and address]<br>[Country of registration]</p><p>Contact: hello@anthropos-automation.com</p><p>Responsible for content: [Name]</p>',
+			'<p><i>Please replace every bracketed [ ] field with your final legal details before public launch. This structure follows the information required for a German imprint (&sect;&nbsp;5 DDG, &sect;&nbsp;18 MStV).</i></p>'
+			. '<h2>Information pursuant to &sect;&nbsp;5 DDG</h2><p>[Registered name of the business or sole trader]<br>[Street and number]<br>[Postal code and city]<br>[Country]</p>'
+			. '<h2>Represented by</h2><p>[Full name of the owner or managing director]</p>'
+			. '<h2>Contact</h2><p>Email: hello@anthropos-automation.com<br>Phone: [phone number]</p>'
+			. '<h2>VAT identification number</h2><p>VAT ID pursuant to &sect;&nbsp;27a of the German VAT Act (UStG): [DE&hellip; or "not yet issued"]</p>'
+			. '<h2>Entry in the commercial register</h2><p>[If registered: register court and register number. If you operate as a sole trader (Einzelunternehmen / Kleinunternehmer), state that here instead.]</p>'
+			. '<h2>Responsible for content pursuant to &sect;&nbsp;18(2) MStV</h2><p>[Name and address of the person responsible for content &mdash; usually the same as above]</p>'
+			. '<h2>EU dispute resolution</h2><p>The European Commission provides a platform for online dispute resolution: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a>. We are not obliged, and not willing, to take part in dispute-resolution proceedings before a consumer arbitration board.</p>'
+			. '<h2>Liability for content and links</h2><p>We take great care with the content of this website but cannot guarantee it is always accurate or complete. We are not responsible for the content of external websites we link to; responsibility lies with their operators.</p>',
 		),
 	);
 	foreach ( $legal as $lslug => $ldata ) {
-		if ( ! get_page_by_path( $lslug ) ) {
+		$existing = get_page_by_path( $lslug );
+		if ( $existing ) {
+			wp_update_post( array( 'ID' => $existing->ID, 'post_title' => $ldata[0], 'post_content' => $ldata[1] ) );
+		} else {
 			wp_insert_post( array( 'post_title' => $ldata[0], 'post_name' => $lslug, 'post_status' => 'publish', 'post_type' => 'page', 'post_content' => $ldata[1] ) );
 		}
 	}
@@ -398,7 +432,7 @@ function anthropos_bootstrap_pages() {
 	}
 	// Flush permalinks so the new /services/{slug}/ URLs resolve.
 	flush_rewrite_rules();
-	update_option( 'anthropos_bootstrapped_v55', 1 );
+	update_option( 'anthropos_bootstrapped_v56', 1 );
 }
 add_action( 'admin_init', 'anthropos_bootstrap_pages' );
 
