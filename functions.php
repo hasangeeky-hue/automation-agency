@@ -4,7 +4,7 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'ANTHROPOS_VERSION', '5.47.0' );
+define( 'ANTHROPOS_VERSION', '5.48.0' );
 
 require_once get_template_directory() . '/inc/segments.php';
 require_once get_template_directory() . '/inc/content-seed.php';
@@ -100,6 +100,18 @@ function anthropos_favicon() {
 	echo '<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,' . rawurlencode( $svg ) . '">' . "\n";
 }
 add_action( 'wp_head', 'anthropos_favicon', 1 );
+
+/** Google Search Console (and other) site-verification meta tags. Filterable so
+ *  more tokens (e.g. Bing) can be added later; the "google-site-verification="
+ *  prefix is stripped if present so only the token goes in the content attr. */
+function anthropos_site_verification() {
+	$google = apply_filters( 'anthropos_google_site_verification', 'AHz1p-CZ4FsdMqC3UKtNVrJoZQaGn9D1FmS5RLEQOk0' );
+	$google = trim( preg_replace( '/^google-site-verification=/', '', (string) $google ) );
+	if ( '' !== $google ) {
+		echo '<meta name="google-site-verification" content="' . esc_attr( $google ) . '">' . "\n";
+	}
+}
+add_action( 'wp_head', 'anthropos_site_verification', 1 );
 
 /** A clean ~155-char meta description — prefers the manual excerpt, else the
  *  article's opening (which is the quick-answer paragraph, ideal for AEO/GEO). */
