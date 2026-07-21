@@ -4,7 +4,7 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'ANTHROPOS_VERSION', '5.57.0' );
+define( 'ANTHROPOS_VERSION', '5.58.0' );
 
 require_once get_template_directory() . '/inc/segments.php';
 require_once get_template_directory() . '/inc/content-seed.php';
@@ -482,6 +482,30 @@ function anthropos_resource_hints( $urls, $relation_type ) {
 	return $urls;
 }
 add_filter( 'wp_resource_hints', 'anthropos_resource_hints', 10, 2 );
+
+/**
+ * One-time migration: strip em-dashes (and en-dashes) from ALREADY-PUBLISHED
+ * posts in the DB — the source batch files were cleaned, but seeded posts keep
+ * their original content, so they need updating in place. Admin-only, chunked
+ * to 25 posts per admin load (self-continues), then sets its flag and stops.
+ */
+function anthropos_dedash_posts() {
+	if ( ! is_admin() || ! current_user_can( 'manage_options' ) ) { return; }
+	if ( get_option( 'anthropos_dedash_v1' ) ) { return; }
+	global $wpdb;
+	$ids = $wpdb->get_col( "SELECT ID FROM {$wpdb->posts} WHERE post_status IN ('publish','draft','pending','private') AND ( post_content LIKE '%&mdash;%' OR post_content LIKE '%&ndash;%' ) LIMIT 25" );
+	if ( empty( $ids ) ) { update_option( 'anthropos_dedash_v1', 1 ); return; }
+	foreach ( $ids as $id ) {
+		$p = get_post( $id );
+		if ( ! $p ) { continue; }
+		$c = $p->post_content;
+		$c = str_replace( array( ' &mdash; ', '&mdash; ', ' &mdash;', '&mdash;' ), array( ', ', ', ', ',', ',' ), $c );
+		$c = str_replace( '&ndash;', '-', $c );
+		$c = str_replace( array( ', ,', ',,', ' ,' ), array( ',', ',', ',' ), $c );
+		wp_update_post( array( 'ID' => $id, 'post_content' => $c ) );
+	}
+}
+add_action( 'admin_init', 'anthropos_dedash_posts' );
 
 function anthropos_setup() {
 	add_theme_support( 'title-tag' );
