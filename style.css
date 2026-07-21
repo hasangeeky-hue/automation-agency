@@ -4,7 +4,7 @@ Theme URI: https://github.com/hasangeeky-hue/automation-agency
 Author: Anthropos Automation
 Author URI: https://anthropos-automation.com
 Description: AI Automation OS theme — dark glass automation canvas, node-graph/agent-network 3D on every card, 6 automation services, per-segment service pages named "Automation Service for {Segment}", guide + blog templates, neuro-navigation and internal linking.
-Version: 5.30.0
+Version: 5.31.0
 Requires at least: 6.0
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
@@ -281,7 +281,8 @@ canvas{display:block}
 .tm h5{font-family:var(--display);font-size:16px;font-weight:700;margin-top:16px;letter-spacing:-.01em}
 .tm h5 a{color:inherit;text-decoration:none;border-bottom:1px dotted var(--tmhue,var(--flow))}
 .tm span{display:inline-block;margin-top:8px;font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);background:var(--glass);border:1px solid var(--line);border-radius:99px;padding:4px 11px}
-.tm p{font-size:12.5px;color:var(--muted);margin-top:12px;line-height:1.55}
+.tm-spec{display:block;margin-top:11px;font-size:12.5px;font-style:italic;color:var(--tmhue,var(--flow))}
+.tm p{font-size:12.5px;color:var(--muted);margin-top:9px;line-height:1.6;text-align:left}
 @media(max-width:1020px){.team{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:680px){.team{grid-template-columns:1fr 1fr}}
 @media(max-width:420px){.team{grid-template-columns:1fr}}

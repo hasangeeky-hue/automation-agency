@@ -18,19 +18,19 @@ get_header();
 </section>
 
 <section id="company">
-	<div class="wrap band reveal"><div class="eyebrow" style="color:var(--flow)">Our Story</div><h2>Two dreamers, one question: what should AI do for people?</h2></div>
+	<div class="wrap band reveal"><div class="eyebrow" style="color:var(--flow)">Our Story</div><h2>Our name is our whole argument: keep the human at the centre</h2></div>
 	<div class="wrap">
 		<div class="manifesto reveal" style="--hue:var(--flow)">
 			<div>
-				<span class="no">HOW IT STARTED</span>
-				<h3>2021. The world was locked down, and the ground was shifting under everyone's feet</h3>
-				<p>Two friends from Bangladesh watched jobs change, AI arrive, and an old order start to crack. Instead of waiting to see what it would do to us, we decided to go and learn — really learn — what this technology can and cannot do. So we moved to Munich and enrolled at the <b style="color:var(--ink)">Technical University of Munich</b>, one of the best places in the world to understand it.</p>
-				<p>Murtuja is an anthropologist by training who came to TUM for an M.Sc. in <b style="color:var(--ink)">Science &amp; Technology Studies</b> — the study of how people and machines shape each other — and earned the <b style="color:var(--ink)">CDTM Digital Changemaker</b> degree (TUM &amp; LMU) and <b style="color:var(--ink)">UnternehmerTUM's Digital Product School</b> along the way. Ahasanul went the other direction, deep into a <b style="color:var(--ink)">data-science Master's</b> and production AI at Adobe. One asks what technology means for humans; the other builds it. Together, that is the whole company.</p>
-				<p><b style="color:var(--ink)">"Anthropos" is Greek for human.</b> We chose the name on purpose: the machine serves the person, never the other way around.</p>
+				<span class="no">WHY WE EXIST</span>
+				<h3>&ldquo;Anthropos&rdquo; is Greek for the human being. That is not a name &mdash; it is a belief</h3>
+				<p>We do not think AI is an alien mind arriving to replace us. We think it is a <b style="color:var(--ink)">mirror</b>. It learns from people and reflects them back: carelessness trained into it returns as carelessness; judgement and care trained into it return as judgement and care. So the real question was never <i>what can the machine do</i>. It was <b style="color:var(--ink)">who is holding the reins</b>.</p>
+				<p>That is why we do not install AI like a plugin &mdash; we <b style="color:var(--ink)">train</b> it. We raise an automation the way you train a good horse: patiently, understanding its nature, with care and precision, until it can be trusted to carry real weight without bolting. It takes an eye for the human on both sides &mdash; the person it serves, and the person it reflects.</p>
+				<p>It began in 2021, mid-lockdown, when two friends from Bangladesh watched the world of work crack open and refused to just wait and see what AI would do to us. Murtuja is an <b style="color:var(--ink)">anthropologist</b> &mdash; he studied human beings for years &mdash; who then came to the Technical University of Munich to study how people and machines shape each other; Ahasanul went deep into the data science that makes the machines work. One keeps asking what technology means for people; the other builds it so it does. Together, that is the whole company &mdash; and the whole promise: we help professionals meet the new world of work with a partner that reflects their <b style="color:var(--ink)">own best judgement</b> back at them, never a replacement for it.</p>
 				<div class="astats">
-					<div class="astat"><b>TUM</b><span>M.Sc. + CDTM, Munich</span></div>
-					<div class="astat"><b>10&times;</b><span>ad-spend return, in the real world</span></div>
-					<div class="astat"><b>2021</b><span>the year we started preparing</span></div>
+					<div class="astat"><b>Human</b><span>what &ldquo;Anthropos&rdquo; means &mdash; and who AI must serve</span></div>
+					<div class="astat"><b>Trained</b><span>like a horse: with care &amp; precision, not installed</span></div>
+					<div class="astat"><b>Mirror</b><span>AI reflects the people who guide it</span></div>
 				</div>
 			</div>
 			<div class="glass mfx"><canvas data-fx="crystal" style="--hue:var(--flow)"></canvas></div>
@@ -49,7 +49,7 @@ get_header();
 </section>
 
 <section id="team">
-	<div class="wrap band reveal"><div class="eyebrow" style="color:var(--cta)">Our Team &amp; how we work</div><h2>Real people, a repeatable method</h2></div>
+	<div class="wrap band reveal"><div class="eyebrow" style="color:var(--cta)">Our Team &amp; how we work</div><h2>A small team of senior hands &mdash; you talk to the people who build it</h2><p class="soft">No account managers, no hand-offs to strangers. The people below are the ones who map your leak, train your automation and hand it over. Between them: anthropology, data science, cybersecurity, performance marketing and full-stack engineering &mdash; pointed at one thing, keeping the human at the centre.</p></div>
 	<div class="wrap">
 		<div class="worksteps">
 			<div class="glass wstep reveal" style="--hue:var(--flow)"><canvas class="fxcanvas" data-fx="radar" style="--hue:var(--flow)"></canvas><div class="wk">STEP 01 · MAP</div><h4>We find the leak</h4><p>A live audit of where leads, replies and revenue drain out.</p></div>
@@ -57,11 +57,11 @@ get_header();
 			<div class="glass wstep reveal" style="--hue:var(--g4)"><canvas class="fxcanvas" data-fx="growth" style="--hue:var(--g4)"></canvas><div class="wk">STEP 03 · HAND OVER</div><h4>You own it</h4><p>Documented, reporting, running — no dependency on us.</p></div>
 		</div>
 		<div class="team" role="list" style="margin-top:16px">
-			<div class="glass tm reveal" role="listitem"><div class="av">MH</div><h5>Murtuja Hasan</h5><span>Founder &amp; CEO</span><p>An anthropologist who came to the Technical University of Munich for an M.Sc. in Science &amp; Technology Studies, with the CDTM Digital Changemaker degree and UnternehmerTUM's Digital Product School behind him. By day he leads e-commerce and performance marketing for real businesses — a 7-person team, a €150K+ ad budget, a steady 10× return — and brings that same playbook to your project, personally.</p></div>
-			<div class="glass tm reveal" role="listitem"><div class="av">AH</div><h5>Ahasanul Haque</h5><span>CTO</span><p>Ahasan builds the AI that runs quietly under the hood. With a data-science Master's from TU Munich and production experience at Adobe, he makes sure the clever stuff actually works — every single time.</p></div>
-			<div class="glass tm reveal" role="listitem"><div class="av">SK</div><h5>Sina Khouei</h5><span>Team Lead, Cybersecurity &amp; Applied AI</span><p>Sina keeps your data and your automations safe. A computer scientist from the University of Bonn, he hardens every system before it ever touches a real customer, so security is never an afterthought.</p></div>
-			<div class="glass tm reveal" role="listitem"><div class="av">AI</div><h5>Ariful Islam</h5><span>Media Buyer &amp; Ads Automation Strategist</span><p>Ariful turns ad budget into booked customers. He runs Google and Meta campaigns at exceptional returns and automates the tracking, so every euro you spend is accountable.</p></div>
-			<div class="glass tm reveal" role="listitem"><div class="av">AR</div><h5><a href="https://www.razzakabdur.com/" target="_blank" rel="noopener">Abdur Razak</a></h5><span>Head of Web Development</span><p>Abdur builds the websites and the behind-the-scenes tools your system runs on — a full-stack developer who cares as much about clear documentation as he does about clean code.</p></div>
+			<div class="glass tm reveal" role="listitem"><div class="av">MH</div><h5>Murtuja Hasan</h5><span>Founder &amp; CEO</span><em class="tm-spec">The anthropologist who runs the numbers</em><p>Murtuja studies people for a living &mdash; degrees in anthropology, an M.Sc. in Science &amp; Technology Studies from TUM, the CDTM Digital Changemaker and Digital Product School. By day he runs e-commerce and marketing for real businesses: a 7-person team, a &euro;150K+ budget, a steady 10&times; return. He started Anthropos because he kept watching good people drown in admin a well-trained machine should be doing for them.</p></div>
+			<div class="glass tm reveal" role="listitem"><div class="av">AH</div><h5>Ahasanul Haque</h5><span>CTO</span><em class="tm-spec">Teaches the machines their manners</em><p>Ahasanul is the one who actually trains the AI. A data scientist with a Master's and production experience at Adobe, he turns &ldquo;it should just handle this&rdquo; into models and workflows that quietly do exactly that &mdash; and he is happiest when the clever part is invisible and the thing simply works.</p></div>
+			<div class="glass tm reveal" role="listitem"><div class="av">SK</div><h5>Sina Khouei</h5><span>Team Lead, Cybersecurity &amp; Applied AI</span><em class="tm-spec">Guards the doors before anyone knocks</em><p>Before anything you build touches a real customer, it goes past Sina. A computer scientist from the University of Bonn, he treats your data and your automations as if they were his own &mdash; so &ldquo;safe&rdquo; is not a promise on a page, it is something already done.</p></div>
+			<div class="glass tm reveal" role="listitem"><div class="av">AI</div><h5>Ariful Islam</h5><span>Media Buyer &amp; Ads Automation Strategist</span><em class="tm-spec">Turns budget into booked calls</em><p>Ariful makes sure the traffic actually shows up. He runs Google and Meta campaigns at returns most agencies quietly envy, then automates the tracking so you can see, to the euro, what your marketing brought back &mdash; no vanity metrics, no guessing.</p></div>
+			<div class="glass tm reveal" role="listitem"><div class="av">AR</div><h5><a href="https://www.razzakabdur.com/" target="_blank" rel="noopener">Abdur Razak</a></h5><span>Head of Web Development</span><em class="tm-spec">Builds it so you can own it</em><p>Abdur builds the websites and the behind-the-scenes tools your system runs on. A full-stack developer who cares as much about the documentation as the code &mdash; he makes things you can actually own and hand to the next person, not a black box only he understands.</p></div>
 		</div>
 	</div>
 </section>
