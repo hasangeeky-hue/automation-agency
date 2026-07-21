@@ -1,23 +1,39 @@
 <?php
 /**
- * Google Tag Manager + a lead-conversion dataLayer event.
+ * Analytics: Consent Mode v2 + Google Analytics 4 (loaded directly) + Google
+ * Tag Manager, all consent-gated for GDPR.
  *
- * GTM is the single container; GA4 (G-4EVZC2JPF4) should be added as a tag
- * INSIDE GTM (GA4 Configuration tag), not hardcoded here — that avoids
- * double-counting. The head snippet loads as early as possible in <head>,
- * and the <noscript> fallback renders right after <body> via wp_body_open.
+ * GA4 (G-4EVZC2JPF4) is loaded directly here via gtag so it works with no
+ * action needed inside the GTM dashboard. GTM (GTM-MBDCQCMW) is also present
+ * for future tag management. IMPORTANT: because GA4 is loaded here directly,
+ * do NOT also add a GA4 tag inside GTM — that would double-count.
+ *
+ * Nothing collects data until the visitor accepts the cookie banner: Consent
+ * Mode defaults analytics/ads to 'denied', and only Accept flips
+ * analytics_storage to 'granted'.
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-/** Your GTM container ID. Filterable; return '' to switch tracking off. */
+/** GTM container ID (filterable; '' to disable GTM). */
 function anthropos_gtm_id() {
 	return apply_filters( 'anthropos_gtm_id', 'GTM-MBDCQCMW' );
 }
 
-/** Consent Mode default (deny until accepted) + GTM loader — printed high in <head>. */
+/** GA4 measurement ID (filterable; '' to disable GA4). */
+function anthropos_ga4_id() {
+	return apply_filters( 'anthropos_ga4_id', 'G-4EVZC2JPF4' );
+}
+
+/** True if any tracking is configured. */
+function anthropos_tracking_on() {
+	return '' !== trim( (string) anthropos_gtm_id() ) || '' !== trim( (string) anthropos_ga4_id() );
+}
+
+/** Consent Mode default + GA4 + GTM loaders — printed high in <head>. */
 function anthropos_gtm_head() {
-	$id = trim( (string) anthropos_gtm_id() );
-	if ( '' === $id ) { return; }
+	$gtm = trim( (string) anthropos_gtm_id() );
+	$ga4 = trim( (string) anthropos_ga4_id() );
+	if ( '' === $gtm && '' === $ga4 ) { return; }
 	?>
 <!-- Consent Mode v2: deny analytics/ads until the visitor consents (GDPR) -->
 <script>
@@ -29,13 +45,20 @@ gtag('consent','default',{
 });
 try{ if(localStorage.getItem('aa_consent')==='granted'){ gtag('consent','update',{analytics_storage:'granted'}); } }catch(e){}
 </script>
+<?php if ( '' !== $ga4 ) : ?>
+<!-- Google Analytics 4 (consent-gated) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo esc_attr( $ga4 ); ?>"></script>
+<script>gtag('js', new Date());gtag('config','<?php echo esc_js( $ga4 ); ?>');</script>
+<?php endif; ?>
+<?php if ( '' !== $gtm ) : ?>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','<?php echo esc_js( $id ); ?>');</script>
+})(window,document,'script','dataLayer','<?php echo esc_js( $gtm ); ?>');</script>
 <!-- End Google Tag Manager -->
+<?php endif; ?>
 	<?php
 }
 add_action( 'wp_head', 'anthropos_gtm_head', 1 );
@@ -54,12 +77,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 add_action( 'wp_body_open', 'anthropos_gtm_body' );
 
 /**
- * Push a dataLayer event when a visitor lands on the consultation success
- * state (?consult=sent), so GTM can mark it a GA4 conversion. Also fires a
- * lighter 'consultation_opened' event when the modal is opened (bound in JS).
+ * Push dataLayer events for conversion tracking: 'consultation_opened' when the
+ * questionnaire modal opens (bound in the modal JS), and 'consultation_submitted'
+ * on the ?consult=sent success state. GA4 collects these once consent is granted;
+ * mark them as key events/conversions in GA4.
  */
 function anthropos_gtm_events() {
-	if ( '' === trim( (string) anthropos_gtm_id() ) ) { return; }
+	if ( ! anthropos_tracking_on() ) { return; }
 	if ( isset( $_GET['consult'] ) && 'sent' === $_GET['consult'] ) {
 		echo '<script>window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:"consultation_submitted"});</script>' . "\n";
 	}
@@ -67,13 +91,13 @@ function anthropos_gtm_events() {
 add_action( 'wp_footer', 'anthropos_gtm_events', 20 );
 
 /**
- * GDPR cookie-consent banner. Shows until the visitor accepts or declines;
- * on accept it grants Consent Mode analytics_storage so GTM/GA4 may run. A
- * "Cookie settings" link (anywhere, via [data-cc-open]) re-opens it so consent
- * can be withdrawn as easily as it was given.
+ * GDPR cookie-consent banner. Shows until the visitor accepts or declines; on
+ * accept it grants Consent Mode analytics_storage so GA4/GTM may run. A "Cookie
+ * settings" link (anywhere, via [data-cc-open]) re-opens it so consent can be
+ * withdrawn as easily as it was given.
  */
 function anthropos_consent_banner() {
-	if ( is_admin() || '' === trim( (string) anthropos_gtm_id() ) ) { return; }
+	if ( is_admin() || ! anthropos_tracking_on() ) { return; }
 	$privacy = home_url( '/privacy-policy/' );
 	?>
 	<div class="cc-banner" id="ccBanner" hidden role="dialog" aria-live="polite" aria-label="Cookie consent">
