@@ -4,7 +4,7 @@ Theme URI: https://github.com/hasangeeky-hue/automation-agency
 Author: Anthropos Automation
 Author URI: https://anthropos-automation.com
 Description: AI Automation OS theme — dark glass automation canvas, node-graph/agent-network 3D on every card, 6 automation services, per-segment service pages named "Automation Service for {Segment}", guide + blog templates, neuro-navigation and internal linking.
-Version: 5.32.0
+Version: 5.33.0
 Requires at least: 6.0
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
@@ -205,6 +205,17 @@ canvas{display:block}
 .prevnext .pn-k{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);display:block;margin-bottom:4px}
 .prevnext .nx{text-align:right}
 @media(max-width:600px){.prevnext{grid-template-columns:1fr}}
+/* ===== CLEAN ARTICLE (calm, one column, a static diagram per section) ===== */
+.aart{max-width:760px;margin:14px auto 0}
+.aart-lead{font-size:18px;line-height:1.7;color:var(--ink);border-left:3px solid var(--hue,var(--flow));padding:2px 0 2px 20px;margin-top:22px}
+.aart-lead p{margin-top:10px;color:var(--muted)}
+.aart-lead p:first-child{margin-top:0}
+.asec{margin-top:44px;scroll-margin-top:90px}
+.asec>h2{font-family:var(--display);font-size:clamp(21px,2.7vw,28px);font-weight:700;letter-spacing:-.02em;line-height:1.2;margin-bottom:16px;padding-left:14px;border-left:4px solid var(--hue,var(--flow))}
+.asec-viz{margin:0 0 20px;border:1px solid var(--line);border-radius:16px;background:var(--void-2);padding:22px 22px 14px}
+.asec-viz svg{width:100%;height:auto;display:block}
+.asec-viz figcaption{margin-top:6px;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);text-align:center}
+.asec .aa-content>*:first-child{margin-top:0}
 .art h2{font-family:var(--display);font-size:21px;font-weight:600;margin-top:30px}
 .art p{margin-top:12px;color:var(--muted)}
 .art ul,.art ol{margin:12px 0 0 22px;color:var(--muted)}

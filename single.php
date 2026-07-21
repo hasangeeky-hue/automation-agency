@@ -89,18 +89,23 @@ while ( have_posts() ) : the_post();
 	</div>
 
 	<?php if ( $blocks ) : ?>
-	<div class="gblocks">
-		<?php foreach ( $blocks as $bi => $bl ) : ?>
-		<div class="glass sp-block reveal" style="--hue:<?php echo esc_attr( $hue ); ?>">
-			<div class="sp-fx"><canvas data-fx="<?php echo esc_attr( $bfx[ $bi % 10 ] ); ?>" style="--hue:<?php echo esc_attr( $hue ); ?>"></canvas></div>
-			<div class="sp-body">
-				<span class="no"><?php echo esc_html( sprintf( '%02d', $bi + 1 ) ); ?></span>
-				<?php if ( '' !== $bl['t'] ) : ?><h3><?php echo esc_html( $bl['t'] ); ?></h3><?php endif; ?>
-				<div class="aa-content"><?php echo $bl['b']; // phpcs:ignore WordPress.Security.EscapeOutput -- post content ?></div>
-			</div>
-		</div>
+	<article class="aart" style="--hue:<?php echo esc_attr( $hue ); ?>">
+		<?php foreach ( $blocks as $bi => $bl ) :
+			$is_lead = ( 'The short version' === $bl['t'] );
+			$dgm     = ( function_exists( 'anthropos_match_section' ) && '' !== $bl['t'] && ! $is_lead )
+				? anthropos_section_diagram( anthropos_match_section( $bl['t'] ), $hue ) : '';
+			?>
+			<?php if ( $is_lead ) : ?>
+				<div class="aart-lead aa-content"><?php echo $bl['b']; // phpcs:ignore WordPress.Security.EscapeOutput -- post content ?></div>
+			<?php else : ?>
+				<section class="asec reveal">
+					<?php if ( '' !== $bl['t'] ) : ?><h2><?php echo esc_html( $bl['t'] ); ?></h2><?php endif; ?>
+					<?php echo $dgm; // phpcs:ignore WordPress.Security.EscapeOutput -- trusted static SVG ?>
+					<div class="aa-content"><?php echo $bl['b']; // phpcs:ignore WordPress.Security.EscapeOutput -- post content ?></div>
+				</section>
+			<?php endif; ?>
 		<?php endforeach; ?>
-	</div>
+	</article>
 	<?php else : ?>
 	<div class="art art-head"><div class="aa-content"><?php echo $html; // phpcs:ignore ?></div></div>
 	<?php endif; ?>
