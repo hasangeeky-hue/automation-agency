@@ -4,7 +4,7 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'ANTHROPOS_VERSION', '5.27.0' );
+define( 'ANTHROPOS_VERSION', '5.28.0' );
 
 require_once get_template_directory() . '/inc/segments.php';
 require_once get_template_directory() . '/inc/content-seed.php';

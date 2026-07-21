@@ -1,13 +1,14 @@
 <?php
 /**
- * Consultation questionnaire + secure form handler + WhatsApp button.
- * Self-contained module so it never touches the core theme files.
+ * Consultation questionnaire (multiple-choice, segmentation-first) + secure
+ * handler + booking step + WhatsApp button. Rendered as a POPUP MODAL so it is
+ * hidden until a "Book a consultation" button is clicked. Self-contained module.
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 /**
  * WhatsApp number in INTERNATIONAL format, digits only (no +, spaces or dashes).
- * e.g. Germany 491701234567 · US 15551234567. Leave '' to hide the button.
+ * e.g. Germany 491701234567 . US 15551234567. Leave '' to hide the button.
  * >>> SET YOUR WHATSAPP NUMBER ON THE LINE BELOW <<<
  */
 function anthropos_whatsapp_number() {
@@ -21,11 +22,10 @@ function anthropos_consult_email() {
 
 /**
  * Your online booking / scheduling link (Calendly, Cal.com, Google Appointment
- * Schedule, etc.). This is what customers use to reserve a time AFTER they
- * answer the questionnaire. The scheduler auto-detects each visitor's timezone,
- * so the customer always books in their own local time, and the slot lands in
- * YOUR calendar in your Köln time. Leave '' and customers are told you will
- * email them to arrange a time instead.
+ * Schedule, etc.). Customers reach it AFTER answering the questionnaire. The
+ * scheduler auto-detects each visitor's timezone, so the customer books in
+ * their own local time and the slot lands in YOUR Koeln calendar. Leave '' and
+ * customers are told you will email them time options instead.
  * >>> PASTE YOUR BOOKING LINK BETWEEN THE QUOTES BELOW <<<
  */
 function anthropos_booking_url() {
@@ -34,157 +34,130 @@ function anthropos_booking_url() {
 
 /** Your business timezone label, shown next to the customer's own timezone. */
 function anthropos_business_tz() {
-	return apply_filters( 'anthropos_business_tz', 'Köln · Central European Time' );
+	return apply_filters( 'anthropos_business_tz', 'Koeln, Central European Time' );
 }
 
-/** 10 tailored questions per customer group, plus a general set. */
-function anthropos_consultation_questions() {
+/**
+ * The qualification questions. All multiple-choice so nobody gets bored and
+ * every answer is a clean, filterable value we can segment on. One free-text
+ * box at the end for anything else. 'type' is radio (pick one) or checkbox
+ * (pick any); 'req' marks a required field.
+ */
+function anthropos_consultation_fields() {
 	return array(
-		'regulated-professionals' => array(
-			'label' => 'Law, finance or tax practice',
-			'q' => array(
-				'What is your practice area or specialty?',
-				'How do most new clients find you today?',
-				'Roughly how many enquiries do you get in a typical week?',
-				'How fast does a new enquiry usually get a first reply?',
-				'What happens to enquiries you cannot answer straight away?',
-				'Do you have a website, and is it easy to use on a phone?',
-				'Your biggest problem: getting found, replying fast, or following up?',
-				'Which tools do you use for email, calendar and client records?',
-				'Are there compliance rules we should be aware of for your field?',
-				'What would a great result look like for you in three months?',
+		array( 'key' => 'segment', 'type' => 'radio', 'req' => true,
+			'label' => 'Which best describes your business?',
+			'opts'  => array(
+				'Law, finance or tax practice',
+				'Medical, dental or therapy practice',
+				'E-commerce or retail store',
+				'Home service, trade or studio',
+				'Freelancer or small agency',
+				'Creator, coach or course business',
+				'B2B service or software provider',
+				'Just starting out / something else',
 			),
 		),
-		'medical-professionals' => array(
-			'label' => 'Medical, dental or therapy practice',
-			'q' => array(
-				'What kind of practice do you run (your specialty)?',
-				'How do new patients usually find you?',
-				'Roughly how many new-patient enquiries do you get a week?',
-				'How are enquiries handled while you are with patients?',
-				'Do you have a website, and is it mobile-friendly?',
-				'How do patients currently book (phone, form, portal)?',
-				'Your biggest gap: visibility, reviews, or follow-up?',
-				'Which booking or records software do you use? (we never touch clinical data)',
-				'Are missed calls or no-shows a problem for you?',
-				'What would success look like in three months?',
+		array( 'key' => 'size', 'type' => 'radio',
+			'label' => 'How big is your business today?',
+			'opts'  => array( 'Just me', '2 to 5 people', '6 to 20 people', 'More than 20 people' ),
+		),
+		array( 'key' => 'pain', 'type' => 'radio', 'req' => true,
+			'label' => 'What is your single biggest problem right now?',
+			'opts'  => array(
+				'Not enough people find me (low traffic / visibility)',
+				'People visit but do not buy or enquire (weak conversion)',
+				'I miss leads or reply too slowly (lost enquiries)',
+				'I waste hours on repetitive admin and follow-up',
+				'Customers do not come back (weak retention)',
+				'I am starting out and do not know where to begin',
 			),
 		),
-		'ecommerce-retail' => array(
-			'label' => 'E-commerce or retail store',
-			'q' => array(
-				'What do you sell, and on which platforms (Shopify, Amazon, etc.)?',
-				'Roughly how much monthly traffic do you get?',
-				'What is your rough checkout conversion rate, if you know it?',
-				'What happens to abandoned carts today?',
-				'Do you email past customers, and how often?',
-				'Do you sell across multiple channels, and how do you manage them?',
-				'Your biggest problem: traffic, conversion, or repeat buyers?',
-				'Which email or marketing tools do you use?',
-				'Do you track competitor prices, and how?',
-				'What would a great result look like in three months?',
+		array( 'key' => 'goal', 'type' => 'radio', 'req' => true,
+			'label' => 'What would you most like us to build first?',
+			'opts'  => array(
+				'A website that turns visitors into customers',
+				'Getting found on Google and AI search (SEO / AEO)',
+				'Automatic lead capture and follow-up',
+				'Marketing and content automation',
+				'Social media automation',
+				'A complete A-to-Z system',
+				'Help launching my business from scratch',
 			),
 		),
-		'service-professionals' => array(
-			'label' => 'Home service, trade or studio',
-			'q' => array(
-				'What service do you provide?',
-				'How do customers usually find and contact you?',
-				'What happens to calls you miss while you are working?',
-				'Roughly how many enquiries do you get a week?',
-				'Do you have a website with photos and reviews?',
-				'How do you handle bookings and reminders?',
-				'Do you ask customers for reviews, and how?',
-				'Your biggest gap: getting found, replying, or repeat business?',
-				'Which tools do you use (calendar, invoicing)?',
-				'What would success look like in three months?',
+		array( 'key' => 'leads', 'type' => 'radio',
+			'label' => 'How many new enquiries do you get in a typical week?',
+			'opts'  => array( '0 to 5', '6 to 20', '21 to 50', 'More than 50', 'Not sure' ),
+		),
+		array( 'key' => 'reply', 'type' => 'radio',
+			'label' => 'How fast does a new enquiry usually get a first reply?',
+			'opts'  => array( 'Within minutes', 'Within a few hours', 'Same or next day', 'Sometimes days, or they slip through' ),
+		),
+		array( 'key' => 'website', 'type' => 'radio',
+			'label' => 'Do you already have a website?',
+			'opts'  => array( 'Yes, and it works well', 'Yes, but it needs work', 'Yes, but it brings me no customers', 'No website yet' ),
+		),
+		array( 'key' => 'tools', 'type' => 'checkbox',
+			'label' => 'Which tools do you already use? (tick any that apply)',
+			'opts'  => array(
+				'Google / Gmail',
+				'Microsoft / Outlook',
+				'A CRM (HubSpot, Salesforce, etc.)',
+				'An online store (Shopify, WooCommerce, etc.)',
+				'A booking or calendar tool',
+				'Mostly WhatsApp, phone or paper',
 			),
 		),
-		'freelancers-agencies' => array(
-			'label' => 'Freelancer or small agency',
-			'q' => array(
-				'What kind of work do you do (design, development, etc.)?',
-				'Where do most of your leads come from?',
-				'How many enquiries a week, and how many are a genuine fit?',
-				'How do you handle unqualified or tire-kicker enquiries?',
-				'What does your onboarding look like (contract, deposit, brief)?',
-				'Do you follow up on proposals, and how?',
-				'Your biggest problem: lead quality, follow-up, or onboarding?',
-				'Which tools do you use (CRM, invoicing, project management)?',
-				'Do you have a portfolio site, and is it winning you work?',
-				'What would a great three months look like?',
+		array( 'key' => 'budget', 'type' => 'radio',
+			'label' => 'What kind of investment are you ready to make to fix this?',
+			'opts'  => array(
+				'I want the smallest first step that works',
+				'I have a real budget for the right solution',
+				'I want the complete system, whatever it takes',
+				'I need to understand the options first',
 			),
 		),
-		'creators-coaches' => array(
-			'label' => 'Creator, coach or course business',
-			'q' => array(
-				'What do you create or teach?',
-				'Roughly how big is your audience or email list?',
-				'How do you currently sell (course, coaching, membership)?',
-				'What is your rough free-to-paid or landing-page conversion?',
-				'Where do people drop off (signup, mid-course, renewal)?',
-				'Do you have a welcome or nurture email sequence?',
-				'Your biggest gap: audience, conversion, or retention?',
-				'Which platforms and tools do you use?',
-				'How consistent is your content or posting?',
-				'What would success look like in three months?',
-			),
+		array( 'key' => 'urgency', 'type' => 'radio', 'req' => true,
+			'label' => 'How soon do you want this solved?',
+			'opts'  => array( 'As soon as possible, it is costing me now', 'In the next 1 to 3 months', 'Just exploring for now' ),
 		),
-		'b2b-providers' => array(
-			'label' => 'B2B service or software provider',
-			'q' => array(
-				'What do you implement or provide?',
-				'How do prospects usually find you?',
-				'What is your typical sales-cycle length?',
-				'Where do deals usually stall?',
-				'How do you follow up after sending a proposal?',
-				'What does client onboarding look like?',
-				'Your biggest gap: being found, follow-up, or onboarding?',
-				'Which CRM and tools do you use?',
-				'Do your case studies name real, comparable results?',
-				'What would a great three months look like?',
-			),
-		),
-		'general' => array(
-			'label' => 'Something else / just starting out',
-			'q' => array(
-				'Tell us briefly about your business or your idea.',
-				'Are you already operating, or just getting started?',
-				'What are you hoping automation could help with?',
-				'How do customers find and contact you (or how will they)?',
-				'What is the most repetitive or time-consuming task in your day?',
-				'Do you have a website already?',
-				'Which tools do you already use?',
-				'Where do you feel you are losing time or leads?',
-				'Which market do you serve (US, UK, EU, or elsewhere)?',
-				'What would a great result look like in three months?',
-			),
+		array( 'key' => 'market', 'type' => 'radio',
+			'label' => 'Which market do you serve?',
+			'opts'  => array( 'Germany / EU', 'United Kingdom', 'United States', 'Global / multiple' ),
 		),
 	);
 }
 
-/** Render the consultation questionnaire form. */
+/**
+ * Render the consultation form OR, once submitted, the timezone-aware booking
+ * step. Called inside the modal dialog.
+ */
 function anthropos_consultation_form() {
-	$groups = anthropos_consultation_questions();
+	$fields = anthropos_consultation_fields();
 	$sent   = isset( $_GET['consult'] ) && 'sent' === $_GET['consult'];
 	$err    = isset( $_GET['consult'] ) && 'error' === $_GET['consult'];
 	?>
 	<div class="consult">
 		<?php if ( $sent ) : ?>
-			<div class="cf-note cf-ok"><b>Thank you — your request is on its way.</b> Now pick a time that suits you and we will be ready with everything you have told us. No pitch, no obligation.</div>
-				<div class="cf-book">
-					<div class="cf-tz" data-biz-tz="<?php echo esc_attr( anthropos_business_tz() ); ?>">Times are shown in <b class="cf-yourtz">your local timezone</b>. We are based in <b><?php echo esc_html( anthropos_business_tz() ); ?></b> and will see your slot in your time too.</div>
-					<?php $book = trim( (string) anthropos_booking_url() ); if ( '' !== $book ) : ?>
-						<div class="cf-embed">
-							<iframe src="<?php echo esc_url( $book ); ?>" title="Book a consultation" loading="lazy" width="100%" height="720" frameborder="0" style="border:0;min-width:100%"></iframe>
-						</div>
-						<p class="cf-book-alt">Trouble with the calendar above? <a href="<?php echo esc_url( $book ); ?>" target="_blank" rel="noopener">Open the booking page in a new tab.</a></p>
-					<?php else : ?>
-						<div class="cf-note cf-soft">We will email you within one business day with a couple of time options in your timezone, so you can pick whatever works.</div>
-					<?php endif; ?>
-				</div>
+			<?php $book = trim( (string) anthropos_booking_url() ); ?>
+			<div class="cf-note cf-ok"><b>Got it &mdash; your answers are on their way to us.</b> Now pick a time that suits you and we will be ready with everything you have told us. No pitch, no obligation.</div>
+			<div class="cf-book">
+				<div class="cf-tz" data-biz-tz="<?php echo esc_attr( anthropos_business_tz() ); ?>">Times are shown in <b class="cf-yourtz">your local timezone</b>. We are based in <b><?php echo esc_html( anthropos_business_tz() ); ?></b> and will see your slot in your time too.</div>
+				<?php if ( '' !== $book ) : ?>
+					<div class="cf-embed">
+						<iframe src="<?php echo esc_url( $book ); ?>" title="Book a consultation" loading="lazy" width="100%" height="720" frameborder="0" style="border:0;min-width:100%"></iframe>
+					</div>
+					<p class="cf-book-alt">Trouble with the calendar above? <a href="<?php echo esc_url( $book ); ?>" target="_blank" rel="noopener">Open the booking page in a new tab.</a></p>
+				<?php else : ?>
+					<div class="cf-note cf-soft">We will email you within one business day with a couple of time options in your timezone, so you can pick whatever works.</div>
+				<?php endif; ?>
+			</div>
 		<?php else : ?>
-			<?php if ( $err ) : ?><div class="cf-note cf-err">Something went wrong, or a required field was missing. Please check your name, email and consent, and try again.</div><?php endif; ?>
+			<div class="cf-intro">
+				<h3>Book a free consultation</h3>
+				<p>A quick, tick-box questionnaire &mdash; about two minutes. <b>To hold a real consultation slot, please answer these first</b> so the call is genuinely worth your time. Then you pick a time in your own timezone.</p>
+			</div>
+			<?php if ( $err ) : ?><div class="cf-note cf-err">Something was missing. Please check your name, email, the required questions and consent, then try again.</div><?php endif; ?>
 			<form class="consult-form" method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" enctype="multipart/form-data">
 				<input type="hidden" name="action" value="anthropos_consult">
 				<?php wp_nonce_field( 'anthropos_consult', 'anthropos_consult_nonce' ); ?>
@@ -194,53 +167,93 @@ function anthropos_consultation_form() {
 					<div class="cf-field"><label for="cf_name">Your name <span>*</span></label><input id="cf_name" type="text" name="cf_name" required></div>
 					<div class="cf-field"><label for="cf_email">Email <span>*</span></label><input id="cf_email" type="email" name="cf_email" required></div>
 					<div class="cf-field"><label for="cf_phone">Phone / WhatsApp</label><input id="cf_phone" type="text" name="cf_phone"></div>
-					<div class="cf-field"><label for="cf_seg">Your business type <span>*</span></label>
-						<select id="cf_seg" name="cf_seg" required>
-							<option value="">Choose one…</option>
-							<?php foreach ( $groups as $key => $g ) { echo '<option value="' . esc_attr( $key ) . '">' . esc_html( $g['label'] ) . '</option>'; } ?>
-						</select>
-					</div>
+					<div class="cf-field"><label for="cf_biz">Business name</label><input id="cf_biz" type="text" name="cf_biz"></div>
 				</div>
 
-				<?php foreach ( $groups as $key => $g ) : ?>
-				<fieldset class="cf-seg" data-seg="<?php echo esc_attr( $key ); ?>" hidden>
-					<legend>A few questions about your <?php echo esc_html( strtolower( $g['label'] ) ); ?></legend>
-					<?php foreach ( $g['q'] as $i => $question ) : ?>
-						<div class="cf-q"><label for="q_<?php echo esc_attr( $key . '_' . $i ); ?>"><?php echo esc_html( ( $i + 1 ) . '. ' . $question ); ?></label><textarea id="q_<?php echo esc_attr( $key . '_' . $i ); ?>" name="cf_q[<?php echo esc_attr( $key ); ?>][<?php echo (int) $i; ?>]" rows="2"></textarea></div>
-					<?php endforeach; ?>
+				<?php $n = 0; foreach ( $fields as $f ) : $n++; $name = 'cf_q_' . $f['key']; $req = ! empty( $f['req'] ); ?>
+				<fieldset class="cf-mc<?php echo $req ? ' is-req' : ''; ?>">
+					<legend><span class="cf-num"><?php echo (int) $n; ?></span> <?php echo esc_html( $f['label'] ); ?><?php echo $req ? ' <span class="cf-star">*</span>' : ''; ?></legend>
+					<div class="cf-opts">
+						<?php foreach ( $f['opts'] as $oi => $opt ) :
+							$id = $name . '_' . $oi;
+							if ( 'checkbox' === $f['type'] ) { ?>
+								<label class="cf-opt" for="<?php echo esc_attr( $id ); ?>"><input id="<?php echo esc_attr( $id ); ?>" type="checkbox" name="<?php echo esc_attr( $name ); ?>[]" value="<?php echo esc_attr( $opt ); ?>"><span><?php echo esc_html( $opt ); ?></span></label>
+							<?php } else { ?>
+								<label class="cf-opt" for="<?php echo esc_attr( $id ); ?>"><input id="<?php echo esc_attr( $id ); ?>" type="radio" name="<?php echo esc_attr( $name ); ?>" value="<?php echo esc_attr( $opt ); ?>"<?php echo $req ? ' required' : ''; ?>><span><?php echo esc_html( $opt ); ?></span></label>
+							<?php } ?>
+						<?php endforeach; ?>
+					</div>
 				</fieldset>
 				<?php endforeach; ?>
 
-				<div class="cf-field cf-file">
-					<label for="cf_file">Attach a file if it helps (JPEG or PDF, max 2 MB)</label>
-					<input id="cf_file" type="file" name="cf_file" accept=".jpg,.jpeg,.pdf,image/jpeg,application/pdf">
-					<small>Optional — e.g. a screenshot of your site or a document.</small>
+				<div class="cf-field cf-note-field">
+					<label for="cf_notes">Anything else you would like us to know? <span class="cf-opt-tag">optional</span></label>
+					<textarea id="cf_notes" name="cf_notes" rows="3" placeholder="A link, a goal, a deadline, a frustration &mdash; whatever helps us prepare."></textarea>
 				</div>
 
-				<label class="cf-consent"><input type="checkbox" name="cf_consent" value="1" required> <span>I agree to be contacted about my enquiry, and I have read the <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>">privacy policy</a>. <span class="cf-star">*</span></span></label>
+				<div class="cf-field cf-file">
+					<label for="cf_file">Attach a file if it helps (JPEG or PDF, max 2 MB) <span class="cf-opt-tag">optional</span></label>
+					<input id="cf_file" type="file" name="cf_file" accept=".jpg,.jpeg,.pdf,image/jpeg,application/pdf">
+					<small>e.g. a screenshot of your site or a short brief.</small>
+				</div>
+
+				<label class="cf-consent"><input type="checkbox" name="cf_consent" value="1" required> <span>I agree to be contacted about my enquiry, and I have read the <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>" target="_blank" rel="noopener">privacy policy</a>. <span class="cf-star">*</span></span></label>
 
 				<button class="btn btn-cta cf-submit" type="submit">Send answers &amp; pick a time &rarr;</button>
-					<p class="cf-book-hint">Next you will choose a time slot &mdash; shown in your own timezone.</p>
+				<p class="cf-book-hint">Next you will choose a time slot, shown in your own timezone.</p>
 			</form>
 		<?php endif; ?>
 	</div>
+	<?php
+}
+
+/**
+ * The modal shell. Rendered once in the footer; hidden until a "Book a
+ * consultation" button (any link to #cta, or [data-open-consult]) is clicked.
+ * Auto-opens on the booking step after a submission.
+ */
+function anthropos_consultation_modal() {
+	if ( is_admin() ) { return; }
+	?>
+	<div class="consult-modal" id="consultModal" hidden>
+		<div class="cm-overlay" data-close-consult></div>
+		<div class="cm-dialog" role="dialog" aria-modal="true" aria-label="Book a free consultation">
+			<button type="button" class="cm-x" data-close-consult aria-label="Close">&times;</button>
+			<?php anthropos_consultation_form(); ?>
+		</div>
+	</div>
 	<script>
 	(function(){
-		// Show the visitor their own detected timezone on the booking step.
-		var tzEl=document.querySelector('.cf-yourtz');
-		if(tzEl){ try{ var tz=Intl.DateTimeFormat().resolvedOptions().timeZone; if(tz){ tzEl.textContent='your timezone ('+tz.replace(/_/g,' ')+')'; } }catch(e){} }
-		var f=document.querySelector('.consult-form'); if(!f) return;
-		var sel=f.querySelector('#cf_seg'), segs=f.querySelectorAll('.cf-seg');
-		function show(){ segs.forEach(function(s){ s.hidden = (s.getAttribute('data-seg')!==sel.value); }); }
-		sel.addEventListener('change', show); show();
-		var file=f.querySelector('#cf_file');
-		file.addEventListener('change', function(){
-			if(file.files[0] && file.files[0].size > 2*1024*1024){ alert('That file is over 2 MB. Please choose a smaller JPEG or PDF.'); file.value=''; }
+		var modal=document.getElementById('consultModal');
+		if(!modal) return;
+		function open(){ modal.hidden=false; document.body.style.overflow='hidden';
+			var first=modal.querySelector('input,select,textarea,button'); if(first){ try{first.focus();}catch(e){} } }
+		function close(){ modal.hidden=true; document.body.style.overflow=''; }
+		// Open from any "Book a consultation" trigger: [data-open-consult] or any link to #cta.
+		document.addEventListener('click', function(e){
+			var t=e.target.closest('[data-open-consult], a[href="#cta"], a[href$="#cta"]');
+			if(t){ e.preventDefault(); open(); }
+			if(e.target.closest('[data-close-consult]')){ e.preventDefault(); close(); }
 		});
+		document.addEventListener('keydown', function(e){ if(e.key==='Escape' && !modal.hidden){ close(); } });
+		// After a submission we land on ?consult=sent (or error) - open straight away.
+		try{
+			var p=new URLSearchParams(window.location.search).get('consult');
+			if(p==='sent'||p==='error'){ open(); }
+		}catch(e){}
+		// Show the visitor their own timezone on the booking step.
+		var tzEl=modal.querySelector('.cf-yourtz');
+		if(tzEl){ try{ var tz=Intl.DateTimeFormat().resolvedOptions().timeZone; if(tz){ tzEl.textContent='your timezone ('+tz.replace(/_/g,' ')+')'; } }catch(e){} }
+		// Client-side 2 MB file guard.
+		var file=modal.querySelector('#cf_file');
+		if(file){ file.addEventListener('change', function(){
+			if(file.files[0] && file.files[0].size > 2*1024*1024){ alert('That file is over 2 MB. Please choose a smaller JPEG or PDF.'); file.value=''; }
+		}); }
 	})();
 	</script>
 	<?php
 }
+add_action( 'wp_footer', 'anthropos_consultation_modal', 6 );
 
 /** Handle the consultation submission securely, then email it to the business. */
 function anthropos_handle_consultation() {
@@ -258,20 +271,49 @@ function anthropos_handle_consultation() {
 	$name  = isset( $_POST['cf_name'] ) ? sanitize_text_field( wp_unslash( $_POST['cf_name'] ) ) : '';
 	$email = isset( $_POST['cf_email'] ) ? sanitize_email( wp_unslash( $_POST['cf_email'] ) ) : '';
 	$phone = isset( $_POST['cf_phone'] ) ? sanitize_text_field( wp_unslash( $_POST['cf_phone'] ) ) : '';
-	$seg   = isset( $_POST['cf_seg'] ) ? sanitize_key( $_POST['cf_seg'] ) : '';
+	$biz   = isset( $_POST['cf_biz'] ) ? sanitize_text_field( wp_unslash( $_POST['cf_biz'] ) ) : '';
+	$notes = isset( $_POST['cf_notes'] ) ? sanitize_textarea_field( wp_unslash( $_POST['cf_notes'] ) ) : '';
 	if ( '' === $name || ! is_email( $email ) || empty( $_POST['cf_consent'] ) ) {
 		wp_safe_redirect( add_query_arg( 'consult', 'error', $back ) . '#cta' );
 		exit;
 	}
 
-	$groups = anthropos_consultation_questions();
-	$lines  = array( 'New consultation request', '========================', 'Name:  ' . $name, 'Email: ' . $email, 'Phone: ' . ( $phone ? $phone : '—' ), 'Type:  ' . ( isset( $groups[ $seg ] ) ? $groups[ $seg ]['label'] : $seg ), '' );
-	if ( isset( $groups[ $seg ] ) && isset( $_POST['cf_q'][ $seg ] ) && is_array( $_POST['cf_q'][ $seg ] ) ) {
-		foreach ( $groups[ $seg ]['q'] as $i => $question ) {
-			$ans = isset( $_POST['cf_q'][ $seg ][ $i ] ) ? sanitize_textarea_field( wp_unslash( $_POST['cf_q'][ $seg ][ $i ] ) ) : '';
-			$lines[] = ( $i + 1 ) . '. ' . $question;
-			$lines[] = '   ' . ( '' !== $ans ? $ans : '—' );
-		}
+	$fields = anthropos_consultation_fields();
+	// Pull the key triage answers to the very top of the email.
+	$pick = function( $key ) {
+		$v = isset( $_POST[ 'cf_q_' . $key ] ) ? wp_unslash( $_POST[ 'cf_q_' . $key ] ) : '';
+		if ( is_array( $v ) ) { $v = implode( ', ', array_map( 'sanitize_text_field', $v ) ); }
+		else { $v = sanitize_text_field( $v ); }
+		return '' !== $v ? $v : '-';
+	};
+
+	$lines = array(
+		'NEW CONSULTATION REQUEST',
+		'========================',
+		'',
+		'>> QUICK TRIAGE',
+		'   Segment : ' . $pick( 'segment' ),
+		'   Pain    : ' . $pick( 'pain' ),
+		'   Wants   : ' . $pick( 'goal' ),
+		'   Budget  : ' . $pick( 'budget' ),
+		'   Urgency : ' . $pick( 'urgency' ),
+		'',
+		'>> CONTACT',
+		'   Name    : ' . $name,
+		'   Business: ' . ( '' !== $biz ? $biz : '-' ),
+		'   Email   : ' . $email,
+		'   Phone   : ' . ( '' !== $phone ? $phone : '-' ),
+		'',
+		'>> ALL ANSWERS',
+	);
+	foreach ( $fields as $f ) {
+		$lines[] = '   ' . $f['label'];
+		$lines[] = '     -> ' . $pick( $f['key'] );
+	}
+	if ( '' !== $notes ) {
+		$lines[] = '';
+		$lines[] = '>> NOTES';
+		$lines[] = '   ' . $notes;
 	}
 
 	// Handle an optional JPEG/PDF upload, capped at 2 MB.
@@ -293,7 +335,7 @@ function anthropos_handle_consultation() {
 	}
 
 	$to      = anthropos_consult_email();
-	$subject = 'Consultation request from ' . $name;
+	$subject = 'Consultation: ' . $pick( 'segment' ) . ' / ' . $pick( 'pain' ) . ' (' . $name . ')';
 	$headers = array( 'Reply-To: ' . $name . ' <' . $email . '>' );
 	wp_mail( $to, $subject, implode( "\n", $lines ), $headers, $attachments );
 

@@ -4,7 +4,7 @@ Theme URI: https://github.com/hasangeeky-hue/automation-agency
 Author: Anthropos Automation
 Author URI: https://anthropos-automation.com
 Description: AI Automation OS theme — dark glass automation canvas, node-graph/agent-network 3D on every card, 6 automation services, per-segment service pages named "Automation Service for {Segment}", guide + blog templates, neuro-navigation and internal linking.
-Version: 5.27.0
+Version: 5.28.0
 Requires at least: 6.0
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
@@ -316,9 +316,20 @@ canvas{display:block}
 .consult input,.consult select,.consult textarea{background:var(--void);border:1px solid var(--line);border-radius:10px;padding:11px 13px;color:var(--ink);font-family:var(--body);font-size:14px;width:100%}
 .consult input:focus,.consult select:focus,.consult textarea:focus{outline:none;border-color:var(--flow);box-shadow:0 0 0 3px rgba(47,227,210,.12)}
 .consult textarea{resize:vertical;min-height:44px}
-.cf-seg{border:1px solid var(--line);border-radius:14px;padding:16px 18px 18px;display:flex;flex-direction:column;gap:12px;background:var(--void-2)}
-.cf-seg legend{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--flow);padding:0 6px}
-.cf-q{display:flex;flex-direction:column;gap:5px}
+/* ---- multiple-choice question blocks ---- */
+.cf-mc{border:1px solid var(--line);border-radius:14px;padding:15px 16px 16px;background:var(--void-2)}
+.cf-mc legend{font-size:14px;font-weight:600;color:var(--ink);padding:0;margin-bottom:11px;line-height:1.45;display:flex;gap:9px;align-items:baseline}
+.cf-num{flex:0 0 auto;width:22px;height:22px;border-radius:7px;background:var(--glass-2);border:1px solid var(--line);font-family:var(--mono);font-size:11px;color:var(--flow);display:inline-flex;align-items:center;justify-content:center;font-weight:600}
+.cf-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cf-opt{display:flex;align-items:flex-start;gap:9px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--void);cursor:pointer;font-size:13px;line-height:1.4;color:var(--muted);transition:border-color .15s,background .15s,color .15s}
+.cf-opt:hover{border-color:rgba(47,227,210,.5);color:var(--ink)}
+.cf-opt input{width:auto!important;margin-top:2px;flex:0 0 auto;accent-color:var(--flow)}
+.cf-opt:has(input:checked){border-color:var(--flow);background:rgba(47,227,210,.08);color:var(--ink);box-shadow:0 0 0 1px var(--flow) inset}
+.cf-opt-tag{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);font-weight:600}
+.cf-intro{text-align:center;margin-bottom:4px}
+.cf-intro h3{font-family:var(--display);font-size:22px;font-weight:700;letter-spacing:-.02em}
+.cf-intro p{font-size:13.5px;color:var(--muted);line-height:1.6;margin-top:8px;max-width:60ch;margin-inline:auto}
+.cf-intro p b{color:var(--ink)}
 .cf-file small{font-size:11.5px;color:var(--faint)}
 .cf-consent{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;color:var(--muted);line-height:1.5}
 .cf-consent input{width:auto;margin-top:2px;flex:0 0 auto}
@@ -334,7 +345,17 @@ canvas{display:block}
 .cf-embed iframe{display:block;width:100%;min-height:640px}
 .cf-book-alt{margin:10px 2px 0;font-size:13px;color:var(--muted)}
 .cf-book-alt a{color:var(--flow)}
-@media(max-width:640px){.cf-grid{grid-template-columns:1fr}}
+/* ===== CONSULTATION MODAL (popup) ===== */
+.consult-modal{position:fixed;inset:0;z-index:300;display:flex;align-items:flex-start;justify-content:center;padding:4vh 16px 16px;overflow-y:auto}
+.consult-modal[hidden]{display:none}
+.cm-overlay{position:fixed;inset:0;background:rgba(4,6,12,.72);backdrop-filter:blur(6px)}
+.cm-dialog{position:relative;z-index:1;width:100%;max-width:760px;background:var(--void-2);border:1px solid var(--line);border-radius:20px;box-shadow:0 40px 120px rgba(0,0,0,.6);padding:30px 30px 32px;animation:cmIn .28s cubic-bezier(.2,.7,.2,1) both}
+@keyframes cmIn{from{opacity:0;transform:translateY(22px) scale(.98)}to{opacity:1;transform:none}}
+.cm-x{position:absolute;top:12px;right:12px;width:38px;height:38px;border-radius:11px;border:1px solid var(--line);background:var(--glass);color:var(--ink);font-size:22px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .15s,background .15s}
+.cm-x:hover{border-color:var(--cta);background:var(--glass-2)}
+.consult-modal .consult{margin-top:6px}
+.consult-modal .consult-form{background:transparent;border:0;padding:0;backdrop-filter:none}
+@media(max-width:640px){.cf-grid{grid-template-columns:1fr}.cf-opts{grid-template-columns:1fr}.cm-dialog{padding:24px 18px 26px}.consult-modal{padding:2vh 10px 10px}}
 /* ===== WHATSAPP FLOAT ===== */
 .wa-float{position:fixed;right:20px;bottom:20px;z-index:200;display:flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:12px 18px 12px 14px;border-radius:99px;font-family:var(--body);font-weight:600;font-size:14px;box-shadow:0 10px 30px rgba(37,211,102,.42);transition:transform .18s,box-shadow .18s}
 .wa-float:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(37,211,102,.58);color:#fff}
