@@ -4,7 +4,7 @@ Theme URI: https://github.com/hasangeeky-hue/automation-agency
 Author: Anthropos Automation
 Author URI: https://anthropos-automation.com
 Description: AI Automation OS theme — dark glass automation canvas, node-graph/agent-network 3D on every card, 6 automation services, per-segment service pages named "Automation Service for {Segment}", guide + blog templates, neuro-navigation and internal linking.
-Version: 5.58.0
+Version: 5.59.0
 Requires at least: 6.0
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
@@ -50,11 +50,14 @@ canvas{display:block}
 .js .brandmark .bm-human{transform-box:fill-box;transform-origin:50% 72%;animation:bmPop .5s ease .62s both}
 @keyframes bmDraw{from{stroke-dashoffset:72}to{stroke-dashoffset:0}}
 @keyframes bmPop{0%{opacity:0;transform:scale(.3)}60%{opacity:1;transform:scale(1.15)}to{opacity:1;transform:scale(1)}}
-.nav{display:flex;align-items:center;gap:2px;flex:1;list-style:none}
-.nav>li{position:static}
+.nav{display:flex;align-items:stretch;gap:2px;flex:1;list-style:none;align-self:stretch}
+/* full-height hover targets so there's no dead zone between item and dropdown */
+.nav>li{position:static;display:flex;align-items:center}
 .nav>li>a,.nav>li>span{display:flex;align-items:center;gap:6px;padding:9px 14px;border-radius:10px;font-weight:500;font-size:14px;color:var(--muted);cursor:pointer}
 .nav>li>a:hover,.nav>li>span:hover{color:var(--ink);background:var(--glass)}
-.nav .sub{position:absolute;top:70px;min-width:300px;background:rgba(12,17,32,.97);backdrop-filter:blur(20px);border:1px solid var(--line);border-radius:0 0 14px 14px;box-shadow:0 30px 70px rgba(0,0,0,.5);padding:10px;list-style:none;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .18s,transform .18s}
+.nav .sub{position:absolute;top:68px;min-width:300px;background:rgba(12,17,32,.97);backdrop-filter:blur(20px);border:1px solid var(--line);border-radius:0 0 14px 14px;box-shadow:0 30px 70px rgba(0,0,0,.5);padding:10px;list-style:none;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .18s,transform .18s}
+/* invisible bridge covers any sub-pixel gap so hover never drops */
+.nav .sub::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
 .nav>li:hover>.sub,.nav>li:focus-within>.sub{opacity:1;visibility:visible;transform:translateY(0)}
 .nav .sub a{display:flex;align-items:center;gap:9px;padding:10px 12px;border-radius:10px;font-size:13.5px;color:var(--muted)}
 .nav .sub a:hover{background:var(--glass);color:var(--ink)}
