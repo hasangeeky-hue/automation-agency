@@ -4,7 +4,7 @@ Theme URI: https://github.com/hasangeeky-hue/automation-agency
 Author: Anthropos Automation
 Author URI: https://anthropos-automation.com
 Description: AI Automation OS theme — dark glass automation canvas, node-graph/agent-network 3D on every card, 6 automation services, per-segment service pages named "Automation Service for {Segment}", guide + blog templates, neuro-navigation and internal linking.
-Version: 5.60.0
+Version: 5.61.0
 Requires at least: 6.0
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
@@ -308,6 +308,8 @@ canvas{display:block}
 .tm-ini{font-family:var(--display);font-weight:800;font-size:38px;letter-spacing:-.02em;color:color-mix(in srgb,var(--tmhue) 78%,#fff);text-shadow:0 2px 20px color-mix(in srgb,var(--tmhue) 45%,transparent)}
 .tm-body{padding:15px 17px 18px}
 .tm h5{font-family:var(--display);font-size:16px;font-weight:700;letter-spacing:-.01em;margin:0}
+.tm-li{display:inline-flex;vertical-align:middle;margin-left:6px;color:var(--faint);transition:color .15s}
+.tm-li:hover{color:#0A66C2}
 .tm h5 a{color:inherit;border-bottom:1px dotted var(--tmhue)}
 .tm-role{display:block;margin-top:6px;font-family:var(--mono);font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--tmhue)}
 .tm p{font-size:12.5px;color:var(--muted);margin-top:11px;line-height:1.6}

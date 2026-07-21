@@ -4,7 +4,7 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'ANTHROPOS_VERSION', '5.60.0' );
+define( 'ANTHROPOS_VERSION', '5.61.0' );
 
 require_once get_template_directory() . '/inc/segments.php';
 require_once get_template_directory() . '/inc/content-seed.php';
@@ -97,6 +97,12 @@ function anthropos_social_icons( $class = 'social' ) {
 		$out .= '<a class="soc soc-' . $key . '" href="' . esc_url( $url ) . '"' . $attr . ' aria-label="' . esc_attr( $labels[ $key ] ) . '"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true">' . $path . '</svg></a>';
 	}
 	return $out . '</div>';
+}
+
+/** Small LinkedIn icon-link for a team member (empty string if no URL). */
+function anthropos_linkedin( $url, $name = '' ) {
+	if ( empty( $url ) ) { return ''; }
+	return ' <a class="tm-li" href="' . esc_url( $url ) . '" target="_blank" rel="noopener" aria-label="' . esc_attr( trim( $name . ' on LinkedIn' ) ) . '"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.05c.53-1 1.83-2.2 3.77-2.2 4.03 0 4.78 2.65 4.78 6.1V24h-4v-7.1c0-1.7-.03-3.9-2.37-3.9-2.37 0-2.73 1.85-2.73 3.77V24h-4V8z"/></svg></a>';
 }
 
 /** URL of a segment's service page (child of /services/). */
