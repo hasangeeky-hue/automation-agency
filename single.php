@@ -67,12 +67,37 @@ while ( have_posts() ) : the_post();
 	'@context'         => 'https://schema.org',
 	'@type'            => 'Article',
 	'headline'         => get_the_title(),
+	'description'      => function_exists( 'anthropos_meta_description' ) ? anthropos_meta_description( get_the_ID() ) : '',
 	'datePublished'    => get_the_date( 'c' ),
 	'dateModified'     => get_the_modified_date( 'c' ),
 	'author'           => array( '@type' => 'Organization', 'name' => get_bloginfo( 'name' ) ),
 	'publisher'        => array( '@type' => 'Organization', 'name' => get_bloginfo( 'name' ) ),
 	'mainEntityOfPage' => get_permalink(),
 ) ); ?></script>
+<?php
+// Breadcrumb structured data (SEO).
+$crumbs = array( array( '@type' => 'ListItem', 'position' => 1, 'name' => 'Home', 'item' => home_url( '/' ) ) );
+$cpos = 2;
+if ( $cat ) { $crumbs[] = array( '@type' => 'ListItem', 'position' => $cpos, 'name' => $cat->name, 'item' => $svc_url ); $cpos++; }
+$crumbs[] = array( '@type' => 'ListItem', 'position' => $cpos, 'name' => wp_strip_all_tags( get_the_title() ), 'item' => get_permalink() );
+echo '<script type="application/ld+json">' . wp_json_encode( array( '@context' => 'https://schema.org', '@type' => 'BreadcrumbList', 'itemListElement' => $crumbs ) ) . '</script>';
+
+// FAQ / Q&A structured data from the question-headed sections (AEO / GEO).
+$faq_items = array();
+foreach ( $blocks as $bl ) {
+	$q = trim( $bl['t'] );
+	if ( '' === $q || 'The short version' === $q ) { continue; }
+	if ( preg_match( '/^(what|who|how|why|when|which|do |does |is |are |can |should )/i', $q ) || '?' === substr( $q, -1 ) ) {
+		$a = trim( preg_replace( '/\s+/', ' ', wp_strip_all_tags( $bl['b'] ) ) );
+		if ( '' !== $a ) {
+			$faq_items[] = array( '@type' => 'Question', 'name' => $q, 'acceptedAnswer' => array( '@type' => 'Answer', 'text' => $a ) );
+		}
+	}
+}
+if ( count( $faq_items ) >= 2 ) {
+	echo '<script type="application/ld+json">' . wp_json_encode( array( '@context' => 'https://schema.org', '@type' => 'FAQPage', 'mainEntity' => $faq_items ) ) . '</script>';
+}
+?>
 <div class="wrap" style="padding-top:34px;padding-bottom:66px">
 	<div class="art art-head">
 		<div class="art-cover">
@@ -141,8 +166,13 @@ while ( have_posts() ) : the_post();
 		</div>
 		<?php endif; ?>
 
-		<div style="margin-top:26px;text-align:center">
-			<a class="btn btn-cta" href="<?php echo esc_url( $svc_url ); ?>">Talk to an expert about this →</a>
+		<div class="art-cta">
+			<h3>Want this working in your <?php echo esc_html( $cat ? $cat->name : 'business' ); ?>?</h3>
+			<p>Book a free, no-obligation consultation — answer a few quick questions and we map exactly where you are losing clients, then show you the fix.</p>
+			<div class="art-cta-row">
+				<button type="button" class="btn btn-cta" data-open-consult>Book a free consultation →</button>
+				<a class="btn btn-glass" href="<?php echo esc_url( $svc_url ); ?>">See the full system for <?php echo esc_html( $svc_label ); ?> →</a>
+			</div>
 		</div>
 	</div>
 </div>

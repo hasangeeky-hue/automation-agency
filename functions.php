@@ -4,7 +4,7 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'ANTHROPOS_VERSION', '5.34.0' );
+define( 'ANTHROPOS_VERSION', '5.35.0' );
 
 require_once get_template_directory() . '/inc/segments.php';
 require_once get_template_directory() . '/inc/content-seed.php';
@@ -18,6 +18,7 @@ require_once get_template_directory() . '/inc/content-seed-batch8.php';
 require_once get_template_directory() . '/inc/content-seed-batch9.php';
  require_once get_template_directory() . '/inc/content-seed-batch10.php';
 require_once get_template_directory() . '/inc/content-seed-batch11.php';
+require_once get_template_directory() . '/inc/content-seed-batch12.php';
 require_once get_template_directory() . '/inc/consultation.php';
 require_once get_template_directory() . '/inc/diagrams.php';
 
@@ -88,6 +89,53 @@ function anthropos_favicon() {
 	echo '<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,' . rawurlencode( $svg ) . '">' . "\n";
 }
 add_action( 'wp_head', 'anthropos_favicon', 1 );
+
+/** A clean ~155-char meta description — prefers the manual excerpt, else the
+ *  article's opening (which is the quick-answer paragraph, ideal for AEO/GEO). */
+function anthropos_meta_description( $post = null ) {
+	$post = get_post( $post );
+	if ( ! $post ) { return get_bloginfo( 'description' ); }
+	if ( has_excerpt( $post ) ) {
+		$d = get_the_excerpt( $post );
+	} else {
+		$d = wp_strip_all_tags( strip_shortcodes( $post->post_content ) );
+	}
+	$d = trim( preg_replace( '/\s+/', ' ', $d ) );
+	if ( function_exists( 'mb_strlen' ) && mb_strlen( $d ) > 158 ) {
+		$d = rtrim( mb_substr( $d, 0, 155 ) ) . '…';
+	}
+	return $d;
+}
+
+/** Meta description, canonical, Open Graph & Twitter tags for AEO/SEO/GEO. */
+function anthropos_seo_head() {
+	if ( is_singular() ) {
+		$post  = get_queried_object();
+		$desc  = anthropos_meta_description( $post );
+		$url   = get_permalink( $post );
+		$title = wp_strip_all_tags( get_the_title( $post ) );
+		$type  = is_singular( 'post' ) ? 'article' : 'website';
+	} elseif ( is_front_page() || is_home() ) {
+		$desc  = get_bloginfo( 'description' );
+		$url   = home_url( '/' );
+		$title = wp_strip_all_tags( get_bloginfo( 'name' ) );
+		$type  = 'website';
+	} else {
+		return;
+	}
+	$site = wp_strip_all_tags( get_bloginfo( 'name' ) );
+	echo '<meta name="description" content="' . esc_attr( $desc ) . '">' . "\n";
+	echo '<link rel="canonical" href="' . esc_url( $url ) . '">' . "\n";
+	echo '<meta property="og:type" content="' . esc_attr( $type ) . '">' . "\n";
+	echo '<meta property="og:title" content="' . esc_attr( $title ) . '">' . "\n";
+	echo '<meta property="og:description" content="' . esc_attr( $desc ) . '">' . "\n";
+	echo '<meta property="og:url" content="' . esc_url( $url ) . '">' . "\n";
+	echo '<meta property="og:site_name" content="' . esc_attr( $site ) . '">' . "\n";
+	echo '<meta name="twitter:card" content="summary">' . "\n";
+	echo '<meta name="twitter:title" content="' . esc_attr( $title ) . '">' . "\n";
+	echo '<meta name="twitter:description" content="' . esc_attr( $desc ) . '">' . "\n";
+}
+add_action( 'wp_head', 'anthropos_seo_head', 2 );
 
 /**
  * Canonical FAQ data — server-rendered as real <details> markup (not
@@ -446,7 +494,7 @@ add_action( 'admin_init', 'anthropos_bootstrap_pages' );
  * content batches can bump this flag without re-running page creation.
  */
 function anthropos_seed_content() {
-	if ( get_option( 'anthropos_content_seeded_v11' ) ) { return; }
+	if ( get_option( 'anthropos_content_seeded_v12' ) ) { return; }
 	if ( ! is_admin() || ! current_user_can( 'manage_options' ) ) { return; }
 	if ( ! function_exists( 'anthropos_seed_posts' ) ) { return; }
 
@@ -502,6 +550,9 @@ function anthropos_seed_content() {
 	if ( function_exists( 'anthropos_seed_posts_batch11' ) ) {
 		$seed_posts = array_merge( $seed_posts, anthropos_seed_posts_batch11() );
 	}
+	if ( function_exists( 'anthropos_seed_posts_batch12' ) ) {
+		$seed_posts = array_merge( $seed_posts, anthropos_seed_posts_batch12() );
+	}
 	$inserted = 0;
 	foreach ( $seed_posts as $p ) {
 		if ( $inserted >= 25 ) { return; } // chunk: continue on the next admin load so no single request is too heavy
@@ -529,7 +580,7 @@ function anthropos_seed_content() {
 		}
 		wp_set_object_terms( $pid, $p['type'], 'ao_type' );
 	}
-	update_option( 'anthropos_content_seeded_v11', 1 );
+	update_option( 'anthropos_content_seeded_v12', 1 );
 }
 add_action( 'admin_init', 'anthropos_seed_content', 20 );
 
