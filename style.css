@@ -4,7 +4,7 @@ Theme URI: https://github.com/hasangeeky-hue/automation-agency
 Author: Anthropos Automation
 Author URI: https://anthropos-automation.com
 Description: AI Automation OS theme — dark glass automation canvas, node-graph/agent-network 3D on every card, 6 automation services, per-segment service pages named "Automation Service for {Segment}", guide + blog templates, neuro-navigation and internal linking.
-Version: 5.53.0
+Version: 5.54.0
 Requires at least: 6.0
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
@@ -60,6 +60,14 @@ canvas{display:block}
 .nav .sub a:hover{background:var(--glass);color:var(--ink)}
 .nav .sub .dot{width:8px;height:8px;border-radius:3px;background:var(--hue,var(--flow));box-shadow:0 0 8px var(--hue,var(--flow));flex:0 0 auto}
 .nav-cta{margin-left:auto;display:flex;align-items:center;gap:14px}
+.social{display:flex;align-items:center;gap:2px}
+.soc{width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:9px;color:var(--faint);transition:color .16s,background .16s}
+.soc:hover{color:var(--ink);background:var(--glass)}
+.soc-linkedin:hover{color:#0A66C2}
+.soc-facebook:hover{color:#1877F2}
+.soc-instagram:hover{color:#E1306C}
+.soc-tiktok:hover{color:var(--flow)}
+@media(max-width:1000px){.nav-cta .social{display:none}}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:11px;font-weight:600;font-size:13.5px;border:1px solid transparent;cursor:pointer;font-family:var(--body);transition:transform .16s, box-shadow .16s}
 .btn:hover{transform:translateY(-1px)}
 .btn-cta{background:linear-gradient(120deg,var(--cta),#FF7E5F);color:#1A0A12;box-shadow:0 8px 26px rgba(255,92,138,.36)}

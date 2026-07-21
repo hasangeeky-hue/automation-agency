@@ -48,6 +48,7 @@ $about = $about_pg ? get_permalink( $about_pg ) : home_url( '/about/' );
 			<li><a href="<?php echo esc_url( $faq_url ); ?>"><?php esc_html_e( 'FAQ', 'anthropos' ); ?></a></li>
 		</ul>
 		<div class="nav-cta">
+			<?php echo anthropos_social_icons(); // phpcs:ignore WordPress.Security.EscapeOutput -- built with esc_url/esc_attr ?>
 			<a class="btn btn-cta" href="#cta"><?php esc_html_e( 'Book a Free Consultation', 'anthropos' ); ?></a>
 			<button class="nav-toggle" id="navToggle" aria-label="<?php esc_attr_e( 'Menu', 'anthropos' ); ?>" aria-expanded="false"><span></span><span></span><span></span></button>
 		</div>
