@@ -4,7 +4,7 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'ANTHROPOS_VERSION', '5.64.2' );
+define( 'ANTHROPOS_VERSION', '5.64.3' );
 
 /**
  * Never serve a STALE full-page cache for the homepage.
