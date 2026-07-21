@@ -7,6 +7,9 @@
   'use strict';
   document.documentElement.classList.add('js'); // reveal only hides when JS is alive
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // "Lite" mode on small screens / low-core devices: fewer nodes, lower DPR,
+  // no MSAA — keeps the 3D looking good while cutting GPU cost (mobile perf).
+  var lite = window.innerWidth < 900 || (navigator.hardwareConcurrency || 8) <= 4;
   var TAU = Math.PI * 2;
 
   /* ---------- header dropdowns + mobile toggle ---------- */
@@ -214,21 +217,21 @@
   var fxList = [];
   document.querySelectorAll('[data-fx]').forEach(function (canvas) {
     var fn = EFFECTS[canvas.dataset.fx] || EFFECTS.neural, c = rgb(canvas), ctx = canvas.getContext('2d');
-    var W = 0, H = 0, dpr = Math.min(window.devicePixelRatio || 1, 2), vis = true;
+    var W = 0, H = 0, dpr = Math.min(window.devicePixelRatio || 1, lite ? 1.25 : 1.5), vis = true;
     function size() { var r = canvas.getBoundingClientRect(); W = r.width; H = r.height; canvas.width = W * dpr; canvas.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); }
     size();
     if (reduced) { if (W && H) fn(ctx, W, H, 0, c); return; } // one static frame, no continuous animation
     new IntersectionObserver(function (e) { vis = e[0].isIntersecting; }).observe(canvas);
     fxList.push({ v: function () { return vis; }, d: function (t) { if (!W || Math.abs(canvas.getBoundingClientRect().width - W) > 1) size(); if (!W || !H) return; ctx.clearRect(0, 0, W, H); fn(ctx, W, H, t, c); } });
   });
-  if (!reduced) (function loop(t) { requestAnimationFrame(loop); fxList.forEach(function (f) { if (f.v()) f.d(t); }); })(0);
+  if (!reduced) (function loop(t) { requestAnimationFrame(loop); if (document.hidden) return; fxList.forEach(function (f) { if (f.v()) f.d(t); }); })(0);
 
   /* =================== Three.js hero agent network =================== */
   function agentNetwork(canvas, o) {
     if (!canvas || !window.THREE) return; o = o || {};
-    var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true }); renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: !lite, powerPreference: 'low-power' }); renderer.setPixelRatio(Math.min(window.devicePixelRatio, lite ? 1.25 : 1.5));
     var scene = new THREE.Scene(), camera = new THREE.PerspectiveCamera(55, 2, 0.1, 100); camera.position.set(0, 0, o.z || 20);
-    var N = o.nodes || 90, pos = [];
+    var N = Math.round((o.nodes || 90) * (lite ? 0.55 : 1)), pos = [];
     for (var i = 0; i < N; i++) { var r = 6 + Math.random() * 8, th = Math.random() * TAU, ph = Math.acos(2 * Math.random() - 1); pos.push(new THREE.Vector3(r * Math.sin(ph) * Math.cos(th), r * Math.sin(ph) * Math.sin(th) * 0.7, r * Math.cos(ph))); }
     var np = new Float32Array(N * 3), nc = new Float32Array(N * 3), cF = new THREE.Color('#2FE3D2'), cA = new THREE.Color('#8B7CFF'), cC = new THREE.Color('#FF5C8A');
     pos.forEach(function (p, i) { np[i * 3] = p.x; np[i * 3 + 1] = p.y; np[i * 3 + 2] = p.z; var c = i % 7 === 0 ? cC : (i % 2 ? cA : cF); nc[i * 3] = c.r; nc[i * 3 + 1] = c.g; nc[i * 3 + 2] = c.b; });
@@ -240,13 +243,13 @@
     scene.add(new THREE.LineSegments(eg, new THREE.LineBasicMaterial({ vertexColors: true, transparent: true, opacity: .14, blending: THREE.AdditiveBlending })));
     var core = new THREE.Mesh(new THREE.IcosahedronGeometry(2.1, 1), new THREE.MeshBasicMaterial({ color: '#8B7CFF', wireframe: true, transparent: true, opacity: .5 })); scene.add(core);
     var cg = new THREE.Mesh(new THREE.SphereGeometry(1.2, 24, 24), new THREE.MeshBasicMaterial({ color: '#B9A9FF', transparent: true, opacity: .28 })); scene.add(cg);
-    var PN = o.pulses || 60, pp = new Float32Array(PN * 3), pd = [];
+    var PN = Math.round((o.pulses || 60) * (lite ? 0.5 : 1)), pp = new Float32Array(PN * 3), pd = [];
     for (var k = 0; k < PN; k++) { var s = pos[(Math.random() * N) | 0]; pd.push({ s: s, t: Math.random() }); pp[k * 3] = s.x; pp[k * 3 + 1] = s.y; pp[k * 3 + 2] = s.z; }
     var pg = new THREE.BufferGeometry(); pg.setAttribute('position', new THREE.BufferAttribute(pp, 3));
     scene.add(new THREE.Points(pg, new THREE.PointsMaterial({ color: '#2FE3D2', size: 0.42, transparent: true, opacity: .9, blending: THREE.AdditiveBlending, depthWrite: false })));
     var mx = 0, my = 0, vis = true; new IntersectionObserver(function (e) { vis = e[0].isIntersecting; }).observe(canvas);
     window.addEventListener('mousemove', function (e) { mx = e.clientX / window.innerWidth - 0.5; my = e.clientY / window.innerHeight - 0.5; });
-    (function frame(tt) { requestAnimationFrame(frame); if (!vis) return; var w = canvas.clientWidth, h = canvas.clientHeight; if (!w || !h) return; if (canvas.width !== w || canvas.height !== h) { renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); } var tm = tt / 1000; scene.rotation.y = tm * 0.05 + mx * 0.4; scene.rotation.x = my * 0.25; core.rotation.x = tm * 0.3; core.rotation.y = tm * 0.22; cg.scale.setScalar(1 + Math.sin(tm * 1.6) * 0.12); if (!reduced) { var arr = pg.attributes.position.array; for (var i = 0; i < PN; i++) { var d = pd[i]; d.t += 0.008; if (d.t > 1) { d.t = 0; d.s = pos[(Math.random() * N) | 0]; } var kk = 1 - d.t; arr[i * 3] = d.s.x * kk; arr[i * 3 + 1] = d.s.y * kk; arr[i * 3 + 2] = d.s.z * kk; } pg.attributes.position.needsUpdate = true; } renderer.render(scene, camera); })(0);
+    (function frame(tt) { requestAnimationFrame(frame); if (!vis || document.hidden) return; var w = canvas.clientWidth, h = canvas.clientHeight; if (!w || !h) return; if (canvas.width !== w || canvas.height !== h) { renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); } var tm = tt / 1000; scene.rotation.y = tm * 0.05 + mx * 0.4; scene.rotation.x = my * 0.25; core.rotation.x = tm * 0.3; core.rotation.y = tm * 0.22; cg.scale.setScalar(1 + Math.sin(tm * 1.6) * 0.12); if (!reduced) { var arr = pg.attributes.position.array; for (var i = 0; i < PN; i++) { var d = pd[i]; d.t += 0.008; if (d.t > 1) { d.t = 0; d.s = pos[(Math.random() * N) | 0]; } var kk = 1 - d.t; arr[i * 3] = d.s.x * kk; arr[i * 3 + 1] = d.s.y * kk; arr[i * 3 + 2] = d.s.z * kk; } pg.attributes.position.needsUpdate = true; } renderer.render(scene, camera); })(0);
   }
   document.querySelectorAll('[data-net]').forEach(function (c) { agentNetwork(c, { nodes: +c.dataset.nodes || 80, pulses: +c.dataset.pulses || 55, z: +c.dataset.z || 19 }); });
 })();
