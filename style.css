@@ -4,7 +4,7 @@ Theme URI: https://github.com/hasangeeky-hue/automation-agency
 Author: Anthropos Automation
 Author URI: https://anthropos-automation.com
 Description: AI Automation OS theme — dark glass automation canvas, node-graph/agent-network 3D on every card, 6 automation services, per-segment service pages named "Automation Service for {Segment}", guide + blog templates, neuro-navigation and internal linking.
-Version: 5.48.0
+Version: 5.49.0
 Requires at least: 6.0
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
@@ -275,32 +275,22 @@ canvas{display:block}
 .pager a{width:38px;height:38px;display:grid;place-items:center;border-radius:10px;border:1px solid var(--line);background:var(--glass);font-family:var(--mono);font-size:13px;color:var(--muted)}
 .pager a.on,.pager a:hover{border-color:var(--flow);color:var(--ink)}
 
-/* ===== TEAM — redesigned card ===== */
-.team{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:34px}
-.tm{padding:26px 20px 22px;text-align:center;position:relative;overflow:hidden;border-radius:16px;transition:transform .2s,border-color .2s}
-.tm::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,transparent,var(--tmhue,var(--flow)),transparent);opacity:.75}
-.tm::after{content:"";position:absolute;top:-40px;left:50%;transform:translateX(-50%);width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--tmhue,var(--flow)) 22%,transparent),transparent 70%);pointer-events:none}
-.tm:hover{transform:translateY(-5px);border-color:color-mix(in srgb,var(--tmhue,var(--flow)) 50%,transparent)}
-.tm:nth-child(1){--tmhue:var(--ai)}
-.tm:nth-child(2){--tmhue:var(--flow)}
-.tm:nth-child(3){--tmhue:var(--cta)}
-.tm:nth-child(4){--tmhue:var(--g6)}
-.tm:nth-child(5){--tmhue:var(--g5)}
-.tm .av{width:82px;height:82px;border-radius:50%;margin:6px auto 0;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:800;font-size:23px;color:var(--void);position:relative;z-index:1;box-shadow:0 8px 26px rgba(0,0,0,.4)}
-.tm .av::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:1px solid var(--tmhue,var(--flow));opacity:.4}
-.tm:nth-child(1) .av{background:linear-gradient(135deg,var(--ai),var(--flow))}
-.tm:nth-child(2) .av{background:linear-gradient(135deg,var(--flow),var(--ok))}
-.tm:nth-child(3) .av{background:linear-gradient(135deg,var(--cta),var(--g3))}
-.tm:nth-child(4) .av{background:linear-gradient(135deg,var(--g6),var(--ai))}
-.tm:nth-child(5) .av{background:linear-gradient(135deg,var(--g5),var(--g7))}
-.tm h5{font-family:var(--display);font-size:16px;font-weight:700;margin-top:16px;letter-spacing:-.01em}
-.tm h5 a{color:inherit;text-decoration:none;border-bottom:1px dotted var(--tmhue,var(--flow))}
-.tm span{display:inline-block;margin-top:8px;font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);background:var(--glass);border:1px solid var(--line);border-radius:99px;padding:4px 11px}
-.tm-spec{display:block;margin-top:11px;font-size:12.5px;font-style:italic;color:var(--tmhue,var(--flow))}
-.tm p{font-size:12.5px;color:var(--muted);margin-top:9px;line-height:1.6;text-align:left}
+/* ===== TEAM — photo-forward card ===== */
+.team{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:34px}
+.tm{--tmhue:var(--flow);padding:0;overflow:hidden;border-radius:18px;display:flex;flex-direction:column;transition:transform .22s,border-color .22s,box-shadow .22s}
+.tm:hover{transform:translateY(-6px);border-color:color-mix(in srgb,var(--tmhue) 55%,transparent);box-shadow:0 22px 50px rgba(0,0,0,.45)}
+.tm-photo{position:relative;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;overflow:hidden;background:linear-gradient(155deg,color-mix(in srgb,var(--tmhue) 30%,var(--void-2)),var(--void-2) 75%);border-bottom:1px solid var(--line)}
+.tm-photo img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.02)}
+.tm-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(8,11,20,.55),transparent 55%);pointer-events:none}
+.tm-ini{font-family:var(--display);font-weight:800;font-size:38px;letter-spacing:-.02em;color:color-mix(in srgb,var(--tmhue) 78%,#fff);text-shadow:0 2px 20px color-mix(in srgb,var(--tmhue) 45%,transparent)}
+.tm-body{padding:15px 17px 18px}
+.tm h5{font-family:var(--display);font-size:16px;font-weight:700;letter-spacing:-.01em;margin:0}
+.tm h5 a{color:inherit;border-bottom:1px dotted var(--tmhue)}
+.tm-role{display:block;margin-top:6px;font-family:var(--mono);font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--tmhue)}
+.tm p{font-size:12.5px;color:var(--muted);margin-top:11px;line-height:1.6}
 @media(max-width:1020px){.team{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:680px){.team{grid-template-columns:1fr 1fr}}
-@media(max-width:420px){.team{grid-template-columns:1fr}}
+@media(max-width:430px){.team{grid-template-columns:1fr}.tm{flex-direction:row;align-items:stretch}.tm-photo{width:120px;flex:0 0 120px;aspect-ratio:auto;border-bottom:0;border-right:1px solid var(--line)}.tm-ini{font-size:28px}.tm-body{flex:1}}
 
 /* ===== INTERLINK / CTA / FOOTER ===== */
 .linkmap{margin-top:34px;padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:center}

@@ -18,19 +18,19 @@ get_header();
 </section>
 
 <section id="company">
-	<div class="wrap band reveal"><div class="eyebrow" style="color:var(--flow)">Our Story</div><h2>Our name is our whole argument: keep the human at the centre</h2></div>
+	<div class="wrap band reveal"><div class="eyebrow" style="color:var(--flow)">Our Story</div><h2>Two friends who studied AI together &mdash; and built a company on one idea</h2></div>
 	<div class="wrap">
 		<div class="manifesto reveal" style="--hue:var(--flow)">
 			<div>
-				<span class="no">WHY WE EXIST</span>
-				<h3>&ldquo;Anthropos&rdquo; is Greek for the human being. That is not a name &mdash; it is a belief</h3>
-				<p>We do not think AI is an alien mind arriving to replace us. We think it is a <b style="color:var(--ink)">mirror</b>. It learns from people and reflects them back: carelessness trained into it returns as carelessness; judgement and care trained into it return as judgement and care. So the real question was never <i>what can the machine do</i>. It was <b style="color:var(--ink)">who is holding the reins</b>.</p>
-				<p>That is why we do not install AI like a plugin &mdash; we <b style="color:var(--ink)">train</b> it. We raise an automation the way you train a good horse: patiently, understanding its nature, with care and precision, until it can be trusted to carry real weight without bolting. It takes an eye for the human on both sides &mdash; the person it serves, and the person it reflects.</p>
-				<p>It began in 2021, mid-lockdown, when two friends from Bangladesh watched the world of work crack open and refused to just wait and see what AI would do to us. Murtuja is an <b style="color:var(--ink)">anthropologist</b> &mdash; he studied human beings for years &mdash; who then came to the Technical University of Munich to study how people and machines shape each other; Ahasanul went deep into the data science that makes the machines work. One keeps asking what technology means for people; the other builds it so it does. Together, that is the whole company &mdash; and the whole promise: we help professionals meet the new world of work with a partner that reflects their <b style="color:var(--ink)">own best judgement</b> back at them, never a replacement for it.</p>
+				<span class="no">WHO WE ARE</span>
+				<h3>&ldquo;Anthropos&rdquo; is Greek for the human being. That is not a name &mdash; it is the whole idea</h3>
+				<p><b style="color:var(--ink)">Murtuja and Ahasanul</b> are two friends from Bangladesh who met and studied together at the <b style="color:var(--ink)">Technical University of Munich</b>. We came for the same reason: to understand, properly, what AI was about to do to the way we all work &mdash; and to make sure it worked <b style="color:var(--ink)">for</b> people, not against them. We started Anthropos together, as equal partners, out of that one conviction.</p>
+				<p>We come at it from two sides that need each other. <b style="color:var(--ink)">Murtuja</b> comes from the human side &mdash; an anthropologist by training who lives in marketing and growth, always asking what a tool actually does to the person using it. <b style="color:var(--ink)">Ahasanul</b> comes from the machine side &mdash; a data scientist who designs and builds the models and makes them genuinely work. One keeps asking <i>what does this mean for people</i>; the other makes it real. Neither half is the company on its own &mdash; together, they are.</p>
+				<p>We do not treat AI as software to install. We <b style="color:var(--ink)">train</b> it, the way you train a good horse: patiently, with care and precision, until it can be trusted with real work. And we named the company <b style="color:var(--ink)">Anthropos</b> &mdash; the human &mdash; to remind ourselves, on every build, who it is really for.</p>
 				<div class="astats">
-					<div class="astat"><b>Human</b><span>what &ldquo;Anthropos&rdquo; means &mdash; and who AI must serve</span></div>
-					<div class="astat"><b>Trained</b><span>like a horse: with care &amp; precision, not installed</span></div>
-					<div class="astat"><b>Mirror</b><span>AI reflects the people who guide it</span></div>
+					<div class="astat"><b>Two</b><span>co-founders, two sides of one problem</span></div>
+					<div class="astat"><b>TUM</b><span>where we met &amp; studied AI together</span></div>
+					<div class="astat"><b>Human</b><span>what &ldquo;Anthropos&rdquo; means, and who it serves</span></div>
 				</div>
 			</div>
 			<div class="glass mfx"><canvas data-fx="crystal" style="--hue:var(--flow)"></canvas></div>
@@ -57,11 +57,11 @@ get_header();
 			<div class="glass wstep reveal" style="--hue:var(--g4)"><canvas class="fxcanvas" data-fx="growth" style="--hue:var(--g4)"></canvas><div class="wk">STEP 03 · HAND OVER</div><h4>You own it</h4><p>Documented, reporting, running — no dependency on us.</p></div>
 		</div>
 		<div class="team" role="list" style="margin-top:16px">
-			<div class="glass tm reveal" role="listitem"><div class="av">MH</div><h5>Murtuja Hasan</h5><span>Founder &amp; CEO</span><em class="tm-spec">Strategy, marketing &amp; operations</em><p>Degrees in anthropology and an M.Sc. in Science &amp; Technology Studies from TUM, with the CDTM Digital Changemaker and Digital Product School. He leads e-commerce and performance marketing for real businesses, and brings that experience directly to your project.</p></div>
-			<div class="glass tm reveal" role="listitem"><div class="av">AH</div><h5>Ahasanul Haque</h5><span>CTO</span><em class="tm-spec">AI systems &amp; data science</em><p>A data scientist with a Master's and production experience at Adobe. He designs and builds the AI models and workflows behind your system, and makes sure they run reliably.</p></div>
-			<div class="glass tm reveal" role="listitem"><div class="av">SK</div><h5>Sina Khouei</h5><span>Team Lead, Cybersecurity &amp; Applied AI</span><em class="tm-spec">Security &amp; applied AI</em><p>A computer scientist from the University of Bonn. He reviews and hardens every system before it goes live, so your data and your automations stay secure.</p></div>
-			<div class="glass tm reveal" role="listitem"><div class="av">AI</div><h5>Ariful Islam</h5><span>Media Buyer &amp; Ads Automation Strategist</span><em class="tm-spec">Paid media &amp; tracking</em><p>He plans and runs Google and Meta campaigns and automates the tracking behind them, so you can see clearly what your marketing spend brings back.</p></div>
-			<div class="glass tm reveal" role="listitem"><div class="av">AR</div><h5><a href="https://www.razzakabdur.com/" target="_blank" rel="noopener">Abdur Razak</a></h5><span>Head of Web Development</span><em class="tm-spec">Web &amp; full-stack engineering</em><p>A full-stack developer who builds the websites and the tools your system runs on, and documents his work clearly so you can own and maintain it.</p></div>
+			<article class="glass tm reveal" role="listitem" style="--tmhue:var(--ai)"><div class="tm-photo"><span class="tm-ini">MH</span></div><div class="tm-body"><h5>Murtuja Hasan</h5><span class="tm-role">Co-founder &amp; CEO</span><p>The human side of Anthropos. An anthropologist by training who leads strategy, brand and growth &mdash; and keeps every build focused on the person actually using it.</p></div></article>
+			<article class="glass tm reveal" role="listitem" style="--tmhue:var(--flow)"><div class="tm-photo"><span class="tm-ini">AH</span></div><div class="tm-body"><h5>Ahasanul Haque</h5><span class="tm-role">Co-founder &amp; CTO</span><p>The machine side of Anthropos. A data scientist who designs and builds the AI and automation, and makes sure the clever part quietly just works.</p></div></article>
+			<article class="glass tm reveal" role="listitem" style="--tmhue:var(--cta)"><div class="tm-photo"><span class="tm-ini">SK</span></div><div class="tm-body"><h5>Sina Khouei</h5><span class="tm-role">Cybersecurity &amp; Applied AI</span><p>A computer scientist from the University of Bonn who hardens every system before it goes live, so your data and your automations stay secure.</p></div></article>
+			<article class="glass tm reveal" role="listitem" style="--tmhue:var(--g6)"><div class="tm-photo"><span class="tm-ini">AI</span></div><div class="tm-body"><h5>Ariful Islam</h5><span class="tm-role">Media Buying &amp; Ads Automation</span><p>Plans and runs Google and Meta campaigns and automates the tracking behind them, so you can see what your marketing spend brings back.</p></div></article>
+			<article class="glass tm reveal" role="listitem" style="--tmhue:var(--g5)"><div class="tm-photo"><span class="tm-ini">AR</span></div><div class="tm-body"><h5><a href="https://www.razzakabdur.com/" target="_blank" rel="noopener">Abdur Razak</a></h5><span class="tm-role">Head of Web Development</span><p>A full-stack developer who builds the websites and tools your system runs on, and documents his work so you can own and maintain it.</p></div></article>
 		</div>
 	</div>
 </section>
