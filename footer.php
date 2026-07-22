@@ -40,11 +40,11 @@ if ( ! $blog ) { $blog = home_url( '/blog/' ); }
 		</div>
 		<div>
 			<h6><?php esc_html_e( 'Company', 'anthropos' ); ?></h6>
-			<a href="#cta">Book a Consultation</a><a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>">Privacy Policy</a><a href="<?php echo esc_url( home_url( '/terms/' ) ); ?>">Terms</a><a href="<?php echo esc_url( home_url( '/imprint/' ) ); ?>">Imprint</a><a href="#" data-cc-open>Cookie Settings</a>
+			<a href="#cta">Book a Consultation</a><a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>">Privacy Policy</a><a href="<?php echo esc_url( home_url( '/terms/' ) ); ?>">Terms</a><a href="<?php echo esc_url( home_url( '/imprint/' ) ); ?>">Imprint</a><a href="<?php echo esc_url( home_url( '/cookie-policy/' ) ); ?>">Cookie Policy</a><a href="#" data-cc-open>Cookie Settings</a>
 		</div>
 	</div>
 	<div class="foot-base">
-		<span>© <?php echo esc_html( gmdate( 'Y' ) ); ?> ANTHROPOS AUTOMATION SERVICE</span>
+		<span>© <?php echo esc_html( gmdate( 'Y' ) ); ?> ANTHROPOS AUTOMATION SERVICE LLC</span>
 		<span>ANTHROPOS-AUTOMATION.COM · US · UK · EU</span>
 	</div>
 </footer>

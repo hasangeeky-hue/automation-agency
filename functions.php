@@ -4,7 +4,7 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'ANTHROPOS_VERSION', '5.65.0' );
+define( 'ANTHROPOS_VERSION', '5.65.1' );
 
 /**
  * Never serve a STALE full-page cache for the homepage.
@@ -559,7 +559,7 @@ add_action( 'wp_enqueue_scripts', 'anthropos_assets' );
  * fires the first time an admin loads the dashboard after this version deploys.
  */
 function anthropos_bootstrap_pages() {
-	if ( get_option( 'anthropos_bootstrapped_v57' ) ) { return; }
+	if ( get_option( 'anthropos_bootstrapped_v58' ) ) { return; }
 	if ( ! is_admin() || ! current_user_can( 'manage_options' ) ) { return; }
 
 	// Parent "Services" page (overview listing) using the service template.
@@ -620,17 +620,17 @@ function anthropos_bootstrap_pages() {
 	$legal = array(
 		'privacy-policy' => array(
 			'Privacy Policy',
-			'<p><i>Last updated: July 2026. The bracketed [ ] details below must be completed with your final legal information before public launch.</i></p>'
-			. '<p>Anthropos Automation Service ("we", "us", "our") is committed to protecting your personal data. This policy explains what we collect, why, how we keep it safe, and the rights you have under the EU General Data Protection Regulation (GDPR).</p>'
-			. '<h2>1. Who is responsible</h2><p>The controller responsible for your data is:<br>[Registered name]<br>[Street and number]<br>[Postal code, city, country]<br>Email: hello@anthropos-automation.com</p><p>Full legal and contact details are in our <a href="/imprint/">Imprint</a>.</p>'
+			'<p><i>Last updated: July 2026.</i></p>'
+			. '<p>Anthropos Automation Service LLC ("we", "us", "our") is committed to protecting your personal data. This policy explains what we collect, why, how we keep it safe, and the rights you have under the EU General Data Protection Regulation (GDPR).</p>'
+			. '<h2>1. Who is responsible</h2><p>The controller responsible for your data is:<br>Anthropos Automation Service LLC<br>1309 Coffeen Avenue STE 1200<br>Sheridan, Wyoming 82801<br>United States<br>Email: hello@anthropos-automation.com</p><p>Full legal and contact details are in our <a href="/imprint/">Imprint</a>.</p>'
 			. '<h2>2. What we collect and why</h2>'
 			. '<p><b>Consultation form.</b> When you book a consultation you give us your name, email address, phone number (optional), business name (optional), your multiple-choice answers, any notes you add, and an optional file (JPEG or PDF, up to 2&nbsp;MB). We use this only to understand your enquiry, prepare for our conversation and reply to you.</p>'
 			. '<p><b>Booking &amp; scheduling.</b> When you choose a time slot, our scheduling provider processes your name, email and timezone to create the appointment and send confirmations. It detects your timezone automatically so times appear in your own local time.</p>'
-			. '<p><b>Server logs.</b> Our EU-based hosting automatically records technical data such as your IP address, browser type and the time of your visit, to keep the site secure and running.</p>'
+			. '<p><b>Server logs.</b> Our hosting provider automatically records technical data such as your IP address, browser type and the time of your visit, to keep the site secure and running.</p>'
 			. '<p><b>WhatsApp.</b> If you choose to message us on WhatsApp, your message and number are processed by WhatsApp / Meta under their own terms.</p>'
 			. '<h2>3. Legal basis</h2><p>We process consultation data on the basis of your consent and to take steps at your request before entering into a contract (Art. 6(1)(a) and (b) GDPR). We process server logs on the basis of our legitimate interest in a secure, functioning website (Art. 6(1)(f) GDPR).</p>'
-			. '<h2>4. Cookies &amp; analytics</h2><p>This website uses cookies that are necessary for it to function, and, where you consent, Google Analytics (loaded through Google Tag Manager) to understand how visitors use the site so we can improve it. Analytics cookies are only set with your consent, which you can decline or withdraw at any time. We do not use advertising cookies.</p>'
-			. '<h2>5. Who we share it with</h2><p>We never sell your data. We share it only with the providers that help us operate, our EU hosting provider, our email provider and our scheduling provider, and only as far as needed to reply to you. Where a provider is based outside the EU, the transfer is covered by appropriate safeguards such as the EU Standard Contractual Clauses.</p>'
+			. '<h2>4. Cookies &amp; analytics</h2><p>This website uses cookies that are necessary for it to function, and, where you consent, Google Analytics (loaded through Google Tag Manager) to understand how visitors use the site so we can improve it. Analytics cookies are only set with your consent, which you can decline or withdraw at any time. We do not use advertising cookies. For the full list of the specific cookies we use and how to change your choice, see our <a href="/cookie-policy/">Cookie Policy</a>.</p>'
+			. '<h2>5. Who we share it with</h2><p>We never sell your data. We share it only with the providers that help us operate, our hosting provider, our email provider and our scheduling provider, and only as far as needed to reply to you. Where a provider is based outside the EU, the transfer is covered by appropriate safeguards such as the EU Standard Contractual Clauses.</p>'
 			. '<h2>6. How long we keep it</h2><p>We keep your enquiry only as long as we need it to deal with your request and for any period required by law, after which it is deleted. You can ask us to delete it sooner at any time.</p>'
 			. '<h2>7. Your rights</h2><p>You have the right to access, correct, delete, restrict or port your data, to object to processing, and to withdraw consent at any time. To exercise any of these, email hello@anthropos-automation.com. You also have the right to lodge a complaint with a data-protection supervisory authority.</p>'
 			. '<h2>8. Changes</h2><p>We may update this policy as our services grow. The current version always appears on this page.</p>',
@@ -645,20 +645,32 @@ function anthropos_bootstrap_pages() {
 			. '<h2>4. Intellectual property</h2><p>The content, design and code of this website belong to Anthropos Automation Service unless stated otherwise. You may not copy or reuse them without our permission.</p>'
 			. '<h2>5. External links</h2><p>Where we link to other websites, we are not responsible for their content or their privacy practices.</p>'
 			. '<h2>6. Liability</h2><p>To the extent permitted by law, we are not liable for any loss arising from your use of this website. Nothing in these terms limits any liability that cannot be limited by law.</p>'
-			. '<h2>7. Governing law</h2><p>These terms are governed by the laws of [Germany / your country], and the courts of [your city] have jurisdiction, unless mandatory consumer law provides otherwise.</p>'
+			. '<h2>7. Governing law</h2><p>These terms are governed by the laws of the State of Wyoming, United States, without regard to its conflict-of-law rules, unless mandatory consumer law in your country of residence provides otherwise.</p>'
 			. '<h2>8. Contact</h2><p>Questions about these terms? Email hello@anthropos-automation.com.</p>',
 		),
 		'imprint' => array(
 			'Imprint',
-			'<p><i>Please replace every bracketed [ ] field with your final legal details before public launch. This structure follows the information required for a German imprint (&sect;&nbsp;5 DDG, &sect;&nbsp;18 MStV).</i></p>'
-			. '<h2>Information pursuant to &sect;&nbsp;5 DDG</h2><p>[Registered name of the business or sole trader]<br>[Street and number]<br>[Postal code and city]<br>[Country]</p>'
-			. '<h2>Represented by</h2><p>[Full name of the owner or managing director]</p>'
-			. '<h2>Contact</h2><p>Email: hello@anthropos-automation.com<br>Phone: [phone number]</p>'
-			. '<h2>VAT identification number</h2><p>VAT ID pursuant to &sect;&nbsp;27a of the German VAT Act (UStG): [DE&hellip; or "not yet issued"]</p>'
-			. '<h2>Entry in the commercial register</h2><p>[If registered: register court and register number. If you operate as a sole trader (Einzelunternehmen / Kleinunternehmer), state that here instead.]</p>'
-			. '<h2>Responsible for content pursuant to &sect;&nbsp;18(2) MStV</h2><p>[Name and address of the person responsible for content, usually the same as above]</p>'
+			'<p><i>Last updated: July 2026.</i></p>'
+			. '<h2>Business</h2><p>Anthropos Automation Service LLC<br>1309 Coffeen Avenue STE 1200<br>Sheridan, Wyoming 82801<br>United States</p>'
+			. '<h2>Represented by</h2><p>Murtuja Hasan, Managing Member</p>'
+			. '<h2>Contact</h2><p>Email: hello@anthropos-automation.com</p>'
+			. '<h2>US tax identification (EIN)</h2><p>Employer Identification Number (EIN): pending &mdash; to be added here once issued by the IRS.</p>'
+			. '<h2>Company form &amp; registration</h2><p>Anthropos Automation Service LLC is a Limited Liability Company (LLC) formed under the laws of the State of Wyoming, United States.</p>'
+			. '<h2>Responsible for content</h2><p>Murtuja Hasan, at the address above.</p>'
 			. '<h2>EU dispute resolution</h2><p>The European Commission provides a platform for online dispute resolution: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a>. We are not obliged, and not willing, to take part in dispute-resolution proceedings before a consumer arbitration board.</p>'
 			. '<h2>Liability for content and links</h2><p>We take great care with the content of this website but cannot guarantee it is always accurate or complete. We are not responsible for the content of external websites we link to; responsibility lies with their operators.</p>',
+		),
+		'cookie-policy' => array(
+			'Cookie Policy',
+			'<p><i>Last updated: July 2026.</i></p>'
+			. '<p>This Cookie Policy explains how Anthropos Automation Service LLC uses cookies and similar technologies on this website, and how you can control them. For how we handle personal data more broadly, see our <a href="/privacy-policy/">Privacy Policy</a>.</p>'
+			. '<h2>What are cookies?</h2><p>Cookies are small text files a website stores in your browser. Some are needed for the site to work; others help us understand how it is used. We also use your browser&rsquo;s local storage to remember your cookie choice.</p>'
+			. '<h2>Cookies we use</h2>'
+			. '<p><b>Strictly necessary.</b> We store your cookie choice in your browser under the name <code>aa_consent</code> so we can respect it and not ask again on every visit. This is not used for tracking.</p>'
+			. '<p><b>Analytics (only with your consent).</b> When you click &ldquo;Accept analytics&rdquo;, Google Analytics 4, loaded through Google Tag Manager, sets cookies such as <code>_ga</code> and <code>_ga_&lt;id&gt;</code> to measure how visitors use the site so we can improve it. Until you consent, Google Consent Mode keeps these blocked, so no analytics cookies are set. We do not use advertising or marketing cookies.</p>'
+			. '<h2>How we ask for consent</h2><p>On your first visit a banner asks whether you accept analytics cookies. Nothing beyond the strictly necessary is set unless you click Accept, and declining does not affect how the site works.</p>'
+			. '<h2>How to change your choice</h2><p>You can reopen the banner any time with the &ldquo;Cookie Settings&rdquo; link in the footer and choose again, or clear cookies and site data in your browser settings.</p>'
+			. '<h2>Third-party information</h2><p>Google Analytics and Google Tag Manager are provided by Google. See how Google uses data at <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</p>',
 		),
 	);
 	foreach ( $legal as $lslug => $ldata ) {
@@ -700,7 +712,7 @@ function anthropos_bootstrap_pages() {
 	}
 	// Flush permalinks so the new /services/{slug}/ URLs resolve.
 	flush_rewrite_rules();
-	update_option( 'anthropos_bootstrapped_v57', 1 );
+	update_option( 'anthropos_bootstrapped_v58', 1 );
 }
 add_action( 'admin_init', 'anthropos_bootstrap_pages' );
 
