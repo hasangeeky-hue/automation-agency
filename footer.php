@@ -24,7 +24,7 @@ if ( ! $blog ) { $blog = home_url( '/blog/' ); }
 		<div class="foot-brand">
 			<a class="logo" href="<?php echo esc_url( $home ); ?>"><?php echo anthropos_logo_mark( 40, 'ft' ); // phpcs:ignore WordPress.Security.EscapeOutput -- static SVG ?><span><?php esc_html_e( 'Anthropos Automation', 'anthropos' ); ?><small><?php esc_html_e( 'service', 'anthropos' ); ?></small></span></a>
 			<p><?php esc_html_e( 'We turn small businesses into self-running systems.', 'anthropos' ); ?></p>
-			<div class="foot-nap">ANTHROPOS AUTOMATION SERVICE<br>SERVING THE US, UK &amp; EUROPE · EU-HOSTED<br>HELLO@ANTHROPOS-AUTOMATION.COM</div>
+			<div class="foot-nap">ANTHROPOS AUTOMATION SERVICE LLC<br>1309 COFFEEN AVENUE STE 1200<br>SHERIDAN, WYOMING 82801, USA<br><a href="mailto:contact@anthropos-automation.com">CONTACT@ANTHROPOS-AUTOMATION.COM</a></div>
 		</div>
 		<div>
 			<h6><?php esc_html_e( 'About Us', 'anthropos' ); ?></h6>

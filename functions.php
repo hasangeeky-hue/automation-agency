@@ -4,7 +4,7 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'ANTHROPOS_VERSION', '5.65.1' );
+define( 'ANTHROPOS_VERSION', '5.66.0' );
 
 /**
  * Never serve a STALE full-page cache for the homepage.
@@ -103,11 +103,8 @@ function anthropos_social_icons( $class = 'social' ) {
 	$links = anthropos_social_links();
 	$paths = array(
 		'linkedin'  => '<path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.05c.53-1 1.83-2.2 3.77-2.2 4.03 0 4.78 2.65 4.78 6.1V24h-4v-7.1c0-1.7-.03-3.9-2.37-3.9-2.37 0-2.73 1.85-2.73 3.77V24h-4V8z"/>',
-		'facebook'  => '<path d="M24 12a12 12 0 1 0-13.88 11.85v-8.38H7.08V12h3.04V9.36c0-3 1.79-4.67 4.53-4.67 1.31 0 2.68.23 2.68.23v2.95h-1.51c-1.49 0-1.95.92-1.95 1.87V12h3.32l-.53 3.47h-2.79v8.38A12 12 0 0 0 24 12z"/>',
-		'instagram' => '<path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.38C1.35 2.68.94 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13.67.66 1.34 1.07 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.67 1.07-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.31-.79-.72-1.46-1.38-2.13-.67-.66-1.34-1.07-2.13-1.38-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4zm6.41-10.16a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44z"/>',
-		'tiktok'    => '<path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.04-.1z"/>',
 	);
-	$labels = array( 'linkedin' => 'LinkedIn', 'facebook' => 'Facebook', 'instagram' => 'Instagram', 'tiktok' => 'TikTok' );
+	$labels = array( 'linkedin' => 'LinkedIn' );
 	$out = '<div class="' . esc_attr( $class ) . '">';
 	foreach ( $paths as $key => $path ) {
 		$url  = ! empty( $links[ $key ] ) ? $links[ $key ] : '#';
@@ -239,7 +236,7 @@ function anthropos_org_schema() {
 		'@id'         => $home . '#org',
 		'name'        => wp_strip_all_tags( get_bloginfo( 'name' ) ),
 		'url'         => $home,
-		'email'       => 'hello@anthropos-automation.com',
+		'email'       => 'contact@anthropos-automation.com',
 		'description' => get_bloginfo( 'description' ),
 		'areaServed'  => array( 'US', 'GB', 'DE', 'EU' ),
 		'founder'     => array(
@@ -325,7 +322,7 @@ function anthropos_llms_txt() {
 	if ( $faq )   { $out .= "- [FAQ](" . get_permalink( $faq ) . ")\n"; }
 	$out .= "- [Guides library](" . home_url( '/guides/' ) . ")\n";
 	$out .= "- [Book a free consultation](" . $home . "#cta)\n";
-	$out .= "\n## Contact\n- Email: hello@anthropos-automation.com\n";
+	$out .= "\n## Contact\n- Email: contact@anthropos-automation.com\n";
 
 	echo $out; // phpcs:ignore WordPress.Security.EscapeOutput -- plain-text llms.txt
 	exit;
@@ -559,7 +556,7 @@ add_action( 'wp_enqueue_scripts', 'anthropos_assets' );
  * fires the first time an admin loads the dashboard after this version deploys.
  */
 function anthropos_bootstrap_pages() {
-	if ( get_option( 'anthropos_bootstrapped_v58' ) ) { return; }
+	if ( get_option( 'anthropos_bootstrapped_v59' ) ) { return; }
 	if ( ! is_admin() || ! current_user_can( 'manage_options' ) ) { return; }
 
 	// Parent "Services" page (overview listing) using the service template.
@@ -622,7 +619,7 @@ function anthropos_bootstrap_pages() {
 			'Privacy Policy',
 			'<p><i>Last updated: July 2026.</i></p>'
 			. '<p>Anthropos Automation Service LLC ("we", "us", "our") is committed to protecting your personal data. This policy explains what we collect, why, how we keep it safe, and the rights you have under the EU General Data Protection Regulation (GDPR).</p>'
-			. '<h2>1. Who is responsible</h2><p>The controller responsible for your data is:<br>Anthropos Automation Service LLC<br>1309 Coffeen Avenue STE 1200<br>Sheridan, Wyoming 82801<br>United States<br>Email: hello@anthropos-automation.com</p><p>Full legal and contact details are in our <a href="/imprint/">Imprint</a>.</p>'
+			. '<h2>1. Who is responsible</h2><p>The controller responsible for your data is:<br>Anthropos Automation Service LLC<br>1309 Coffeen Avenue STE 1200<br>Sheridan, Wyoming 82801<br>United States<br>Email: contact@anthropos-automation.com</p><p>Full legal and contact details are in our <a href="/imprint/">Imprint</a>.</p>'
 			. '<h2>2. What we collect and why</h2>'
 			. '<p><b>Consultation form.</b> When you book a consultation you give us your name, email address, phone number (optional), business name (optional), your multiple-choice answers, any notes you add, and an optional file (JPEG or PDF, up to 2&nbsp;MB). We use this only to understand your enquiry, prepare for our conversation and reply to you.</p>'
 			. '<p><b>Booking &amp; scheduling.</b> When you choose a time slot, our scheduling provider processes your name, email and timezone to create the appointment and send confirmations. It detects your timezone automatically so times appear in your own local time.</p>'
@@ -632,7 +629,7 @@ function anthropos_bootstrap_pages() {
 			. '<h2>4. Cookies &amp; analytics</h2><p>This website uses cookies that are necessary for it to function, and, where you consent, Google Analytics (loaded through Google Tag Manager) to understand how visitors use the site so we can improve it. Analytics cookies are only set with your consent, which you can decline or withdraw at any time. We do not use advertising cookies. For the full list of the specific cookies we use and how to change your choice, see our <a href="/cookie-policy/">Cookie Policy</a>.</p>'
 			. '<h2>5. Who we share it with</h2><p>We never sell your data. We share it only with the providers that help us operate, our hosting provider, our email provider and our scheduling provider, and only as far as needed to reply to you. Where a provider is based outside the EU, the transfer is covered by appropriate safeguards such as the EU Standard Contractual Clauses.</p>'
 			. '<h2>6. How long we keep it</h2><p>We keep your enquiry only as long as we need it to deal with your request and for any period required by law, after which it is deleted. You can ask us to delete it sooner at any time.</p>'
-			. '<h2>7. Your rights</h2><p>You have the right to access, correct, delete, restrict or port your data, to object to processing, and to withdraw consent at any time. To exercise any of these, email hello@anthropos-automation.com. You also have the right to lodge a complaint with a data-protection supervisory authority.</p>'
+			. '<h2>7. Your rights</h2><p>You have the right to access, correct, delete, restrict or port your data, to object to processing, and to withdraw consent at any time. To exercise any of these, email contact@anthropos-automation.com. You also have the right to lodge a complaint with a data-protection supervisory authority.</p>'
 			. '<h2>8. Changes</h2><p>We may update this policy as our services grow. The current version always appears on this page.</p>',
 		),
 		'terms' => array(
@@ -646,14 +643,14 @@ function anthropos_bootstrap_pages() {
 			. '<h2>5. External links</h2><p>Where we link to other websites, we are not responsible for their content or their privacy practices.</p>'
 			. '<h2>6. Liability</h2><p>To the extent permitted by law, we are not liable for any loss arising from your use of this website. Nothing in these terms limits any liability that cannot be limited by law.</p>'
 			. '<h2>7. Governing law</h2><p>These terms are governed by the laws of the State of Wyoming, United States, without regard to its conflict-of-law rules, unless mandatory consumer law in your country of residence provides otherwise.</p>'
-			. '<h2>8. Contact</h2><p>Questions about these terms? Email hello@anthropos-automation.com.</p>',
+			. '<h2>8. Contact</h2><p>Questions about these terms? Email contact@anthropos-automation.com.</p>',
 		),
 		'imprint' => array(
 			'Imprint',
 			'<p><i>Last updated: July 2026.</i></p>'
 			. '<h2>Business</h2><p>Anthropos Automation Service LLC<br>1309 Coffeen Avenue STE 1200<br>Sheridan, Wyoming 82801<br>United States</p>'
 			. '<h2>Represented by</h2><p>Murtuja Hasan, Managing Member</p>'
-			. '<h2>Contact</h2><p>Email: hello@anthropos-automation.com</p>'
+			. '<h2>Contact</h2><p>Email: contact@anthropos-automation.com</p>'
 			. '<h2>US tax identification (EIN)</h2><p>Employer Identification Number (EIN): pending &mdash; to be added here once issued by the IRS.</p>'
 			. '<h2>Company form &amp; registration</h2><p>Anthropos Automation Service LLC is a Limited Liability Company (LLC) formed under the laws of the State of Wyoming, United States.</p>'
 			. '<h2>Responsible for content</h2><p>Murtuja Hasan, at the address above.</p>'
@@ -712,7 +709,7 @@ function anthropos_bootstrap_pages() {
 	}
 	// Flush permalinks so the new /services/{slug}/ URLs resolve.
 	flush_rewrite_rules();
-	update_option( 'anthropos_bootstrapped_v58', 1 );
+	update_option( 'anthropos_bootstrapped_v59', 1 );
 }
 add_action( 'admin_init', 'anthropos_bootstrap_pages' );
 
