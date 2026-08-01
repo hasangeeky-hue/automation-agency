@@ -80,6 +80,13 @@ function anthropos_register_taxonomy() {
 		'hierarchical' => false,
 		'show_ui'      => true,
 		'rewrite'      => false,
+		// show_in_rest is what lets the REST API set this taxonomy at all.
+		// Without it WordPress SILENTLY DROPS an ao_type sent by the engine —
+		// no error, no warning, the field is simply ignored. That is why every
+		// engine-published post had an empty Content Type and never appeared in
+		// the blog index or the guides listing, both of which filter on it.
+		'show_in_rest' => true,
+		'rest_base'    => 'ao_type',
 	) );
 }
 add_action( 'init', 'anthropos_register_taxonomy' );
