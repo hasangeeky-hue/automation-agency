@@ -172,6 +172,10 @@ function anthropos_site_verification() {
 	if ( '' !== $google ) {
 		echo '<meta name="google-site-verification" content="' . esc_attr( $google ) . '">' . "\n";
 	}
+	$facebook = trim( (string) apply_filters( 'anthropos_facebook_domain_verification', 'ex98smesad88wxz5i41w16jccfcr04' ) );
+	if ( '' !== $facebook ) {
+		echo '<meta name="facebook-domain-verification" content="' . esc_attr( $facebook ) . '">' . "\n";
+	}
 }
 add_action( 'wp_head', 'anthropos_site_verification', 1 );
 
